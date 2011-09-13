@@ -1,20 +1,8 @@
-[ `First Section`_ | `Previous Chapter`_ | `Next Chapter`_ | `Main
-Index`_ ]
 
+Chapter 12 - Threads and Multiprocessing
+----------------------------------------
 
-
-
-
-Chapter 12
-~~~~~~~~~~
-
-
-Threads and Multiprocessing
----------------------------
-
-
-
-I n the classic programming model, there is a single central
+In the classic programming model, there is a single central
 processing unit that reads instructions from memory and carries them
 out, one after the other. The purpose of a program is to provide the
 list of instructions for the processor to execute. This is the only
@@ -46,38 +34,13 @@ waiting for some event to occur. In this context, threads are a vital
 programming tool even for a computer that has only a single processing
 unit.
 
+.. toctree::
 
-
-
-
-Contents of Chapter 12:
-~~~~~~~~~~~~~~~~~~~~~~~
-
-
-+ Section 1: `Introduction to Threads`_
-+ Section 2: `Programming with Threads`_
-+ Section 3: `Threads and Parallel Processing`_
-+ Section 4: `Threads and Networking`_
-+ Section 5: `Network Programming Example: A Networked Game
-  Framework`_
-+ `Programming Exercises`_
-+ `Quiz on This Chapter`_
-
-
-
-
-[ `First Section`_ | `Previous Chapter`_ | `Next Chapter`_ | `Main
-Index`_ ]
-
-.. _Programming Exercises: http://math.hws.edu/javanotes/c12/exercises.html
-.. _Network Programming Example: A Networked Game Framework: http://math.hws.edu/javanotes/c12/s5.html
-.. _Programming with Threads: http://math.hws.edu/javanotes/c12/s2.html
-.. _Threads and Networking: http://math.hws.edu/javanotes/c12/s4.html
-.. _Next Chapter: http://math.hws.edu/javanotes/c12/../c13/index.html
-.. _Previous Chapter: http://math.hws.edu/javanotes/c12/../c11/index.html
-.. _Quiz on This Chapter: http://math.hws.edu/javanotes/c12/quiz.html
-.. _First Section: http://math.hws.edu/javanotes/c12/s1.html
-.. _Main Index: http://math.hws.edu/javanotes/c12/../index.html
-.. _Threads and Parallel Processing: http://math.hws.edu/javanotes/c12/s3.html
-
+   s1
+   s2
+   s3
+   s4
+   s5
+   exercises
+   quiz
 

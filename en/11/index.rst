@@ -1,20 +1,9 @@
-[ `First Section`_ | `Previous Chapter`_ | `Next Chapter`_ | `Main
-Index`_ ]
+
+Chapter 11 - Advanced Input/Output: Streams, Files, and Networking
+------------------------------------------------------------------
 
 
-
-
-
-Chapter 11
-~~~~~~~~~~
-
-
-Advanced Input/Output: Streams, Files, and Networking
------------------------------------------------------
-
-
-
-C omputer programs are only useful if they interact with the rest of
+Computer programs are only useful if they interact with the rest of
 the world in some way. This interaction is referred to asinput/output,
 or I/O. Up until now, this book has concentrated on just one type of
 interaction: interaction with the user, through either a graphical
@@ -42,38 +31,13 @@ chapter, but we will return to the topic of threads and networking in
 `Section12.4`_.
 
 
+.. toctree::
 
-
-
-Contents of Chapter 11:
-~~~~~~~~~~~~~~~~~~~~~~~
-
-
-+ Section 1: `Streams, Readers, and Writers`_
-+ Section 2: `Files`_
-+ Section 3: `Programming With Files`_
-+ Section 4: `Networking`_
-+ Section 5: `A Brief Introduction to XML`_
-+ `Programming Exercises`_
-+ `Quiz on This Chapter`_
-
-
-
-
-[ `First Section`_ | `Previous Chapter`_ | `Next Chapter`_ | `Main
-Index`_ ]
-
-.. _8: http://math.hws.edu/javanotes/c11/../c8/index.html
-.. _Quiz on This Chapter: http://math.hws.edu/javanotes/c11/quiz.html
-.. _Programming With Files: http://math.hws.edu/javanotes/c11/s3.html
-.. _Networking: http://math.hws.edu/javanotes/c11/s4.html
-.. _12.4: http://math.hws.edu/javanotes/c11/../c12/s4.html
-.. _Files: http://math.hws.edu/javanotes/c11/s2.html
-.. _Next Chapter: http://math.hws.edu/javanotes/c11/../c12/index.html
-.. _Previous Chapter: http://math.hws.edu/javanotes/c11/../c10/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c11/../index.html
-.. _Programming Exercises: http://math.hws.edu/javanotes/c11/exercises.html
-.. _A Brief Introduction to XML: http://math.hws.edu/javanotes/c11/s5.html
-.. _First Section: http://math.hws.edu/javanotes/c11/s1.html
-
+   s1
+   s2
+   s3
+   s4
+   s5
+   exercises
+   quiz
 

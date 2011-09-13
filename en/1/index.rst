@@ -1,12 +1,8 @@
 
-Chapter 1
-~~~~~~~~~
+Chapter 1 - Overview: The Mental Landscape
+------------------------------------------
 
-
-Overview: The Mental Landscape
-------------------------------
-
-W hen you begin a journey, it's a good idea to have a mental map of
+When you begin a journey, it's a good idea to have a mental map of
 the terrain you'll be passing through. The same is true for an
 intellectual journey, such as learning to write computer programs. In
 this case, you'll need to know the basics of what computers are and
@@ -23,12 +19,15 @@ Concentrate on learning enough about the big ideas to orient yourself,
 in preparation for the rest of the book. Most of what is covered in
 this chapter will be covered in much greater detail later in the book.
 
-
-Contents of Chapter 1:
-~~~~~~~~~~~~~~~~~~~~~~
-
 .. toctree::
-   :glob:
 
-   *
+   s1
+   s2
+   s3
+   s4
+   s5
+   s6
+   s7
+   exercises
+   quiz
 

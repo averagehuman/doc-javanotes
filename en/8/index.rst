@@ -1,11 +1,6 @@
 
-Chapter 8
-~~~~~~~~~
-
-
-Correctness, Robustness, Efficiency
------------------------------------
-
+Chapter 8 - Correctness, Robustness, Efficiency
+-----------------------------------------------
 
 
 In previous chapters, we have covered the fundamentals of
@@ -36,11 +31,13 @@ last section of this chapter introduces techniques for analyzing the
 run time of algorithms.
 
 
-Contents of Chapter 8:
-~~~~~~~~~~~~~~~~~~~~~~
-
 .. toctree::
-   :glob:
 
-   *
+   s1
+   s2
+   s3
+   s4
+   s5
+   exercises
+   quiz
 
