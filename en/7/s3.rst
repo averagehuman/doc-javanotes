@@ -1,24 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Partially Full Arrays
-Dynamic Arrays
-ArrrayLists
-Parameterized Types
-Vectors
-
-
-
-Section 7.3
-~~~~~~~~~~~
-
-
-Dynamic Arrays and ArrayLists
------------------------------
+7.3. Dynamic Arrays and ArrayLists
+----------------------------------
 
 
 
@@ -1060,21 +1042,5 @@ parameterized type in exactly the same way as ArrayList. That is, if
 BaseType is any class or interface name, thenVector<BaseType>
 represents vectors that can hold only objects of typeBaseType.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Chapter Index: http://math.hws.edu/javanotes/c7/index.html
-.. _Previous Section: http://math.hws.edu/javanotes/c7/s2.html
-.. _6.4.4: http://math.hws.edu/javanotes/c7/../c6/s4.html#GUI1.4.4
-.. _10: http://math.hws.edu/javanotes/c7/../c10/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c7/../index.html
-.. _5.3.2: http://math.hws.edu/javanotes/c7/../c5/s3.html#OOP.3.2
-.. _SimplePaint2.java: http://math.hws.edu/javanotes/c7/../source/SimplePaint2.java
-.. _Next Section: http://math.hws.edu/javanotes/c7/s4.html
-.. _RainbowPalette.java: http://math.hws.edu/javanotes/c7/../source/RainbowPalette.java
-.. _SimpleDrawRects.java: http://math.hws.edu/javanotes/c7/../source/SimpleDrawRects.java
-.. _5.5.5: http://math.hws.edu/javanotes/c7/../c5/s5.html#OOP.5.5
 
 

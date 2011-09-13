@@ -1,23 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-The Basic switch Statement
-Menus and switch Statements
-Enums in switch Statements
-Definite Assignment
-
-
-
-Section 3.6
-~~~~~~~~~~~
-
-
-The switch Statement
---------------------
+3.6. The switch Statement
+-------------------------
 
 
 
@@ -365,16 +348,5 @@ clause is unnecessary because if rand is not 0 or 1, the only
 remaining possibility is that rand==2. The computer, however, can't
 figure that out.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Next Section: http://math.hws.edu/javanotes/c3/s7.html
-.. _Previous Section: http://math.hws.edu/javanotes/c3/s5.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c3/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c3/../index.html
-.. _previous
-section: http://math.hws.edu/javanotes/c3/../c3/s5.html
 
 

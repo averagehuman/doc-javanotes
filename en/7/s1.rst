@@ -1,21 +1,6 @@
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-**Subsections**
-
-
-Arrays
-Using Arrays
-Array Initialization
-
-
-
-Section 7.1
-~~~~~~~~~~~
-
-
-Creating and Using Arrays
--------------------------
+7.1. Creating and Using Arrays
+------------------------------
 
 
 
@@ -414,13 +399,5 @@ declare a variable of a certain type, and the name of that type is
 "int[]". It makes sense to follow the "type-name variable-name;"
 syntax for such declarations.
 
-
-
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _Chapter Index: http://math.hws.edu/javanotes/c7/index.html
-.. _Next Section: http://math.hws.edu/javanotes/c7/s2.html
-.. _Main Index: http://math.hws.edu/javanotes/c7/../index.html
-.. _5.7.3: http://math.hws.edu/javanotes/c7/../c5/s7.html#OOP.7.3
 
 

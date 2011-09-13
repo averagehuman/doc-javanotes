@@ -1,22 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Built-in Subroutines and Functions
-Operations on Strings
-Introduction to Enums
-
-
-
-Section 2.3
-~~~~~~~~~~~
-
-
-Strings, Objects, Enums, and Subroutines
-----------------------------------------
+2.3. Strings, Objects, Enums, and Subroutines
+---------------------------------------------
 
 
 
@@ -621,16 +605,5 @@ the output actually looks like:.
 
 
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Main Index: http://math.hws.edu/javanotes/c2/../index.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c2/index.html
-.. _Next Section: http://math.hws.edu/javanotes/c2/s4.html
-.. _Previous Section: http://math.hws.edu/javanotes/c2/s2.html
-.. _4: http://math.hws.edu/javanotes/c2/../c4/index.html
-.. _5: http://math.hws.edu/javanotes/c2/../c5/index.html
 
 

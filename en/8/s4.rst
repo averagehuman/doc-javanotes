@@ -1,21 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Assertions
-Annotations
-
-
-
-Section 8.4
-~~~~~~~~~~~
-
-
-Assertions and Annotations
---------------------------
+8.4. Assertions and Annotations
+-------------------------------
 
 
 
@@ -391,16 +376,5 @@ fact, it would even be possible to do without that code altogether, if
 the program checks for the presence of the annotation at run time to
 decide which variables to save and restore.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _2.6: http://math.hws.edu/javanotes/c8/../c2/s6.html
-.. _8.3.3: http://math.hws.edu/javanotes/c8/../c8/s3.html#robustness.3.3
-.. _Main Index: http://math.hws.edu/javanotes/c8/../index.html
-.. _Next Section: http://math.hws.edu/javanotes/c8/s5.html
-.. _Previous Section: http://math.hws.edu/javanotes/c8/s3.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c8/index.html
 
 

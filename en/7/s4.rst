@@ -1,24 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Searching
-Association Lists
-Insertion Sort
-Selection Sort
-Unsorting
-
-
-
-Section 7.4
-~~~~~~~~~~~
-
-
-Searching and Sorting
----------------------
+7.4. Searching and Sorting
+--------------------------
 
 
 
@@ -623,20 +605,5 @@ shuffle an array of ints:
     }
 
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Chapter Index: http://math.hws.edu/javanotes/c7/index.html
-.. _Deck.java: http://math.hws.edu/javanotes/c7/../source/Deck.java
-.. _Main Index: http://math.hws.edu/javanotes/c7/../index.html
-.. _10: http://math.hws.edu/javanotes/c7/../c10/index.html
-.. _5.4.1: http://math.hws.edu/javanotes/c7/../c5/s4.html#OOP.4.1
-.. _Hand.java: http://math.hws.edu/javanotes/c7/../source/Hand.java
-.. _9: http://math.hws.edu/javanotes/c7/../c9/index.html
-.. _Previous Section: http://math.hws.edu/javanotes/c7/s3.html
-.. _7.3.2: http://math.hws.edu/javanotes/c7/../c7/s3.html#arrays.3.2
-.. _Next Section: http://math.hws.edu/javanotes/c7/s5.html
 
 

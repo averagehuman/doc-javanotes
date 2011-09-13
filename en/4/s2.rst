@@ -1,23 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Subroutine Definitions
-Calling Subroutines
-Subroutines in Programs
-Member Variables
-
-
-
-Section 4.2
-~~~~~~~~~~~
-
-
-Static Subroutines and Static Variables
----------------------------------------
+4.2. Static Subroutines and Static Variables
+--------------------------------------------
 
 
 
@@ -589,25 +572,5 @@ red:
     } // end of class GuessingGame2
 
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _2.6.4: http://math.hws.edu/javanotes/c4/../c2/s6.html#basics.6.4
-.. _4.5: http://math.hws.edu/javanotes/c4/../c4/s5.html
-.. _3: http://math.hws.edu/javanotes/c4/../c3/index.html
-.. _5: http://math.hws.edu/javanotes/c4/../c5/index.html
-.. _previous section: http://math.hws.edu/javanotes/c4/../c4/s1.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c4/index.html
-.. _7: http://math.hws.edu/javanotes/c4/../c7/index.html
-.. _2: http://math.hws.edu/javanotes/c4/../c2/index.html
-.. _4.4: http://math.hws.edu/javanotes/c4/../c4/s4.html
-.. _3.8: http://math.hws.edu/javanotes/c4/../c3/s8.html
-.. _Main Index: http://math.hws.edu/javanotes/c4/../index.html
-.. _Next Section: http://math.hws.edu/javanotes/c4/s3.html
-.. _next
-section: http://math.hws.edu/javanotes/c4/../c4/s3.html
-.. _Previous Section: http://math.hws.edu/javanotes/c4/s1.html
 
 

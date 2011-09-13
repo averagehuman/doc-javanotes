@@ -1,16 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-
-
-
-Section 1.2
-~~~~~~~~~~~
-
-
-Asynchronous Events: Polling Loops and Interrupts
--------------------------------------------------
+1.2. Asynchronous Events: Polling Loops and Interrupts
+------------------------------------------------------
 
 
 
@@ -208,16 +198,5 @@ processors and World Wide Web browsers, are dependent upon the
 operating system. Common operating systems include Linux, Windows XP,
 Windows Vista, and MacOS.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Main Index: http://math.hws.edu/javanotes/c1/../index.html
-.. _Previous Section: http://math.hws.edu/javanotes/c1/s1.html
-.. _Next Section: http://math.hws.edu/javanotes/c1/s3.html
-.. _12: http://math.hws.edu/javanotes/c1/../c12/index.html
-.. _6: http://math.hws.edu/javanotes/c1/../c6/index.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c1/index.html
 
 

@@ -1,24 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Event Handling
-MouseEvent and MouseListener
-Mouse Coordinates
-MouseMotionListeners and Dragging
-Anonymous Event Handlers and Adapter Classes
-
-
-
-Section 6.4
-~~~~~~~~~~~
-
-
-Mouse Events
-------------
+6.4. Mouse Events
+-----------------
 
 
 
@@ -944,27 +926,5 @@ original program uses ordinary, named nested classes:
     }
 
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _6.4.2: http://math.hws.edu/javanotes/c6/../c6/s4.html#GUI1.4.2
-.. _next
-section: http://math.hws.edu/javanotes/c6/../c6/s5.html
-.. _5.7.3: http://math.hws.edu/javanotes/c6/../c5/s7.html#OOP.7.3
-.. _HelloWorldGUI2.java: http://math.hws.edu/javanotes/c6/../source/HelloWorldGUI2.java
-.. _SimpleTrackMousePanel.java: http://math.hws.edu/javanotes/c6/../source/SimpleTrackMousePanel.java
-.. _6.6: http://math.hws.edu/javanotes/c6/../c6/s6.html
-.. _coordinate system: http://math.hws.edu/javanotes/c6/../c6/s3.html#GUI1.3.1
-.. _previous section: http://math.hws.edu/javanotes/c6/../c6/s3.html#GUI1.3.6
-.. _5.7.1: http://math.hws.edu/javanotes/c6/../c5/s7.html#OOP.7.1
-.. _Main Index: http://math.hws.edu/javanotes/c6/../index.html
-.. _SimpleTrackMouseApplet.java: http://math.hws.edu/javanotes/c6/../source/SimpleTrackMouseApplet.java
-.. _HelloWorldGUI4.java: http://math.hws.edu/javanotes/c6/../source/HelloWorldGUI4.java
-.. _Previous Section: http://math.hws.edu/javanotes/c6/s3.html
-.. _SimplePaint.java: http://math.hws.edu/javanotes/c6/../source/SimplePaint.java
-.. _Next Section: http://math.hws.edu/javanotes/c6/s5.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c6/index.html
 
 

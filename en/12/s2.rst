@@ -1,23 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Threads Versus Timers
-Recursion in a Thread
-Threads for Background Computation
-Threads for Multiprocessing
-
-
-
-Section 12.2
-~~~~~~~~~~~~
-
-
-Programming with Threads
-------------------------
+12.2. Programming with Threads
+------------------------------
 
 
 
@@ -535,26 +518,5 @@ would occur only very rarely, since it depends on exact timing. But in
 a large program, problems of this sort can be both very serious and
 very hard to debug. Proper synchronization makes the error impossible.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Chapter Index: http://math.hws.edu/javanotes/c12/index.html
-.. _QuicksortThreadDemo.java: http://math.hws.edu/javanotes/c12/../source/QuicksortThreadDemo.java
-.. _RandomArtPanel.java: http://math.hws.edu/javanotes/c12/../source/RandomArtPanel.java
-.. _MultiprocessingDemo1.java: http://math.hws.edu/javanotes/c12/../source/MultiprocessingDemo1.java
-.. _13.1.1: http://math.hws.edu/javanotes/c12/../c13/s1.html#GUI2.1.1
-.. _9.1: http://math.hws.edu/javanotes/c12/../c9/s1.html
-.. _section: http://math.hws.edu/javanotes/c12/../c12/s3.html
-.. _6.5: http://math.hws.edu/javanotes/c12/../c6/s5.html
-.. _Previous Section: http://math.hws.edu/javanotes/c12/s1.html
-.. _Main Index: http://math.hws.edu/javanotes/c12/../index.html
-.. _Next Section: http://math.hws.edu/javanotes/c12/s3.html
-.. _RandomArtWithThreads.java: http://math.hws.edu/javanotes/c12/../source/RandomArtWithThreads.java
-.. _13.5: http://math.hws.edu/javanotes/c12/../c13/s5.html
-.. _BackgroundComputationDemo.java: http://math.hws.edu/javanotes/c12/../source/BackgroundComputationDemo.java
-.. _12.1.4: http://math.hws.edu/javanotes/c12/../c12/s1.html#threads.1.4
-.. _12.1.2: http://math.hws.edu/javanotes/c12/../c12/s1.html#threads.1.2
 
 

@@ -1,24 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Extending Existing Classes
-Inheritance and Class Hierarchy
-Example: Vehicles
-Polymorphism
-Abstract Classes
-
-
-
-Section 5.5
-~~~~~~~~~~~
-
-
-Inheritance, Polymorphism, and Abstract Classes
------------------------------------------------
+5.5. Inheritance, Polymorphism, and Abstract Classes
+----------------------------------------------------
 
 
 
@@ -818,19 +800,5 @@ button to the applet, and program the button to add the correct type
 of shape to the screen. No other changes in the programming would be
 necessary.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Previous Section: http://math.hws.edu/javanotes/c5/s4.html
-.. _Next Section: http://math.hws.edu/javanotes/c5/s6.html
-.. _7.3: http://math.hws.edu/javanotes/c5/../c7/s3.html
-.. _5.3.3: http://math.hws.edu/javanotes/c5/../c5/s3.html#OOP.3.3
-.. _Chapter Index: http://math.hws.edu/javanotes/c5/index.html
-.. _ShapeDraw.java: http://math.hws.edu/javanotes/c5/../source/ShapeDraw.java
-.. _Main Index: http://math.hws.edu/javanotes/c5/../index.html
-.. _5.4: http://math.hws.edu/javanotes/c5/../c5/s4.html
-.. _2.5.6: http://math.hws.edu/javanotes/c5/../c2/s5.html#basics.5.6
 
 

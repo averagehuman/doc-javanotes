@@ -1,21 +1,6 @@
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-**Subsections**
-
-
-Creating Two-dimensional Arrays
-Using Two-dimensional Arrays
-Example: Checkers
-
-
-
-Section 7.5
-~~~~~~~~~~~
-
-
-Multi-dimensional Arrays
-------------------------
+7.5. Multi-dimensional Arrays
+-----------------------------
 
 
 
@@ -766,15 +751,5 @@ dimensional arrays,ArrayLists, and two-dimensional arrays:
 
 
 
-
-
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _Chapter Index: http://math.hws.edu/javanotes/c7/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c7/../index.html
-.. _4.6.2: http://math.hws.edu/javanotes/c7/../c4/s6.html#subroutines.6.2
-.. _MosaicCanvas.java: http://math.hws.edu/javanotes/c7/../source/MosaicCanvas.java
-.. _Checkers.java: http://math.hws.edu/javanotes/c7/../source/Checkers.java
-.. _Previous Section: http://math.hws.edu/javanotes/c7/s4.html
 
 

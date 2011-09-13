@@ -1,25 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Using Parameters
-Formal and Actual Parameters
-Overloading
-Subroutine Examples
-Throwing Exceptions
-Global and Local Variables
-
-
-
-Section 4.3
-~~~~~~~~~~~
-
-
-Parameters
-----------
+4.3. Parameters
+---------------
 
 
 
@@ -584,21 +565,5 @@ it can be very reasonable to let the subroutines inside that box be a
 little sneaky about communicating with each other, if that will make
 the class as a whole look simpler from the outside.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _3.7: http://math.hws.edu/javanotes/c4/../c3/s7.html
-.. _3.2.2: http://math.hws.edu/javanotes/c4/../c3/s2.html#control.2.2
-.. _Previous Section: http://math.hws.edu/javanotes/c4/s2.html
-.. _previous section: http://math.hws.edu/javanotes/c4/../c4/s2.html
-.. _5: http://math.hws.edu/javanotes/c4/../c5/index.html
-.. _Next Section: http://math.hws.edu/javanotes/c4/s4.html
-.. _RowsOfChars.java: http://math.hws.edu/javanotes/c4/../source/RowsOfChars.java
-.. _Chapter Index: http://math.hws.edu/javanotes/c4/index.html
-.. _7: http://math.hws.edu/javanotes/c4/../c7/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c4/../index.html
-.. _4.6: http://math.hws.edu/javanotes/c4/../c4/s6.html
 
 

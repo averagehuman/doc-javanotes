@@ -1,24 +1,6 @@
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-**Subsections**
-
-
-Character and Byte Streams
-PrintWriter
-Data Streams
-Reading Text
-The Scanner Class
-Serialized Object I/O
-
-
-
-Section 11.1
-~~~~~~~~~~~~
-
-
-Streams, Readers, and Writers
------------------------------
+11.1. Streams, Readers, and Writers
+-----------------------------------
 
 
 
@@ -732,22 +714,5 @@ anObjectOutputStream, you can ensure that the full, correct version of
 the object can be written by calling the stream's reset() method
 before writing the object to the stream.
 
-
-
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _next section: http://math.hws.edu/javanotes/c11/../c11/s2.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c11/index.html
-.. _11.5: http://math.hws.edu/javanotes/c11/../c11/s5.html
-.. _8.3.3: http://math.hws.edu/javanotes/c11/../c8/s3.html#robustness.3.3
-.. _Next Section: http://math.hws.edu/javanotes/c11/s2.html
-.. _11.3: http://math.hws.edu/javanotes/c11/../c11/s3.html
-.. _2.4.4: http://math.hws.edu/javanotes/c11/../c2/s4.html#basics.4.4
-.. _Main Index: http://math.hws.edu/javanotes/c11/../index.html
-.. _TextReader.java: http://math.hws.edu/javanotes/c11/../source/TextReader.java
-.. _11.4: http://math.hws.edu/javanotes/c11/../c11/s4.html
-.. _2.4.6: http://math.hws.edu/javanotes/c11/../c2/s4.html#basics.4.6
-.. _11.5.2: http://math.hws.edu/javanotes/c11/../c11/s5.html#IO.5.2
-.. _11.1.5: http://math.hws.edu/javanotes/c11/../c11/s1.html#IO.1.5
 
 

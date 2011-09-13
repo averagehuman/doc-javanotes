@@ -1,22 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Exceptions
-try..catch
-Exceptions in TextIO
-
-
-
-Section 3.7
-~~~~~~~~~~~
-
-
-Introduction to Exceptions and try..catch
------------------------------------------
+3.7. Introduction to Exceptions and try..catch
+----------------------------------------------
 
 
 
@@ -315,18 +299,5 @@ is a complete program that uses all these ideas:
     }
 
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Chapter Index: http://math.hws.edu/javanotes/c3/index.html
-.. _2.3.3: http://math.hws.edu/javanotes/c3/../c2/s3.html#basics.3.3
-.. _2.4.5: http://math.hws.edu/javanotes/c3/../c2/s4.html#basics.4.5
-.. _Main Index: http://math.hws.edu/javanotes/c3/../index.html
-.. _Next Section: http://math.hws.edu/javanotes/c3/s8.html
-.. _Previous Section: http://math.hws.edu/javanotes/c3/s6.html
-.. _8: http://math.hws.edu/javanotes/c3/../c8/index.html
-.. _2.5.7: http://math.hws.edu/javanotes/c3/../c2/s5.html#basics.5.7
 
 

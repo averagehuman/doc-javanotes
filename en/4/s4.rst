@@ -1,22 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-The return statement
-Function Examples
-3N+1 Revisited
-
-
-
-Section 4.4
-~~~~~~~~~~~
-
-
-Return Values
--------------
+4.4. Return Values
+------------------
 
 
 
@@ -415,15 +399,5 @@ starting value!)
 
 
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _4.3: http://math.hws.edu/javanotes/c4/../c4/s3.html
-.. _Next Section: http://math.hws.edu/javanotes/c4/s5.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c4/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c4/../index.html
-.. _Previous Section: http://math.hws.edu/javanotes/c4/s3.html
 
 

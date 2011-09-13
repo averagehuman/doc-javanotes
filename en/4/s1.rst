@@ -1,15 +1,6 @@
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-
-
-
-Section 4.1
-~~~~~~~~~~~
-
-
-Black Boxes
------------
+4.1. Black Boxes
+----------------
 
 
 
@@ -126,13 +117,5 @@ interface, and a "private" part that is entirely inside its hidden
 implementation. All the principles of black boxes apply to classes as
 well as to subroutines.
 
-
-
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _Next Section: http://math.hws.edu/javanotes/c4/s2.html
-.. _Main Index: http://math.hws.edu/javanotes/c4/../index.html
-.. _4.6: http://math.hws.edu/javanotes/c4/../c4/s6.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c4/index.html
 
 

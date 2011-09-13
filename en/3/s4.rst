@@ -1,23 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-For Loops
-Example: Counting Divisors
-Nested for Loops
-Enums and for-each Loops
-
-
-
-Section 3.4
-~~~~~~~~~~~
-
-
-The for Statement
------------------
+3.4. The for Statement
+----------------------
 
 
 
@@ -751,17 +734,5 @@ conveys the meaning much better and is similar to the syntax used in
 other programming languages for similar types of loops. It's helpful
 to think of the colon (:) in the loop as meaning "in."
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _3.2: http://math.hws.edu/javanotes/c3/../c3/s2.html
-.. _Next Section: http://math.hws.edu/javanotes/c3/s5.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c3/index.html
-.. _2.3.3: http://math.hws.edu/javanotes/c3/../c2/s3.html#basics.3.3
-.. _7: http://math.hws.edu/javanotes/c3/../c7/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c3/../index.html
-.. _Previous Section: http://math.hws.edu/javanotes/c3/s3.html
 
 

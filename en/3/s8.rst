@@ -1,15 +1,6 @@
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-
-
-
-Section 3.8
-~~~~~~~~~~~
-
-
-Introduction to GUI Programming
--------------------------------
+3.8. Introduction to GUI Programming
+------------------------------------
 
 
 
@@ -419,18 +410,5 @@ dependent on other people's work to some extent.
 
 
 
-
-
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _3.6: http://math.hws.edu/javanotes/c3/../c3/ex6-ans.html
-.. _Previous Section: http://math.hws.edu/javanotes/c3/s7.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c3/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c3/../index.html
-.. _5: http://math.hws.edu/javanotes/c3/../c5/index.html
-.. _6: http://math.hws.edu/javanotes/c3/../c6/index.html
-.. _2: http://math.hws.edu/javanotes/c3/../c2/index.html
-.. _3: http://math.hws.edu/javanotes/c3/../c3/index.html
-.. _6.2: http://math.hws.edu/javanotes/c3/../c6/s2.html
 
 

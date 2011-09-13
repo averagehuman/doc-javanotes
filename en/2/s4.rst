@@ -1,25 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-A First Text Input Example
-Text Output
-TextIO Input Functions
-Formatted Output
-Introduction to File I/O
-Using Scanner for Input
-
-
-
-Section 2.4
-~~~~~~~~~~~
-
-
-Text Input and Output
----------------------
+2.4. Text Input and Output
+--------------------------
 
 
 
@@ -769,23 +750,5 @@ give a few more examples of using Scanner in the on-line solutions to
 the end-of-chapter exercises. There will be more detailed coverage of
 Scanner later in the book.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Previous Section: http://math.hws.edu/javanotes/c2/s3.html
-.. _Main Index: http://math.hws.edu/javanotes/c2/../index.html
-.. _TextIO.java: http://math.hws.edu/javanotes/c2/../source/TextIO.java
-.. _previous section: http://math.hws.edu/javanotes/c2/../c2/s3.html
-.. _Next Section: http://math.hws.edu/javanotes/c2/s5.html
-.. _11.1.5: http://math.hws.edu/javanotes/c2/../c11/s1.html#IO.1.5
-.. _2.6: http://math.hws.edu/javanotes/c2/../c2/s6.html
-.. _Interest2.java: http://math.hws.edu/javanotes/c2/../source/Interest2.java
-.. _Chapter Index: http://math.hws.edu/javanotes/c2/index.html
-.. _2.2: http://math.hws.edu/javanotes/c2/../c2/s2.html
-.. _4: http://math.hws.edu/javanotes/c2/../c4/index.html
-.. _11: http://math.hws.edu/javanotes/c2/../c11/index.html
-.. _5: http://math.hws.edu/javanotes/c2/../c5/index.html
 
 

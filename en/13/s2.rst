@@ -1,24 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Measuring Text
-Transparency
-Antialiasing
-Strokes and Paints
-Transforms
-
-
-
-Section 13.2
-~~~~~~~~~~~~
-
-
-Fancier Graphics
-----------------
+13.2. Fancier Graphics
+----------------------
 
 
 
@@ -901,21 +883,5 @@ This section has introduced you to many of the interesting features of
 Graphics2D, but there is still a large part of the Graphics2D
 framework for you to explore.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Chapter Index: http://math.hws.edu/javanotes/c13/index.html
-.. _PaintDemo.java: http://math.hws.edu/javanotes/c13/../source/PaintDemo.java
-.. _StrokeDemo.java: http://math.hws.edu/javanotes/c13/../source/StrokeDemo.java
-.. _cards.png: http://math.hws.edu/javanotes/c13/../source/cards.png
-.. _TransparencyDemo.java: http://math.hws.edu/javanotes/c13/../source/TransparencyDemo.java
-.. _Previous Section: http://math.hws.edu/javanotes/c13/s1.html
-.. _6.3.5: http://math.hws.edu/javanotes/c13/../c6/s3.html#GUI1.3.5
-.. _Main Index: http://math.hws.edu/javanotes/c13/../index.html
-.. _6.3.3: http://math.hws.edu/javanotes/c13/../c6/s3.html#GUI1.3.3
-.. _13.1.1: http://math.hws.edu/javanotes/c13/../c13/s1.html#GUI2.1.1
-.. _Next Section: http://math.hws.edu/javanotes/c13/s3.html
 
 

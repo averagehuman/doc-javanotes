@@ -1,25 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Action and AbstractAction
-Icons on Buttons
-Radio Buttons
-Toolbars
-Keyboard Accelerators
-HTML on Buttons
-
-
-
-Section 13.3
-~~~~~~~~~~~~
-
-
-Actions and Buttons
--------------------
+13.3. Actions and Buttons
+-------------------------
 
 
 
@@ -783,22 +764,5 @@ using:
 Other HTML features can also be used on buttons and labels --
 experiment to see what you can get away with!
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _13.2: http://math.hws.edu/javanotes/c13/../c13/ex2-ans.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c13/index.html
-.. _Next Section: http://math.hws.edu/javanotes/c13/s4.html
-.. _RadioButtonDemo.java: http://math.hws.edu/javanotes/c13/../source/RadioButtonDemo.java
-.. _6: http://math.hws.edu/javanotes/c13/../c6/index.html
-.. _6.6.3: http://math.hws.edu/javanotes/c13/../c6/s6.html#GUI1.6.3
-.. _6.2.3: http://math.hws.edu/javanotes/c13/../c6/s2.html#GUI1.2.3
-.. _Main Index: http://math.hws.edu/javanotes/c13/../index.html
-.. _ToolBarDemo.java: http://math.hws.edu/javanotes/c13/../source/ToolBarDemo.java
-.. _13.1.4: http://math.hws.edu/javanotes/c13/../c13/s1.html#GUI2.1.4
-.. _6.8.1: http://math.hws.edu/javanotes/c13/../c6/s8.html#GUI1.8.1
-.. _Previous Section: http://math.hws.edu/javanotes/c13/s2.html
 
 

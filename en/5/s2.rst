@@ -1,22 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Initializing Instance Variables
-Constructors
-Garbage Collection
-
-
-
-Section 5.2
-~~~~~~~~~~~
-
-
-Constructors and Object Initialization
---------------------------------------
+5.2. Constructors and Object Initialization
+-------------------------------------------
 
 
 
@@ -501,14 +485,5 @@ techniques combined with the incredible speed of modern computers have
 combined to make garbage collection feasible. Programmers should
 rejoice.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Chapter Index: http://math.hws.edu/javanotes/c5/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c5/../index.html
-.. _Previous Section: http://math.hws.edu/javanotes/c5/s1.html
-.. _Next Section: http://math.hws.edu/javanotes/c5/s3.html
 
 

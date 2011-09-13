@@ -1,22 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Tree Traversal
-Binary Sort Trees
-Expression Trees
-
-
-
-Section 9.4
-~~~~~~~~~~~
-
-
-Binary Trees
-------------
+9.4. Binary Trees
+-----------------
 
 
 
@@ -685,18 +669,5 @@ We'll return to the topic of expression trees in the next section,
 where we'll see how to create an expression tree to represent a given
 expression.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _8.5: http://math.hws.edu/javanotes/c9/../c8/s5.html
-.. _Main Index: http://math.hws.edu/javanotes/c9/../index.html
-.. _5.5.5: http://math.hws.edu/javanotes/c9/../c5/s5.html#OOP.5.5
-.. _Previous Section: http://math.hws.edu/javanotes/c9/s3.html
-.. _SortTreeDemo.java: http://math.hws.edu/javanotes/c9/../source/SortTreeDemo.java
-.. _9.2: http://math.hws.edu/javanotes/c9/../c9/s2.html
-.. _Next Section: http://math.hws.edu/javanotes/c9/s5.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c9/index.html
 
 

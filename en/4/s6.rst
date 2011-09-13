@@ -1,22 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Preconditions and Postconditions
-A Design Example
-The Program
-
-
-
-Section 4.6
-~~~~~~~~~~~
-
-
-More on Program Design
-----------------------
+4.6. More on Program Design
+---------------------------
 
 
 
@@ -529,17 +513,5 @@ must be available to the program.
     } // end class RandomMosaicWalk
 
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Javadoc comments: http://math.hws.edu/javanotes/c4/../c4/s5.html#subroutines.5.4
-.. _3.2: http://math.hws.edu/javanotes/c4/../c3/s2.html
-.. _4.1: http://math.hws.edu/javanotes/c4/../c4/s1.html
-.. _Previous Section: http://math.hws.edu/javanotes/c4/s5.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c4/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c4/../index.html
-.. _Next Section: http://math.hws.edu/javanotes/c4/s7.html
 
 

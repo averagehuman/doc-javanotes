@@ -1,24 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Recursive Linking
-Linked Lists
-Basic Linked List Processing
-Inserting into a Linked List
-Deleting from a Linked List
-
-
-
-Section 9.2
-~~~~~~~~~~~
-
-
-Linked Data Structures
-----------------------
+9.2. Linked Data Structures
+---------------------------
 
 
 
@@ -654,19 +636,5 @@ the delete() method:
     } // end delete()
 
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _next: http://math.hws.edu/javanotes/c9/../c9/s3.html
-.. _Main Index: http://math.hws.edu/javanotes/c9/../index.html
-.. _Previous Section: http://math.hws.edu/javanotes/c9/s1.html
-.. _9.4: http://math.hws.edu/javanotes/c9/../c9/s4.html
-.. _Next Section: http://math.hws.edu/javanotes/c9/s3.html
-.. _ListDemo.java: http://math.hws.edu/javanotes/c9/../source/ListDemo.java
-.. _StringList.java: http://math.hws.edu/javanotes/c9/../source/StringList.java
-.. _2.3.2: http://math.hws.edu/javanotes/c9/../c2/s3.html#basics.3.2
-.. _Chapter Index: http://math.hws.edu/javanotes/c9/index.html
 
 

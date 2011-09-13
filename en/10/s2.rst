@@ -1,23 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-ArrayList and LinkedList
-Sorting
-TreeSet and HashSet
-EnumSet
-
-
-
-Section 10.2
-~~~~~~~~~~~~
-
-
-Lists and Sets
---------------
+10.2. Lists and Sets
+--------------------
 
 
 
@@ -660,30 +643,5 @@ This is a nice, safe way to work with sets of options. Applications
 like this are one of the major reasons that enumerated types were
 introduced.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _10.4.3: http://math.hws.edu/javanotes/c10/../c10/s4.html#generics.4.3
-.. _Next Section: http://math.hws.edu/javanotes/c10/s3.html
-.. _Previous Section: http://math.hws.edu/javanotes/c10/s1.html
-.. _10.1.6: http://math.hws.edu/javanotes/c10/../c10/s1.html#generics.1.6
-.. _8.5: http://math.hws.edu/javanotes/c10/../c8/s5.html
-.. _WordListWithTreeSet.java: http://math.hws.edu/javanotes/c10/../source/WordListWithTreeSet.java
-.. _9.3: http://math.hws.edu/javanotes/c10/../c9/s3.html
-.. _9.4.2: http://math.hws.edu/javanotes/c10/../c9/s4.html#recursion.4.2
-.. _9.1.3: http://math.hws.edu/javanotes/c10/../c9/s1.html#recursion.1.3
-.. _Chapter Index: http://math.hws.edu/javanotes/c10/index.html
-.. _2.3.3: http://math.hws.edu/javanotes/c10/../c2/s3.html#basics.3.3
-.. _7.6: http://math.hws.edu/javanotes/c10/../c7/ex6-ans.html
-.. _7.3: http://math.hws.edu/javanotes/c10/../c7/s3.html
-.. _10.1.4: http://math.hws.edu/javanotes/c10/../c10/s1.html#generics.1.4
-.. _10.2: http://math.hws.edu/javanotes/c10/../c10/ex2-ans.html
-.. _9.2: http://math.hws.edu/javanotes/c10/../c9/s2.html
-.. _10.4: http://math.hws.edu/javanotes/c10/../c10/s4.html
-.. _next
-section: http://math.hws.edu/javanotes/c10/../c10/s3.html
-.. _Main Index: http://math.hws.edu/javanotes/c10/../index.html
 
 

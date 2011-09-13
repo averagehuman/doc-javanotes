@@ -1,15 +1,6 @@
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-
-
-
-Section 1.7
-~~~~~~~~~~~
-
-
-The Internet and Beyond
------------------------
+1.7. The Internet and Beyond
+----------------------------
 
 
 
@@ -175,13 +166,5 @@ programmer. I hope you enjoy the journey!
 
 
 
-
-
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _Previous Section: http://math.hws.edu/javanotes/c1/s6.html
-.. _Main Index: http://math.hws.edu/javanotes/c1/../index.html
-.. _11: http://math.hws.edu/javanotes/c1/../c11/index.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c1/index.html
 
 

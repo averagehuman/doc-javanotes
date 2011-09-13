@@ -1,25 +1,6 @@
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-**Subsections**
-
-
-Generic Programming in Smalltalk
-Generic Programming in C++
-Generic Programming in Java
-The Java Collection Framework
-Iterators and for-each Loops
-Equality and Comparison
-Generics and Wrapper Classes
-
-
-
-Section 10.1
-~~~~~~~~~~~~
-
-
-Generic Programming
--------------------
+10.1. Generic Programming
+-------------------------
 
 
 
@@ -785,24 +766,5 @@ some time and memory overhead to the operation, and you should keep
 that in mind in situations where efficiency is important. An array of
 int is more efficient than an ArrayList<Integer>.)
 
-
-
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _5.7.1: http://math.hws.edu/javanotes/c10/../c5/s7.html#OOP.7.1
-.. _5.3.2: http://math.hws.edu/javanotes/c10/../c5/s3.html#OOP.3.2
-.. _8: http://math.hws.edu/javanotes/c10/../c8/index.html
-.. _10.1.6: http://math.hws.edu/javanotes/c10/../c10/s1.html#generics.1.6
-.. _Next Section: http://math.hws.edu/javanotes/c10/s2.html
-.. _3.4.4: http://math.hws.edu/javanotes/c10/../c3/s4.html#control.4.4
-.. _7.4.2: http://math.hws.edu/javanotes/c10/../c7/s4.html#arrays.4.2
-.. _7.2.2: http://math.hws.edu/javanotes/c10/../c7/s2.html#arrays.2.2
-.. _7.3.3: http://math.hws.edu/javanotes/c10/../c7/s3.html#arrays.3.3
-.. _Chapter Index: http://math.hws.edu/javanotes/c10/index.html
-.. _7.3: http://math.hws.edu/javanotes/c10/../c7/s3.html
-.. _7.3.4: http://math.hws.edu/javanotes/c10/../c7/s3.html#arrays.3.4
-.. _10.3: http://math.hws.edu/javanotes/c10/../c10/s3.html
-.. _next section: http://math.hws.edu/javanotes/c10/../c10/s2.html
-.. _Main Index: http://math.hws.edu/javanotes/c10/../index.html
 
 

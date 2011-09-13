@@ -1,23 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Some Built-in Classes
-Wrapper Classes and Autoboxing
-The class "Object"
-Object-oriented Analysis and Design
-
-
-
-Section 5.3
-~~~~~~~~~~~
-
-
-Programming with Objects
-------------------------
+5.3. Programming with Objects
+-----------------------------
 
 
 
@@ -445,22 +428,5 @@ concepts. The design should arise from the problem itself, and you
 should end up with a program whose structure reflects the structure of
 the problem in a natural way.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Previous Section: http://math.hws.edu/javanotes/c5/s2.html
-.. _4.7.1: http://math.hws.edu/javanotes/c5/../c4/s7.html#subroutines.7.1
-.. _next chapter: http://math.hws.edu/javanotes/c5/../c6/index.html
-.. _Next Section: http://math.hws.edu/javanotes/c5/s4.html
-.. _5.5: http://math.hws.edu/javanotes/c5/../c5/s5.html
-.. _4.5.3: http://math.hws.edu/javanotes/c5/../c4/s5.html#subroutines.5.3
-.. _previous section: http://math.hws.edu/javanotes/c5/../c5/s2.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c5/index.html
-.. _10: http://math.hws.edu/javanotes/c5/../c10/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c5/../index.html
-.. _next section: http://math.hws.edu/javanotes/c5/../c5/s4.html
-.. _2.5.7: http://math.hws.edu/javanotes/c5/../c2/s5.html#basics.5.7
 
 

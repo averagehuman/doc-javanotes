@@ -1,23 +1,6 @@
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-**Subsections**
-
-
-Images and BufferedImages
-Working With Pixels
-Resources
-Cursors and Icons
-Image File I/O
-
-
-
-Section 13.1
-~~~~~~~~~~~~
-
-
-Images and Resources
---------------------
+13.1. Images and Resources
+--------------------------
 
 
 
@@ -1007,29 +990,5 @@ used. This has the advantage that the createImage() method itself can
 complete very quickly. ImageIO.read(), on the other hand, can take
 some time to execute.
 
-
-
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _HighLowGUI.java: http://math.hws.edu/javanotes/c13/../source/HighLowGUI.java
-.. _11.2.3: http://math.hws.edu/javanotes/c13/../c11/s2.html#IO.2.3
-.. _Chapter Index: http://math.hws.edu/javanotes/c13/index.html
-.. _http://www.gnome.org: http://www.gnome.org
-.. _next section: http://math.hws.edu/javanotes/c13/../c13/s2.html
-.. _SimplePaint2.java: http://math.hws.edu/javanotes/c13/../source/SimplePaint2.java
-.. _5.6.1: http://math.hws.edu/javanotes/c13/../c5/s6.html#OOP.6.1
-.. _PaintWithOffScreenCanvas.java: http://math.hws.edu/javanotes/c13/../source/PaintWithOffScreenCanvas.java
-.. _13.1: http://math.hws.edu/javanotes/c13/../c13/ex1-ans.html
-.. _6.7.6: http://math.hws.edu/javanotes/c13/../c6/s7.html#GUI1.7.6
-.. _7.3.4: http://math.hws.edu/javanotes/c13/../c7/s3.html#arrays.3.4
-.. _10.2.4: http://math.hws.edu/javanotes/c13/../c10/s2.html#generics.2.4
-.. _Main Index: http://math.hws.edu/javanotes/c13/../index.html
-.. _11.2.2: http://math.hws.edu/javanotes/c13/../c11/s2.html#IO.2.2
-.. _11.4.1: http://math.hws.edu/javanotes/c13/../c11/s4.html#IO.4.1
-.. _HighLowWithImages.java: http://math.hws.edu/javanotes/c13/../source/HighLowWithImages.java
-.. _13.1.5: http://math.hws.edu/javanotes/c13/../c13/s1.html#GUI2.1.5
-.. _Next Section: http://math.hws.edu/javanotes/c13/s2.html
-.. _SoundAndCursorDemo.java: http://math.hws.edu/javanotes/c13/../source/SoundAndCursorDemo.java
-.. _13.3: http://math.hws.edu/javanotes/c13/../c13/s3.html
 
 

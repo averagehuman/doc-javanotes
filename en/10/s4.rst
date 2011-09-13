@@ -1,23 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Symbol Tables
-Sets Inside a Map
-Using a Comparator
-Word Counting
-
-
-
-Section 10.4
-~~~~~~~~~~~~
-
-
-Programming with the Java Collection Framework
-----------------------------------------------
+10.4. Programming with the Java Collection Framework
+----------------------------------------------------
 
 
 
@@ -696,24 +679,5 @@ and fast.
 I hope that the programming examples in this section have convinced
 you of the usefulness of the Java Collection Framework!
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Previous Section: http://math.hws.edu/javanotes/c10/s3.html
-.. _SimpleInterpreter.java: http://math.hws.edu/javanotes/c10/../source/SimpleInterpreter.java
-.. _10.1.7: http://math.hws.edu/javanotes/c10/../c10/s1.html#generics.1.7
-.. _TextIO.java: http://math.hws.edu/javanotes/c10/../source/TextIO.java
-.. _10.3.2: http://math.hws.edu/javanotes/c10/../c10/s3.html#generics.3.2
-.. _10.5: http://math.hws.edu/javanotes/c10/../c10/ex5-ans.html
-.. _Next Section: http://math.hws.edu/javanotes/c10/s5.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c10/index.html
-.. _SimpleParser2.java: http://math.hws.edu/javanotes/c10/../source/SimpleParser2.java
-.. _7.6: http://math.hws.edu/javanotes/c10/../c7/ex6-ans.html
-.. _9.5.2: http://math.hws.edu/javanotes/c10/../c9/s5.html#recursion.5.2
-.. _WordCount.java: http://math.hws.edu/javanotes/c10/../source/WordCount.java
-.. _2.4.5: http://math.hws.edu/javanotes/c10/../c2/s4.html#basics.4.5
-.. _Main Index: http://math.hws.edu/javanotes/c10/../index.html
 
 

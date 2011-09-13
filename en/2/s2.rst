@@ -1,22 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Variables
-Types and Literals
-Variables in Programs
-
-
-
-Section 2.2
-~~~~~~~~~~~
-
-
-Variables and the Primitive Types
----------------------------------
+2.2. Variables and the Primitive Types
+--------------------------------------
 
 
 
@@ -515,20 +499,5 @@ know how these applets are written, but if you are curious about how I
 convert my programs into applets, you can look at the source code file
 `TextIOApplet.java`_.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Next Section: http://math.hws.edu/javanotes/c2/s3.html
-.. _Main Index: http://math.hws.edu/javanotes/c2/../index.html
-.. _TextIOApplet.java: http://math.hws.edu/javanotes/c2/../source/TextIOApplet.java
-.. _Interest.java: http://math.hws.edu/javanotes/c2/../source/Interest.java
-.. _next section: http://math.hws.edu/javanotes/c2/../c2/s3.html
-.. _Previous Section: http://math.hws.edu/javanotes/c2/s1.html
-.. _6: http://math.hws.edu/javanotes/c2/../c6/index.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c2/index.html
-.. _3: http://math.hws.edu/javanotes/c2/../c3/index.html
-.. _http://math.hws.edu/javanotes/source: http://math.hws.edu/javanotes/source
 
 

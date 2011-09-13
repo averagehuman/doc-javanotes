@@ -1,16 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-
-
-
-Section 1.5
-~~~~~~~~~~~
-
-
-Objects and Object-oriented Programming
----------------------------------------
+1.5. Objects and Object-oriented Programming
+--------------------------------------------
 
 
 
@@ -171,16 +161,5 @@ rest of this text. You will start using objects that are built into
 the Java language in the `next chapter`_, and in`Chapter5`_ you will
 being creating your own classes and objects.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Main Index: http://math.hws.edu/javanotes/c1/../index.html
-.. _Previous Section: http://math.hws.edu/javanotes/c1/s4.html
-.. _next chapter: http://math.hws.edu/javanotes/c1/../c2/index.html
-.. _Next Section: http://math.hws.edu/javanotes/c1/s6.html
-.. _5: http://math.hws.edu/javanotes/c1/../c5/index.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c1/index.html
 
 

@@ -1,24 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-URLs and URLConnections
-TCP/IP and Client/Server
-Sockets in Java
-A Trivial Client/Server
-A Simple Network Chat
-
-
-
-Section 11.4
-~~~~~~~~~~~~
-
-
-Networking
-----------
+11.4. Networking
+----------------
 
 
 
@@ -962,24 +944,5 @@ command "java CLChatServer" to start the server. Then, in the other,
 use the command "java CLChatClient localhost" to connect to the server
 that is running on the same machine.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _CLChatServer.java: http://math.hws.edu/javanotes/c11/../source/CLChatServer.java
-.. _Chapter Index: http://math.hws.edu/javanotes/c11/index.html
-.. _ShowMyNetwork.java: http://math.hws.edu/javanotes/c11/../source/ShowMyNetwork.java
-.. _next chapter: http://math.hws.edu/javanotes/c11/../c12/index.html
-.. _ReadURL.java: http://math.hws.edu/javanotes/c11/../source/ReadURL.java
-.. _ReadURLApplet.java: http://math.hws.edu/javanotes/c11/../source/ReadURLApplet.java
-.. _DateClient.java: http://math.hws.edu/javanotes/c11/../source/DateClient.java
-.. _Previous Section: http://math.hws.edu/javanotes/c11/s3.html
-.. _Main Index: http://math.hws.edu/javanotes/c11/../index.html
-.. _CLChatClient.java: http://math.hws.edu/javanotes/c11/../source/CLChatClient.java
-.. _1.7: http://math.hws.edu/javanotes/c11/../c1/s7.html
-.. _Next Section: http://math.hws.edu/javanotes/c11/s5.html
-.. _DateServer.java: http://math.hws.edu/javanotes/c11/../source/DateServer.java
-.. _11.1.4: http://math.hws.edu/javanotes/c11/../c11/s1.html#IO.1.4
 
 

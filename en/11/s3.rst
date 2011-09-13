@@ -1,23 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Copying a File
-Persistent Data
-Files in GUI Programs
-Storing Objects in Files
-
-
-
-Section 11.3
-~~~~~~~~~~~~
-
-
-Programming With Files
-----------------------
+11.3. Programming With Files
+----------------------------
 
 
 
@@ -930,29 +913,5 @@ an image file that could be, for example, printed or put on a web
 page. This is a preview of image-handling techniques that will be
 covered in `Chapter13`_.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _11.2: http://math.hws.edu/javanotes/c11/../c11/s2.html
-.. _10.3.1: http://math.hws.edu/javanotes/c11/../c10/s3.html#generics.3.1
-.. _Chapter Index: http://math.hws.edu/javanotes/c11/index.html
-.. _PhoneDirectoryFileDemo.java: http://math.hws.edu/javanotes/c11/../source/PhoneDirectoryFileDemo.java
-.. _TrivialEdit.java: http://math.hws.edu/javanotes/c11/../source/TrivialEdit.java
-.. _Next Section: http://math.hws.edu/javanotes/c11/s4.html
-.. _11.2.3: http://math.hws.edu/javanotes/c11/../c11/s2.html#IO.2.3
-.. _SimplePaintWithFiles.java: http://math.hws.edu/javanotes/c11/../source/SimplePaintWithFiles.java
-.. _8.1: http://math.hws.edu/javanotes/c11/../c8/s1.html
-.. _Previous Section: http://math.hws.edu/javanotes/c11/s2.html
-.. _11.2.2: http://math.hws.edu/javanotes/c11/../c11/s2.html#IO.2.2
-.. _Main Index: http://math.hws.edu/javanotes/c11/../index.html
-.. _13: http://math.hws.edu/javanotes/c11/../c13/index.html
-.. _7.3.4: http://math.hws.edu/javanotes/c11/../c7/s3.html#arrays.3.4
-.. _11.5: http://math.hws.edu/javanotes/c11/../c11/s5.html
-.. _SimplePaint2.java: http://math.hws.edu/javanotes/c11/../source/SimplePaint2.java
-.. _7.2.3: http://math.hws.edu/javanotes/c11/../c7/s2.html#arrays.2.3
-.. _11.1.6: http://math.hws.edu/javanotes/c11/../c11/s1.html#IO.1.6
-.. _11.1: http://math.hws.edu/javanotes/c11/../c11/s1.html
 
 

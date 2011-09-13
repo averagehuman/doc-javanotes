@@ -1,25 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Arrays and for Loops
-Arrays and for-each Loops
-Array Types in Subroutines
-Random Access
-Arrays of Objects
-Variable Arity Methods
-
-
-
-Section 7.2
-~~~~~~~~~~~
-
-
-Programming With Arrays
------------------------
+7.2. Programming With Arrays
+----------------------------
 
 
 
@@ -914,22 +895,5 @@ representations of all its parameters into one long string:
     }
 
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Chapter Index: http://math.hws.edu/javanotes/c7/index.html
-.. _RandomStringsWithArray.java: http://math.hws.edu/javanotes/c7/../source/RandomStringsWithArray.java
-.. _Main Index: http://math.hws.edu/javanotes/c7/../index.html
-.. _6.4.2: http://math.hws.edu/javanotes/c7/../c6/s4.html#GUI1.4.2
-.. _2.4.4: http://math.hws.edu/javanotes/c7/../c2/s4.html#basics.4.4
-.. _2.1: http://math.hws.edu/javanotes/c7/../c2/s1.html
-.. _7.4: http://math.hws.edu/javanotes/c7/../c7/s4.html
-.. _5.3.2: http://math.hws.edu/javanotes/c7/../c5/s3.html#OOP.3.2
-.. _Next Section: http://math.hws.edu/javanotes/c7/s3.html
-.. _Previous Section: http://math.hws.edu/javanotes/c7/s1.html
-.. _3.4.4: http://math.hws.edu/javanotes/c7/../c3/s4.html#control.4.4
-.. _11: http://math.hws.edu/javanotes/c7/../c11/index.html
 
 

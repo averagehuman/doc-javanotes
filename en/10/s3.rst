@@ -1,22 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-The Map Interface
-Views, SubSets, and SubMaps
-Hash Tables and Hash Codes
-
-
-
-Section 10.3
-~~~~~~~~~~~~
-
-
-Maps
-----
+10.3. Maps
+----------
 
 
 
@@ -488,16 +472,5 @@ the efficiency that is the major reason for hash tables to exist in
 the first place. However, I won't cover techniques for creating good
 hash functions in this book.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Next Section: http://math.hws.edu/javanotes/c10/s4.html
-.. _10.1.6: http://math.hws.edu/javanotes/c10/../c10/s1.html#generics.1.6
-.. _Previous Section: http://math.hws.edu/javanotes/c10/s2.html
-.. _7.4.2: http://math.hws.edu/javanotes/c10/../c7/s4.html#arrays.4.2
-.. _Chapter Index: http://math.hws.edu/javanotes/c10/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c10/../index.html
 
 

@@ -1,22 +1,6 @@
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-**Subsections**
-
-
-Simple Generic Classes
-Simple Generic Methods
-Type Wildcards
-Bounded Types
-
-
-
-Section 10.5
-~~~~~~~~~~~~
-
-
-Writing Generic Classes and Methods
------------------------------------
+10.5. Writing Generic Classes and Methods
+-----------------------------------------
 
 
 
@@ -849,16 +833,5 @@ that difficult after all.
 
 
 
-
-
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _10.1.4: http://math.hws.edu/javanotes/c10/../c10/s1.html#generics.1.4
-.. _Previous Section: http://math.hws.edu/javanotes/c10/s4.html
-.. _9.3.2: http://math.hws.edu/javanotes/c10/../c9/s3.html#recursion.3.2
-.. _10.2.1: http://math.hws.edu/javanotes/c10/../c10/s2.html#generics.2.1
-.. _Chapter Index: http://math.hws.edu/javanotes/c10/index.html
-.. _12: http://math.hws.edu/javanotes/c10/../c12/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c10/../index.html
 
 

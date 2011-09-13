@@ -1,23 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Problem Decompostion
-Thread Pools and Task Queues
-Producer/Consumer and Blocking Queues
-Wait and Notify
-
-
-
-Section 12.3
-~~~~~~~~~~~~
-
-
-Threads and Parallel Processing
--------------------------------
+12.3. Threads and Parallel Processing
+-------------------------------------
 
 
 
@@ -979,23 +962,5 @@ You can check the `source code`_ to see how this all fits into the
 complete program. If you want to learn how to use wait() and notify()
 directly, understanding this example is a good place to start!
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Chapter Index: http://math.hws.edu/javanotes/c12/index.html
-.. _9.3.2: http://math.hws.edu/javanotes/c12/../c9/s3.html#recursion.3.2
-.. _Previous Section: http://math.hws.edu/javanotes/c12/s2.html
-.. _Next Section: http://math.hws.edu/javanotes/c12/s4.html
-.. _code: http://math.hws.edu/javanotes/c12/../source/MultiprocessingDemo3.java
-.. _MultiprocessingDemo2.java: http://math.hws.edu/javanotes/c12/../source/MultiprocessingDemo2.java
-.. _12.4: http://math.hws.edu/javanotes/c12/../c12/s4.html
-.. _section: http://math.hws.edu/javanotes/c12/../c12/s2.html
-.. _Main Index: http://math.hws.edu/javanotes/c12/../index.html
-.. _MultiprocessingDemo1.java: http://math.hws.edu/javanotes/c12/../source/MultiprocessingDemo1.java
-.. _source code: http://math.hws.edu/javanotes/c12/../source/TowersOfHanoiWithControls.java
-.. _9.1.2: http://math.hws.edu/javanotes/c12/../c9/s1.html#recursion.1.2
-.. _12.1.1: http://math.hws.edu/javanotes/c12/../c12/s1.html#threads.1.1
 
 

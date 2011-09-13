@@ -1,21 +1,6 @@
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-**Subsections**
-
-
-Basic XML Syntax
-XMLEncoder and XMLDecoder
-Working With the DOM
-
-
-
-Section 11.5
-~~~~~~~~~~~~
-
-
-A Brief Introduction to XML
----------------------------
+11.5. A Brief Introduction to XML
+---------------------------------
 
 
 
@@ -697,19 +682,5 @@ can make good use of XML in your own Java programs.
 
 
 
-
-
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _11.3.4: http://math.hws.edu/javanotes/c11/../c11/s3.html#IO.3.4
-.. _Chapter Index: http://math.hws.edu/javanotes/c11/index.html
-.. _6.2.3: http://math.hws.edu/javanotes/c11/../c6/s2.html#GUI1.2.3
-.. _Previous Section: http://math.hws.edu/javanotes/c11/s4.html
-.. _SimplePaintWithXMLEncoder.java: http://math.hws.edu/javanotes/c11/../source/SimplePaintWithXMLEncoder.java
-.. _W3C: http://www.w3c.org
-.. _XMLDemo.java: http://math.hws.edu/javanotes/c11/../source/XMLDemo.java
-.. _SimplePaintWithXML.java: http://math.hws.edu/javanotes/c11/../source/SimplePaintWithXML.java
-.. _Main Index: http://math.hws.edu/javanotes/c11/../index.html
-.. _5.1.3: http://math.hws.edu/javanotes/c11/../c5/s1.html#OOP.1.3
 
 

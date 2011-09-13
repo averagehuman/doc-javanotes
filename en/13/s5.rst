@@ -1,24 +1,6 @@
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-**Subsections**
-
-
-The Mandelbrot Set
-Design of the Program
-Internationalization
-Events, Events, Events
-Custom Dialogs
-Preferences
-
-
-
-Section 13.5
-~~~~~~~~~~~~
-
-
-Finishing Touches
------------------
+13.5. Finishing Touches
+-----------------------
 
 
 
@@ -828,41 +810,5 @@ further exploration.
 
 
 
-
-
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _Main Index: http://math.hws.edu/javanotes/c13/../index.html
-.. _I18n.java: http://math.hws.edu/javanotes/c13/../source/edu/hws/eck/mdb/I18n.java
-.. _13.1.5: http://math.hws.edu/javanotes/c13/../c13/s1.html#GUI2.1.5
-.. _MandelbrotFrame.java: http://math.hws.edu/javanotes/c13/../source/edu/hws/eck/mdb/MandelbrotFrame.java
-.. _13.1.1: http://math.hws.edu/javanotes/c13/../c13/s1.html#GUI2.1.1
-.. _strings.properties: http://math.hws.edu/javanotes/c13/../source/edu/hws/eck/mdb/strings.properties
-.. _MandelbrotViewer.jar: http://math.hws.edu/javanotes/c13/MandelbrotViewer.jar
-.. _LauncherApplet.java: http://math.hws.edu/javanotes/c13/../source/edu/hws/eck/mdb/LauncherApplet.java
-.. _MandelbrotPanel.java: http://math.hws.edu/javanotes/c13/../source/edu/hws/eck/mdb/MandelbrotPanel.java
-.. _edu/hws/eck/mdb: http://math.hws.edu/javanotes/c13/../source/edu/hws/eck/mdb
-.. _6.8.2: http://math.hws.edu/javanotes/c13/../c6/s8.html#GUI1.8.2
-.. _Main.java: http://math.hws.edu/javanotes/c13/../source/edu/hws/eck/mdb/Main.java
-.. _11.5.2: http://math.hws.edu/javanotes/c13/../c11/s5.html#IO.5.2
-.. _11.5.3: http://math.hws.edu/javanotes/c13/../c11/s5.html#IO.5.3
-.. _Chapter Index: http://math.hws.edu/javanotes/c13/index.html
-.. _6.5.1: http://math.hws.edu/javanotes/c13/../c6/s5.html#GUI1.5.1
-.. _SetImageSizeDialog.java: http://math.hws.edu/javanotes/c13/../source/edu/hws/eck/mdb/SetImageSizeDialog.java
-.. _13.3.5: http://math.hws.edu/javanotes/c13/../c13/s3.html#GUI2.3.5
-.. _MandelbrotApplet.java: http://math.hws.edu/javanotes/c13/../source/edu/hws/eck/mdb/MandelbrotApplet.java
-.. _13.3.1: http://math.hws.edu/javanotes/c13/../c13/s3.html#GUI2.3.1
-.. _12: http://math.hws.edu/javanotes/c13/../c12/index.html
-.. _13.3.3: http://math.hws.edu/javanotes/c13/../c13/s3.html#GUI2.3.3
-.. _6.4.2: http://math.hws.edu/javanotes/c13/../c6/s4.html#GUI1.4.2
-.. _MandelbrotDisplay.java: http://math.hws.edu/javanotes/c13/../source/edu/hws/eck/mdb/MandelbrotDisplay.java
-.. _12.5: http://math.hws.edu/javanotes/c13/../c12/s5.html
-.. _2.6.4: http://math.hws.edu/javanotes/c13/../c2/s6.html#basics.6.4
-.. _6.4.4: http://math.hws.edu/javanotes/c13/../c6/s4.html#GUI1.4.4
-.. _Previous Section: http://math.hws.edu/javanotes/c13/s4.html
-.. _SetLimitsDialog.java: http://math.hws.edu/javanotes/c13/../source/edu/hws/eck/mdb/SetLimitsDialog.java
-.. _Menus.java: http://math.hws.edu/javanotes/c13/../source/edu/hws/eck/mdb/Menus.java
-.. _7.2.6: http://math.hws.edu/javanotes/c13/../c7/s2.html#arrays.2.6
-.. _11.2.3: http://math.hws.edu/javanotes/c13/../c11/s2.html#IO.2.3
 
 

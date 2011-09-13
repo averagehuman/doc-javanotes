@@ -1,23 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-The Dangling else Problem
-The if...else if Construction
-If Statement Examples
-The Empty Statement
-
-
-
-Section 3.5
-~~~~~~~~~~~
-
-
-The if Statement
-----------------
+3.5. The if Statement
+---------------------
 
 
 
@@ -544,15 +527,5 @@ it is this statement that is executed ten times. The
 System.out.println statement is not really inside the for statement at
 all, so it is executed just once, after the for loop has completed.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Chapter Index: http://math.hws.edu/javanotes/c3/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c3/../index.html
-.. _3.1: http://math.hws.edu/javanotes/c3/../c3/s1.html
-.. _Next Section: http://math.hws.edu/javanotes/c3/s6.html
-.. _Previous Section: http://math.hws.edu/javanotes/c3/s4.html
 
 

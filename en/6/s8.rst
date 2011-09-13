@@ -1,22 +1,6 @@
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-**Subsections**
-
-
-Menus and Menubars
-Dialogs
-Fine Points of Frames
-Creating Jar Files
-
-
-
-Section 6.8
-~~~~~~~~~~~
-
-
-Menus and Dialogs
------------------
+6.8. Menus and Dialogs
+----------------------
 
 
 
@@ -732,24 +716,5 @@ example:
 
 
 
-
-
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _MosaicDrawFrame.java: http://math.hws.edu/javanotes/c6/../source/MosaicDrawFrame.java
-.. _SimpleDialogDemo.java: http://math.hws.edu/javanotes/c6/../source/SimpleDialogDemo.java
-.. _13: http://math.hws.edu/javanotes/c6/../c13/index.html
-.. _MosaicDrawController.java: http://math.hws.edu/javanotes/c6/../source/MosaicDrawController.java
-.. _6.6.3: http://math.hws.edu/javanotes/c6/../c6/s6.html#GUI1.6.3
-.. _2.6.4: http://math.hws.edu/javanotes/c6/../c2/s6.html#basics.6.4
-.. _2.6: http://math.hws.edu/javanotes/c6/../c2/s6.html
-.. _MosaicPanel.java: http://math.hws.edu/javanotes/c6/../source/MosaicPanel.java
-.. _Previous Section: http://math.hws.edu/javanotes/c6/s7.html
-.. _MosaicDrawApplet.java: http://math.hws.edu/javanotes/c6/../source/MosaicDrawApplet.java
-.. _Main Index: http://math.hws.edu/javanotes/c6/../index.html
-.. _6.2.4: http://math.hws.edu/javanotes/c6/../c6/s2.html#GUI1.2.4
-.. _3.7.2: http://math.hws.edu/javanotes/c6/../c3/s7.html#control.7.2
-.. _MosaicDrawLauncherApplet.java: http://math.hws.edu/javanotes/c6/../source/MosaicDrawLauncherApplet.java
-.. _Chapter Index: http://math.hws.edu/javanotes/c6/index.html
 
 

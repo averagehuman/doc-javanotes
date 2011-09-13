@@ -1,21 +1,6 @@
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-**Subsections**
-
-
-Blocks
-The Basic While Loop
-The Basic If Statement
-
-
-
-Section 3.1
-~~~~~~~~~~~
-
-
-Blocks, Loops, and Branches
----------------------------
+3.1. Blocks, Loops, and Branches
+--------------------------------
 
 
 
@@ -384,12 +369,5 @@ more about control structures, you would already know enough to
 perform any possible computing task. Simple looping and branching are
 all you really need!
 
-
-
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _Chapter Index: http://math.hws.edu/javanotes/c3/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c3/../index.html
-.. _Next Section: http://math.hws.edu/javanotes/c3/s2.html
 
 

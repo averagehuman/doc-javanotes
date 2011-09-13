@@ -1,22 +1,6 @@
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-**Subsections**
-
-
-Creating and Running Threads
-Operations on Threads
-Mutual Exclusion with "synchronized"
-Volatile Variables
-
-
-
-Section 12.1
-~~~~~~~~~~~~
-
-
-Introduction to Threads
------------------------
+12.1. Introduction to Threads
+-----------------------------
 
 
 
@@ -955,17 +939,5 @@ is much faster than access to other memory, so it is more efficient
 for a thread to use a local copy of a shared variable rather than some
 "master copy" that is stored in non-local memory.)
 
-
-
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _Chapter Index: http://math.hws.edu/javanotes/c12/index.html
-.. _Next Section: http://math.hws.edu/javanotes/c12/s2.html
-.. _ThreadTest2.java: http://math.hws.edu/javanotes/c12/../source/ThreadTest2.java
-.. _12.3: http://math.hws.edu/javanotes/c12/../c12/s3.html
-.. _Main Index: http://math.hws.edu/javanotes/c12/../index.html
-.. _ThreadTest1.java: http://math.hws.edu/javanotes/c12/../source/ThreadTest1.java
-.. _5.7.2: http://math.hws.edu/javanotes/c12/../c5/s7.html#OOP.7.2
-.. _5.7.3: http://math.hws.edu/javanotes/c12/../c5/s7.html#OOP.7.3
 
 

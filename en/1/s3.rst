@@ -1,16 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-
-
-
-Section 1.3
-~~~~~~~~~~~
-
-
-The Java Virtual Machine
-------------------------
+1.3. The Java Virtual Machine
+-----------------------------
 
 
 
@@ -149,15 +139,5 @@ is providing a "Graphical User Interface" -- with windows, buttons,
 etc. -- that will work on all the platforms that support Java. You'll
 see more about this problem in `Section1.6`_.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Main Index: http://math.hws.edu/javanotes/c1/../index.html
-.. _Next Section: http://math.hws.edu/javanotes/c1/s4.html
-.. _Previous Section: http://math.hws.edu/javanotes/c1/s2.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c1/index.html
-.. _1.6: http://math.hws.edu/javanotes/c1/../c1/s6.html
 
 

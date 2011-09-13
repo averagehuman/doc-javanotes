@@ -1,15 +1,6 @@
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-
-
-
-Section 8.5
-~~~~~~~~~~~
-
-
-Analysis of Algorithms
-----------------------
+8.5. Analysis of Algorithms
+---------------------------
 
 
 
@@ -369,13 +360,5 @@ very helpful for understanding the differences among algorithms.
 
 
 
-
-
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _7.4.1: http://math.hws.edu/javanotes/c8/../c7/s4.html#arrays.4.1
-.. _Previous Section: http://math.hws.edu/javanotes/c8/s4.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c8/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c8/../index.html
 
 

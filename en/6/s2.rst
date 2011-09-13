@@ -1,23 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-JApplet
-Reusing Your JPanels
-Basic HTML
-Applets on Web Pages
-
-
-
-Section 6.2
-~~~~~~~~~~~
-
-
-Applets and HTML
-----------------
+6.2. Applets and HTML
+---------------------
 
 
 
@@ -771,21 +754,5 @@ returned by getParameter() is always a String. If the param represents
 a numerical value, the string must be converted into a number, as is
 done here for the size parameter.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _previous section: http://math.hws.edu/javanotes/c6/../c6/s1.html#GUI1.1.1
-.. _2.6.4: http://math.hws.edu/javanotes/c6/../c2/s6.html#basics.6.4
-.. _previous section: http://math.hws.edu/javanotes/c6/../c6/s1.html
-.. _HelloWorldGUI2.java: http://math.hws.edu/javanotes/c6/../source/HelloWorldGUI2.java
-.. _David's Home Page: http://math.hws.edu/eck/
-.. _5.7.2: http://math.hws.edu/javanotes/c6/../c5/s7.html#OOP.7.2
-.. _Main Index: http://math.hws.edu/javanotes/c6/../index.html
-.. _Previous Section: http://math.hws.edu/javanotes/c6/s1.html
-.. _Next Section: http://math.hws.edu/javanotes/c6/s3.html
-.. _6.2.3: http://math.hws.edu/javanotes/c6/../c6/s2.html#GUI1.2.3
-.. _Chapter Index: http://math.hws.edu/javanotes/c6/index.html
 
 

@@ -1,22 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Reading and Writing Files
-Files and Directories
-File Dialog Boxes
-
-
-
-Section 11.2
-~~~~~~~~~~~~
-
-
-Files
------
+11.2. Files
+-----------
 
 
 
@@ -628,21 +612,5 @@ with just a few changes, when you need to read or write a file in a
 GUI program. We'll look at some more complete examples of using files
 and file dialogs in the `next section`_.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Chapter Index: http://math.hws.edu/javanotes/c11/index.html
-.. _below: http://math.hws.edu/javanotes/c11/../c11/s2.html#IO.2.2
-.. _8.3.2: http://math.hws.edu/javanotes/c11/../c8/s3.html#robustness.3.2
-.. _next section: http://math.hws.edu/javanotes/c11/../c11/s3.html
-.. _Next Section: http://math.hws.edu/javanotes/c11/s3.html
-.. _Main Index: http://math.hws.edu/javanotes/c11/../index.html
-.. _ReverseFileWithScanner.java: http://math.hws.edu/javanotes/c11/../source/ReverseFileWithScanner.java
-.. _6.8.2: http://math.hws.edu/javanotes/c11/../c6/s8.html#GUI1.8.2
-.. _11.1.5: http://math.hws.edu/javanotes/c11/../c11/s1.html#IO.1.5
-.. _11.1.4: http://math.hws.edu/javanotes/c11/../c11/s1.html#IO.1.4
-.. _Previous Section: http://math.hws.edu/javanotes/c11/s1.html
 
 

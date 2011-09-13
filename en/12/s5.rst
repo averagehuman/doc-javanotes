@@ -1,22 +1,6 @@
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-**Subsections**
-
-
-The Netgame Framework
-A Simple Chat Room
-A Networked TicTacToe Game
-A Networked Poker Game
-
-
-
-Section 12.5
-~~~~~~~~~~~~
-
-
-Network Programming Example: A Networked Game Framework
--------------------------------------------------------
+12.5. Network Programming Example: A Networked Game Framework
+-------------------------------------------------------------
 
 
 
@@ -692,43 +676,5 @@ games.)
 
 
 
-
-
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _netgame.tictactoe: http://math.hws.edu/javanotes/c12/../source/netgame/tictactoe/
-.. _Client: http://math.hws.edu/javanotes/c12/../source/netgame/common/Client.java
-.. _13.5: http://math.hws.edu/javanotes/c12/../c13/s5.html
-.. _12.6: http://math.hws.edu/javanotes/c12/../c12/ex6-ans.html
-.. _netgame.chat: http://math.hws.edu/javanotes/c12/../source/netgame/chat
-.. _TicTacToeGameHub: http://math.hws.edu/javanotes/c12/../source/netgame/tictactoe/TicTacToeGameHub.java
-.. _Hub.java: http://math.hws.edu/javanotes/c12/../source/netgame/common/Hub.java
-.. _TicTacToeGameState: http://math.hws.edu/javanotes/c12/../source/netgame/tictactoe/TicTacToeGameState.java
-.. _PokerHub: http://math.hws.edu/javanotes/c12/../source/netgame/fivecarddraw/PokerHub.java
-.. _2.6.4: http://math.hws.edu/javanotes/c12/../c2/s6.html#basics.6.4
-.. _Main: http://math.hws.edu/javanotes/c12/../source/netgame/fivecarddraw/Main.java
-.. _GUIChat: http://math.hws.edu/javanotes/c12/../source/GUIChat.java
-.. _Main Index: http://math.hws.edu/javanotes/c12/../index.html
-.. _PokerRank: http://math.hws.edu/javanotes/c12/../source/netgame/fivecarddraw/PokerRank.java
-.. _TicTacToeWindow: http://math.hws.edu/javanotes/c12/../source/netgame/tictactoe/TicTacToeWindow.java
-.. _12.3.3: http://math.hws.edu/javanotes/c12/../c12/s3.html#threads.3.3
-.. _netgame.chat: http://math.hws.edu/javanotes/c12/../source/netgame/chat/
-.. _12.4.2: http://math.hws.edu/javanotes/c12/../c12/s4.html#threads.4.2
-.. _code: http://math.hws.edu/javanotes/c12/../source/netgame/fivecarddraw/
-.. _subsection: http://math.hws.edu/javanotes/c12/../c12/s5.html#threads.5.2
-.. _12.4.5: http://math.hws.edu/javanotes/c12/../c12/s4.html#threads.4.5
-.. _netgame: http://math.hws.edu/javanotes/c12/../source/netgame/
-.. _11.1.6: http://math.hws.edu/javanotes/c12/../c11/s1.html#IO.1.6
-.. _ChatRoomWindow.java: http://math.hws.edu/javanotes/c12/../source/netgame/chat/ChatRoomWindow.java
-.. _ChatRoomServer.java: http://math.hws.edu/javanotes/c12/../source/netgame/chat/ChatRoomServer.java
-.. _ForwardedMessage: http://math.hws.edu/javanotes/c12/../source/netgame/common/ForwardedMessage.java
-.. _PokerGameState: http://math.hws.edu/javanotes/c12/../source/netgame/fivecarddraw/PokerGameState.java
-.. _Chapter Index: http://math.hws.edu/javanotes/c12/index.html
-.. _Previous Section: http://math.hws.edu/javanotes/c12/s4.html
-.. _Main.java: http://math.hws.edu/javanotes/c12/../source/netgame/tictactoe/Main.java
-.. _netgame: http://math.hws.edu/javanotes/c12/../source/netgame
-.. _13.1: http://math.hws.edu/javanotes/c12/../c13/s1.html
-.. _netgame.common: http://math.hws.edu/javanotes/c12/../source/netgame/common/
-.. _12.1.1: http://math.hws.edu/javanotes/c12/../c12/s1.html#threads.1.1
 
 

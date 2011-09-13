@@ -1,22 +1,6 @@
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-**Subsections**
-
-
-Recursive Binary Search
-Towers of Hanoi
-A Recursive Sorting Algorithm
-Blob Counting
-
-
-
-Section 9.1
-~~~~~~~~~~~
-
-
-Recursion
----------
+9.1. Recursion
+--------------
 
 
 
@@ -713,23 +697,5 @@ to explain how it works:
     } // end countBlobs()
 
 
-
-
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _Blobs.java: http://math.hws.edu/javanotes/c9/../source/Blobs.java
-.. _8.5: http://math.hws.edu/javanotes/c9/../c8/s5.html
-.. _TowersOfHanoi.java: http://math.hws.edu/javanotes/c9/../source/TowersOfHanoi.java
-.. _Main Index: http://math.hws.edu/javanotes/c9/../index.html
-.. _7.4: http://math.hws.edu/javanotes/c9/../c7/s4.html
-.. _12.5: http://math.hws.edu/javanotes/c9/../c12/s5.html
-.. _7.4.1: http://math.hws.edu/javanotes/c9/../c7/s4.html#arrays.4.1
-.. _8.2.1: http://math.hws.edu/javanotes/c9/../c8/s2.html#robustness.2.1
-.. _10.5: http://math.hws.edu/javanotes/c9/../c10/s5.html
-.. _http://math.hws.edu/xJava/PentominosSolver/: http://math.hws.edu/xJava/PentominosSolver/
-.. _Next Section: http://math.hws.edu/javanotes/c9/s2.html
-.. _9.5: http://math.hws.edu/javanotes/c9/../c9/s5.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c9/index.html
-.. _11.5: http://math.hws.edu/javanotes/c9/../c11/s5.html
 
 

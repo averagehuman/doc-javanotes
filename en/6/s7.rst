@@ -1,25 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Basic Layout Managers
-Borders
-SliderAndComboBoxDemo
-A Simple Calculator
-Using a null Layout
-A Little Card Game
-
-
-
-Section 6.7
-~~~~~~~~~~~
-
-
-Basic Layout
-------------
+6.7. Basic Layout
+-----------------
 
 
 
@@ -930,26 +911,5 @@ cards used in this program are not very impressive. A version of the
 program with images that actually look like cards can be found in
 `Subsection13.1.3`_.)
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Next Section: http://math.hws.edu/javanotes/c6/s8.html
-.. _HighLowGUI.java: http://math.hws.edu/javanotes/c6/../source/HighLowGUI.java
-.. _HighLowGUIPanel.java: http://math.hws.edu/javanotes/c6/../source/HighLowGUIPanel.java
-.. _6.5.4: http://math.hws.edu/javanotes/c6/../c6/s5.html#GUI1.5.4
-.. _5.4: http://math.hws.edu/javanotes/c6/../c5/s4.html
-.. _5.4.3: http://math.hws.edu/javanotes/c6/../c5/s4.html#OOP.4.3
-.. _BorderDemo.java: http://math.hws.edu/javanotes/c6/../source/BorderDemo.java
-.. _Previous Section: http://math.hws.edu/javanotes/c6/s6.html
-.. _7.5: http://math.hws.edu/javanotes/c6/../c7/s5.html
-.. _13.1.3: http://math.hws.edu/javanotes/c6/../c13/s1.html#GUI2.1.3
-.. _HighLowGUIApplet.java: http://math.hws.edu/javanotes/c6/../source/HighLowGUIApplet.java
-.. _NullLayoutDemo.java: http://math.hws.edu/javanotes/c6/../source/NullLayoutDemo.java
-.. _Main Index: http://math.hws.edu/javanotes/c6/../index.html
-.. _SliderAndComboBoxDemo.java: http://math.hws.edu/javanotes/c6/../source/SliderAndComboBoxDemo.java
-.. _SimpleCalc.java: http://math.hws.edu/javanotes/c6/../source/SimpleCalc.java
-.. _Chapter Index: http://math.hws.edu/javanotes/c6/index.html
 
 

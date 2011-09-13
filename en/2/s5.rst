@@ -1,27 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Arithmetic Operators
-Increment and Decrement
-Relational Operators
-Boolean Operators
-Conditional Operator
-Assignment Operators and Type-Casts
-Type Conversion of Strings
-Precedence Rules
-
-
-
-Section 2.5
-~~~~~~~~~~~
-
-
-Details of Expressions
-----------------------
+2.5. Details of Expressions
+---------------------------
 
 
 
@@ -563,16 +542,5 @@ example,A*B/C means (A*B)/C, while A=B=C meansA=(B=C). (Can you see
 how the expression A=B=C might be useful, given that the value of B=C
 as an expression is the same as the value that is assigned to B?)
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Main Index: http://math.hws.edu/javanotes/c2/../index.html
-.. _2.3: http://math.hws.edu/javanotes/c2/../c2/s3.html
-.. _2.3.3: http://math.hws.edu/javanotes/c2/../c2/s3.html#basics.3.3
-.. _Chapter Index: http://math.hws.edu/javanotes/c2/index.html
-.. _Previous Section: http://math.hws.edu/javanotes/c2/s4.html
-.. _Next Section: http://math.hws.edu/javanotes/c2/s6.html
 
 

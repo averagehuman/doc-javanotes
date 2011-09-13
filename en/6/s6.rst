@@ -1,25 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-JButton
-JLabel
-JCheckBox
-JTextField and JTextArea
-JComboBox
-JSlider
-
-
-
-Section 6.6
-~~~~~~~~~~~
-
-
-Basic Components
-----------------
+6.6. Basic Components
+---------------------
 
 
 
@@ -650,21 +631,5 @@ configured with the commands:
     slider3.setPaintLabels(true);
 
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _6.3.2: http://math.hws.edu/javanotes/c6/../c6/s3.html#GUI1.3.2
-.. _TextAreaDemo.java: http://math.hws.edu/javanotes/c6/../source/TextAreaDemo.java
-.. _13.4.4: http://math.hws.edu/javanotes/c6/../c13/s4.html#GUI2.4.4
-.. _6.1: http://math.hws.edu/javanotes/c6/../c6/s1.html
-.. _Next Section: http://math.hws.edu/javanotes/c6/s7.html
-.. _6.3.3: http://math.hws.edu/javanotes/c6/../c6/s3.html#GUI1.3.3
-.. _Main Index: http://math.hws.edu/javanotes/c6/../index.html
-.. _next section: http://math.hws.edu/javanotes/c6/../c6/s7.html
-.. _6.2: http://math.hws.edu/javanotes/c6/../c6/s2.html
-.. _Previous Section: http://math.hws.edu/javanotes/c6/s5.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c6/index.html
 
 

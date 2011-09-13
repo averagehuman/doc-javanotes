@@ -1,22 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Pseudocode and Stepwise Refinement
-The 3N+1 Problem
-Coding, Testing, Debugging
-
-
-
-Section 3.2
-~~~~~~~~~~~
-
-
-Algorithm Development
----------------------
+3.2. Algorithm Development
+--------------------------
 
 
 
@@ -579,16 +563,5 @@ absolutely sure that everything in your program is right, and if it
 still doesn't work, then one of the things that you are absolutely
 sure of is wrong.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _Chapter Index: http://math.hws.edu/javanotes/c3/index.html
-.. _Previous Section: http://math.hws.edu/javanotes/c3/s1.html
-.. _Main Index: http://math.hws.edu/javanotes/c3/../index.html
-.. _Next Section: http://math.hws.edu/javanotes/c3/s3.html
-.. _2.5: http://math.hws.edu/javanotes/c3/../c2/s5.html
-.. _8.2: http://math.hws.edu/javanotes/c3/../c8/ex2-ans.html
 
 

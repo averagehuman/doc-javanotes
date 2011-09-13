@@ -1,21 +1,6 @@
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-**Subsections**
-
-
-Backus-Naur Form
-Recursive Descent Parsing
-Building an Expression Tree
-
-
-
-Section 9.5
-~~~~~~~~~~~
-
-
-A Simple Recursive Descent Parser
----------------------------------
+9.5. A Simple Recursive Descent Parser
+--------------------------------------
 
 
 
@@ -585,17 +570,5 @@ perspective.
 
 
 
-
-
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _SimpleParser2.java: http://math.hws.edu/javanotes/c9/../source/SimpleParser2.java
-.. _Main Index: http://math.hws.edu/javanotes/c9/../index.html
-.. _9.4.3: http://math.hws.edu/javanotes/c9/../c9/s4.html#recursion.4.3
-.. _1: http://math.hws.edu/javanotes/c9/../c1/index.html
-.. _SimpleParser1.java: http://math.hws.edu/javanotes/c9/../source/SimpleParser1.java
-.. _Previous Section: http://math.hws.edu/javanotes/c9/s4.html
-.. _SimpleParser3.java: http://math.hws.edu/javanotes/c9/../source/SimpleParser3.java
-.. _Chapter Index: http://math.hws.edu/javanotes/c9/index.html
 
 

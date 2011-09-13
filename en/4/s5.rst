@@ -1,23 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Toolboxes
-Java's Standard Packages
-Using Classes from Packages
-Javadoc
-
-
-
-Section 4.5
-~~~~~~~~~~~
-
-
-APIs, Packages, and Javadoc
----------------------------
+4.5. APIs, Packages, and Javadoc
+--------------------------------
 
 
 
@@ -481,21 +464,5 @@ that you want to document in the Package Explorer, select "Export,"
 and select "Javadoc" in the window that pops up. I won't go into any
 of the details here; see the documentation.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _exceptions: http://math.hws.edu/javanotes/c4/../c4/s3.html#subroutines.3.5
-.. _2.6: http://math.hws.edu/javanotes/c4/../c2/s6.html
-.. _2.6.4: http://math.hws.edu/javanotes/c4/../c2/s6.html#basics.6.4
-.. _TextIO.java: http://math.hws.edu/javanotes/c4/../source/TextIO.java
-.. _Previous Section: http://math.hws.edu/javanotes/c4/s4.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c4/index.html
-.. _documentation: http://math.hws.edu/javanotes/c4/../TextIO_Javadoc/TextIO.html
-.. _Main Index: http://math.hws.edu/javanotes/c4/../index.html
-.. _4.3: http://math.hws.edu/javanotes/c4/../c4/s3.html
-.. _Next Section: http://math.hws.edu/javanotes/c4/s6.html
-.. _6.2: http://math.hws.edu/javanotes/c4/../c6/s2.html
 
 

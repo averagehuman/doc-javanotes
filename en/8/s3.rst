@@ -1,24 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Exceptions and Exception Classes
-The try Statement
-Throwing Exceptions
-Mandatory Exception Handling
-Programming with Exceptions
-
-
-
-Section 8.3
-~~~~~~~~~~~
-
-
-Exceptions and try..catch
--------------------------
+8.3. Exceptions and try..catch
+------------------------------
 
 
 
@@ -844,23 +826,5 @@ the `previous section`_. Internally, however, the programs are
 significantly different, since LengthConverter3 uses exception
 handling.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _LengthConverter2: http://math.hws.edu/javanotes/c8/../source/LengthConverter2.java
-.. _Next Section: http://math.hws.edu/javanotes/c8/s4.html
-.. _12: http://math.hws.edu/javanotes/c8/../c12/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c8/../index.html
-.. _3.7: http://math.hws.edu/javanotes/c8/../c3/s7.html
-.. _LengthConverter3.java: http://math.hws.edu/javanotes/c8/../source/LengthConverter3.java
-.. _previous section: http://math.hws.edu/javanotes/c8/../c8/s2.html
-.. _Previous Section: http://math.hws.edu/javanotes/c8/s2.html
-.. _5.6.3: http://math.hws.edu/javanotes/c8/../c5/s6.html#OOP.6.3
-.. _4.3.5: http://math.hws.edu/javanotes/c8/../c4/s3.html#subroutines.3.5
-.. _8.2.2: http://math.hws.edu/javanotes/c8/../c8/s2.html#robustness.2.2
-.. _Chapter Index: http://math.hws.edu/javanotes/c8/index.html
-.. _11: http://math.hws.edu/javanotes/c8/../c11/index.html
 
 

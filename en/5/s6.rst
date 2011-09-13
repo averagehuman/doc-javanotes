@@ -1,22 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-The Special Variable this
-The Special Variable super
-Constructors in Subclasses
-
-
-
-Section 5.6
-~~~~~~~~~~~
-
-
-this and super
---------------
+5.6. this and super
+-------------------
 
 
 
@@ -347,16 +331,5 @@ exactly the same way to call another constructor in the same class.
 This can be useful since it can save you from repeating the same code
 in several different constructors.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _4.7: http://math.hws.edu/javanotes/c5/../c4/s7.html
-.. _5.7: http://math.hws.edu/javanotes/c5/../c5/s7.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c5/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c5/../index.html
-.. _Previous Section: http://math.hws.edu/javanotes/c5/s5.html
-.. _Next Section: http://math.hws.edu/javanotes/c5/s7.html
 
 

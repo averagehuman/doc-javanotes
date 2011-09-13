@@ -1,22 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-The while Statement
-The do..while Statement
-break and continue
-
-
-
-Section 3.3
-~~~~~~~~~~~
-
-
-The while and do..while Statements
-----------------------------------
+3.3. The while and do..while Statements
+---------------------------------------
 
 
 
@@ -476,18 +460,5 @@ a loop or switch, then the if statement cannot legally contain a
 break. A similar consideration applies to continue statements inside
 ifs.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _section: http://math.hws.edu/javanotes/c3/../c3/s2.html
-.. _section: http://math.hws.edu/javanotes/c3/../c3/s4.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c3/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c3/../index.html
-.. _3.1: http://math.hws.edu/javanotes/c3/../c3/s1.html
-.. _Next Section: http://math.hws.edu/javanotes/c3/s4.html
-.. _Previous Section: http://math.hws.edu/javanotes/c3/s2.html
-.. _3.6: http://math.hws.edu/javanotes/c3/../c3/s6.html
 
 

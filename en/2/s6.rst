@@ -1,22 +1,6 @@
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-**Subsections**
-
-
-Java Development Kit
-Command Line Environment
-IDEs and Eclipse
-The Problem of Packages
-
-
-
-Section 2.6
-~~~~~~~~~~~
-
-
-Programming Environments
-------------------------
+2.6. Programming Environments
+-----------------------------
 
 
 
@@ -527,21 +511,5 @@ with almost all of the examples in this book.
 
 
 
-
-
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _www.jedit.org: http://www.jedit.org
-.. _http://www.oracle.com/technetwork/java: http://www.oracle.com/technetwork/java
-.. _Main Index: http://math.hws.edu/javanotes/c2/../index.html
-.. _TextIO.java: http://math.hws.edu/javanotes/c2/../source/TextIO.java
-.. _Previous Section: http://math.hws.edu/javanotes/c2/s5.html
-.. _site: http://math.hws.edu/javanotes/c2/../source/index.html
-.. _above: http://math.hws.edu/javanotes/c2/../c2/s6.html#basics.6.1
-.. _eclipse.org: http://eclipse.org
-.. _Chapter Index: http://math.hws.edu/javanotes/c2/index.html
-.. _4.5: http://math.hws.edu/javanotes/c2/../c4/s5.html
-.. _TextIO.java: http://math.hws.edu/javanotes/c2/../source/TextIO-GUI/TextIO.java
-.. _netbeans.org: http://netbeans.org/
 
 

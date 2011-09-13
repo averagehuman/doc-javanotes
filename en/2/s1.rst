@@ -1,15 +1,6 @@
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-
-
-
-Section 2.1
-~~~~~~~~~~~
-
-
-The Basic Java Application
---------------------------
+2.1. The Basic Java Application
+-------------------------------
 
 
 
@@ -239,14 +230,5 @@ can contain other subroutines besides main(), as well as things called
 "variable declarations." You'll learn more about these later, but not
 until`Chapter4`_.
 
-
-
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _Main Index: http://math.hws.edu/javanotes/c2/../index.html
-.. _2.6: http://math.hws.edu/javanotes/c2/../c2/s6.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c2/index.html
-.. _4: http://math.hws.edu/javanotes/c2/../c4/index.html
-.. _Next Section: http://math.hws.edu/javanotes/c2/s2.html
 
 

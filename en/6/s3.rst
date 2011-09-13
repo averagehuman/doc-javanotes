@@ -1,25 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Coordinates
-Colors
-Fonts
-Shapes
-Graphics2D
-An Example
-
-
-
-Section 6.3
-~~~~~~~~~~~
-
-
-Graphics and Painting
----------------------
+6.3. Graphics and Painting
+--------------------------
 
 
 
@@ -756,22 +737,5 @@ Instead of writing an applet, of course, we could use the panel in the
 window of a stand-alone application. You can find the source code for
 a main program that does this in the file `RandomStringsApp.java`_.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _6.2.2: http://math.hws.edu/javanotes/c6/../c6/s2.html#GUI1.2.2
-.. _13: http://math.hws.edu/javanotes/c6/../c13/index.html
-.. _13.2: http://math.hws.edu/javanotes/c6/../c13/s2.html
-.. _RandomStringsApp.java: http://math.hws.edu/javanotes/c6/../source/RandomStringsApp.java
-.. _Previous Section: http://math.hws.edu/javanotes/c6/s2.html
-.. _7: http://math.hws.edu/javanotes/c6/../c7/index.html
-.. _HelloWorldApplet.java: http://math.hws.edu/javanotes/c6/../source/HelloWorldApplet.java
-.. _Main Index: http://math.hws.edu/javanotes/c6/../index.html
-.. _6.2.4: http://math.hws.edu/javanotes/c6/../c6/s2.html#GUI1.2.4
-.. _previous section: http://math.hws.edu/javanotes/c6/../c6/s2.html
-.. _Next Section: http://math.hws.edu/javanotes/c6/s4.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c6/index.html
 
 

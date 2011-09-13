@@ -1,16 +1,6 @@
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-
-
-
-Section 1.1
-~~~~~~~~~~~
-
-
-The Fetch and Execute Cycle: Machine Language
----------------------------------------------
-
+1.1. The Fetch and Execute Cycle: Machine Language
+--------------------------------------------------
 
 
 A computer is a complex system consisting of many different
@@ -108,13 +98,5 @@ the computer:
 
 
 
-
-
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _Main Index: http://math.hws.edu/javanotes/c1/../index.html
-.. _section: http://math.hws.edu/javanotes/c1/../c1/s2.html
-.. _Next Section: http://math.hws.edu/javanotes/c1/s2.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c1/index.html
 
 

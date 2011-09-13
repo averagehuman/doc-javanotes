@@ -1,22 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Stacks
-Queues
-Postfix Expressions
-
-
-
-Section 9.3
-~~~~~~~~~~~
-
-
-Stacks, Queues, and ADTs
-------------------------
+9.3. Stacks, Queues, and ADTs
+-----------------------------
 
 
 
@@ -698,20 +682,5 @@ stack. For example, the unary minus operator, which is used in the
 expression "-x", has a single operand. We will continue to look at
 expressions and expression evaluation in the next two sections.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _PostfixEval.java: http://math.hws.edu/javanotes/c9/../source/PostfixEval.java
-.. _DepthBreadth.java: http://math.hws.edu/javanotes/c9/../source/DepthBreadth.java
-.. _8.5: http://math.hws.edu/javanotes/c9/../c8/s5.html
-.. _Main Index: http://math.hws.edu/javanotes/c9/../index.html
-.. _previous section: http://math.hws.edu/javanotes/c9/../c9/s2.html
-.. _7.3.2: http://math.hws.edu/javanotes/c9/../c7/s3.html#arrays.3.2
-.. _Next Section: http://math.hws.edu/javanotes/c9/s4.html
-.. _StackOfDouble.java: http://math.hws.edu/javanotes/c9/../source/StackOfDouble.java
-.. _Previous Section: http://math.hws.edu/javanotes/c9/s2.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c9/index.html
 
 

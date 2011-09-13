@@ -1,23 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Timers and Animation
-Keyboard Events
-Focus Events
-State Machines
-
-
-
-Section 6.5
-~~~~~~~~~~~
-
-
-Timers, KeyEvents, and State Machines
--------------------------------------
+6.5. Timers, KeyEvents, and State Machines
+------------------------------------------
 
 
 
@@ -677,23 +660,5 @@ While it's not at all sophisticated as arcade games go, the SubKiller
 game does use some interesting programming. And it nicely illustrates
 how to apply state-machine thinking in event-oriented programming.
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _RandomArtApplet.java: http://math.hws.edu/javanotes/c6/../source/RandomArtApplet.java
-.. _6.4.5: http://math.hws.edu/javanotes/c6/../c6/s4.html#GUI1.4.5
-.. _Next Section: http://math.hws.edu/javanotes/c6/s6.html
-.. _KeyboardAndFocusDemo.java: http://math.hws.edu/javanotes/c6/../source/KeyboardAndFocusDemo.java
-.. _SubKillerPanel.java: http://math.hws.edu/javanotes/c6/../source/SubKillerPanel.java
-.. _RandomArtPanel.java: http://math.hws.edu/javanotes/c6/../source/RandomArtPanel.java
-.. _previous section: http://math.hws.edu/javanotes/c6/../c6/s4.html
-.. _Main Index: http://math.hws.edu/javanotes/c6/../index.html
-.. _RandomArt.java: http://math.hws.edu/javanotes/c6/../source/RandomArt.java
-.. _SubKiller.java: http://math.hws.edu/javanotes/c6/../source/SubKiller.java
-.. _Previous Section: http://math.hws.edu/javanotes/c6/s4.html
-.. _SubKillerApplet.java: http://math.hws.edu/javanotes/c6/../source/SubKillerApplet.java
-.. _Chapter Index: http://math.hws.edu/javanotes/c6/index.html
 
 

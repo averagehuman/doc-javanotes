@@ -1,22 +1,6 @@
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
 
-
-**Subsections**
-
-
-Designing the classes
-The Card Class
-Example: A Simple Card Game
-
-
-
-Section 5.4
-~~~~~~~~~~~
-
-
-Programming Example: Card, Hand, Deck
--------------------------------------
+5.4. Programming Example: Card, Hand, Deck
+------------------------------------------
 
 
 
@@ -636,17 +620,5 @@ You can try out the game in this applet, which simulates the program:
 
 
 
-
-
-[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
-Index`_ ]
-
-.. _7: http://math.hws.edu/javanotes/c5/../c7/index.html
-.. _Deck.java: http://math.hws.edu/javanotes/c5/../source/Deck.java
-.. _Chapter Index: http://math.hws.edu/javanotes/c5/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c5/../index.html
-.. _Next Section: http://math.hws.edu/javanotes/c5/s5.html
-.. _Hand.java: http://math.hws.edu/javanotes/c5/../source/Hand.java
-.. _Previous Section: http://math.hws.edu/javanotes/c5/s3.html
 
 

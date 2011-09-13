@@ -1,21 +1,6 @@
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-**Subsections**
-
-
-Objects, Classes, and Instances
-Fundamentals of Objects
-Getters and Setters
-
-
-
-Section 5.1
-~~~~~~~~~~~
-
-
-Objects, Instance Methods, and Instance Variables
--------------------------------------------------
+5.1. Objects, Instance Methods, and Instance Variables
+------------------------------------------------------
 
 
 
@@ -602,13 +587,5 @@ void instance method with signature setValue(double), then the class
 has a "property" named value of type double, and it has this property
 whether or not the class has a member variable named value.
 
-
-
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _Next Section: http://math.hws.edu/javanotes/c5/s2.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c5/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c5/../index.html
-.. _3.8: http://math.hws.edu/javanotes/c5/../c3/s8.html
 
 

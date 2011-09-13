@@ -1,21 +1,6 @@
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-**Subsections**
-
-
-JFrame and JPanel
-Components and Layout
-Events and Listeners
-
-
-
-Section 6.1
-~~~~~~~~~~~
-
-
-The Basic GUI Application
--------------------------
+6.1. The Basic GUI Application
+------------------------------
 
 
 
@@ -431,19 +416,5 @@ programming. (We will return to events and listeners in much more
 detail in`Section6.3`_ and later sections; I do not expect you to
 completely understand them at this time.)
 
-
-
-[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _4.5.3: http://math.hws.edu/javanotes/c6/../c4/s5.html#subroutines.5.3
-.. _Next Section: http://math.hws.edu/javanotes/c6/s2.html
-.. _6.3: http://math.hws.edu/javanotes/c6/../c6/s3.html
-.. _5.6.2: http://math.hws.edu/javanotes/c6/../c5/s6.html#OOP.6.2
-.. _HelloWorldGUI1.java: http://math.hws.edu/javanotes/c6/../source/HelloWorldGUI1.java
-.. _5.7.1: http://math.hws.edu/javanotes/c6/../c5/s7.html#OOP.7.1
-.. _5.7.2: http://math.hws.edu/javanotes/c6/../c5/s7.html#OOP.7.2
-.. _Main Index: http://math.hws.edu/javanotes/c6/../index.html
-.. _next section: http://math.hws.edu/javanotes/c6/../c6/s2.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c6/index.html
 
 

@@ -1,21 +1,6 @@
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
 
-
-**Subsections**
-
-
-Initialization in Declarations
-Named Constants
-Naming and Scope Rules
-
-
-
-Section 4.7
-~~~~~~~~~~~
-
-
-The Truth About Declarations
-----------------------------
+4.7. The Truth About Declarations
+---------------------------------
 
 
 
@@ -538,18 +523,5 @@ remember that not everything that is possible is a good idea!
 
 
 
-
-
-[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _4.2.4: http://math.hws.edu/javanotes/c4/../c4/s2.html#subroutines.2.4
-.. _2.3.3: http://math.hws.edu/javanotes/c4/../c2/s3.html#basics.3.3
-.. _Chapter Index: http://math.hws.edu/javanotes/c4/index.html
-.. _3.4.4: http://math.hws.edu/javanotes/c4/../c3/s4.html#control.4.4
-.. _9: http://math.hws.edu/javanotes/c4/../c9/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c4/../index.html
-.. _previous
-section: http://math.hws.edu/javanotes/c4/../c4/s6.html
-.. _Previous Section: http://math.hws.edu/javanotes/c4/s6.html
 
 
