@@ -1,29 +1,10 @@
 
 Introduction to Programming Using Java
+
 Version 6.0, June 2011
-
-.. toctree::
-   :hidden:
-
-   1/index
-   2/index
-   3/index
-   4/index
-   5/index
-   6/index
-   7/index
-   8/index
-   9/index
-   10/index
-   11/index
-   12/index
-   13/index
-   glossary
 
 Preface
 -------
-
-
 
 Introduction to Programming Using Java is a free introductory
 computer programming textbook that uses Java as the language of
