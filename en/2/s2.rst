@@ -16,7 +16,7 @@ consist entirely of letters, digits, and underscores. ("Underscore"
 refers to the character '_'.) For example, here are some legal names:
 
 
-.. code-block:: java
+::
 
     N   n   rate  x15   quite_a_long_name   HelloWorld
 
@@ -215,7 +215,7 @@ to about 10 to the power 308, and has about 15 significant digits.
 Ordinarily, you should stick to the double type for real values.
 
 A variable of type char occupies two bytes in memory. The value of a
-char variable is a single character such as A, *, x, or a space
+char variable is a single character such as A, \*, x, or a space
 character. The value can also be a special character such a tab or a
 carriage return or one of the many Unicode characters that come from
 different languages. When a character is typed into a program, it must
@@ -316,7 +316,7 @@ double quote is itself a special character. For example, to represent
 the string **value**
 
 
-.. code-block:: java
+::
 
     I said, "Are you listening!"
 
@@ -325,7 +325,7 @@ with a linefeed at the end, you would have to type the string
 **literal**:
 
 
-.. code-block:: java
+::
 
     "I said, \"Are you listening!\"\n"
 
@@ -463,7 +463,7 @@ followed by an empty pair of parentheses.
 
 All the sample programs for this textbook are available in separate
 source code files in the on-line version of this text at
-`http://math.hws.edu/javanotes/source`_. They are also included in the
+`<http://math.hws.edu/javanotes/source>`_. They are also included in the
 downloadable archives of the web site. The source code for the
 Interest program, for example, can be found in the file
 `Interest.java`_.

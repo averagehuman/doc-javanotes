@@ -48,7 +48,7 @@ You need a JDK for use with this textbook.
 Java was developed by Sun Microsystems, Inc., which is now a part of
 the Oracle corporation. Oracle makes the JDK for Windows and Linux
 available for free download at its Java Web site,
-`http://www.oracle.com/technetwork/java`_. If you have a Windows
+`<http://www.oracle.com/technetwork/java>`_. If you have a Windows
 computer, it might have come with a Java Runtime, but you might still
 need to download the JDK. Some versions of Linux come with the JDK
 either installed by default or on the installation media. If you need
@@ -57,10 +57,7 @@ As of August 2010, the current version of the JDK is **JDK6**, and it
 can be downloaded from
 
 
-.. code-block:: java
-
-    
-    `http://www.oracle.com/technetwork/java/javase/downloads/index.html`_
+**`<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_**
 
 
 MacOS comes with Java. Recent versions of MacOS come with Java Version

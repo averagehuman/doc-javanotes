@@ -119,7 +119,7 @@ Internet. So, all the cards might be put into a single image:
 
 
 
-(This image is from the Gnome desktop project,`http://www.gnome.org`_,
+(This image is from the Gnome desktop project,`<http://www.gnome.org>`_,
 and is shown here much smaller than its actual size.) Now just one
 Image object is needed. Drawing one card means drawing a rectangular
 region from the image. This technique is used in a variation of the

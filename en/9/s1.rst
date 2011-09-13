@@ -327,7 +327,7 @@ available place on the board. If the piece fits, it calls itself
 recursively to try to fill in the rest of the solution. If that fails,
 then the subroutine goes on to the next piece. A generalized version
 of the pentominos applet with many more features can be found at
-`http://math.hws.edu/xJava/PentominosSolver/`_.
+`<http://math.hws.edu/xJava/PentominosSolver/>`_.
 
 The applets are fun to watch, and they give nice visual
 representations of recursion.
