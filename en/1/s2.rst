@@ -3,8 +3,7 @@
 ------------------------------------------------------
 
 
-
-T he CPU spends almost all of its time fetching instructions from
+The CPU spends almost all of its time fetching instructions from
 memory and executing them. However, the CPU and main memory are only
 two out of many components in a real computer system. A complete
 system contains other devices such as:
@@ -41,8 +40,6 @@ would be useless, since the CPU would not be able to communicate with
 it.
 
 
-
-
 A computer system consisting of many devices is typically organized by
 connecting those devices to one or more busses. A bus is a set of
 wires that carry various sorts of information between the devices
@@ -52,7 +49,6 @@ perhaps to a particular register or location within that device.
 Control signals can be used, for example, by one device to alert
 another that data is available for it on the data bus. A fairly simple
 computer system might be organized like this:
-
 
 
 Now, devices such as keyboard, mouse, and network interface can
@@ -113,8 +109,6 @@ ready, it sends an interrupt signal to the CPU. The interrupt handler
 can then read the requested data.
 
 
-
-
 Now, you might have noticed that all this only makes sense if the CPU
 actually has several tasks to perform. If it has nothing better to do,
 it might as well spend its time polling for input or waiting for disk
@@ -173,7 +167,7 @@ multiprocessing. In fact, the ability to work with threads is fast
 becoming an essential job skill for programmers. Fortunately, Java has
 good support for threads, which are built into the Java programming
 language as a fundamental programming concept. Programming with
-threads will be covered in `Chapter12`_.
+threads will be covered in :doc:`Chapter12</12>`.
 
 Just as important in Java and in modern programming in general is the
 basic concept of asynchronous events. While programmers don't actually

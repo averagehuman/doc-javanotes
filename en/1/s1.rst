@@ -40,8 +40,8 @@ fetching, an instruction from memory and then carrying out,
 orexecuting, that instruction. This process -- fetch an instruction,
 execute it, fetch another instruction, execute it, and so on forever
 -- is called the fetch-and-execute cycle. With one exception, which
-will be covered in the `nextsection`_, this is all that the CPU ever
-does.
+will be covered in the :doc:`next section<s2>`, this is all that the 
+CPU ever does.
 
 The details of the fetch-and-execute cycle are not terribly important,
 but there are a few basic things you should know. The CPU contains a
