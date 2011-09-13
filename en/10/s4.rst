@@ -48,7 +48,7 @@ To demonstrate the idea, we'll use a rather simple-minded program in
 which the user types commands such as:
 
 
-::
+.. code-block:: java
 
     let x = 3 + 12
     print 2 + 2
@@ -87,7 +87,7 @@ namedsymbolTable of type HashMap<String,Double>. At the beginning of
 the program, the symbol table object is created with the command:
 
 
-::
+.. code-block:: java
 
     symbolTable = new HashMap<String,Double>();
 
@@ -101,7 +101,7 @@ command would then set the value associated with the variable in the
 symbol table:
 
 
-::
+.. code-block:: java
 
     symbolTable.put( varName, val );
 
@@ -115,7 +115,7 @@ an object of type Double, so that, in effect, the above statement is
 equivalent to
 
 
-::
+.. code-block:: java
 
     symbolTable.put( varName, new Double(val) );
 
@@ -127,7 +127,7 @@ these variables available to the user of the program, they are added
 to the symbol table with the commands:
 
 
-::
+.. code-block:: java
 
     symbolTable.put( "pi", Math.PI );
     symbolTable.put( "e", Math.E );
@@ -144,7 +144,7 @@ considers this to be an error, so the processing looks something like
 this:
 
 
-::
+.. code-block:: java
 
     Double val = symbolTable.get(varName);
     if (val == null) {
@@ -206,7 +206,7 @@ represents the index as a whole, the key type is String and the value
 type isTreeSet<Integer>. This means that the index has type
 
 
-::
+.. code-block:: java
 
     TreeMap< String, TreeSet<Integer> >
 
@@ -226,7 +226,7 @@ the index, and just look at how the TreeMap is used. It can be created
 with the commands:
 
 
-::
+.. code-block:: java
 
     TreeMap<String,TreeSet<Integer>>  index;         // Declare the variable.
     index = new TreeMap<String,TreeSet<Integer>>();  // Create the map object.
@@ -244,7 +244,7 @@ already have a set of page references, and we should just add the new
 page reference to the set. Here is a subroutine that does this:
 
 
-::
+.. code-block:: java
 
     
     /**
@@ -288,7 +288,7 @@ appreciation for the for-each loop!) Here is a subroutine that will
 print the index:
 
 
-::
+.. code-block:: java
 
     /**
      * Print each entry in the index.
@@ -344,7 +344,7 @@ each loop. It might be fun to look at a few ways to solve this
 problem. One alternative is to use an iterator:
 
 
-::
+.. code-block:: java
 
     Iterator<Integer>  iter = pageSet.iterator();
     int firstPage = iter.next();  // In this program, we know the set has at least
@@ -364,7 +364,7 @@ items in the set. (It also defines the method last().) We can solve
 our problem using this method and a for-each loop:
 
 
-::
+.. code-block:: java
 
     int firstPage = pageSet.first();  // Find out the first page number in the set.
     for ( int page : pageSet ) {
@@ -379,7 +379,7 @@ Finally, here is an elegant solution using a subset view of the tree.
 extreme:
 
 
-::
+.. code-block:: java
 
     int firstPage = pageSet.first();  // Get first item, which we know exists.
     System.out.print(firstPage);      // Print first item, with no comma.
@@ -413,7 +413,7 @@ Recall that an object that implements the interface Comparator<T>
 defines a method for comparing two objects of typeT:
 
 
-::
+.. code-block:: java
 
     public int compare( T obj1, T obj2 )
 
@@ -427,7 +427,7 @@ comparison on the lower caseStrings. The following class defines such
 a comparator:
 
 
-::
+.. code-block:: java
 
     
     /**
@@ -449,7 +449,7 @@ by providing a Comparator object as a parameter to the constructor. We
 just have to create the index in our example with the command:
 
 
-::
+.. code-block:: java
 
     index = new TreeMap<String,TreeSet<Integer>>( new AlphabeticalOrder() );
 
@@ -505,7 +505,7 @@ one word, the program uses a simple class that holds a word and the
 counter for that word. The class is a static nested class:
 
 
-::
+.. code-block:: java
 
     /**
      * Represents the data we need about a word:  the word and
@@ -544,7 +544,7 @@ type TreeMap<String,WordData>. The variable is declared and the map
 object is created with the statement:
 
 
-::
+.. code-block:: java
 
     TreeMap<String,WordData> words = new TreeMap<String,WordData>();
 
@@ -562,7 +562,7 @@ the file is encountered. Here is the complete code segment that reads
 the file and collects the data:
 
 
-::
+.. code-block:: java
 
     String word = readNextWord();
     while (word != null) {
@@ -585,7 +585,7 @@ Comparator<WordData>, since it will be used to compare two objects of
 type WordData:
 
 
-::
+.. code-block:: java
 
     /**
      * A comparator class for comparing objects of type WordData according to 
@@ -613,7 +613,7 @@ commands to create a list of type ArrayList<WordData> containing the
 word data and then sort that list according to frequency:
 
 
-::
+.. code-block:: java
 
     ArrayList<WordData> wordsByFrequency = new ArrayList<WordData>( words.values() );
     Collections.sort( wordsByFrequency, new CountCompare() );
@@ -635,7 +635,7 @@ wordsByFrequency, and the words will be printed in order of decreasing
 frequency. Here is the code that does it:
 
 
-::
+.. code-block:: java
 
     TextIO.putln("List of words in alphabetical order" 
           + " (with counts in parentheses):\n");

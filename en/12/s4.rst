@@ -25,7 +25,7 @@ typically uses **threads**.
 12.4.1The Blocking I/O Problem
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A covered in `Section11.4`_, network programming uses sockets. A
+A covered in :doc:`Section 11.4</11/s4>`, network programming uses sockets. A
 socket, in the sense that we are using the term here, represents one
 end of a network connection. Every socket has an associated input
 stream and output stream. Data written to the output stream on one end
@@ -188,7 +188,7 @@ server, while "Connect" should make it act as a client. To distinguish
 these two cases, the ConnectionHandler class has two constructors:
 
 
-::
+.. code-block:: java
 
     /**
      * Listen for a connection on a specified port.  The constructor
@@ -222,7 +222,7 @@ Here, state is an instance variable whose type is defined by an
 enumerated type
 
 
-::
+.. code-block:: java
 
     enum ConnectionState { LISTENING, CONNECTING, CONNECTED, CLOSED };
 
@@ -240,7 +240,7 @@ Once the thread has been started, it executes the following run()
 method:
 
 
-::
+.. code-block:: java
 
     /**
      * The run() method that is executed by the thread.  It opens a
@@ -322,7 +322,7 @@ stream. Synchronization of this method prevents the connection state
 from changing in the middle of the send operation:
 
 
-::
+.. code-block:: java
 
     /**
      * Send a message to the other side of the connection, and post the
@@ -350,7 +350,7 @@ avoid the race condition that could occur if the connection state were
 changed by another thread while this method is being executed:
 
 
-::
+.. code-block:: java
 
     /**
      * This is called by the run() method when a message is received from
@@ -402,7 +402,7 @@ original program. This is not at all difficult to program. Here's the
 new version of the program, with significant changes shown in red:
 
 
-::
+.. code-block:: java
 
     import java.net.*;
     import java.io.*;
@@ -514,7 +514,7 @@ into the blocking queue. Here is the run() method for the connection-
 handling threads:
 
 
-::
+.. code-block:: java
 
     public void run() {
         while (true) {
@@ -548,7 +548,7 @@ The main program, in the meantime, runs in an infinite loop in which
 connections are accepted and added to the queue:
 
 
-::
+.. code-block:: java
 
     while (true) {
             // Accept next connection request and put it in the queue.
@@ -656,8 +656,8 @@ relatively simple demonstration of distributed computing that uses
 only basic networking.
 
 The problem that we will consider is the same one that we used in
-`MultiprocessingDemo1.java`_, and its variations, in `Section12.2`_
-and `Section12.3`_, namely the computation of a complex image. This is
+`MultiprocessingDemo1.java`_, and its variations, in :doc:`Section 12.2</12/s2>`
+and :doc:`Section 12.3</12/s3>`, namely the computation of a complex image. This is
 an application that uses the simplest type of parallel programming, in
 which the problem can be broken down into tasks that can be performed
 independently, with no communication between the tasks. To apply
@@ -691,7 +691,7 @@ running on three computers with IP addresses 172.30.217.101,
 CLMandelbrotMaster with the command
 
 
-::
+.. code-block:: java
 
     java  CLMandelbrotMaster  172.30.217.101  172.30.217.102  172.30.217.103
 
@@ -711,7 +711,7 @@ copies of the worker program on the same computer. Give these commands
 in separate command windows:
 
 
-::
+.. code-block:: java
 
     java  CLMandelbrotWorker                             (Listens on default port)
        
@@ -781,7 +781,7 @@ writeResults() to encode the results of the task for transmission back
 to the master. It must also handle any errors that occur:
 
 
-::
+.. code-block:: java
 
     private static void handleConnection(Socket connection) {
        try {
@@ -838,7 +838,7 @@ to manage communication with each worker. A pseudocode outline of the
 main() routine is quite simple:
 
 
-::
+.. code-block:: java
 
     create a list of all tasks that must be performed
     if there are no command line arguments {
@@ -870,7 +870,7 @@ pseudocode outline for the process executed by the thread might look
 like:
 
 
-::
+.. code-block:: java
 
     Create a socket connected to the worker program.
     Create input and output streams for communicating with the worker.
@@ -916,7 +916,7 @@ it's desirable to have as much parallelism as possible in the
 algorithm.) We can modify the procedure to take this into account:
 
 
-::
+.. code-block:: java
 
     try {
        Create a socket connected to the worker program.
@@ -952,7 +952,7 @@ presented above becomes the run() method in the class that defines the
 communication threads used by the master program:
 
 
-::
+.. code-block:: java
 
     /**
      * This class represents one worker thread.  The job of a worker thread

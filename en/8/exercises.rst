@@ -26,7 +26,7 @@ Write a program that uses the following subroutine, from
 `Subsection8.3.3`_, to solve equations specified by the user.
 
 
-::
+.. code-block:: java
 
     /**
      * Returns the larger of the two roots of the quadratic equation
@@ -64,7 +64,7 @@ until the user answers no.
 Exercise 8.2:
 ~~~~~~~~~~~~~
 
-As discussed in `Section8.1`_, values of type int are limited to 32
+As discussed in :doc:`Section 8.1</8/s1>`, values of type int are limited to 32
 bits. Integers that are too large to be represented in 32 bits cannot
 be stored in anint variable. Java has a standard
 class,java.math.BigInteger, that addresses this problem. An object of
@@ -144,7 +144,7 @@ numerals. The following table shows the Arabic equivalent of all the
 single-letter Roman numerals:
 
 
-::
+.. code-block:: java
 
     M    1000            X   10
     D     500            V    5
@@ -163,7 +163,7 @@ rules, every number between 1 and 3999 can be represented as a Roman
 numeral made up of the following one- and two-letter combinations:
 
 
-::
+.. code-block:: java
 
     M    1000            X   10
     CM    900            IX   9
@@ -193,7 +193,7 @@ the Roman numeral. Here is the beginning of a routine that will do
 this, where number is the int that is to be converted:
 
 
-::
+.. code-block:: java
 
     String roman = "";
     int N = number;
@@ -320,7 +320,7 @@ corresponding pixel on the canvas. The formulas for the conversion
 are:
 
 
-::
+.. code-block:: java
 
     a  =  (int)( (x + 5)/10 * width );
     b  =  (int)( (5 - y)/10 * height );

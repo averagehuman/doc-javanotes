@@ -48,7 +48,7 @@ some fact must be true at a given point during the execution of a
 program. For example, consider the do loop:
 
 
-::
+.. code-block:: java
 
     do {
        TextIO.put("Enter a positive integer: ");
@@ -80,7 +80,7 @@ Consider the following program segment, where all the variables are of
 typedouble:
 
 
-::
+.. code-block:: java
 
     disc = B*B - 4*A*C;
     x = (-B + Math.sqrt(disc)) / (2*A);
@@ -112,7 +112,7 @@ make them more useful in talking about program correctness.
 Let's see how this works by considering a longer program segment:
 
 
-::
+.. code-block:: java
 
     do {
        TextIO.putln("Enter A, B, and C.  B*B-4*A*C must be >= 0.");
@@ -147,7 +147,7 @@ fulfilled. In the other parts, we know that one of the preconditions
 fails to hold. In any case, the program is correct.
 
 
-::
+.. code-block:: java
 
     TextIO.putln("Enter your values for A, B, and C.");
     TextIO.put("A = ");
@@ -187,7 +187,7 @@ the number x in the arrayA and sets the value of i to be the index of
 the array element that contains x:
 
 
-::
+.. code-block:: java
 
     i = 0;
     while (A[i] != x) {
@@ -205,7 +205,7 @@ program will be terminated. To avoid this, we can add a test to make
 sure that the precondition for referring toA[i] is satisfied:
 
 
-::
+.. code-block:: java
 
     i = 0;
     while (i < A.length && A[i] != x) {
@@ -218,7 +218,7 @@ Now, the loop will definitely end. After it ends, i will satisfy
 the loop to test which of these conditions caused the loop to end:
 
 
-::
+.. code-block:: java
 
     i = 0;
     while (i < A.length && A[i] != x) {
@@ -241,7 +241,7 @@ the loop to test which of these conditions caused the loop to end:
 One place where correctness and robustness are important -- and
 especially difficult -- is in the processing of input data, whether
 that data is typed in by the user, read from a file, or received over
-a network. Files and networking will be covered in `Chapter11`_, which
+a network. Files and networking will be covered in :doc:`Chapter 11</11>`, which
 will make essential use of material that will be covered in the `next
 section`_ of this chapter. For now, let's look at an example of
 processing user input.
@@ -277,7 +277,7 @@ TextIO.getChar() here since the object is to skip the blanks
 **without** reading the next non-blank character.)
 
 
-::
+.. code-block:: java
 
     /**
      * Reads past any blanks and tabs in the input.
@@ -323,7 +323,7 @@ Ignoring the possibility of illegal inputs, a pseudocode algorithm for
 the subroutine is
 
 
-::
+.. code-block:: java
 
     inches = 0    // This will be the total number of inches
     while there is more input on the line:
@@ -339,7 +339,7 @@ this test has a precondition: Before we can test the next non-blank
 character, we have to skip over any blanks. So, the algorithm becomes
 
 
-::
+.. code-block:: java
 
     inches = 0
     skipBlanks()
@@ -368,7 +368,7 @@ the valid units: inches, feet, yards, or miles. Here is an algorithm
 that includes error-checking:
 
 
-::
+.. code-block:: java
 
     inches = 0
     skipBlanks()
@@ -416,7 +416,7 @@ version, below, to see what kind of output you get.
 Here is the subroutine written out in Java:
 
 
-::
+.. code-block:: java
 
     /**
      * Reads the user's input measurement from one line of input.

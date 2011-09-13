@@ -34,7 +34,7 @@ of type File. You will need the constructor from theFile class that
 has the form
 
 
-::
+.. code-block:: java
 
     public File( File dir, String fileName )
        // Constructs the File object representing a file
@@ -54,7 +54,7 @@ is specified on the command line. Assume that the files are text
 files. Note that multiple files can be specified, as in:
 
 
-::
+.. code-block:: java
 
     java  LineCounts  file1.txt  file2.txt  file3.txt
 
@@ -130,7 +130,7 @@ and write the data file. Use the DOM to read the data, as discussed in
 following sample phone directory file:
 
 
-::
+.. code-block:: java
 
     <?xml version="1.0"?>
     <phone_directory>
@@ -181,7 +181,7 @@ loadButton of type JButton to represent the "Save Game" and "Load
 Game" buttons:
 
 
-::
+.. code-block:: java
 
     board = newBoard;  // Set up game with data read from file.
     currentPlayer = newCurrentPlayer;

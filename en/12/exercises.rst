@@ -31,7 +31,7 @@ counter class, which you can include as a nested class in your
 program:
 
 
-::
+.. code-block:: java
 
     static class Counter {
         int count;
@@ -198,7 +198,7 @@ To get you started, here is the code from the thread in my solution
 that runs one batch of trials and updates the display labels:
 
 
-::
+.. code-block:: java
 
     for (int i = 0; i < BATCH_SIZE; i++) {
         double x = Math.random();
@@ -256,7 +256,7 @@ should be read by the client and vice versa. The extraHandshake()
 method in the Client is defined as:
 
 
-::
+.. code-block:: java
 
     protected void extraHandshake(ObjectInputStream in, ObjectOutputStream out) 
                                                         throws IOException
@@ -266,7 +266,7 @@ while in the Hub, there is an extra parameter that tells the ID number
 of the client whose connection is being set up:
 
 
-::
+.. code-block:: java
 
     protected void extraHandshake(in playerID, ObjectInputStream in, 
                                   ObjectOutputStream out) throws IOException

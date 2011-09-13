@@ -20,7 +20,7 @@ will look at each of them in some detail.
 
 This chapter will also begin the study of program design. Given a
 problem, how can you come up with a program to solve that problem?
-We'll look at a partial answer to this question in `Section3.2`_.
+We'll look at a partial answer to this question in :doc:`Section 3.2</3/s2>`.
 
 
 .. toctree::

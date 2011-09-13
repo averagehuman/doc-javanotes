@@ -54,7 +54,7 @@ a parameter to the paintComponent() method, and thatimg is of type
 Image. Then the statement
 
 
-::
+.. code-block:: java
 
     g.drawImage(img, x, y, this);
 
@@ -90,7 +90,7 @@ example, it is possible to scale the image as it is drawn to a
 specified width and height. This is done with the command
 
 
-::
+.. code-block:: java
 
     g.drawImage(img, x, y, width, height, imageObserver);
 
@@ -100,7 +100,7 @@ which the image is displayed. Another version makes it possible to
 draw just part of the image. In the command:
 
 
-::
+.. code-block:: java
 
     g.drawImage(img, dest_x1, dest_y1, dest_x2, dest_y2,
                      source_x1, source_y1, source_x2, source_y2, imageObserver);
@@ -140,7 +140,7 @@ compute the corners of the source rectangle for the drawImage()
 command:
 
 
-::
+.. code-block:: java
 
     /**
      * Draws a card in a 79x123 pixel rectangle with its
@@ -196,7 +196,7 @@ you would do with any other image. A BufferedImage can be created
 using the constructor
 
 
-::
+.. code-block:: java
 
     public BufferedImage(int width, int height, int imageType)
 
@@ -218,7 +218,7 @@ to do its drawing on the image. If OSC is of typeBufferedImage, then
 the method
 
 
-::
+.. code-block:: java
 
     OSC.getGraphics()
 
@@ -287,7 +287,7 @@ with the background color, which is represented in the program by an
 instance variable named fillColor. All this is done by the method:
 
 
-::
+.. code-block:: java
 
     /**
      * This method creates the off-screen canvas and fills it with the current
@@ -318,7 +318,7 @@ set, but the user has not yet had a chance to draw anything. With this
 in mind you are ready to understand the paintComponent() method:
 
 
-::
+.. code-block:: java
 
     public void paintComponent(Graphics g) {
     
@@ -365,7 +365,7 @@ paintComponent() method and to create a new canvas if the size of the
 canvas does not match the size of the panel:
 
 
-::
+.. code-block:: java
 
     if (OSC == null || getWidth() != OSC.getWidth() || getHeight() != OSC.getHeight())
        createOSC();
@@ -433,7 +433,7 @@ following instance method, which can be used in any GUI component
 object:
 
 
-::
+.. code-block:: java
 
     public Image createImage(int width, int height)
 
@@ -474,7 +474,7 @@ corresponding Color object can be obtained with the constructor call
 newColor(rgb). This means that you can use
 
 
-::
+.. code-block:: java
 
     Color c = new Color( image.getRGB(x,y) )
 
@@ -483,7 +483,7 @@ to get the color of a pixel as a value of type Color. And if c is of
 type Color, you can set a pixel to that color with
 
 
-::
+.. code-block:: java
 
     image.setRGB( x, y, c.getRGB() );
 
@@ -509,7 +509,7 @@ understand these operators. Here are incantations that you can use to
 work with color codes:
 
 
-::
+.. code-block:: java
 
     /* Suppose that rgb is an int that encodes a color.
        To get separate red, green, and blue color components: *;
@@ -543,7 +543,7 @@ smudgeRed,smudgeGreen and smudgeBlue. This is done in the
 mousePressed() routine with the following code:
 
 
-::
+.. code-block:: java
 
     int w = OSC.getWidth();
     int h = OSC.getHeight();
@@ -582,7 +582,7 @@ arrays. This is done using the following code for each pixel
 position,(c,r), in a 7-by-7 block around the new mouse location:
 
 
-::
+.. code-block:: java
 
     int curCol = OSC.getRGB(c,r);
     int curRed = (curCol >> 16) & 0xFF;
@@ -634,7 +634,7 @@ use it to locate the resource file. In the HighLowWithImages program,
 this is done with:
 
 
-::
+.. code-block:: java
 
     ClassLoader cl = HighLowWithImages.class.getClassLoader();
     URL imageURL = cl.getResource("cards.png");
@@ -666,7 +666,7 @@ resources is directly on the class path. Then the path to the file is
 would be
 
 
-::
+.. code-block:: java
 
     URL imageURL = cl.getResource("resources/images/cards.png");
 
@@ -682,7 +682,7 @@ typeImage and imageURL is theURL that represents the location of the
 image file:
 
 
-::
+.. code-block:: java
 
     cardImages = Toolkit.getDefaultToolkit().createImage(imageURL);
 
@@ -699,7 +699,7 @@ The Applet and JApplet classes have an instance method that can be
 used to load an image from a given URL:
 
 
-::
+.. code-block:: java
 
     public Image getImage(URL imageURL)
 
@@ -711,7 +711,7 @@ More interesting is the fact that Applet and JApplet contain a static
 method that can be used to load sound resources:
 
 
-::
+.. code-block:: java
 
     public static AudioClip newAudioClip(URL soundURL)
 
@@ -728,7 +728,7 @@ Here is a method that puts all this together to load and play the
 sound from an audio resource file:
 
 
-::
+.. code-block:: java
 
     private void playAudioResource(String audioResourceName) {
        ClassLoader cl = SoundAndCursorDemo.class.getClassLoader();
@@ -781,7 +781,7 @@ custom cursor can be created by calling the static
 methodcreateCustomCursor() in the Toolkit class:
 
 
-::
+.. code-block:: java
 
     Cursor c = Toolkit.getDefaultToolkit().createCustomCursor(image,hotSpot,name);
 
@@ -796,7 +796,7 @@ component's instance method setCursor(cursor). For example, to set the
 cursor for a JPanel, panel, to be the standard "wait" cursor:
 
 
-::
+.. code-block:: java
 
     panel.setCursor( Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR) );
 
@@ -804,7 +804,7 @@ cursor for a JPanel, panel, to be the standard "wait" cursor:
 To reset the cursor to be the default cursor, you can use:
 
 
-::
+.. code-block:: java
 
     panel.setCursor( Curser.getDefaultCursor() );
 
@@ -813,7 +813,7 @@ To set the cursor to be an image that is defined in an image resource
 file named imageResource, you might use:
 
 
-::
+.. code-block:: java
 
     ClassLoader cl = SoundAndCursorDemo.class.getClassLoader();
     URL resourceURL = cl.getResource(imageResource);
@@ -837,7 +837,7 @@ version of the program for you to try:
 
 
 Another standard use of images in GUI interfaces is for icons. An icon
-is simply a small picture. As we'll see in `Section13.3`_, icons can
+is simply a small picture. As we'll see in :doc:`Section 13.3</13/s3>`, icons can
 be used on Java's buttons, menu items, and labels; in fact, for our
 purposes, an icon is simply an image that can be used in this way.
 
@@ -884,7 +884,7 @@ Suppose that image is a BufferedImage. The image can be saved to a
 file simply by calling
 
 
-::
+.. code-block:: java
 
     ImageIO.write( image, format, file )
 
@@ -902,7 +902,7 @@ is, if the specified image format is not supported, then the image is
 always check the return value! For example:
 
 
-::
+.. code-block:: java
 
     boolean hasFormat = ImageIO.write(OSC,format,selectedFile);
     if ( ! hasFormat )
@@ -920,7 +920,7 @@ example, here is a typical method for saving an image. (The use of
 defined in a subclass of JComponent.)
 
 
-::
+.. code-block:: java
 
     /**
      * Attempts to save an image to a file selected by the user. 
@@ -966,7 +966,7 @@ The ImageIO class also has a static read() method for reading an image
 from a file into a program. The method
 
 
-::
+.. code-block:: java
 
     ImageIO.read( inputFile )
 

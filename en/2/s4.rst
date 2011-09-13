@@ -49,7 +49,7 @@ To use the TextIO class, you must make sure that the class is
 available to your program. What this means depends on the Java
 programming environment that you are using. In general, you just have
 to add the source code file, `TextIO.java`_, to the same directory
-that contains your main program. See `Section2.6`_ for more
+that contains your main program. See :doc:`Section 2.6</2/s6>` for more
 information about how to use TextIO.
 
 
@@ -74,7 +74,7 @@ declaration statement "int userInput;"), then you could use the
 assignment statement
 
 
-::
+.. code-block:: java
 
     userInput = TextIO.getlnInt();
 
@@ -87,7 +87,7 @@ the user and then prints out the square of the number that the user
 types:
 
 
-::
+.. code-block:: java
 
     /**
      * A program that reads an integer that is typed in by the
@@ -135,7 +135,7 @@ System.out.println. For example, although there is no particular
 advantage in doing so in this case, you could replace the two lines
 
 
-::
+.. code-block:: java
 
     
      **System.out.print**("The square of that number is ");
@@ -145,7 +145,7 @@ advantage in doing so in this case, you could replace the two lines
 with
 
 
-::
+.. code-block:: java
 
     
      **TextIO.put**("The square of that number is ");
@@ -212,7 +212,7 @@ reading different types of input values. Here are examples of the ones
 that you are most likely to use:
 
 
-::
+.. code-block:: java
 
     j = TextIO.getlnInt();     // Reads a value of type int.
     y = TextIO.getlnDouble();  // Reads a value of type double.
@@ -277,7 +277,7 @@ from the same line of input. TextIO provides the following alternative
 input functions to allow you to do this:
 
 
-::
+.. code-block:: java
 
     j = TextIO.getInt();     // Reads a value of type int.
     y = TextIO.getDouble();  // Reads a value of type double.
@@ -352,13 +352,13 @@ by having different names.)
 
 
 Using TextIO for input and output, we can now improve the program from
-`Section2.2`_ for computing the value of an investment. We can have
+:doc:`Section 2.2</2/s2>` for computing the value of an investment. We can have
 the user type in the initial value of the investment and the interest
 rate. The result is a much more useful program -- for one thing, it
 makes sense to run it more than once!
 
 
-::
+.. code-block:: java
 
     /**
      * This class implements a simple program that will compute
@@ -434,7 +434,7 @@ a statement that will print a number in the proper format for a dollar
 amount, where amount is a variable of type double:
 
 
-::
+.. code-block:: java
 
     System.out.printf( "%1.2f", amount );
 
@@ -508,7 +508,7 @@ values into the middle of an output string. For example, if x and y
 are variables of type int, you could say
 
 
-::
+.. code-block:: java
 
     System.out.printf("The product of %d and %d is %d", x, y, x*y);
 
@@ -543,7 +543,7 @@ output destination. To write to a file named "result.txt", for
 example, you would use the statement:
 
 
-::
+.. code-block:: java
 
     TextIO.writeFile("result.txt");
 
@@ -557,7 +557,7 @@ to let the user select the file that will be used for output. The
 statement
 
 
-::
+.. code-block:: java
 
     TextIO.writeUserSelectedFile();
 
@@ -567,7 +567,7 @@ where the user can specify the output file. If you want to go back to
 sending output to standard output, you can say
 
 
-::
+.. code-block:: java
 
     TextIO.writeStandardOutput();
 
@@ -589,7 +589,7 @@ rarely, when writing to files.
 
 A complete understanding of file input/output in Java requires a
 knowledge of object oriented programming. We will return to the topic
-later, in `Chapter11`_. The file I/O capabilities in TextIO are rather
+later, in :doc:`Chapter 11</11>`. The file I/O capabilities in TextIO are rather
 primitive by comparison. Nevertheless, they are sufficient for many
 applications, and they will allow you to get some experience with
 files sooner rather than later.
@@ -599,7 +599,7 @@ questions and outputs the user's responses to a file named
 "profile.txt":
 
 
-::
+.. code-block:: java
 
     public class CreateProfile {
         
@@ -660,8 +660,8 @@ input is that it's a standard part of Java and so is always there when
 you want it.
 
 It's not that hard to use a Scanner for user input, but doing so
-requires some syntax that will not be introduced until `Chapter4`_ and
-`Chapter5`_. I'll tell you how to do it here, without explaining why
+requires some syntax that will not be introduced until :doc:`Chapter 4</4>` and
+:doc:`Chapter 5</5>`. I'll tell you how to do it here, without explaining why
 it works. You won't understand all the syntax at this point. (Scanners
 will be covered in more detail in `Subsection11.1.5`_.)
 
@@ -669,7 +669,7 @@ First, you should add the following line to your program at the
 beginning of the source code file, **before** the "public class...":
 
 
-::
+.. code-block:: java
 
     import java.util.Scanner;
 
@@ -678,7 +678,7 @@ Then include the following statement at the beginning of your main()
 routine:
 
 
-::
+.. code-block:: java
 
     Scanner stdin = new Scanner( System.in );
 
@@ -706,7 +706,7 @@ As a simple example, here is a version of the sample program
 `Interest2.java`_ that uses Scanner instead of TextIO for user input:
 
 
-::
+.. code-block:: java
 
     
     import java.util.Scanner;  // Make the Scanner class available.

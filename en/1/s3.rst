@@ -137,7 +137,7 @@ some of those languages.)
 I should also note that the really hard part of platform-independence
 is providing a "Graphical User Interface" -- with windows, buttons,
 etc. -- that will work on all the platforms that support Java. You'll
-see more about this problem in `Section1.6`_.
+see more about this problem in :doc:`Section 1.6</1/s6>`.
 
 
 

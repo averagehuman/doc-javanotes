@@ -7,7 +7,7 @@
 T he previous section introduced the eight primitive data types and
 the type String. There is a fundamental difference between the
 primitive types and the String type: Values of typeString are objects.
-While we will not study objects in detail until`Chapter5`_, it will be
+While we will not study objects in detail until:doc:`Chapter 5</5>`, it will be
 useful for you to know a little about them and about a closely related
 topic: classes. This is not just because strings are useful but
 because objects and classes are essential to understanding another
@@ -28,7 +28,7 @@ type to the Java language. We will look at them later in this section.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Recall that a subroutine is a set of program instructions that have
-been chunked together and given a name. In `Chapter4`_, you'll learn
+been chunked together and given a name. In :doc:`Chapter 4</4>`, you'll learn
 how to write your own subroutines, but you can get a lot done in a
 program just by calling subroutines that have already been written for
 you. In Java, every subroutine is contained in a class or in an
@@ -120,7 +120,7 @@ this is true of every subroutine in Java, every subroutine in Java is
 a method (with one very technical exception). The same is not true for
 other programming languages. Nevertheless, the term "method" is mostly
 used in the context of object-oriented programming, and until we start
-doing real object-oriented programming in `Chapter5`_, I will prefer
+doing real object-oriented programming in :doc:`Chapter 5</5>`, I will prefer
 to use the more general term, "subroutine." However, I should note
 that some people prefer to use the term "method" from the beginning.
 
@@ -156,7 +156,7 @@ represents a value, it doesn't make sense to put it on a line by
 itself in a subroutine call statement such as
 
 
-::
+.. code-block:: java
 
     Math.sqrt(x);   //  **This doesn't make sense!**
 
@@ -166,7 +166,7 @@ function in this case? You have to tell the computer to do something
 with the value. You might tell the computer to display it:
 
 
-::
+.. code-block:: java
 
     System.out.print( Math.sqrt(x) );  // Display the square root of x.
 
@@ -175,7 +175,7 @@ or you might use an assignment statement to tell the computer to store
 that value in a variable:
 
 
-::
+.. code-block:: java
 
     lengthOfSide = Math.sqrt(x);
 
@@ -243,7 +243,7 @@ performed in this program occupy only a tiny fraction of a second of a
 computer's time.
 
 
-::
+.. code-block:: java
 
     /**
      * This program performs some mathematical computations and displays
@@ -313,7 +313,7 @@ is a variable that refers to a String. For example,advice might have
 been declared and assigned a value as follows:
 
 
-::
+.. code-block:: java
 
     String advice;
     advice = "Seize the day!";
@@ -332,7 +332,7 @@ type String. For example, you could have a program count the
 characters in "Hello World" for you by saying
 
 
-::
+.. code-block:: java
 
     System.out.print("The number of characters in ");
     System.out.print("the string \"Hello World\" is ");
@@ -416,7 +416,7 @@ already refers to the name of the person using the program. Then, the
 program could greet the user by executing the statement:
 
 
-::
+.. code-block:: java
 
     System.out.println("Hello, "  +  name  +  ".  Pleased to meet you!");
 
@@ -429,7 +429,7 @@ example, the expression "Number"+42 evaluates to the string
 "Number42". And the statements
 
 
-::
+.. code-block:: java
 
     System.out.print("After ");
     System.out.print(years);
@@ -440,7 +440,7 @@ example, the expression "Number"+42 evaluates to the string
 can be replaced by the single statement:
 
 
-::
+.. code-block:: java
 
     System.out.print("After " + years + 
                         " years, the value is " + principal);
@@ -462,7 +462,7 @@ collection of types is not sufficient to cover all the possible
 situations that a programmer might have to deal with. So, an essential
 part of Java, just like almost any other programming language, is the
 ability to create **new** types. For the most part, this is done by
-defining new classes; you will learn how to do that in `Chapter5`_.
+defining new classes; you will learn how to do that in :doc:`Chapter 5</5>`.
 But we will look here at one particular case: the ability to define
 enums (short forenumerated types). Enums are a recent addition to
 Java. They were only added in Version 5.0. Many programming languages
@@ -483,7 +483,7 @@ is not.
 The definition of an enum type has the (simplified) form:
 
 
-::
+.. code-block:: java
 
     enum enum-type-name { list-of-enum-values }
 
@@ -499,7 +499,7 @@ an enum type named Season whose values are the names of the four
 seasons of the year:
 
 
-::
+.. code-block:: java
 
     enum Season { SPRING, SUMMER, FALL, WINTER }
 
@@ -522,7 +522,7 @@ example, you can declare a variable named vacation of type Season with
 the statement:
 
 
-::
+.. code-block:: java
 
     Season vacation;
 
@@ -533,7 +533,7 @@ assignment can be one of the enum constants of type Season. Remember
 to use the full name of the constant, including "Season"! For example:
 
 
-::
+.. code-block:: java
 
     vacation = Season.SUMMER;
 
@@ -562,7 +562,7 @@ example of an important concept: creating new types. Here is a little
 example that shows enums being used in a complete program:
 
 
-::
+.. code-block:: java
 
     public class EnumDemo {
      

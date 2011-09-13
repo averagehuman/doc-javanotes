@@ -85,7 +85,7 @@ contains the method.
 One common use of this is in constructors. For example:
 
 
-::
+.. code-block:: java
 
     public class Student {
     
@@ -181,7 +181,7 @@ GraphicalDice object has to redraw the dice to show the new values.
 The GraphicalDice class might look something like this:
 
 
-::
+.. code-block:: java
 
     public class GraphicalDice extends PairOfDice {
     
@@ -201,11 +201,11 @@ even if you don't know how the method is implemented in the
 superclass!
 
 Here is a more complete example. The applet at the end of
-`Section4.7`_ shows a disturbance that moves around in a mosaic of
+:doc:`Section 4.7</4/s7>` shows a disturbance that moves around in a mosaic of
 little squares. As it moves, each square that it visits becomes a
 brighter shade of green. The result looks interesting, but I think it
 would be prettier if the pattern were symmetric. A symmetric version
-of the applet is shown at the bottom of `Section5.7`_. The symmetric
+of the applet is shown at the bottom of :doc:`Section 5.7</5/s7>`. The symmetric
 applet can be programmed as an easy extension of the original applet.
 
 In the symmetric version, each time a square is brightened, the
@@ -243,7 +243,7 @@ brighten() method below.
 Here's the complete definition of the new class:
 
 
-::
+.. code-block:: java
 
     public class SymmetricBrighten extends RandomBrighten {
     
@@ -299,7 +299,7 @@ has a constructor that takes two integers as parameters. Consider a
 subclass:
 
 
-::
+.. code-block:: java
 
     public class GraphicalDice extends PairOfDice {
     

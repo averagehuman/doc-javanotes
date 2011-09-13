@@ -42,7 +42,7 @@ returned by the subroutine. This is done with a return statement,
 which has the following syntax:
 
 
-::
+.. code-block:: java
 
     return  expression ;
 
@@ -59,7 +59,7 @@ function.
 For example, consider the function definition
 
 
-::
+.. code-block:: java
 
     static double pythagoras(double x, double y) {
           // Computes the length of the hypotenuse of a right
@@ -112,7 +112,7 @@ one term in a 3N+1 sequence, this function computes the next term of
 the sequence:
 
 
-::
+.. code-block:: java
 
     static int nextN(int currentN) {
        if (currentN % 2 == 1)     // test if current N is odd
@@ -130,7 +130,7 @@ statement easily. You might choose to write nextN() like this, for
 example:
 
 
-::
+.. code-block:: java
 
     static int nextN(int currentN) {
        int answer;  // answer will be the value returned
@@ -143,13 +143,13 @@ example:
 
 
 Here is a subroutine that uses this nextN function. In this case, the
-improvement from the version of this subroutine in `Section4.3`_ is
+improvement from the version of this subroutine in :doc:`Section 4.3</4/s3>` is
 not great, but if nextN() were a long function that performed a
 complex computation, then it would make a lot of sense to hide that
 complexity inside a function:
 
 
-::
+.. code-block:: java
 
     static void print3NSequence(int startingValue) {
      
@@ -183,7 +183,7 @@ letter grade corresponding to a given numerical grade, on a typical
 grading scale:
 
 
-::
+.. code-block:: java
 
     /**
      * Returns the letter grade corresponding to the numerical
@@ -211,7 +211,7 @@ is of type boolean. It demonstrates some interesting programming
 points, so you should read the comments:
 
 
-::
+.. code-block:: java
 
     /**
      * The function returns true if N is a prime number.  A prime number
@@ -262,7 +262,7 @@ starting from the last character of str and working backwards to the
 first:
 
 
-::
+.. code-block:: java
 
     static String reverse(String str) {
        String copy;  // The reversed copy.
@@ -308,7 +308,7 @@ gets up to 5, start a new line of output. To make the terms line up
 into neat columns, I use formatted output.
 
 
-::
+.. code-block:: java
 
     /**
      * A program that computes and displays several 3N+1 sequences.  Starting

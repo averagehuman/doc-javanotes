@@ -50,7 +50,7 @@ a long string from a number of smaller pieces. To do this, you must
 make an object belonging to the StringBuffer class. For example:
 
 
-::
+.. code-block:: java
 
     StringBuffer buffer = new StringBuffer();
 
@@ -76,15 +76,15 @@ java.lang, so you can use its simple name without importing it.
 
 A number of useful classes are collected in the package java.util. For
 example, this package contains classes for working with collections of
-objects. We will encounter an example in `Section5.5`_, and we will
-study the collection classes extensively in `Chapter10`_. Another
+objects. We will encounter an example in :doc:`Section 5.5</5/s5>`, and we will
+study the collection classes extensively in :doc:`Chapter 10</10>`. Another
 class in this package, java.util.Date, is used to represent times.
 When a Date object is constructed without parameters, the result
 represents the current date and time, so an easy way to display this
 information is:
 
 
-::
+.. code-block:: java
 
     System.out.println( new Date() );
 
@@ -103,7 +103,7 @@ object of type Random can generate random integers, as well as random
 real numbers. If randGen is created with the command:
 
 
-::
+.. code-block:: java
 
     Random randGen = new Random();
 
@@ -154,7 +154,7 @@ value. For example, you can create an object that wraps the double
 value 6.0221415e23 with
 
 
-::
+.. code-block:: java
 
     Double d = new Double(6.0221415e23);
 
@@ -165,7 +165,7 @@ value that is wrapped in the object, you can call the function
 d.doubleValue(). Similarly, you can wrap an int in an object of type
 Integer, a boolean value in an object of type Boolean, and so on. (As
 an example of where this would be useful, the collection classes that
-will be studied in `Chapter10`_ can only hold objects. If you want to
+will be studied in :doc:`Chapter 10</10>` can only hold objects. If you want to
 add a primitive type value to a collection, it has to be put into a
 wrapper object first.)
 
@@ -177,7 +177,7 @@ automatically be wrapped in an Integer object. For example, you can
 say
 
 
-::
+.. code-block:: java
 
     Integer answer = 42;
 
@@ -185,7 +185,7 @@ say
 and the computer will silently read this as if it were
 
 
-::
+.. code-block:: java
 
     Integer answer = new Integer(42);
 
@@ -257,7 +257,7 @@ these expressions to test whether x is Double.NaN.)
 We have already seen that one of the major features of object-oriented
 programming is the ability to create subclasses of a class. The
 subclass inherits all the properties or behaviors of the class, but
-can modify and add to what it inherits. In `Section5.5`_, you'll learn
+can modify and add to what it inherits. In :doc:`Section 5.5</5/s5>`, you'll learn
 how to create subclasses. What you don't know yet is that **every**
 class in Java (with just one exception) is a subclass of some other
 class. If you create a class and don't explicitly make it a subclass
@@ -287,7 +287,7 @@ the following method to any of the PairOfDice classes from the
 previous section:
 
 
-::
+.. code-block:: java
 
     /**
      * Return a String representation of a pair of dice, where die1
@@ -308,7 +308,7 @@ numbers showing on the dice. This method would be used automatically
 to convert dice to typeString in a statement such as
 
 
-::
+.. code-block:: java
 
     System.out.println( "The dice came up " + dice );
 

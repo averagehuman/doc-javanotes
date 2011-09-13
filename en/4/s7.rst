@@ -26,7 +26,7 @@ a local variable, the declaration is often followed closely by an
 assignment statement that does the initialization. For example,
 
 
-::
+.. code-block:: java
 
     int count;    // Declare a variable named count.
     count = 0;    // Give count its initial value.
@@ -37,7 +37,7 @@ include the initialization of the variable in the declaration
 statement. The two statements above can therefore be abbreviated as
 
 
-::
+.. code-block:: java
 
     int count = 0;  // Declare count and give it an initial value.
 
@@ -49,7 +49,7 @@ expression. It is legal to initialize several variables in one
 declaration statement. For example,
 
 
-::
+.. code-block:: java
 
     char firstInitial = 'D', secondInitial = 'E';
                     
@@ -67,7 +67,7 @@ loop, it's reasonable to have its declaration in the part of the
 program where it's actually used. For example:
 
 
-::
+.. code-block:: java
 
     for ( int i = 0;  i < 10;  i++ ) {
        System.out.println(i);
@@ -80,7 +80,7 @@ considered to be local to the for statement and no longer exists after
 the for loop ends:
 
 
-::
+.. code-block:: java
 
     {
        int i;
@@ -98,7 +98,7 @@ A member variable can also be initialized at the point where it is
 declared, just as for a local variable. For example:
 
 
-::
+.. code-block:: java
 
     public class Bank {
        static double interestRate = 0.05;
@@ -118,7 +118,7 @@ outside of a subroutine. Assignment statements cannot, so the
 following is illegal:
 
 
-::
+.. code-block:: java
 
     public class Bank {
        static double interestRate;
@@ -157,7 +157,7 @@ after the variable has been initialized. For example, if the member
 variableinterestRate is declared with
 
 
-::
+.. code-block:: java
 
     final static double interestRate = 0.05;
 
@@ -180,7 +180,7 @@ necessary. For example, the preferred style for the interest rate
 constant would be
 
 
-::
+.. code-block:: java
 
     final static double INTEREST_RATE = 0.05;
 
@@ -202,7 +202,7 @@ Enumerated type constants (see `Subsection2.3.3`_) are also examples
 of named constants. The enumerated type definition
 
 
-::
+.. code-block:: java
 
     enum Alignment { LEFT, RIGHT, CENTER }
 
@@ -214,7 +214,7 @@ enumerated type is similar to defining three constants of type, say,
 int:
 
 
-::
+.. code-block:: java
 
     public static final int ALIGNMENT_LEFT = 0;
     public static final int ALIGNMNENT_RIGHT = 1;
@@ -268,7 +268,7 @@ constants are declared as final static member variables with the
 lines:
 
 
-::
+.. code-block:: java
 
     final static int ROWS = 30;        // Number of rows in mosaic.
     final static int COLUMNS = 30;     // Number of columns in mosaic.
@@ -280,7 +280,7 @@ constants. For example, in the new version of the program, the Mosaic
 window is opened with the statement
 
 
-::
+.. code-block:: java
 
     Mosaic.open(ROWS, COLUMNS, SQUARE_SIZE, SQUARE_SIZE);
 
@@ -296,7 +296,7 @@ modifications from the previous version shown in red. I've left out
 some of the comments to save space.
 
 
-::
+.. code-block:: java
 
     public class RandomMosaicWalk2 {
     
@@ -386,7 +386,7 @@ point in the class, including at a point in the source code before the
 point where the definition of the subroutine appears. It is even
 possible to call a subroutine from within itself. This is an example
 of something called "recursion," a fairly advanced topic that we will
-return to in `Chapter9`_.
+return to in :doc:`Chapter 9</9>`.
 
 For a variable that is declared as a static member variable in a
 class, the situation is similar, but with one complication. It is
@@ -396,7 +396,7 @@ variable or parameter, the member variable is hidden. Consider, for
 example, a class named Game that has the form:
 
 
-::
+.. code-block:: java
 
     public class Game {
     
@@ -449,7 +449,7 @@ variable within its scope, even in a nested block. For example, this
 is not allowed:
 
 
-::
+.. code-block:: java
 
     void  badSub(int y) {
         int x;
@@ -468,7 +468,7 @@ Java; however, once the block in which a variable is declared ends,
 its name does become available for reuse in Java. For example:
 
 
-::
+.. code-block:: java
 
     void goodSub(int y) {
        while (y > 10) {
@@ -505,7 +505,7 @@ specify the return type of a function. This means that you could
 legally have a class called Insanity in which you declare a function
 
 
-::
+.. code-block:: java
 
     static  Insanity  Insanity( Insanity Insanity ) { ... }
 

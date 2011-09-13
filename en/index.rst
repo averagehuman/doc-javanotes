@@ -105,7 +105,7 @@ output, theScanner class, and variable arity methods. In addition,
 Javadoc comments were covered for the first time.
 
 The changes in this **sixth** edition are much smaller. The major
-change is a new chapter on threads (`Chapter12`_). Material about
+change is a new chapter on threads (:doc:`Chapter 12</12>`). Material about
 threads from the previous edition has been moved to this chapter, and
 a good deal of new material has been added. Other changes include some
 coverage of features added to Java in versions 6 and7 and the

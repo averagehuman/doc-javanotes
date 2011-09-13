@@ -8,7 +8,7 @@ F or the past two sections, we have been looking at some of the more
 advanced aspects of the Java graphics API. But the heart of most
 graphical user interface programming is using GUI components. In this
 section and the next, we'll be looking at JComponents. We'll cover
-several component classes that were not covered in `Chapter6`_, as
+several component classes that were not covered in :doc:`Chapter 6</6>`, as
 well as some additional features of classes that were covered there.
 
 This section is mostly about buttons. Buttons are among the simplest
@@ -38,7 +38,7 @@ The JButton class represents push buttons. Up until now, we have
 created push buttons using the constructor
 
 
-::
+.. code-block:: java
 
     public JButton(String text);
 
@@ -54,7 +54,7 @@ usually defined using the class AbstractAction, an abstract class
 which includes a method
 
 
-::
+.. code-block:: java
 
     public void actionPerformed(ActionEvent evt)
 
@@ -65,7 +65,7 @@ has a clear() method, an Action object that represents the action
 "clear the display" might be defined as:
 
 
-::
+.. code-block:: java
 
     Action clearAction = new AbstractAction("Clear") {
        public void actionPerformed(ActionEvent evt) { 
@@ -80,7 +80,7 @@ setValue(key,value), which is part of the Action interface. For
 example,
 
 
-::
+.. code-block:: java
 
     clearAction.setValue(Action.SHORT_DESCRIPTION, "Clear the Display");
 
@@ -96,7 +96,7 @@ button. For example, using the action clearAction defined above, we
 can create the JButton
 
 
-::
+.. code-block:: java
 
     JButton clearButton = new JButton( clearAction );
 
@@ -129,7 +129,7 @@ places in the Java API. You can use an Action to create a JMenuItem in
 the same way as for a JButton:
 
 
-::
+.. code-block:: java
 
     JMenuItem clearCommand = new JMenuItem( clearAction );
 
@@ -184,7 +184,7 @@ constructor that takes both the text and the icon for the button as
 parameters. Here's the code segment that does it:
 
 
-::
+.. code-block:: java
 
     BufferedImage image = new BufferedImage(24,24,BufferedImage.TYPE_INT_RGB);
      
@@ -211,7 +211,7 @@ to use an action named clearAction to create the button shown above.
 This could be done with:
 
 
-::
+.. code-block:: java
 
     clearAction.putValue( Action.SMALL_ICON, clearIcon );
     JButton clearButton = new JButton( clearAction );
@@ -221,7 +221,7 @@ The icon could also be associated with the action by passing it as a
 parameter to the constructor of an AbstractAction:
 
 
-::
+.. code-block:: java
 
     Action clearAction = new AbstractAction("Clear the Display", clearIcon) {
        public void actionPerformed(ActionEvent evt) {
@@ -246,7 +246,7 @@ the text with respect to the icon. For example, to place the text
 centered below the icon on a button, you can say:
 
 
-::
+.. code-block:: java
 
     button.setHorizontalTextPosition(JButton.CENTER);
     button.setVerticalTextPosition(JButton.BOTTOM);
@@ -308,7 +308,7 @@ As an example, here is how you could set up a set of radio buttons
 that can be used to select a color:
 
 
-::
+.. code-block:: java
 
     JRadioButton redRadio, blueRadio, greenRadio, blackRadio;
              // Variables to represent the radio buttons.
@@ -360,7 +360,7 @@ know them. As an example, suppose thatmenu is a JMenu. Then you can
 add a group of buttons to menu as follows:
 
 
-::
+.. code-block:: java
 
     JRadioButtonMenuItem selectRedItem, selectGreenItem, selectBlueItem;
        // These might be defined as instance variables
@@ -400,7 +400,7 @@ program creates a set of radio buttons that use custom icons. The
 buttons are created by the following method:
 
 
-::
+.. code-block:: java
 
     /**
      * Create a JRadioButton and add it to a specified button group.  The button
@@ -526,7 +526,7 @@ the sample program. You can leave a gap by adding a separator to the
 tool bar. For example:
 
 
-::
+.. code-block:: java
 
     toolbar.addSeparator(new Dimension(20,20));
 
@@ -540,7 +540,7 @@ ToolBarDemo is a subclass of JPanel, and the tool bar and display are
 added to the panel object that is being constructed:
 
 
-::
+.. code-block:: java
 
     public ToolBarDemo() {
        
@@ -576,7 +576,7 @@ position of a BorderLayout, you should specify the orientation in the
 tool bar's constructor:
 
 
-::
+.. code-block:: java
 
     JToolBar toolbar = new JToolBar( JToolBar.VERTICAL );
 
@@ -611,7 +611,7 @@ method, getKeyStroke(String), that makes it easy to create key stroke
 objects. For example,
 
 
-::
+.. code-block:: java
 
     KeyStroke.getKeyStroke( "ctrl S" )
 
@@ -622,7 +622,7 @@ the modifiers "shift", "alt", and "meta" in the string that describes
 the key stroke. You can even combine several modifiers, so that
 
 
-::
+.. code-block:: java
 
     KeyStroke.getKeyStroke( "ctrl shift Z" )
 
@@ -643,7 +643,7 @@ menu item. One is to use the setAccelerator() method of the menu item
 object:
 
 
-::
+.. code-block:: java
 
     JMenuItem saveCommand = new JMenuItem( "Save..." );
     saveCommand.setAccelerator( KeyStroke.getKeyStroke("ctrl S") );
@@ -657,7 +657,7 @@ the value of this property. For example, if redoAction is an Action
 representing a "Redo" action, then you might say:
 
 
-::
+.. code-block:: java
 
     redoAction.putValue( Action.ACCELERATOR_KEY, 
                                   KeyStroke.getKeyStroke("ctrl shift Z") );
@@ -691,7 +691,7 @@ operating systems. For example, here is a simple utility routine for
 making Mac-friendly accelerators:
 
 
-::
+.. code-block:: java
 
     /**
      * Create a KeyStroke that uses the meta key on Mac OS and
@@ -740,7 +740,7 @@ text to be center justified, include the entire text (except for the
 <html>) between<center> and </center>. For example,
 
 
-::
+.. code-block:: java
 
     JButton button = new JButton(
                    "<html><center>This button has<br>two lines of text</center>" );
@@ -755,7 +755,7 @@ place of "green." The "Java" button that is shown above was created
 using:
 
 
-::
+.. code-block:: java
 
     JButton javaButton = new JButton( "<html><b>Now</b> is the time for<br>" +
                                "a nice cup of <font color=red>coffee</font>." );

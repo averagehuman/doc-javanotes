@@ -138,7 +138,7 @@ a thread can block for a non-trivial amount of time while waiting for
 some event or for access to some resource, you want to have extra
 threads around for the processor to run while other threads are
 blocked. We'll encounter exactly that situation when we turn to using
-threads with networking in `Section12.4`_.
+threads with networking in :doc:`Section 12.4</12/s4>`.
 
 When several threads are available for performing tasks, those threads
 are called a thread pool. Thread pools are used to avoid creating a
@@ -168,7 +168,7 @@ class so that to create, for example, a queue that can hold objects of
 type Runnable, you could say
 
 
-::
+.. code-block:: java
 
     ConcurrentLinkedQueue<Runnable> queue = new ConcurrentLinkedQueue<Runnable>();
 
@@ -213,7 +213,7 @@ threads are defined by a nested class named WorkerThread. It is quite
 short and simple to write at this point:
 
 
-::
+.. code-block:: java
 
     private class WorkerThread extends Thread {
         public void run() {
@@ -240,7 +240,7 @@ image. Here is what the program does to start the computation (with a
 few details omitted):
 
 
-::
+.. code-block:: java
 
     taskQueue = new ConcurrentLinkedQueue<Runnable>(); // Create the queue.
     int height = ... ; // Number of rows in the image.
@@ -374,7 +374,7 @@ is constructed. For example, to create a blocking queue that can hold
 up to 25 objects of type ItemType, you could say:
 
 
-::
+.. code-block:: java
 
     ArrayBlockingQueue<ItemType> bqueue = new ArrayBlockingQueue<ItemType>(25);
 
@@ -387,7 +387,7 @@ LinkedBlockingQueue is meant for creating blocking queues with
 unlimited capacity. For example,
 
 
-::
+.. code-block:: java
 
     LinkedBlockingQueue<ItemType> bqueue = new LinkedBlockingQueue<ItemType>();
 
@@ -410,7 +410,7 @@ queue holds tasks, that is, items of type Runnable, and the queue is
 declared as an instance variable named taskQueue:
 
 
-::
+.. code-block:: java
 
     LinkedBlockingQueue<Runnable> taskQueue;
 
@@ -436,7 +436,7 @@ added to the queue. Here is the inner class that defines the worker
 threads:
 
 
-::
+.. code-block:: java
 
     /**
      * This class defines the worker threads that make up the thread pool.
@@ -543,7 +543,7 @@ running, and set its value to false when we want the worker threads to
 terminate. The run() methods for the threads would be replaced by
 
 
-::
+.. code-block:: java
 
     public void run() {
         while ( running ) {
@@ -620,7 +620,7 @@ implement this, ThreadA will execute code similar to the following,
 where obj is some object:
 
 
-::
+.. code-block:: java
 
     if ( resultIsAvailable() == false )
        obj.wait();  // wait for notification that the result is available
@@ -630,7 +630,7 @@ where obj is some object:
 while ThreadB does something like:
 
 
-::
+.. code-block:: java
 
     generateTheResult();
     obj.notify();  // send out a notification that the result is available
@@ -640,7 +640,7 @@ Now, there is a really nasty race condition in this code. The two
 threads might execute their code in the following order:
 
 
-::
+.. code-block:: java
 
     1.  Thread A checks resultIsAvailable() and finds that the result is not ready,
             so it decides to execute the obj.wait() statement, but before it does,
@@ -677,7 +677,7 @@ null. We will use a variable namedlock for synchronization. The code
 for the producer thread could have the form:
 
 
-::
+.. code-block:: java
 
     makeResult = generateTheResult();  // Not synchronized!
     synchronized(lock) {
@@ -689,7 +689,7 @@ for the producer thread could have the form:
 while the consumer would execute code such as:
 
 
-::
+.. code-block:: java
 
     synchronized(lock) {
        while ( sharedResult == null ) {
@@ -733,7 +733,7 @@ the three operations on a LinkedBlockingQueue<Runnable> that are used
 in MultiprocessingDemo3:
 
 
-::
+.. code-block:: java
 
     import java.util.LinkedList;
     
@@ -869,7 +869,7 @@ on the buttons. When the user clicks a button, this method changes the
 value of status and calls notify() to wake up the solution thread:
 
 
-::
+.. code-block:: java
 
     synchronized public void actionPerformed(ActionEvent evt) {
         Object source = evt.getSource();
@@ -909,7 +909,7 @@ calls notify(). Note that if the status is RESTART, checkStatus()
 throws an IllegalStateException:
 
 
-::
+.. code-block:: java
 
     synchronized private void checkStatus() {
         while (status == PAUSE) {
@@ -937,7 +937,7 @@ while loop, where the initial state of the puzzle, and of the user
 interface, is restored:
 
 
-::
+.. code-block:: java
 
     public void run() {
         while (true) {

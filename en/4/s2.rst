@@ -35,7 +35,7 @@ object-oriented programming in the `next chapter`_.
 A subroutine definition in Java takes the form:
 
 
-::
+.. code-block:: java
 
     
     modifiers  return-type  subroutine-name  ( parameter-list ) {
@@ -47,14 +47,14 @@ It will take us a while -- most of the chapter -- to get through what
 all this means in detail. Of course, you've already seen examples of
 subroutines in previous chapters, such as the main() routine of a
 program and thedrawFrame() routine of the animation applets in
-`Section3.8`_. So you are familiar with the general format.
+:doc:`Section 3.8</3/s8>`. So you are familiar with the general format.
 
 The statements between the braces, { and }, in a subroutine definition
 make up the body of the subroutine. These statements are the inside,
 or implementation part, of the "black box", as discussed in the
 `previous section`_. They are the instructions that the computer
 executes when the method is called. Subroutines can contain any of the
-statements discussed in `Chapter2`_ and`Chapter3`_.
+statements discussed in :doc:`Chapter 2</2>` and:doc:`Chapter 3</3>`.
 
 The modifiers that can occur at the beginning of a subroutine
 definition are words that set certain characteristics of the
@@ -65,7 +65,7 @@ half-dozen possible modifiers altogether.
 If the subroutine is a function, whose job is to compute some value,
 then the return-type is used to specify the type of value that is
 returned by the function. We'll be looking at functions and return
-types in some detail in `Section4.4`_. If the subroutine is not a
+types in some detail in :doc:`Section 4.4</4/s4>`. If the subroutine is not a
 function, then the return-type is replaced by the special value void,
 which indicates that no value is returned. The term "void" is meant to
 indicate that the return value is empty or non-existent.
@@ -81,7 +81,7 @@ number is an integer, the type of the parameter would be int, and the
 declaration of the changeChannel() method might look like
 
 
-::
+.. code-block:: java
 
     public void changeChannel(int channelNum) { ... }
 
@@ -104,7 +104,7 @@ Here are a few examples of subroutine definitions, leaving out the
 statements that define what the subroutines do:
 
 
-::
+.. code-block:: java
 
     public static void playGame() {
         // "public" and "static" are modifiers; "void" is the 
@@ -143,15 +143,15 @@ private are called access specifiers. If no access specifier is given
 for a method, then by default, that method can be called from anywhere
 in the "package" that contains the class, but not from outside that
 package. (Packages were introduced in `Subsection2.6.4`_, and you'll
-learn more about them later in this chapter, in `Section4.5`_.) There
+learn more about them later in this chapter, in :doc:`Section 4.5</4/s5>`.) There
 is one other access modifier, protected, which will only become
-relevant when we turn to object-oriented programming in `Chapter5`_.
+relevant when we turn to object-oriented programming in :doc:`Chapter 5</5>`.
 
 Note, by the way, that the main() routine of a program follows the
 usual syntax rules for a subroutine. In
 
 
-::
+.. code-block:: java
 
     public static void main(String[] args) { ... }
 
@@ -161,7 +161,7 @@ subroutine name is main, and the parameter list is "String[]args". The
 only question might be about "String[]", which has to be a type if it
 is to match the syntax of a parameter list. In fact, String[]
 represents a so-called "array type", so the syntax is valid. We will
-cover arrays in `Chapter7`_. (The parameter, args, represents
+cover arrays in :doc:`Chapter 7</7>`. (The parameter, args, represents
 information provided to the program when the main() routine is called
 by the system. In case you know the term, the information consists of
 any "command-line arguments" specified in the command that the user
@@ -187,7 +187,7 @@ example, theplayGame() method given as an example above could be
 called using the following subroutine call statement:
 
 
-::
+.. code-block:: java
 
     playGame();
 
@@ -203,7 +203,7 @@ named Poker. Then to callplayGame() from **outside** the Poker class,
 you would have to say
 
 
-::
+.. code-block:: java
 
     Poker.playGame();
 
@@ -217,7 +217,7 @@ More generally, a subroutine call statement for a static subroutine
 takes the form
 
 
-::
+.. code-block:: java
 
     
     subroutine-name(parameters);
@@ -226,7 +226,7 @@ takes the form
 if the subroutine that is being called is in the same class, or
 
 
-::
+.. code-block:: java
 
     
     class-name.subroutine-name(parameters);
@@ -268,7 +268,7 @@ outline of the algorithm and apply stepwise refinement. Here is a
 short pseudocode algorithm for a guessing game routine:
 
 
-::
+.. code-block:: java
 
     Pick a random number
     while the game is not over:
@@ -285,7 +285,7 @@ we'll have to keep track of the number of guesses that the user has
 made. Filling out the algorithm gives:
 
 
-::
+.. code-block:: java
 
     Let computersNumber be a random number between 1 and 100
     Let guessCount = 0
@@ -310,7 +310,7 @@ between 1 and 100 can be computed as (int)(100* Math.random())+1. I've
 cleaned up the interaction with the user to make it flow better.
 
 
-::
+.. code-block:: java
 
     static void playGame() {
         int computersNumber; // A random number picked by the computer.
@@ -359,7 +359,7 @@ this before. Here's what the complete program looks like (except that
 a serious program needs more comments than I've included here).
 
 
-::
+.. code-block:: java
 
     public class GuessingGame {
     
@@ -461,7 +461,7 @@ this chapter will include the modifier static. They might also be
 marked as public or private. For example:
 
 
-::
+.. code-block:: java
 
     static String usersName;
     public static int numberOfPlayers;
@@ -512,7 +512,7 @@ thegamesWon variable. The changes from the above version are shown in
 red:
 
 
-::
+.. code-block:: java
 
     public class GuessingGame2 {
      

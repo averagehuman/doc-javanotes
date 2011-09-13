@@ -37,7 +37,7 @@ private and there is a getter method and a setter method for each
 instance variable:
 
 
-::
+.. code-block:: java
 
     public class Player {
        String name;
@@ -70,7 +70,7 @@ count the number of heads and the number of tails. Fill in the blanks
 so that it will do so:
 
 
-::
+.. code-block:: java
 
     Counter headCount, tailCount;
     tailCount = new Counter();

@@ -21,8 +21,8 @@ not be arranged into some definite order.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There are two obvious ways to represent a list: as a dynamic array and
-as a linked list. We've encountered these already in `Section7.3`_ and
-`Section9.2`_. Both of these options are available in generic form as
+as a linked list. We've encountered these already in :doc:`Section 7.3</7/s3>` and
+:doc:`Section 9.2</9/s2>`. Both of these options are available in generic form as
 the collection classesjava.util.ArrayList and java.util.LinkedList.
 These classes are part of the Java Collection Framework. Each
 implements the interfaceList<T>, and therefore the interface
@@ -51,7 +51,7 @@ beginning of the list or in the middle of the list. In an array, these
 operations require moving a large number of items up or down one
 position in the array, to make a space for a new item or to fill in
 the hole left by the removal of an item. In terms of asymptotic
-analysis (`Section8.5`_), adding an element at the beginning or in the
+analysis (:doc:`Section 8.5</8/s5>`), adding an element at the beginning or in the
 middle of an array has run timeΘ(n), where n is the number of items in
 the array. In a linked list, nodes can be added or removed at any
 position by changing a few pointer values, an operation that has run
@@ -133,7 +133,7 @@ object of type LinkedList<T>, then we have
 
 
 These methods are apparently defined to make it easy to use
-aLinkedList as if it were a stack or a queue. (See `Section9.3`_.) For
+aLinkedList as if it were a stack or a queue. (See :doc:`Section 9.3</9/s3>`.) For
 example, we can use aLinkedList as a queue by adding items onto one
 end of the list (using the addLast() method) and removing them from
 the other end (using theremoveFirst() method).
@@ -194,7 +194,7 @@ list. The following code will place newItem in the list in its correct
 position, so that the modified list is still in ascending order:
 
 
-::
+.. code-block:: java
 
     ListIterator<String> iter = stringList.listIterator();
     
@@ -248,7 +248,7 @@ that is, they will work for collections of objects of various types.
 Suppose that list is of type List<T>. The command
 
 
-::
+.. code-block:: java
 
     Collections.sort(list);
 
@@ -261,7 +261,7 @@ classes such as Integer andDouble. There is also a sorting method that
 takes a Comparator as its second argument:
 
 
-::
+.. code-block:: java
 
     Collections.sort(list,comparator);
 
@@ -269,7 +269,7 @@ takes a Comparator as its second argument:
 In this method, the comparator will be used to compare the items in
 the list. As mentioned in the `previous section`_, a Comparator is an
 object that defines a compare() method that can be used to compare two
-objects. We'll see an example of using a Comparator in`Section10.4`_.
+objects. We'll see an example of using a Comparator in:doc:`Section 10.4</10/s4>`.
 
 The sorting method that is used by Collections.sort() is the so-called
 "merge sort" algorithm, which has both worst-case and average-case run
@@ -294,7 +294,7 @@ Array-sorting methods are available as static methods in the class
 java.util.Arrays. The statement
 
 
-::
+.. code-block:: java
 
     Arrays.sort(A);
 
@@ -306,7 +306,7 @@ part of an array. This is important since arrays are often only
 "partially filled." The command:
 
 
-::
+.. code-block:: java
 
     Arrays.sort(A,fromIndex,toIndex);
 
@@ -387,7 +387,7 @@ iterator for the set will automatically visit the items in the set in
 sorted order. An algorithm for the program, using a TreeSet, would be:
 
 
-::
+.. code-block:: java
 
     TreeSet<String> words = new TreeSet<String>();
     
@@ -409,7 +409,7 @@ properly defined.) We can use a TreeSet to sort the items of coll and
 remove the duplicates simply by saying:
 
 
-::
+.. code-block:: java
 
     TreeSet<String> set = new TreeSet();
     set.addAll(coll);
@@ -423,7 +423,7 @@ the set. For example, to place the answer in an ArrayList, you could
 say:
 
 
-::
+.. code-block:: java
 
     TreeSet<String> set = new TreeSet<String>();
     set.addAll(coll);
@@ -440,7 +440,7 @@ duplicates removed and in sorted order. This means that we can
 abbreviate the four lines in the above example to the single command:
 
 
-::
+.. code-block:: java
 
     ArrayList<String> list = new ArrayList<String>( new TreeSet<String>(coll) );
 
@@ -526,7 +526,7 @@ class EnumSet. For example, if e1, e2, and e3 are values belonging to
 the enumerated typeE, then the method
 
 
-::
+.. code-block:: java
 
     EnumSet.of( e1, e2, e3 )
 
@@ -580,7 +580,7 @@ it takes place. This information can be represented using the
 enumerated type
 
 
-::
+.. code-block:: java
 
     enum Day { SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY }
 
@@ -592,7 +592,7 @@ event that takes place on Wednesdays and Fridays would have the
 associated set
 
 
-::
+.. code-block:: java
 
     EnumSet.of( Day.WEDNESDAY, Day.FRIDAY )
 
@@ -600,7 +600,7 @@ associated set
 We could define some common sets of Days as
 
 
-::
+.. code-block:: java
 
     EnumSet<Day> weekday = EnumSet.range( Day.MONDAY, Day.FRIDAY );
     EnumSet<Day> weekend = EnumSet.complementOf( weekday );
@@ -618,7 +618,7 @@ track of a **set** of options. If the options are represented by the
 enumerated type
 
 
-::
+.. code-block:: java
 
     enum FontOption { BOLD, ITALIC, UNDERLINED, STRIKETHROUGH, BOXED }
 

@@ -99,7 +99,7 @@ Here is a recursive binary search algorithm that searches for a given
 value in part of an array of integers:
 
 
-::
+.. code-block:: java
 
     /**
      * Search in the array A in positions numbered loIndex to hiIndex,
@@ -195,7 +195,7 @@ smaller disk. There is a third base that can be used as a "spare." The
 starting situation for a stack of ten disks is shown in the top half
 of the following picture. The situation after a number of moves have
 been made is shown in the bottom half of the picture. These pictures
-are from the applet at the end of `Section9.5`_, which displays an
+are from the applet at the end of :doc:`Section 9.5</9/s5>`, which displays an
 animation of the step-by-step solution of the problem.
 
 
@@ -225,7 +225,7 @@ version of the subroutine that will print out step-by-step
 instructions for solving the problem:
 
 
-::
+.. code-block:: java
 
     /**
      * Solve the problem of moving the number of disks specified
@@ -271,7 +271,7 @@ really want to think about! The difficulty of following the details
 contrasts sharply with the simplicity and elegance of the recursive
 solution. Of course, you really want to leave the details to the
 computer. It's much more interesting to watch the applet from
-`Section9.5`_, which shows the solution graphically. That applet uses
+:doc:`Section 9.5</9/s5>`, which shows the solution graphically. That applet uses
 the same recursive subroutine, except that the System.out.println
 statements are replaced by commands that show the image of the disk
 being moved from one stack to another. (You might think about what
@@ -288,7 +288,7 @@ the universe will come to an end. But don't worry. The number of steps
 required to solve the problem for N disks is 2 N -1, and 2 64 -1 days
 is over 50,000,000,000,000 years. We have a long way to go.
 
-(In the terminology of `Section8.5`_, the Towers of Hanoi algorithm
+(In the terminology of :doc:`Section 8.5</8/s5>`, the Towers of Hanoi algorithm
 has a run time that is Θ(2 n ), where n is the number of disks that
 have to be moved. Since the exponential function 2 n grows so quickly,
 the Towers of Hanoi problem can be solved in practice only for a small
@@ -300,10 +300,10 @@ number of disks.)
 By the way, in addition to the graphical Towers of Hanoi applet at the
 end of this chapter, there are three other end-of-chapter applets in
 the on-line version of this text that use recursion. One, at the end
-of `Section12.5`_, is a visual implementation of the Quicksort
+of :doc:`Section 12.5</12/s5>`, is a visual implementation of the Quicksort
 algorithm that is discussed below. One is a maze-solving applet, at
-the end of `Section11.5`_. And the other is a pentominos applet, at
-the end of `Section10.5`_.
+the end of :doc:`Section 11.5</11/s5>`. And the other is a pentominos applet, at
+the end of :doc:`Section 10.5</10/s5>`.
 
 The Maze applet first builds a random maze. It then tries to solve the
 maze by finding a path through the maze from the upper left corner to
@@ -341,7 +341,7 @@ representations of recursion.
 
 Turning next to an application that is perhaps more practical, we'll
 look at a recursive algorithm for sorting an array. The selection sort
-and insertion sort algorithms, which were covered in `Section7.4`_,
+and insertion sort algorithms, which were covered in :doc:`Section 7.4</7/s4>`,
 are fairly simple, but they are rather slow when applied to large
 arrays. Faster sorting algorithms are available. One of these is
 Quicksort, a recursive algorithm which turns out to be the fastest
@@ -365,7 +365,7 @@ implementation of QuicksortStep. Since it's not the main point of this
 discussion, I present one without much comment.
 
 
-::
+.. code-block:: java
 
     /**
      * Apply QuicksortStep to the list of items in locations lo through hi 
@@ -440,7 +440,7 @@ only one item, or no items, then the list is already as sorted as it
 can ever be, so Quicksort doesn't have to do anything in these cases.
 
 
-::
+.. code-block:: java
 
     /**
      * Apply quicksort to put the array elements between
@@ -469,7 +469,7 @@ specified part of an array. To sort an entire array, A, using the
 quickSort() subroutine, you would call quicksort(A, 0, A.length-1).
 
 Quicksort is an interesting example from the point of view of the
-analysis of algorithms (`Section8.5`_), because its average case run
+analysis of algorithms (:doc:`Section 8.5</8/s5>`), because its average case run
 time differs greatly from its worst case run time. Here is a very
 informal analysis, starting with the average case: Note that an
 application of quicksortStep divides a problem into two sub-problems.
@@ -535,7 +535,7 @@ The data for the grid of squares is stored in a two dimensional array
 of boolean values,
 
 
-::
+.. code-block:: java
 
     boolean[][]  filled;
 
@@ -558,7 +558,7 @@ Unfortunately, it has a serious flaw: It leads to an infinite
 recursion!
 
 
-::
+.. code-block:: java
 
     int getBlobSize(int r, int c) {  // BUGGY, INCORRECT VERSION!!
           // This INCORRECT method tries to count all the filled
@@ -612,7 +612,7 @@ in the programming of recursive algorithms. Here is the corrected
 version ofgetBlobSize(), with changes shown in red:
 
 
-::
+.. code-block:: java
 
     
     /**
@@ -655,7 +655,7 @@ blobs. This is done by the following method, which includes comments
 to explain how it works:
 
 
-::
+.. code-block:: java
 
     /**
      * When the user clicks the "Count the Blobs" button, find the 

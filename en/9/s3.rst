@@ -84,7 +84,7 @@ If the nesting bothers you, you could replace it with a separate Node
 class.)
 
 
-::
+.. code-block:: java
 
     public class StackOfInts {
     
@@ -160,7 +160,7 @@ work the way they are supposed to, we are OK. Here is a second
 implementation of theStackOfInts class, using a dynamic array:
 
 
-::
+.. code-block:: java
 
     public class StackOfInts {  // (alternate version, using an array)
     
@@ -215,7 +215,7 @@ interchangeably, since their public interfaces are identical.
 
 
 It's interesting to look at the run time analysis of stack operations.
-(See `Section8.5`_). We can measure the size of the problem by the
+(See :doc:`Section 8.5</8/s5>`). We can measure the size of the problem by the
 number of items that are on the stack. For the linked list
 implementation of a stack, the worst case run time both for the push
 and for the pop operation is Θ(1). This just means that the run time
@@ -279,7 +279,7 @@ pointer to the first node of the list, it would always be possible to
 get a pointer to the last node of the list by saying:
 
 
-::
+.. code-block:: java
 
     Node tail;    // This will point to the last node in the list.
     tail = head;  // Start at the first node.
@@ -298,7 +298,7 @@ variable whenever a new node is added to the end of the list. Given
 all this, writing the QueueOfInts class is not all that difficult:
 
 
-::
+.. code-block:: java
 
     public class QueueOfInts {
     
@@ -524,7 +524,7 @@ which they occur in the expression. This allows the algorithm for
 evaluating postfix expressions to be fairly straightforward:
 
 
-::
+.. code-block:: java
 
     Start with an empty stack
     for each item in the expression:
@@ -571,7 +571,7 @@ implements the postfix evaluation algorithm. It is a direct
 implementation of the pseudocode algorithm given above:
 
 
-::
+.. code-block:: java
 
     /**
      *  Read one line of input and process it as a postfix expression.

@@ -84,7 +84,7 @@ identifying bugs.
 An assertion statement in Java takes one of the following two forms:
 
 
-::
+.. code-block:: java
 
     assert condition ;
 
@@ -92,7 +92,7 @@ An assertion statement in Java takes one of the following two forms:
 or
 
 
-::
+.. code-block:: java
 
     assert condition : error-message ;
 
@@ -116,7 +116,7 @@ string becomes the message in the AssertionError.
 So, the statement "assert condition : error-message;" is similar to
 
 
-::
+.. code-block:: java
 
     if ( condition == false )
         throw new AssertionError( error-message );
@@ -147,7 +147,7 @@ would make sense to write the method using assertions instead of
 exceptions:
 
 
-::
+.. code-block:: java
 
     /**
      * Returns the larger of the two roots of the quadratic equation
@@ -195,14 +195,14 @@ method.
 
 To have any effect, assertions must be **enabled** when the program is
 run. How to do this depends on what programming environment you are
-using. (See`Section2.6`_ for a discussion of programming
+using. (See:doc:`Section 2.6</2/s6>` for a discussion of programming
 environments.) In the usual command line environment, assertions are
 enabled by adding the option -enableassertions to the java command
 that is used to run the program. For example, if the class that
 contains the main program is RootFinder, then the command
 
 
-::
+.. code-block:: java
 
     java -enableassertions RootFinder
 
@@ -212,7 +212,7 @@ option can be abbreviated to -ea, so the command can alternatively be
 written as
 
 
-::
+.. code-block:: java
 
     java -ea RootFinder
 
@@ -230,7 +230,7 @@ assertions enabled for every class in the packages named "paintutils"
 and "drawing", you would use the command:
 
 
-::
+.. code-block:: java
 
     java  -ea:paintutils...  -ea:drawing...  MegaPaint
 
@@ -302,7 +302,7 @@ modifiers that are used in much the same way as built-in modifiers
 like "public" and "final." For example,
 
 
-::
+.. code-block:: java
 
     @Override public void WindowClosed(WindowEvent evt) { ... }
 
@@ -335,7 +335,7 @@ what class of warnings are to be suppressed. For example, when a class
 or method is annotated with
 
 
-::
+.. code-block:: java
 
     @SuppressWarnings("deprecation")
 

@@ -81,7 +81,7 @@ standardized and is well understood, and data expressed in character
 form can be made meaningful to human readers. The current trend seems
 to be towards increased use of character data, represented in a way
 that will make its meaning as self-evident as possible. We'll look at
-one way this is done in `Section11.5`_.
+one way this is done in :doc:`Section 11.5</11/s5>`.
 
 I should note that the original version of Java did not have character
 streams, and that for ASCII-encoded character data, byte streams are
@@ -115,7 +115,7 @@ provide only very primitive I/O operations. For example, the
 InputStream class declares the instance method
 
 
-::
+.. code-block:: java
 
     public int read() throws IOException
 
@@ -141,7 +141,7 @@ OutputStream class defines a primitive output method for writing one
 byte of data to an output stream. The method is defined as:
 
 
-::
+.. code-block:: java
 
     
     public void write(int b) throws IOException
@@ -188,7 +188,7 @@ Writer as input to the constructor. For example, if charSink is of
 type Writer, then you could say
 
 
-::
+.. code-block:: java
 
     PrintWriter printableCharSink = new PrintWriter(charSink);
 
@@ -230,7 +230,7 @@ Note that none of these methods will ever throw an IOException.
 Instead, the PrintWriter class includes the method
 
 
-::
+.. code-block:: java
 
     public boolean checkError()
 
@@ -267,7 +267,7 @@ level output methods on it. For example, if byteSink is of type
 OutputStream, you could say
 
 
-::
+.. code-block:: java
 
     DataOutputStream dataSink = new DataOutputStream(byteSink);
 
@@ -296,7 +296,7 @@ byteSource is a variable of type InputStream and byteSink is of type
 OutputStream, then the statements
 
 
-::
+.. code-block:: java
 
     Reader charSource = new InputStreamReader( byteSource );
     Writer charSink   = new OutputStreamWriter( byteSink );
@@ -309,7 +309,7 @@ historical reasons, can be wrapped in a Reader to make it easier to
 read character data from standard input:
 
 
-::
+.. code-block:: java
 
     Reader charIn = new InputStreamReader( System.in );
 
@@ -318,7 +318,7 @@ As another application, the input and output streams that are
 associated with a network connection are byte streams rather than
 character streams, but the byte streams can be wrapped in character
 streams to make it easy to send and receive character data over the
-network. We will encounter network I/O in `Section11.4`_.
+network. We will encounter network I/O in :doc:`Section 11.4</11/s4>`.
 
 There are various ways for characters to be encoded as binary data. A
 particular encoding is known as a charset orcharacter set. Charsets
@@ -334,7 +334,7 @@ on which they are running, unless you specify a different one. This
 can be done, for example, in a constructor such as
 
 
-::
+.. code-block:: java
 
     Writer charSink = new OutputStreamWriter( byteSink, "ISO-8859-1" );
 
@@ -363,7 +363,7 @@ comes pretty close.) There is one basic case that is easily handled by
 a standard class. The BufferedReader class has a method
 
 
-::
+.. code-block:: java
 
     public String readLine() throws IOException
 
@@ -386,7 +386,7 @@ is of type Reader, then a BufferedReader wrapper can be created for
 reader with
 
 
-::
+.. code-block:: java
 
     BufferedReader in = new BufferedReader( reader );
 
@@ -396,7 +396,7 @@ mentioned above to read lines of text from an InputStream. For
 example, we can apply this to System.in:
 
 
-::
+.. code-block:: java
 
     BufferedReader in;  // BufferedReader for reading from standard input.
     in = new BufferedReader( new InputStreamReader( System.in ) );
@@ -447,7 +447,7 @@ itself a stream and cannot be wrapped inside other stream classes.)
 The constructors
 
 
-::
+.. code-block:: java
 
     public TextReader(Reader characterSource)
 
@@ -455,7 +455,7 @@ The constructors
 and
 
 
-::
+.. code-block:: java
 
     public TextReader(InputStream byteSource)
 
@@ -566,7 +566,7 @@ File class will be covered in the `next section`_.) For example, you
 can use a Scanner to read from standard input by saying:
 
 
-::
+.. code-block:: java
 
     Scanner standardInputScanner = new Scanner( System.in );
 
@@ -575,7 +575,7 @@ and if charSource is of type Reader, you can create a Scanner for
 reading from charSource with:
 
 
-::
+.. code-block:: java
 
     Scanner scanner = new Scanner( charSource );
 
@@ -700,7 +700,7 @@ be writable and readable. You only need to add the words "implements
 Serializable" to your class definitions. Many of Java's standard
 classes are already declared to be serializable, including all the
 component classes and many other classes in Swing and in the AWT. One
-of the programming examples in `Section11.3`_ uses object IO.
+of the programming examples in :doc:`Section 11.3</11/s3>` uses object IO.
 
 One warning about using ObjectOutputStreams: These streams are
 optimized to avoid writing the same object more than once. When an

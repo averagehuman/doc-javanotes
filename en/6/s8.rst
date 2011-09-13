@@ -7,7 +7,7 @@
 W e have already encountered many of the basic aspects of GUI
 programming, but professional programs use many additional features.
 We will cover some of the advanced features of Java GUI programming in
-`Chapter13`_, but in this section we look briefly at a few more basic
+:doc:`Chapter 13</13>`, but in this section we look briefly at a few more basic
 features that are essential for writing GUI programs. I will discuss
 these features in the context of this "MosaicDraw" program:
 
@@ -83,7 +83,7 @@ their common behavior. In particular, a JMenuItem is created using a
 constructor that specifies the text of the menu item, such as:
 
 
-::
+.. code-block:: java
 
     JMenuItem fillCommand = new JMenuItem("Fill");
 
@@ -105,7 +105,7 @@ method that can be used to add a JMenuItem to the menu. So, the
 where listener is a variable of type ActionListener:
 
 
-::
+.. code-block:: java
 
     JMenu toolsMenu = new JMenu("Tools");  // Create a menu with name "Tools"
     
@@ -131,7 +131,7 @@ controlMenu, colorMenu, and toolsMenu. We could create a menu bar and
 add the menus to it with the statements:
 
 
-::
+.. code-block:: java
 
     JMenuBar menuBar = new JMenuBar();
     menuBar.add(controlMenu);
@@ -152,7 +152,7 @@ basic code that is used (in somewhat modified form) to set up the
 interface both in the applet and in the frame version of the program:
 
 
-::
+.. code-block:: java
 
     MosaicDrawController controller = new MosaicDrawController();
     
@@ -189,7 +189,7 @@ that corresponds to the "Use Randomness" option in the "Control" menu
 could be set up with the statements:
 
 
-::
+.. code-block:: java
 
     JMenuItem useRandomnessToggle = new JCheckBoxMenuItem("Use Randomness");
     useRandomnessToggle.addActionListener(listener);  // Set up a listener.
@@ -222,7 +222,7 @@ is easy to implement for a small program like this one. The
 actionPerformed() method of the listener object uses the statement
 
 
-::
+.. code-block:: java
 
     String command = evt.getActionCommand();
 
@@ -239,7 +239,7 @@ Here, for example, is the code that handles the "Use Randomness"
 command:
 
 
-::
+.. code-block:: java
 
     if (command.equals("Use Randomness")) {
             // Set the value of useRandomness depending on the menu item's state.
@@ -267,7 +267,7 @@ example, the separator in the "Control" menu was created with the
 statement:
 
 
-::
+.. code-block:: java
 
     controlMenu.addSeparator();
 
@@ -325,7 +325,7 @@ subclass ofJDialog. The JColorChooser class has a static method that
 makes color choice dialogs very easy to use:
 
 
-::
+.. code-block:: java
 
     Color JColorChooser.showDialog(Component parentComp, 
                                             String title, Color initialColor)
@@ -373,7 +373,7 @@ clicking the "OK" button. A message dialog can be shown by calling the
 static method:
 
 
-::
+.. code-block:: java
 
     void JOptionPane.showMessageDialog(Component parentComp, String message)
 
@@ -386,7 +386,7 @@ An input dialog displays a question or request and lets the user type
 in a string as a response. You can show an input dialog by calling:
 
 
-::
+.. code-block:: java
 
     String JOptionPane.showInputDialog(Component parentComp, String question)
 
@@ -407,7 +407,7 @@ buttons: "Yes", "No", and "Cancel". A confirm dialog can be shown by
 calling:
 
 
-::
+.. code-block:: java
 
     int JOptionPane.showConfirmDialog(Component parentComp, String question)
 
@@ -427,7 +427,7 @@ dialog by calling one of the other methods in the JOptionPane class.
 Just call:
 
 
-::
+.. code-block:: java
 
     JOptionPane.showConfirmDialog(
                     parent, question, title, JOptionPane.YES_NO_OPTION )
@@ -458,7 +458,7 @@ ofJFrame. The definition of this class is very short, but it
 illustrates several new features of frames that I want to discuss:
 
 
-::
+.. code-block:: java
 
     public class MosaicDrawFrame extends JFrame {
        
@@ -503,7 +503,7 @@ automatically, and you should set a preferred size by hand. For
 example:
 
 
-::
+.. code-block:: java
 
     panel.setPreferredSize( new Dimension(400, 250) );
 
@@ -512,7 +512,7 @@ The last two lines in the constructor position the window so that it
 is exactly centered on the screen. The line
 
 
-::
+.. code-block:: java
 
     Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -545,7 +545,7 @@ creates a MosaicDrawFrame and makes it visible on the screen. It also
 calls
 
 
-::
+.. code-block:: java
 
     window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -622,7 +622,7 @@ automatically when Java is installed, at least on Windows and Mac OS.)
 The question, then, is how to create a jar file. The answer depends on
 what programming environment you are using. The two basic types of
 programming environment -- command line and IDE -- were discussed in
-`Section2.6`_. Any IDE (Integrated Programming Environment) for Java
+:doc:`Section 2.6</2/s6>`. Any IDE (Integrated Programming Environment) for Java
 should have a command for creating jar files. In the Eclipse IDE, for
 example, it can be done as follows: In the Package Explorer pane,
 select the programming project (or just all the individual source code
@@ -655,7 +655,7 @@ line, change to the directory that contains the class files that you
 want to include in the jar. Then give the command
 
 
-::
+.. code-block:: java
 
     jar  cf  JarFileName.jar  *.class
 
@@ -676,7 +676,7 @@ routine. This is done by creating a manifest file. The manifest file
 can be a plain text file containing a single line of the form
 
 
-::
+.. code-block:: java
 
     Main-Class: ClassName
 
@@ -689,7 +689,7 @@ like. Put it in the same directory where you will issue the jar
 command, and use a command of the form
 
 
-::
+.. code-block:: java
 
     jar  cmf  ManifestFileName  JarFileName.jar  *.class
 
@@ -703,7 +703,7 @@ you can run it on the command line using the command "java-jar". For
 example:
 
 
-::
+.. code-block:: java
 
     java  -jar  JarFileName.jar
 

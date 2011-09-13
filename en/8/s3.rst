@@ -19,7 +19,7 @@ test whether the index value is legal before using it in the array.
 This could be done with an if statement:
 
 
-::
+.. code-block:: java
 
     if (i < 0 || i >= A.length) {
        ...  // Do something to handle the out-of-range index, i
@@ -43,7 +43,7 @@ of if statements.
 8.3.1Exceptions and Exception Classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We have already seen in `Section3.7`_ that Java (like its cousin, C++)
+We have already seen in :doc:`Section 3.7</3/s7>` that Java (like its cousin, C++)
 provides a neater, more structured alternative technique for dealing
 with errors that can occur while a program is running. The technique
 is referred to as exception handling. The word "exception" is meant to
@@ -62,7 +62,7 @@ program and caught in a different part. An exception that is not
 caught will generally cause the program to crash. (More exactly, the
 thread that throws the exception will crash. In a multithreaded
 program, it is possible for other threads to continue even after one
-crashes. We will cover threads in `Chapter12`_. In particular, GUI
+crashes. We will cover threads in :doc:`Chapter 12</12>`. In particular, GUI
 programs are multithreaded, and parts of the program might continue to
 function even while other parts are non-functional because of
 exceptions.)
@@ -78,7 +78,7 @@ With Java, such system crashes should be impossible -- which means
 that when they happen, you have the satisfaction of blaming the system
 rather than your own program.
 
-Exceptions were introduced in `Section3.7`_, along with thetry..catch
+Exceptions were introduced in :doc:`Section 3.7</3/s7>`, along with thetry..catch
 statement, which is used to catch and handle exceptions. However, that
 section did not cover the complete syntax of try..catch or the full
 complexity of exceptions. In this section, we cover these topics in
@@ -171,13 +171,13 @@ to the exception prints the stack trace to standard output.)
 ~~~~~~~~~~~~~~~~~~~~~~
 
 To catch exceptions in a Java program, you need a try statement. We
-have been using such statements since `Section3.7`_, but the full
+have been using such statements since :doc:`Section 3.7</3/s7>`, but the full
 syntax of the try statement is more complicated than what was
 presented there. The try statements that we have used so far had a
 syntax similar to the following example:
 
 
-::
+.. code-block:: java
 
     try {
         double determinant = M[0][0]*M[1][1] - M[0][1]*M[1][0];
@@ -210,7 +210,7 @@ null. We can handle both possible exceptions by adding a second catch
 clause to the try statement:
 
 
-::
+.. code-block:: java
 
     try {
         double determinant = M[0][0]*M[1][1] - M[0][1]*M[1][0];
@@ -236,7 +236,7 @@ are subclasses of RuntimeException. It's possible to catch all
 RuntimeExceptions with a single catch clause. For example:
 
 
-::
+.. code-block:: java
 
     try {
         double determinant = M[0][0]*M[1][1] - M[0][1]*M[1][0];
@@ -283,7 +283,7 @@ at the end of a try statement. The complete syntax of the try
 statement can be described as:
 
 
-::
+.. code-block:: java
 
     try {
        statements
@@ -299,7 +299,7 @@ That is, a try statement can have either a finally clause, or one or
 more catch clauses, or both. The syntax for a catch clause is
 
 
-::
+.. code-block:: java
 
     catch ( exception-class-name variable-name ) {
        statements
@@ -309,7 +309,7 @@ more catch clauses, or both. The syntax for a catch clause is
 and the syntax for a finally clause is
 
 
-::
+.. code-block:: java
 
     finally {
        statements
@@ -327,7 +327,7 @@ enough about networking to look at the actual programming in this
 case, we can consider some pseudocode:
 
 
-::
+.. code-block:: java
 
     try {
        open a network connection
@@ -376,7 +376,7 @@ throw statement. You have already seen an example of this in
 fully. The syntax of the throw statement is:
 
 
-::
+.. code-block:: java
 
     throw  exception-object ;
 
@@ -387,7 +387,7 @@ subclasses of Exception. In most cases, it will be a newly constructed
 object created with the new operator. For example:
 
 
-::
+.. code-block:: java
 
     throw new ArithmeticException("Division by zero");
 
@@ -437,7 +437,7 @@ by adding a clause "throws exception-class-name" to the header of the
 routine. For example:
 
 
-::
+.. code-block:: java
 
     /**
      * Returns the larger of the two roots of the quadratic equation
@@ -473,7 +473,7 @@ A throws clause in a subroutine heading can declare several different
 types of exception, separated by commas. For example:
 
 
-::
+.. code-block:: java
 
     void processArray(int[] A) throws NullPointerException, 
                                              ArrayIndexOutOfBoundsException { ...
@@ -531,7 +531,7 @@ errors.
 Among the checked exceptions are several that can occur when using
 Java's input/output routines. This means that you can't even use these
 routines unless you understand something about exception-
-handling.`Chapter11`_ deals with input/output and uses mandatory
+handling.:doc:`Chapter 11</11>` deals with input/output and uses mandatory
 exception-handling extensively.
 
 
@@ -567,7 +567,7 @@ Here, for example, is a class that extends Exception, and therefore
 requires mandatory exception handling when it is used:
 
 
-::
+.. code-block:: java
 
     public class ParseError extends Exception {
        public ParseError(String message) {
@@ -597,7 +597,7 @@ ParseError. The constructor for the ParseError object must specify an
 error message. For example:
 
 
-::
+.. code-block:: java
 
     throw new ParseError("Encountered an illegal negative number.");
 
@@ -605,7 +605,7 @@ error message. For example:
 or
 
 
-::
+.. code-block:: java
 
     throw new ParseError("The word '" + word 
                                    + "' is not a valid file name.");
@@ -617,7 +617,7 @@ declare that it can throw a ParseError by adding the clause "throws
 ParseError" to the subroutine heading. For example,
 
 
-::
+.. code-block:: java
 
     void getUserData() throws ParseError {
        . . .
@@ -632,7 +632,7 @@ A routine that wants to handle ParseErrors can use a try statement
 with a catch clause that catches ParseErrors. For example:
 
 
-::
+.. code-block:: java
 
     try {
        getUserData();
@@ -651,7 +651,7 @@ Sometimes, it's useful to store extra data in an exception object. For
 example,
 
 
-::
+.. code-block:: java
 
     class ShipDestroyed extends RuntimeException {
        Ship ship;  // Which ship was destroyed.
@@ -674,7 +674,7 @@ information about a ship that was destroyed. This could be used, for
 example, in a statement:
 
 
-::
+.. code-block:: java
 
     if ( userShip.isHit() )
        throw new ShipDestroyed("You've been hit!", userShip, xPos, yPos);
@@ -721,7 +721,7 @@ using the standard exception classIllegalArgumentException instead.)
 The changes from the original version are shown in red:
 
 
-::
+.. code-block:: java
 
     
     /**
@@ -809,7 +809,7 @@ In the main program, this subroutine is called in a try statement of
 the form
 
 
-::
+.. code-block:: java
 
     try {
        inches = readMeasurement();

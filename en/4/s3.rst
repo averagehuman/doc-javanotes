@@ -37,7 +37,7 @@ starting value of N. So, the starting value of N would be a parameter
 to the subroutine. The subroutine could be written like this:
 
 
-::
+.. code-block:: java
 
     /**
      * This subroutine prints a 3N+1 sequence to standard output, using
@@ -99,7 +99,7 @@ a main() program that prints out 3N+1 sequences for various starting
 values specified by the user:
 
 
-::
+.. code-block:: java
 
     public static void main(String[] args) {
        System.out.println("This program will print out 3N+1 sequences");
@@ -153,7 +153,7 @@ you must provide one actual parameter for each formal parameter in the
 subroutine's definition. Consider, for example, a subroutine
 
 
-::
+.. code-block:: java
 
     static void doTask(int N, double x, boolean test) {
         // statements to perform the task go here
@@ -163,7 +163,7 @@ subroutine's definition. Consider, for example, a subroutine
 This subroutine might be called with the statement
 
 
-::
+.. code-block:: java
 
     doTask(17, Math.sqrt(z+1), z >= 10);
 
@@ -172,7 +172,7 @@ When the computer executes this statement, it has essentially the same
 effect as the block of statements:
 
 
-::
+.. code-block:: java
 
     {
       int N;       // Allocate memory locations for the formal parameters.
@@ -237,7 +237,7 @@ different methods named println, for example. These methods all have
 different signatures, such as:
 
 
-::
+.. code-block:: java
 
     println(int)                   println(double)
     println(String)                println(char)
@@ -263,7 +263,7 @@ types. For example, it would be a syntax error for a class to contain
 two methods defined as:
 
 
-::
+.. code-block:: java
 
     int    getln() { ... }
     double getln() { ... }
@@ -283,7 +283,7 @@ subroutines, the number of parameters in the subroutine call can be
 arbitrarily large, so it would be impossible to have different
 subroutines to handle each case. Unfortunately, writing the definition
 of such a subroutine requires some knowledge of arrays, which will not
-be covered until `Chapter7`_. When we get to that chapter, you'll
+be covered until :doc:`Chapter 7</7>`. When we get to that chapter, you'll
 learn how to write subroutines with a variable number of parameters.
 For now, we will ignore this complication.
 
@@ -300,7 +300,7 @@ subroutines. The task performed by a subroutine is always a subtask in
 a larger program. The art of designing those programs -- of deciding
 how to break them up into subtasks -- is the other side of programming
 with subroutines. We'll return to the question of program design in
-`Section4.6`_.
+:doc:`Section 4.6</4/s6>`.
 
 As a first example, let's write a subroutine to compute and print out
 all the divisors of a given positive integer. The integer will be a
@@ -308,7 +308,7 @@ parameter to the subroutine. Remember that the syntax of any
 subroutine is:
 
 
-::
+.. code-block:: java
 
     
     modifiers  return-type  subroutine-name  ( parameter-list ) {
@@ -329,7 +329,7 @@ itself. I'll use N for the parameter and printDivisors for the
 subroutine name. The subroutine will look like
 
 
-::
+.. code-block:: java
 
     static void printDivisors( int N ) {
         statements
@@ -343,7 +343,7 @@ algorithm is: "For each possible divisor D in the range from 1 to N,
 ifD evenly divides N, then print D." Written in Java, this becomes:
 
 
-::
+.. code-block:: java
 
     /**
      * Print all the divisors of N.
@@ -378,7 +378,7 @@ body of the subroutine is easy to write. The complete subroutine is
 given by
 
 
-::
+.. code-block:: java
 
     /**
      * Write one line of output containing N copies of the
@@ -411,7 +411,7 @@ the string str, call printRow(str.charAt(i),25) to print one line of
 the output. So, we get:
 
 
-::
+.. code-block:: java
 
     /**
      * For each character in str, write a line of output
@@ -429,7 +429,7 @@ the output. So, we get:
 We could use printRowsFromString in a main() routine such as
 
 
-::
+.. code-block:: java
 
     public static void main(String[] args) {
         String inputLine;  // Line of text input by user.
@@ -463,7 +463,7 @@ question arises, though, what should the subroutine do when the caller
 violates the contract by providing bad parameter values?
 
 We've already seen that some subroutines respond to bad parameter
-values by throwing exceptions. (See `Section3.7`_.) For example, the
+values by throwing exceptions. (See :doc:`Section 3.7</3/s7>`.) For example, the
 contract of the built-in subroutineDouble.parseDouble says that the
 parameter should be a string representation of a number of type
 double; if this is true, then the subroutine will convert the string
@@ -476,11 +476,11 @@ parameter values. You might want to take this response in your own
 subroutines. This can be done with a throw statement. An exception is
 an object, and in order to throw an exception, you must create an
 exception object. You won't officially learn how to do this until
-`Chapter5`_, but for now, you can use the following syntax for a throw
+:doc:`Chapter 5</5>`, but for now, you can use the following syntax for a throw
 statement that throws an IllegalArgumentException:
 
 
-::
+.. code-block:: java
 
     throw  new  IllegalArgumentException( error-message );
 
@@ -496,7 +496,7 @@ the subroutine definition to make it throw an exception when this
 condition is violated:
 
 
-::
+.. code-block:: java
 
     static void print3NSequence(int startingValue) {
        
@@ -512,7 +512,7 @@ This will immediately terminate the subroutine, without executing the
 rest of the body of the subroutine. Furthermore, the program as a
 whole will crash unless the exception is "caught" and handled
 elsewhere in the program by atry..catch statement, as discussed in
-`Section3.7`_.
+:doc:`Section 3.7</3/s7>`.
 
 
 

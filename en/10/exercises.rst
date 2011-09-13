@@ -62,7 +62,7 @@ an operator. The program should perform the operation and print the
 resulting set. Here are some examples:
 
 
-::
+.. code-block:: java
 
               Input                                 Output
              -------------------------           -------------------
@@ -124,7 +124,7 @@ In Java, we could implement "predicate objects" by defining a generic
 interface:
 
 
-::
+.. code-block:: java
 
     public interface Predicate<T> {
         public boolean test( T obj );
@@ -139,7 +139,7 @@ standard class Collections that provides variousstatic methods for
 working with collections.
 
 
-::
+.. code-block:: java
 
     public static <T> void remove(Collection<T> coll, Predicate<T> pred)
        // Remove every object, obj, from coll for which
@@ -233,7 +233,7 @@ You can use the following nested enumerated type and class for this
 purpose:
 
 
-::
+.. code-block:: java
 
     private enum Functions { SIN, COS, TAN, ABS, SQRT, LOG }
     
@@ -285,7 +285,7 @@ is the name of the function and the value is an object of
 typeStandardFunction that represents the function. For example:
 
 
-::
+.. code-block:: java
 
     symbolTable.put("sin", new StandardFunction(StandardFunction.SIN));
 

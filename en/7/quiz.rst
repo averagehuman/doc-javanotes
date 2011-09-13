@@ -16,7 +16,7 @@ What does the computer do when it executes the following statement?
 Try to give as complete an answer as possible.
 
 
-::
+.. code-block:: java
 
     Color[]  palette  =  new  Color[12];
 
@@ -34,7 +34,7 @@ Question6:
 Suppose that a variable strlst has been declared as
 
 
-::
+.. code-block:: java
 
     ArrayList<String> strlst = new ArrayList<String>();
 
@@ -49,7 +49,7 @@ What is the purpose of the following subroutine? What is the meaning
 of the value that it returns, in terms of the value of its parameter?
 
 
-::
+.. code-block:: java
 
     static String concat( String[] str ) {
        if (str == null)
@@ -64,7 +64,7 @@ Question8:
 Show the exact output produced by the following code segment.
 
 
-::
+.. code-block:: java
 
     char[][] pic = new char[6][6];
     for (int i = 0; i < 6; i++)
@@ -90,7 +90,7 @@ Suppose that temperature measurements were made on each day of 1999 in
 each of 100 cities. The measurements have been stored in an array
 
 
-::
+.. code-block:: java
 
     int[][]  temps  =  new  int[100][365];
 
@@ -104,7 +104,7 @@ Question11:
 Suppose that a class,Employee, is defined as follows:
 
 
-::
+.. code-block:: java
 
     class Employee {
        String lastName;
@@ -118,7 +118,7 @@ Suppose that data about 100 employees is **already** stored in an
 array:
 
 
-::
+.. code-block:: java
 
     Employee[] employeeData = new Employee[100];
 
@@ -130,7 +130,7 @@ Question12:
 Suppose that A has been declared and initialized with the statement
 
 
-::
+.. code-block:: java
 
     double[] A = new double[20];
 

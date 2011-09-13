@@ -16,7 +16,7 @@ Describe the object that is created by the following statement, and
 give an example of how it might be used in a program:
 
 
-::
+.. code-block:: java
 
     BufferedImage OSC = new BufferedImage(32,32,BufferedImage.TYPE_INT_RGB);
 
@@ -40,7 +40,7 @@ Describe the picture that is produced by the followingpaintComponent()
 method:
 
 
-::
+.. code-block:: java
 
     
     public void paintComponent(Graphics g) {

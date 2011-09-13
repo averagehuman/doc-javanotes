@@ -28,7 +28,7 @@ Draw the picture that will be produced by the following
 paintComponent() method:
 
 
-::
+.. code-block:: java
 
     public static void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -53,7 +53,7 @@ Question9:
 What is the function of aLayoutManager in Java?
 Question10:
 What type of layout manager is being used for each of the three panels
-in the following illustration from `Section6.7`_?
+in the following illustration from :doc:`Section 6.7</6/s7>`?
 
 
 Question11:

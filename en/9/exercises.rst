@@ -28,7 +28,7 @@ defined for non-negative integers using the following recursive
 formulas:
 
 
-::
+.. code-block:: java
 
     factorial(0)  =  1
     factorial(N)  =  N*factorial(N-1)   for N > 0
@@ -76,7 +76,7 @@ Suppose that linked lists of integers are made from objects belonging
 to the class
 
 
-::
+.. code-block:: java
 
     class ListNode {
        int item;       // An item in the list.
@@ -106,7 +106,7 @@ that a stack or queue is used as an auxiliary data structure. Assuming
 that a queue is used, here is an algorithm for such a subroutine:
 
 
-::
+.. code-block:: java
 
     Add the root node to an empty queue
     while the queue is not empty:
@@ -175,7 +175,7 @@ parameter increases by 1.
 Exercise 9.6:
 ~~~~~~~~~~~~~
 
-The parsing programs in`Section9.5`_ work with expressions made up of
+The parsing programs in:doc:`Section 9.5</9/s5>` work with expressions made up of
 numbers and operators. We can make things a little more interesting by
 allowing the variable "x" to occur. This would allow expression such
 as "3*(x-1)*(x+1)", for example. Make a new version of the sample
@@ -203,7 +203,7 @@ one small change in the BNF rules for the expressions: A <factor> is
 allowed to be the variable x:
 
 
-::
+.. code-block:: java
 
     <factor>  ::=  <number>  |  <x-variable>  |  "(" <expression> ")"
 
@@ -243,7 +243,7 @@ can do this by adding a derivative-computing method to each of the
 node classes. First, add another abstract method to the ExpNode class:
 
 
-::
+.. code-block:: java
 
     abstract ExpNode derivative();
 

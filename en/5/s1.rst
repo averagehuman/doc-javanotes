@@ -43,7 +43,7 @@ contain variables and subroutines. If an object is also a collection
 of variables and subroutines, how do they differ from classes? And why
 does it require a different type of thinking to understand and use
 them effectively? In the one section where we worked with objects
-rather than classes, `Section3.8`_, it didn't seem to make much
+rather than classes, :doc:`Section 3.8</3/s8>`, it didn't seem to make much
 difference: We just left the word "static" out of the subroutine
 definitions!
 
@@ -68,7 +68,7 @@ member variables. For example, the following class could be used to
 store information about the person who is using the program:
 
 
-::
+.. code-block:: java
 
     class UserData {
         static String name;
@@ -84,7 +84,7 @@ the program runs. (That is essentially what it means to be "static.")
 Now, consider a similar class that includes non-static variables:
 
 
-::
+.. code-block:: java
 
     class PlayerData {
        String name;
@@ -107,7 +107,7 @@ represents that player can be destroyed. A system of objects in the
 program is being used to dynamically model what is happening in the
 game. You can't do this with static variables!
 
-In `Section3.8`_, we worked with applets, which are objects. The
+In :doc:`Section 3.8</3/s8>`, we worked with applets, which are objects. The
 reason they didn't seem to be any different from classes is because we
 were only working with one applet in each class that we looked at. But
 one class can be used to make many applets. Think of an applet that
@@ -185,7 +185,7 @@ which could be used to store information about students taking a
 course:
 
 
-::
+.. code-block:: java
 
     public class Student {
     
@@ -217,7 +217,7 @@ or the return type of a function. For example, a program could define
 a variable named std of type Student with the statement
 
 
-::
+.. code-block:: java
 
     Student std;
 
@@ -244,7 +244,7 @@ assuming that std is a variable of type Student, declared as above,
 the assignment statement
 
 
-::
+.. code-block:: java
 
     std = new Student();
 
@@ -268,7 +268,7 @@ convention that when B is part of A, then the full name ofB is A.B.
 For example, a program might include the lines
 
 
-::
+.. code-block:: java
 
     System.out.println("Hello, "  +  std.name  +  ".  Your test grades are:");
     System.out.println(std.test1);
@@ -282,7 +282,7 @@ method in the object by sayingstd.getAverage(). To print out the
 student's average, you could say:
 
 
-::
+.. code-block:: java
 
     System.out.println( "Your average is "  +  std.getAverage() );
 
@@ -300,7 +300,7 @@ Java as "null". You can store a null reference in the variable std by
 saying
 
 
-::
+.. code-block:: java
 
     std = null;
 
@@ -310,7 +310,7 @@ to something else. You could test whether the value of std is null by
 testing
 
 
-::
+.. code-block:: java
 
     if (std == null) . . .
 
@@ -327,7 +327,7 @@ running, an exception of type NullPointerException is thrown.
 Let's look at a sequence of statements that work with objects:
 
 
-::
+.. code-block:: java
 
     Student std, std1,       // Declare four variables of
               std2, std3;    //   type Student.
@@ -432,7 +432,7 @@ changing. The variable isfinal, not the object. It's perfectly legal
 to say
 
 
-::
+.. code-block:: java
 
     final Student stu = new Student();
     
@@ -454,7 +454,7 @@ have changed. Suppose x is a variable of type int and stu is a
 variable of type Student. Compare:
 
 
-::
+.. code-block:: java
 
     void dontChange(int z) {                void change(Student s) {
         z = 42;                                  s.name = "Fred";
@@ -498,7 +498,7 @@ example, if your class contains a private member variable, title, of
 type String, you can provide a method
 
 
-::
+.. code-block:: java
 
     public String getTitle() {
         return title;
@@ -523,7 +523,7 @@ name, and it should have a parameter with the same type as the
 variable. A setter method for the variable title could be written
 
 
-::
+.. code-block:: java
 
     public void setTitle( String newTitle ) {
        title = newTitle;
@@ -540,7 +540,7 @@ example, a getter method might keep track of the number of times that
 the variable has been accessed:
 
 
-::
+.. code-block:: java
 
     public String getTitle() {
         titleAccessCount++;  // Increment member variable titleAccessCount.
@@ -552,7 +552,7 @@ and a setter method might check that the value that is being assigned
 to the variable is legal:
 
 
-::
+.. code-block:: java
 
     public void setTitle( String newTitle ) {
        if ( newTitle == null )   // Don't allow null strings as titles!

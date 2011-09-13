@@ -5,7 +5,7 @@
 
 
 G eneric programming refers to writing code that will work for many
-types of data. We encountered the term in `Section7.3`_, where we
+types of data. We encountered the term in :doc:`Section 7.3</7/s3>`, where we
 looked at dynamic arrays of integers. The source code presented there
 for working with dynamic arrays of integers works only for data of
 type int. But the source code for dynamic arrays of double, String,
@@ -95,7 +95,7 @@ defined. This is real generic programming. This might sound pretty
 good, and you might be asking yourself why all programming languages
 don't work this way. This type of freedom makes it easier to write
 programs, but unfortunately it makes it harder to write programs that
-are correct and robust (see `Chapter8`_). Once you have a data
+are correct and robust (see :doc:`Chapter 8</8>`). Once you have a data
 structure that can contain data of any type, it becomes hard to ensure
 that it only holds the type of data that you want it to hold. If you
 have a subroutine that can sort any type of data, it's hard to ensure
@@ -128,7 +128,7 @@ a factory for making subroutines. We can look at an example, since the
 syntax of C++ is very similar to Java's:
 
 
-::
+.. code-block:: java
 
     template<class ItemType>
     void sort( ItemType A[], int count ) {
@@ -267,7 +267,7 @@ represented by the parameterized interfaces Collection<T> and
 Map<T,S>. Here, "T" and "S" stand for any type except for the
 primitive types. Map<T,S> is the first example we have seen where
 there are two type parameters, T andS; we will not deal further with
-this possibility until we look at maps more closely in `Section10.3`_.
+this possibility until we look at maps more closely in :doc:`Section 10.3</10/s3>`.
 In this section and the next, we look at collections only.
 
 There are two types of collections: lists andsets. A list is a
@@ -454,7 +454,7 @@ typeCollection<String>. In that case, the value returned by
 coll.iterator() is of type Iterator<String>, and we can say:
 
 
-::
+.. code-block:: java
 
     Iterator<String> iter;          // Declare the iterator variable.
     iter = coll.iterator();         // Get an iterator for the collection.
@@ -470,7 +470,7 @@ collection of type Collection<JButton> (as long as that collection
 supports removal of values):
 
 
-::
+.. code-block:: java
 
     Iterator<JButton> iter = coll.iterator():
     while ( iter.hasNext() ) {
@@ -496,7 +496,7 @@ can also be used to iterate through any collection. For a collection
 coll of type Collection<T>, a for-each loop takes the form:
 
 
-::
+.. code-block:: java
 
     for ( T x : coll ) { // "for each object x, of type T, in coll"
        //  process x  
@@ -510,7 +510,7 @@ of type T. For example, ifnamelist is of type Collection<String>, we
 can print out all the names in the collection with:
 
 
-::
+.. code-block:: java
 
     for ( String name : namelist ) { 
        System.out.println( name );
@@ -559,7 +559,7 @@ tested for equality. For example, a Card class that will work
 correctly when used in collections could be defined as:
 
 
-::
+.. code-block:: java
 
     public class Card {  // Class to represent playing cards.
        
@@ -609,7 +609,7 @@ to be compared to an object of type T. The interface Comparable<T>
 defines one method:
 
 
-::
+.. code-block:: java
 
     public int compareTo( T obj )
 
@@ -635,7 +635,7 @@ property.) If you define your own class and want to be able to sort
 objects belonging to that class, you should do the same. For example:
 
 
-::
+.. code-block:: java
 
     /**
      * Represents a full name consisting of a first name and a last name.
@@ -706,7 +706,7 @@ where T is the type of the objects that are to be compared. The
 interface Comparator<T> defines the method:
 
 
-::
+.. code-block:: java
 
     public int compare( T obj1, T obj2 )
 

@@ -45,7 +45,7 @@ types of processing, such as finding the sum or average or maximum of
 the numbers, can be done without saving the individual numbers.)
 
 
-::
+.. code-block:: java
 
     public class ReverseInputNumbers {
     
@@ -102,7 +102,7 @@ never be more than 10 players in the game, you could declare the
 variables as:
 
 
-::
+.. code-block:: java
 
     Player[] playerList = new Player[10];  // Up to 10 players.
     int      playerCt = 0;  // At the start, there are no players.
@@ -116,7 +116,7 @@ elementplayerList[playerCt] is **not** in use. The procedure for
 adding a new player, newPlayer, to the game is simple:
 
 
-::
+.. code-block:: java
 
     playerList[playerCt] = newPlayer; // Put new player in next
                                       //     available spot.
@@ -131,7 +131,7 @@ move the player from the last occupied position in the array into
 position k and then to decrement the value of playerCt:
 
 
-::
+.. code-block:: java
 
     playerList[k] = playerList[playerCt - 1];
     playerCt--;
@@ -156,7 +156,7 @@ Playerk+2 fills the spot left open when player k+1 is moved. And so
 on. The code for this is
 
 
-::
+.. code-block:: java
 
     for (int i = k+1; i < playerCt; i++) {
         playerList[i-1] = playerList[i];
@@ -187,7 +187,7 @@ subclasses of Shape. For example, the situation created by the
 statements
 
 
-::
+.. code-block:: java
 
     Shape[] shapes = new Shape[100]; // Array to hold up to 100 shapes.
     shapes[0] = new Rect();          // Put some objects in the array.
@@ -207,7 +207,7 @@ a graphics context g, then all the shapes in the array could be
 redrawn with a simple for loop:
 
 
-::
+.. code-block:: java
 
     for (int i = 0; i < shapeCt; i++)
        shapes[i].redraw(g);
@@ -262,7 +262,7 @@ the value stored in playerList[0] will still be the same as it was
 before. Here is some code that will do this:
 
 
-::
+.. code-block:: java
 
     // Add a new player, even if the current array is full.
     
@@ -294,7 +294,7 @@ put andget operations must be implemented as instance methods. Here,
 for example, is a class that implements a dynamic array of ints:
 
 
-::
+.. code-block:: java
 
     /**
      *  An object of type DynamicArrayOfInt acts like an array of int
@@ -369,7 +369,7 @@ bynumbers.get(i). The statement "numbers[numCount] = num;" is replaced
 by "numbers.put(numCount,num);". Here's the program:
 
 
-::
+.. code-block:: java
 
     public class ReverseWithDynamicArray {
     
@@ -439,7 +439,7 @@ structures that contain elements of type Object. We will first
 consider the almost-generic programming that has been available in
 Java from the beginning, and then we will look at the change that was
 introduced in Java 5.0. A full discussion of generic programming will
-be given in `Chapter10`_.
+be given in :doc:`Chapter 10</10>`.
 
 In Java, every class is a subclass of the class named Object. This
 means that every object can be assigned to a variable of type Object.
@@ -501,7 +501,7 @@ stored in an ArrayList named players. This variable would be declared
 as
 
 
-::
+.. code-block:: java
 
     ArrayList players;
 
@@ -509,7 +509,7 @@ as
 and initialized to refer to a new, empty ArrayList object with
 
 
-::
+.. code-block:: java
 
     players = new ArrayList();
 
@@ -518,7 +518,7 @@ If newPlayer is a variable that refers to a Player object, the new
 player would be added to the ArrayList and to the game by saying
 
 
-::
+.. code-block:: java
 
     players.add(newPlayer);
 
@@ -526,7 +526,7 @@ player would be added to the ArrayList and to the game by saying
 and if player number i leaves the game, it is only necessary to say
 
 
-::
+.. code-block:: java
 
     players.remove(i);
 
@@ -535,7 +535,7 @@ Or, if player is a variable that refers to the Player that is to be
 removed, you could say
 
 
-::
+.. code-block:: java
 
     players.remove(player);
 
@@ -548,7 +548,7 @@ Player. In order to do anything useful with the returned value, it's
 usually necessary to type-cast it to typePlayer:
 
 
-::
+.. code-block:: java
 
     Player plr = (Player)players.get(i);
 
@@ -558,7 +558,7 @@ that is called to allow a player to make a move in the game, then the
 code for letting every player make a move is
 
 
-::
+.. code-block:: java
 
     for (int i = 0;  i < players.size();  i++) {
         Player plr = (Player)players.get(i);
@@ -569,7 +569,7 @@ code for letting every player make a move is
 The two lines inside the for loop can be combined into a single line:
 
 
-::
+.. code-block:: java
 
     ((Player)players.get(i)).makeMove();
 
@@ -587,7 +587,7 @@ example, the for loop used above to let each Player make a move could
 be written as the for-each loop
 
 
-::
+.. code-block:: java
 
     for ( Object plrObj : players ) {
        Player plr = (Player)plrObj;
@@ -629,7 +629,7 @@ area. The objects that are stored in the list belong to a static
 nested class,ColoredRect, that is defined as
 
 
-::
+.. code-block:: java
 
     /**
      * An object of type ColoredRect holds the data for one colored rectangle.
@@ -646,7 +646,7 @@ the rectangles that are stored in the list rects (with a black outline
 around each rectangle):
 
 
-::
+.. code-block:: java
 
     for (int i = 0;  i < rects.size();  i++) {
        ColoredRect rect = (ColoredRect)rects.get(i);
@@ -667,7 +667,7 @@ rectangle, if any, that contains the point where the user clicked the
 mouse. To do this, I wrote the function
 
 
-::
+.. code-block:: java
 
     /**
      * Find the topmost rect that contains the point (x,y). Return null 
@@ -701,7 +701,7 @@ ArrayList operations: The rectangle is simply removed from its current
 position in the list and then added back at the end of the list:
 
 
-::
+.. code-block:: java
 
     void bringToFront(ColoredRect rect) {
        if (rect != null) {
@@ -746,7 +746,7 @@ ArrayList<BaseType> can be used to create lists that can hold only
 objects of type BaseType. For example,
 
 
-::
+.. code-block:: java
 
     ArrayList<ColoredRect> rects;
 
@@ -754,7 +754,7 @@ objects of type BaseType. For example,
 declares a variable named rects of type ArrayList<ColoredRect>, and
 
 
-::
+.. code-block:: java
 
     rects  =  new ArrayList<ColoredRect>();
 
@@ -772,7 +772,7 @@ compiler knows that the object must be of type ColoredRect, so no
 type-cast is necessary. You can say simply:
 
 
-::
+.. code-block:: java
 
     ColoredRect rect = rects.get(i)
 
@@ -787,7 +787,7 @@ ArrayList<ColoredRect> as the type for the list rects, the code for
 drawing all the rectangles in the list could be rewritten as:
 
 
-::
+.. code-block:: java
 
     for ( ColoredRect rect : rects ) {
        g.setColor( rect.color );
@@ -820,7 +820,7 @@ ArrayList<Double> and if x is of typedouble, then the value of x can
 be added to the list by saying:
 
 
-::
+.. code-block:: java
 
     numlist.add( new Double(x) );
 
@@ -869,7 +869,7 @@ curve can be grouped into an object of type CurveData that is defined
 as
 
 
-::
+.. code-block:: java
 
     private static class CurveData {
        Color color;  // The color of the curve.
@@ -884,7 +884,7 @@ all the data necessary to redraw the entire picture, we need a
 variable curves declared as
 
 
-::
+.. code-block:: java
 
     ArrayList<CurveData> curves = new ArrayList<CurveData>();
 
@@ -898,7 +898,7 @@ variables in the new CurveData object must also be initialized. Here
 is the code from the mousePressed() routine that does this:
 
 
-::
+.. code-block:: java
 
     
     currentCurve = new CurveData();        // Create a new CurveData object.
@@ -930,7 +930,7 @@ the curves. The basic structure is a for-each loop that processes the
 data for each individual curve in turn. This has the form:
 
 
-::
+.. code-block:: java
 
     for ( CurveData curve : curves ) {
        .
@@ -947,7 +947,7 @@ contains instance variables namedx and y. We can refer directly to the
 x-coordinate of the i-th point as:
 
 
-::
+.. code-block:: java
 
     curve.points.get(i).x
 
@@ -959,7 +959,7 @@ i-th item. And from that item, get the instance variable namedx. Here
 is the complete definition of thepaintComponent() method:
 
 
-::
+.. code-block:: java
 
     public void paintComponent(Graphics g) {
        super.paintComponent(g);
@@ -999,7 +999,7 @@ also serves as another example of creating and using menus.
 
 The ArrayList class was introduced in Java version 1.2, as one of a
 group of classes designed for working with collections of objects.
-We'll look at these "collection classes" in `Chapter10`_. Early
+We'll look at these "collection classes" in :doc:`Chapter 10</10>`. Early
 versions of Java did not include ArrayList, but they did have a very
 similar class named java.util.Vector. You can still seeVectors used in
 older code and in many of Java's standard classes, so it's worth

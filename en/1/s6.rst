@@ -108,7 +108,7 @@ contributing to the popularity of OOP.
 
 Programming with GUI components and events is one of the most
 interesting aspects of Java. However, we will spend several chapters
-on the basics before returning to this topic in `Chapter6`_.
+on the basics before returning to this topic in :doc:`Chapter 6</6>`.
 
 
 

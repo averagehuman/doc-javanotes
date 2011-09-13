@@ -38,7 +38,7 @@ should be given as a parameter to the subroutine. Use a for loop. For
 example, the command "stars(20)" would output
 
 
-::
+.. code-block:: java
 
     ********************
 
@@ -48,7 +48,7 @@ Question 7 to output 10 lines of stars with 1 star in the first line,
 2 stars in the second line, and so on, as shown below.
 
 
-::
+.. code-block:: java
 
     *
     **

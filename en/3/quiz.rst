@@ -36,7 +36,7 @@ the number entered is even or odd. (You can use TextIO.getInt() to
 read the integer. Recall that an integer n is even if n%2==0.)
 
 
-::
+.. code-block:: java
 
     public static void main(String[] args) {
      
@@ -55,7 +55,7 @@ Show the exact output that would be produced by the following main()
 routine:
 
 
-::
+.. code-block:: java
 
     public static void main(String[] args) {
         int N;
@@ -70,7 +70,7 @@ Question11:
 Show the exact output produced by the following main() routine:
 
 
-::
+.. code-block:: java
 
     public static void main(String[] args) {
        int x,y;
@@ -89,7 +89,7 @@ What output is produced by the following program segment? **Why?**
 name.)
 
 
-::
+.. code-block:: java
 
     String name;
     int i;

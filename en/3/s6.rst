@@ -34,7 +34,7 @@ value of the expression is not listed in any case label.
 A switch statement, as it is most often used, has the form:
 
 
-::
+.. code-block:: java
 
     switch (expression) {
        case constant-1:
@@ -75,7 +75,7 @@ that the constants in the case labels don't have to be in any
 particular order, as long as they are all different:
 
 
-::
+.. code-block:: java
 
     switch ( N ) {   // (Assume N is an integer variable.)
        case 1:
@@ -126,7 +126,7 @@ number. Here is an example that could be used in a variation of
 theLengthConverter example from the `previous section`_:
 
 
-::
+.. code-block:: java
 
     int optionNumber;   // Option number from menu, selected by user.
     double measurement; // A numerical measurement, input by the user.
@@ -181,7 +181,7 @@ In Java7, this example might be rewritten using a String in the switch
 statement:
 
 
-::
+.. code-block:: java
 
     String units;       // Unit of measurement, entered by user.
     double measurement; // A numerical measurement, input by the user.
@@ -230,7 +230,7 @@ enumerated type. For example, if the type of the expression is the
 enumerated type Season defined by
 
 
-::
+.. code-block:: java
 
     enum Season { SPRING, SUMMER, FALL, WINTER }
 
@@ -247,7 +247,7 @@ constant. As an example, suppose that currentSeason is a variable of
 typeSeason. Then we could have the switch statement:
 
 
-::
+.. code-block:: java
 
     switch ( currentSeason ) {
        case WINTER:    // ( NOT Season.WINTER ! )
@@ -283,7 +283,7 @@ code segment as a whole illustrates a subtle syntax error that
 sometimes comes up:
 
 
-::
+.. code-block:: java
 
     String computerMove;
     switch ( (int)(3*Math.random()) ) {
@@ -330,7 +330,7 @@ statement given above, but only the one on the right definitely
 assigns a value to computerMove:
 
 
-::
+.. code-block:: java
 
     String computerMove;                     String computerMove;
     int rand;                                int rand;

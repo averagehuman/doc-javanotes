@@ -6,7 +6,7 @@
 
 U nderstanding how programs work is one thing. Designing a program to
 perform some particular task is another thing altogether. In
-`Section3.2`_, I discussed how pseudocode and stepwise refinement can
+:doc:`Section 3.2</3/s2>`, I discussed how pseudocode and stepwise refinement can
 be used to methodically develop an algorithm. We can now see how
 subroutines can fit into the process.
 
@@ -51,7 +51,7 @@ problem on top of that foundation of subroutines.
 When working with subroutines as building blocks, it is important to
 be clear about how a subroutine interacts with the rest of the
 program. This interaction is specified by the contract of the
-subroutine, as discussed in `Section4.1`_. A convenient way to express
+subroutine, as discussed in :doc:`Section 4.1</4/s1>`. A convenient way to express
 the contract of a subroutine is in terms of preconditions and
 postconditions.
 
@@ -120,7 +120,7 @@ are some of the available routines in the API, with Javadoc-style
 comments:
 
 
-::
+.. code-block:: java
 
     /**
      * Opens a "mosaic" window on the screen.
@@ -237,7 +237,7 @@ turn to the specific problem at hand. A basic outline for my program
 is
 
 
-::
+.. code-block:: java
 
     Open a Mosaic window 
     Fill window with random colors;
@@ -253,7 +253,7 @@ as long as the mosaic window is still open. Thus we can refine the
 algorithm to:
 
 
-::
+.. code-block:: java
 
     Open a Mosaic window
     Fill window with random colors;
@@ -276,7 +276,7 @@ subroutines of my own to carry out the two tasks in the while loop.
 The algorithm can then be written in Java as:
 
 
-::
+.. code-block:: java
 
     Mosaic.open(10,20,15,15)
     fillWithRandomColors();
@@ -303,7 +303,7 @@ color." Pseudocode for an algorithm to accomplish this task can be
 given as:
 
 
-::
+.. code-block:: java
 
     For each row:
        For each column:
@@ -317,7 +317,7 @@ in several places is one of the big payoffs of using them!)
 So,fillWithRandomColors() can be written in proper Java as:
 
 
-::
+.. code-block:: java
 
     static void fillWithRandomColors() {
        for (int row = 0; row < 10; row++)
@@ -336,7 +336,7 @@ such an integer is "(int)(256*Math.random())". So the random color
 subroutine becomes:
 
 
-::
+.. code-block:: java
 
     static void changeToRandomColor(int rowNum, int colNum) {
          int red = (int)(256*Math.random());
@@ -365,7 +365,7 @@ handled similarly. If we use a switch statement to decide which
 direction to move, the code for randomMove becomes:
 
 
-::
+.. code-block:: java
 
     int directionNum;
     directionNum = (int)(4*Math.random());
@@ -411,7 +411,7 @@ If you want to compile and run this program, both of these classes
 must be available to the program.
 
 
-::
+.. code-block:: java
 
     /**
      * This program opens a window full of randomly colored squares.  A "disturbance"

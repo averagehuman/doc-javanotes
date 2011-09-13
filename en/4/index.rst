@@ -18,7 +18,7 @@ more complex subroutines, which can then be used in turn in other
 subroutines. In this way, very complex programs can be built up step-
 by-step, where each step in the construction is reasonably simple.
 
-As mentioned in `Section3.8`_, subroutines in Java can be either
+As mentioned in :doc:`Section 3.8</3/s8>`, subroutines in Java can be either
 static or non-static. This chapter covers static subroutines only.
 Non-static subroutines, which are used in true object-oriented
 programming, will be covered in the next chapter.

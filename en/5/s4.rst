@@ -62,7 +62,7 @@ returns the number of cards remaining in the deck. This leads to a
 full specification of all the subroutines in theDeck class:
 
 
-::
+.. code-block:: java
 
     
      **Constructor and instance methods in class Deck:**
@@ -96,7 +96,7 @@ This is everything you need to know in order to use the Deck class. Of
 course, it doesn't tell us how to write the class. This has been an
 exercise in design, not in coding. In fact, writing the class involves
 a programming technique, arrays, which will not be covered until
-`Chapter7`_. Nevertheless, you can look at the source code,
+:doc:`Chapter 7</7>`. Nevertheless, you can look at the source code,
 `Deck.java`_, if you want. Even though you won't understand the
 implementation, the Javadoc comments give you all the information that
 you need to understand the interface. With this information, you can
@@ -126,7 +126,7 @@ provide instance methods for sorting the cards in the hand. Here is a
 full specification for a reusable Hand class:
 
 
-::
+.. code-block:: java
 
     
     
@@ -223,7 +223,7 @@ card. For example, we can call the constructor with statements such
 as:
 
 
-::
+.. code-block:: java
 
     card1 = new Card( Card.ACE, Card.SPADES );  // Construct ace of spades.
     card2 = new Card( 10, Card.DIAMONDS );   // Construct 10 of diamonds.
@@ -258,7 +258,7 @@ String, such as when the card is concatenated onto a string with the +
 operator. Thus, the statement
 
 
-::
+.. code-block:: java
 
     System.out.println( "Your card is the " + card );
 
@@ -266,7 +266,7 @@ operator. Thus, the statement
 is equivalent to
 
 
-::
+.. code-block:: java
 
     System.out.println( "Your card is the " + card.toString() );
 
@@ -279,7 +279,7 @@ reusable, so the work that went into designing, writing, and testing
 it pays off handsomely in the long run.
 
 
-::
+.. code-block:: java
 
     
     /**
@@ -464,7 +464,7 @@ its return value. This gets the score back to the main program, where
 it is needed. Here is the program:
 
 
-::
+.. code-block:: java
 
     /**
      * This program lets the user play HighLow, a simple card game 

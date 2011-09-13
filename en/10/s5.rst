@@ -38,7 +38,7 @@ linked list as a private instance variable. To implement queues of
 strings, for example, we can define the class:
 
 
-::
+.. code-block:: java
 
     class QueueOfStrings {
        private LinkedList<String> items = new LinkedList<String>();
@@ -67,7 +67,7 @@ replace the specific type String with a type parameter such asT, and
 we add the type parameter to the name of the class:
 
 
-::
+.. code-block:: java
 
     class Queue<T> {
        private LinkedList<T> items = new LinkedList<T>();
@@ -101,7 +101,7 @@ variables or create objects. If you prefer to use a more meaningful
 name for the type parameter, you might define the Queue class as:
 
 
-::
+.. code-block:: java
 
     class Queue<ItemType> {
        private LinkedList<ItemType> items = new LinkedList<ItemType>();
@@ -128,7 +128,7 @@ possibly of different types. A simple version of such a class can be
 defined as:
 
 
-::
+.. code-block:: java
 
     class Pair<T,S> {
        public T first;
@@ -144,7 +144,7 @@ This class can be used to declare variables and create objects such
 as:
 
 
-::
+.. code-block:: java
 
     Pair<String,Color> colorName = new Pair<String,Color>("Red", Color.RED);
     Pair<Double,Double> coordinates = new Pair<Double,Double>(17.3,42.8);
@@ -172,7 +172,7 @@ start with a non-generic method for counting the number of times that
 a given string occurs in an array of strings:
 
 
-::
+.. code-block:: java
 
     /**
      * Returns the number of times that itemToCount occurs in list.  Items in the
@@ -209,7 +209,7 @@ For a generic method, the "<T>" goes just before the name of the
 return type of the method:
 
 
-::
+.. code-block:: java
 
     public static <T> int countOccurrences(T[] list, T itemToCount) {
        int count = 0;
@@ -239,7 +239,7 @@ type. If wordList is a variable of typeString[] and word is a variable
 of type String, then
 
 
-::
+.. code-block:: java
 
     int ct = countOccurrences( wordList, word );
 
@@ -249,7 +249,7 @@ palette is a variable of type Color[] andcolor is a variable of type
 Color, then
 
 
-::
+.. code-block:: java
 
     int ct = countOccurrences( palette, color );
 
@@ -258,7 +258,7 @@ will count the number of times that color occurs in palette. If
 numbers is a variable of type Integer[], then
 
 
-::
+.. code-block:: java
 
     int ct = countOccurrences( numbers, 17 );
 
@@ -285,7 +285,7 @@ The countOccurrences method operates on an array. We could also write
 a similar method to count occurrences of an object in any collection:
 
 
-::
+.. code-block:: java
 
     public static <T> int countOccurrences(Collection<T> collection, T itemToCount) {
        int count = 0;
@@ -350,7 +350,7 @@ Suppose that we want a method that can draw all the shapes in a
 collection of Shapes. We might try:
 
 
-::
+.. code-block:: java
 
     public static void drawAll(Collection<Shape> shapes) {
        for ( Shape s : shapes )
@@ -371,7 +371,7 @@ parameter shapes. The solution is to replace the type parameter
 "?extendsShape":
 
 
-::
+.. code-block:: java
 
     public static void drawAll(Collection<? extends Shape> shapes) {
        for ( Shape s : shapes )
@@ -398,7 +398,7 @@ Consider the rather silly but legal method that adds an oval to a list
 of shapes:
 
 
-::
+.. code-block:: java
 
     static void addOval(List<Shape> shapes, Oval oval) {
        shapes.add(oval);
@@ -432,7 +432,7 @@ addAll() method could be added to the generic Queue class that was
 defined earlier in this section:
 
 
-::
+.. code-block:: java
 
     class Queue<T> {
        private LinkedList<T> items = new LinkedList<T>();
@@ -477,7 +477,7 @@ currently on the queue to a given collection. An instance method
 defined as
 
 
-::
+.. code-block:: java
 
     public void addAllTo(Collection<T> collection)
 
@@ -487,7 +487,7 @@ asT. This is too restrictive. We need some sort of wildcard. However,
 "?extendsT" won't work. Suppose we try it:
 
 
-::
+.. code-block:: java
 
     public void addAllTo(Collection<? extends T> collection) {
           // Remove all items currently on the queue and add them to collection
@@ -517,7 +517,7 @@ need for our addAllTo method. With this change, our complete generic
 queue class becomes:
 
 
-::
+.. code-block:: java
 
     class Queue<T> {
        private LinkedList<T> items = new LinkedList<T>();
@@ -550,12 +550,12 @@ of a class. Note that the term "extends" (not "implements") is used in
 the wildcard type, even if T is an interface. For example, we will see
 that Runnable is an interface that defines the method public void
 run(). (Runnable objects are usually associated with threads; see
-`Chapter12`_.) Here is a method that runs all the objects in a
+:doc:`Chapter 12</12>`.) Here is a method that runs all the objects in a
 collection ofRunnables by executing the run() method from each
 runnable object:
 
 
-::
+.. code-block:: java
 
     public static runAll( Collection<?extendsRunnable> runnables ) {
        for ( Runnable runnable : runnables ) {
@@ -581,7 +581,7 @@ example, the removeAll() method in the generic interfaceCollections<T>
 is declared as
 
 
-::
+.. code-block:: java
 
     public boolean removeAll( Collection<?> c ) { ...
 
@@ -613,7 +613,7 @@ all components in the group at once. For example, there will be an
 instance method of the form
 
 
-::
+.. code-block:: java
 
     public void repaintAll() {
        .
@@ -633,7 +633,7 @@ using the bounded type "TextendsJComponent" instead of a plain "T" in
 the definition of the class:
 
 
-::
+.. code-block:: java
 
     public class ComponentGroup<T extends JComponent> {
        private ArrayList<T> components; // For storing the components in this group.
@@ -690,7 +690,7 @@ one could write a free-standing generic static method that can repaint
 any collection of JComponents as follows:
 
 
-::
+.. code-block:: java
 
     public static <T extends JComponent> void repaintAll(Collection<T> comps) {
        for ( JComponent c : comps )
@@ -709,7 +709,7 @@ Note that we don't really need a generic type parameter in this case.
 We can write an equivalent method using a wildcard type:
 
 
-::
+.. code-block:: java
 
     public static void repaintAll(Collection<? extends JComponent> comps) {
        for ( JComponent c : comps )
@@ -738,7 +738,7 @@ this time in the form of a method definition (and without the
 comments):
 
 
-::
+.. code-block:: java
 
     static void sortedInsert(List<String> sortedList, String newItem) {
        ListIterator<String> iter = sortedList.listIterator();
@@ -763,7 +763,7 @@ restriction. Suppose we try to do it, by replacingList<String> with
 List<?extendsComparable>:
 
 
-::
+.. code-block:: java
 
     static void sortedInsert(List<? extends Comparable> sortedList, ???? newItem) {
        ListIterator<????> iter = stringList.listIterator();
@@ -778,7 +778,7 @@ generic method with a bounded type parameter, since then we have a
 name for the unknown type, and we can write a valid generic method:
 
 
-::
+.. code-block:: java
 
     static <T extends Comparable> void sortedInsert(List<T> sortedList, T newItem) {
        ListIterator<T> iter = sortedList.listIterator();
@@ -802,7 +802,7 @@ being compared to items of type T. This just means that instead of
 usingComparable as the type bound, we should useComparable<T>:
 
 
-::
+.. code-block:: java
 
     static <T extends Comparable<T>> void sortedInsert(List<T> sortedList, ...
 

@@ -23,7 +23,7 @@ Exercise 13.1:
 ~~~~~~~~~~~~~~
 
 The sample program `PaintWithOffScreenCanvas.java`_ from
-`Section13.1`_ is a simple paint program. Make two improvements to
+:doc:`Section 13.1</13/s1>` is a simple paint program. Make two improvements to
 this program: First, add a "File" menu that lets the user open an
 image file and save the current image in either PNG or JPEG format.
 Second, add a basic one-level "Undo" command that lets the user undo
@@ -149,7 +149,7 @@ program simply by closing the window. To accomplish this, you should
 call
 
 
-::
+.. code-block:: java
 
     frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
@@ -160,7 +160,7 @@ close box on the window to close the window, not end the program. For
 this, you need
 
 
-::
+.. code-block:: java
 
     frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -177,7 +177,7 @@ selected. To specify which cell is currently being edited, you can
 use:
 
 
-::
+.. code-block:: java
 
     table.setRowSelectionInterval(rowNum, rowNum);  // Selects row number rowNum. 
     table.editCellAt( rowNum, colNum ); // Edit cell at position (rowNum,colNum).
@@ -195,7 +195,7 @@ the program, you have to turn off editing before retrieving the data
 from the model. This can be done with the following method:
 
 
-::
+.. code-block:: java
 
     private void stopEditing() {
        if (table.getCellEditor() != null)

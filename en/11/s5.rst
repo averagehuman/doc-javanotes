@@ -71,7 +71,7 @@ not follow all the strict XML syntax rules, but the basic ideas are
 similar. Here is a short, well-formed XML document:
 
 
-::
+.. code-block:: java
 
     <?xml version="1.0"?>
     <simplepaint version="1.0">
@@ -206,7 +206,7 @@ for a SimplePaint sketch is stored in objects of type CurveData,
 defined as:
 
 
-::
+.. code-block:: java
 
     private static class CurveData {
        Color color;  // The color of the curve.
@@ -221,7 +221,7 @@ be public, and we need get and set methods for each instance variable.
 This gives:
 
 
-::
+.. code-block:: java
 
     public static class CurveData {
        private Color color;  // The color of the curve.
@@ -263,7 +263,7 @@ output stream is specified in the encoder's constructor. For example,
 to create an encoder for writing to a file:
 
 
-::
+.. code-block:: java
 
     XMLEncoder encoder; 
     try {
@@ -281,7 +281,7 @@ list of type ArrayList<CurveData> named curves. So, a complete
 representation of the user's picture can be created with:
 
 
-::
+.. code-block:: java
 
        encoder.writeObject(getBackground());
        encoder.writeObject(new Integer(curves.size()));
@@ -297,7 +297,7 @@ were written. Since the return type of readObject() is Object, the
 returned values must be type-cast to their correct type:
 
 
-::
+.. code-block:: java
 
        Color bgColor = (Color)decoder.readObject();
        Integer curveCt = (Integer)decoder.readObject();
@@ -344,7 +344,7 @@ we have to be very careful to follow all the syntax rules. Here is how
 I write the data for a SimplePaint picture to aPrintWriter, out:
 
 
-::
+.. code-block:: java
 
     out.println("<?xml version=\"1.0\"?>");
     out.println("<simplepaint version=\"1.0\">");
@@ -406,7 +406,7 @@ with just two statements. If selectedFile is a variable of type File
 that represents the XML file, then
 
 
-::
+.. code-block:: java
 
     DocumentBuilder docReader 
                      = DocumentBuilderFactory.newInstance().newDocumentBuilder();
@@ -441,7 +441,7 @@ of type Document. We will only need one method from this class: If
 xmldoc is of type Document, then
 
 
-::
+.. code-block:: java
 
     xmldoc.getDocumentElement()
 
@@ -505,7 +505,7 @@ that in the course of processing a document you come across an Element
 node that represents the element
 
 
-::
+.. code-block:: java
 
     <background red='255' green='153' blue='51'/>
 
@@ -520,7 +520,7 @@ attributes of the element. If element is a variable that refers to the
 node, the color can be obtained by saying:
 
 
-::
+.. code-block:: java
 
     int r = Integer.parseInt( element.getAttribute("red") );
     int g = Integer.parseInt( element.getAttribute("green") );
@@ -532,7 +532,7 @@ Suppose now that element refers to the node that represents the
 element
 
 
-::
+.. code-block:: java
 
     <symmetric>true</symmetric>
 
@@ -542,7 +542,7 @@ and the value is encoded in the textual content of the element. We can
 recover the value from the element with:
 
 
-::
+.. code-block:: java
 
     String bool = element.getTextContent();
     boolean symmetric;
@@ -556,7 +556,7 @@ Next, consider an example that uses a NodeList. Suppose we encounter
 an element that represents a list of Points:
 
 
-::
+.. code-block:: java
 
     <pointlist>
        <point x='17' y='42'/>   
@@ -572,7 +572,7 @@ ArrayList<Point> that is represented by the element. We can do this by
 traversing the NodeList that contains the child nodes of element:
 
 
-::
+.. code-block:: java
 
     ArrayList<Point> points = new ArrayList<Point>();
     NodeList children = element.getChildNodes();
@@ -602,7 +602,7 @@ traverse the DOM representation of the file. It's not a trivial
 process, but I hope that you can follow it:
 
 
-::
+.. code-block:: java
 
     Color newBackground = Color.WHITE;
     ArrayList<CurveData> newCurves = new ArrayList<CurveData>();

@@ -15,7 +15,7 @@ contain other types of data. For example, a binary tree of integers
 could be made up of objects of the following type:
 
 
-::
+.. code-block:: java
 
     class TreeNode {
        int item;        // The data in this node.
@@ -81,7 +81,7 @@ count the root. This gives the total number of nodes in the tree.
 Written out in Java:
 
 
-::
+.. code-block:: java
 
     /**
      * Count the nodes in the binary tree to which root points, and
@@ -108,7 +108,7 @@ root and use recursion to print the items in the subtrees. Here is a
 subroutine that prints all the items on one line of output:
 
 
-::
+.. code-block:: java
 
     /**
      * Print all the items in the tree to which root points.
@@ -137,7 +137,7 @@ traversal differ from preorderPrint only in the placement of the
 statement that outputs the root item:
 
 
-::
+.. code-block:: java
 
     /**
      * Print all the items in the tree to which root points.
@@ -174,7 +174,7 @@ the illustration at the beginning of this section. The order in which
 the items are printed differs in each case:
 
 
-::
+.. code-block:: java
 
     preorderPrint outputs:   1  2  4  5  3  6
     
@@ -198,7 +198,7 @@ be analyzed similarly.
 9.4.2Binary Sort Trees
 ~~~~~~~~~~~~~~~~~~~~~~
 
-One of the examples in `Section9.2`_ was a linked list of strings, in
+One of the examples in :doc:`Section 9.2</9/s2>` was a linked list of strings, in
 which the strings were kept in increasing order. While a linked list
 works well for a small number of strings, it becomes inefficient for a
 large number of items. When inserting an item into the list, searching
@@ -267,7 +267,7 @@ balanced, that means cutting the number of items still under
 consideration in half. This is exactly the same as the binary search
 algorithm, and the result is a similarly efficient algorithm.
 
-In terms of asymptotic analysis (`Section8.5`_), searching, inserting,
+In terms of asymptotic analysis (:doc:`Section 8.5</8/s5>`), searching, inserting,
 and deleting in a binary search tree have average case run time
 Θ(log(n)). The problem size, n, is the number of items in the tree,
 and the average is taken over all the different orders in which the
@@ -303,7 +303,7 @@ following static nested class, including a simple constructor that
 makes creating nodes easier:
 
 
-::
+.. code-block:: java
 
     
     /**
@@ -324,7 +324,7 @@ A static member variable of type TreeNode points to the binary sort
 tree that is used by the program:
 
 
-::
+.. code-block:: java
 
     private static TreeNode root;  // Pointer to the root node in the tree.
                                    // When the tree is empty, root is null.
@@ -335,7 +335,7 @@ given item in the tree. This routine implements the search algorithm
 for binary trees that was outlined above:
 
 
-::
+.. code-block:: java
 
     /**
      * Return true if item is one of the items in the binary
@@ -373,7 +373,7 @@ single path down the tree, it can be implemented as a while loop. Here
 is a non-recursive version of the search routine:
 
 
-::
+.. code-block:: java
 
     private static boolean treeContainsNR( TreeNode root, String item ) {
        TreeNode runner;  // For "running" down the tree.
@@ -408,7 +408,7 @@ is empty. In that case, the value of root must be changed to point to
 a node that contains the new item:
 
 
-::
+.. code-block:: java
 
     root = new TreeNode( newItem ); 
 
@@ -427,7 +427,7 @@ When we get to an empty spot in the tree, that's where we have to
 insert the new node:
 
 
-::
+.. code-block:: java
 
     /**
      * Add the item to the binary sort tree to which the global variable 
@@ -517,7 +517,7 @@ instance variable in each node object to record which type of node it
 is:
 
 
-::
+.. code-block:: java
 
     enum NodeType { NUMBER, OPERATOR }   // Possible kinds of node.
        
@@ -550,7 +550,7 @@ Given this definition, the following recursive subroutine will find
 the value of an expression tree:
 
 
-::
+.. code-block:: java
 
     static double getValue( ExpNode node ) {
            // Return the value of the expression represented by
@@ -587,7 +587,7 @@ is find their values, each class should have an instance method for
 finding the value:
 
 
-::
+.. code-block:: java
 
     abstract class ExpNode {
            // Represents a node of any type in an expression tree.

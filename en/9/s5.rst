@@ -56,7 +56,7 @@ basic symbols of the language. For example, one BNF rule for the
 English language might be
 
 
-::
+.. code-block:: java
 
     <sentence>  ::=  <noun-phrase> <verb-phrase>
 
@@ -73,7 +73,7 @@ In BNF, a choice between alternatives is represented by the symbol
 "|", which is read "or". For example, the rule
 
 
-::
+.. code-block:: java
 
     <verb-phrase>  ::=  <intransitive-verb>  |
                         ( <transitive-verb> <noun-phrase> )
@@ -88,7 +88,7 @@ that can be repeated any number of times is enclosed between "[" and
 being described is enclosed in quotes. For example,
 
 
-::
+.. code-block:: java
 
     <noun-phrase>  ::=  <common-noun> [ "that" <verb-phrase> ]  |
                         <common-noun> [ <prepositional-phrase> ]...
@@ -117,7 +117,7 @@ as Java in a formal and precise way. For example, a <while-loop> can
 be defined as
 
 
-::
+.. code-block:: java
 
     <while-loop>  ::=  "while" "(" <condition> ")" <statement>
 
@@ -132,7 +132,7 @@ of an if statement, which is hard to express clearly in words, can be
 given as
 
 
-::
+.. code-block:: java
 
     <if-statement>  ::=  
                  "if" "(" <condition> ")" <statement>
@@ -185,7 +185,7 @@ throw an exception. I'll use an exception class called ParseError,
 defined as follows:
 
 
-::
+.. code-block:: java
 
     /**
      * An object of type ParseError represents a syntax error found in 
@@ -211,7 +211,7 @@ Let's start with a very simple example. A "fully parenthesized
 expression" can be specified in BNF by the rules
 
 
-::
+.. code-block:: java
 
     <expression>  ::=  <number>  |
                        "(" <expression> <operator> <expression> ")"
@@ -231,7 +231,7 @@ that reads an operator. The operator can be a choice of any of four
 things. Any other input will be an error.
 
 
-::
+.. code-block:: java
 
     /**
      * If the next character in input is one of the legal operators,
@@ -272,7 +272,7 @@ read the expression. It also computes and returns its value. This
 requires semantical information that is not specified in the BNF rule.
 
 
-::
+.. code-block:: java
 
     /**
      * Read an expression from the current line of input and return its value.
@@ -360,7 +360,7 @@ get negative numbers. It's done this way to avoid "3*-7", for
 example.) This structure can be expressed by the BNF rules
 
 
-::
+.. code-block:: java
 
     <expression>  ::=  [ "-" ] <term> [ ( "+" | "-" ) <term> ]...
     <term>  ::=  <factor> [ ( "*" | "/" ) <factor> ]...
@@ -378,7 +378,7 @@ if statement is used at the beginning of the loop to test whether a
 leading minus sign is present:
 
 
-::
+.. code-block:: java
 
     /**
      * Read an expression from the current line of input and return its value.
@@ -456,7 +456,7 @@ an expression. Here for example is the new BinOpNode class from
 `SimpleParser3.java`_:
 
 
-::
+.. code-block:: java
 
     private static class BinOpNode extends ExpNode {
        char op;        // The operator.
@@ -507,7 +507,7 @@ example, the subroutine corresponding to the rule for <expression>
 becomes
 
 
-::
+.. code-block:: java
 
     
         static ExpNode expressionTree() throws ParseError {
@@ -557,7 +557,7 @@ contains such an error.) It's also possible to manipulate the tree to
 optimize the program. In optimization, the tree is transformed to make
 the program more efficient before the code is generated.
 
-And so we are back where we started in `Chapter1`_, looking at
+And so we are back where we started in :doc:`Chapter 1</1>`, looking at
 programming languages, compilers, and machine language. But looking at
 them, I hope, with a lot more understanding and a much wider
 perspective.

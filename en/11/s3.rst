@@ -6,7 +6,7 @@
 
 I n this section, we look at several programming examples that work
 with files, using the techniques that were introduced in
-`Section11.1`_ and `Section11.2`_.
+:doc:`Section 11.1</11/s1>` and :doc:`Section 11.2</11/s2>`.
 
 
 
@@ -38,7 +38,7 @@ simple while loop. As usual, the I/O operations can throw exceptions,
 so this must be done in atry..catch statement:
 
 
-::
+.. code-block:: java
 
     while(true) {
        int data = source.read();
@@ -79,7 +79,7 @@ error.) You can see in the source code how the command line arguments
 are interpreted by the program:
 
 
-::
+.. code-block:: java
 
     import java.io.*;
     
@@ -244,7 +244,7 @@ beginning of the program will read the phone book data file, if it
 exists and has the correct format:
 
 
-::
+.. code-block:: java
 
     File userHomeDirectory = new File( System.getProperty("user.home") );
     File dataFile = new File( userHomeDirectory, ".phone_book_data" );
@@ -285,7 +285,7 @@ phone book data is written to the file (if any changes have been made
 while the program was running), using the following code:
 
 
-::
+.. code-block:: java
 
     if (changed) {
        System.out.println("Saving phone directory changes to file " + 
@@ -331,7 +331,7 @@ program uses a JTextArea component to display some text that the user
 can edit. It also has a menu bar, with a "File" menu that includes
 "Open" and "Save" commands. These commands are implemented using the
 techniques for reading and writing files that were covered in
-`Section11.2`_.
+:doc:`Section 11.2</11/s2>`.
 
 When the user selects the Open command from the File menu in
 theTrivialEdit program, the program pops up a file dialog box where
@@ -343,10 +343,10 @@ text to be the content of the JTextArea. In this case, I decided to
 use a BufferedReader to read the file line-by-line. The program also
 sets the title bar of the window to show the name of the file that was
 opened. All this is done in the following method, which is just a
-variation of the readFile() method presented in `Section11.2`_:
+variation of the readFile() method presented in :doc:`Section 11.2</11/s2>`:
 
 
-::
+.. code-block:: java
 
     /**
      * Carry out the Open command by letting the user specify a file to be opened 
@@ -402,7 +402,7 @@ method (from class JFrame) is used to set the title of the window to
 show the name of the file.
 
 Similarly, the response to the Save command is a minor variation on
-thewriteFile() method from `Section11.2`_. I will not repeat it here.
+thewriteFile() method from :doc:`Section 11.2</11/s2>`. I will not repeat it here.
 If you would like to see the entire program, you will find the source
 code in the file`TrivialEdit.java`_.
 
@@ -418,7 +418,7 @@ for representing the data. As long as the output routine that writes
 the data and the input routine that reads the data use the same
 format, the files will be usable. However, as usual, correctness is
 not the end of the story. The representation that is used for data in
-files should also be robust. (See `Section8.1`_.) To see what this
+files should also be robust. (See :doc:`Section 8.1</8/s1>`.) To see what this
 means, we will look at several different ways of representing the same
 data. This example builds on the example `SimplePaint2.java`_
 from`Subsection7.3.4`_. In that program, the user could use the mouse
@@ -452,7 +452,7 @@ curve is stored in an object of type CurveData, which is defined in
 the program as:
 
 
-::
+.. code-block:: java
 
     /**
      * An object of type CurveData represents the data required to redraw one
@@ -478,7 +478,7 @@ component as a single object to the stream. This could be done in a
 method in the SimplePaintPanel class with the statement
 
 
-::
+.. code-block:: java
 
     outputStream.writeObject(this);
 
@@ -490,7 +490,7 @@ an ObjectInputStream for reading the object from the file, and you
 would retrieve the object from the file with the statement
 
 
-::
+.. code-block:: java
 
     SimplePaintPanel newPanel = (SimplePaintPanel)in.readObject();
 
@@ -521,7 +521,7 @@ doSaveAsBinary() method fromSimplePaintWithFiles, with the changes
 from the genericreadFile() method shown in red:
 
 
-::
+.. code-block:: java
 
     /**
      * Save the user's sketch to a file in binary form as serialized
@@ -582,7 +582,7 @@ The heart of this method consists of the following lines, which do the
 actual writing of the data to the file:
 
 
-::
+.. code-block:: java
 
     out.writeObject(getBackground()); // Writes the panel's background color.
     out.writeInt(curves.size());      // Writes the number of curves.
@@ -602,7 +602,7 @@ successfully built, they replace the data structures that describe the
 previous contents of the panel. This is done as follows:
 
 
-::
+.. code-block:: java
 
     /* Read data from the file into local variables */
     
@@ -648,7 +648,7 @@ in some definite order, into the file. Suppose that out is a
 PrintWriter that is used to write to the file. We could then say:
 
 
-::
+.. code-block:: java
 
     Color bgColor = getBackground();    // Write the background color to the file.
     out.println( bgColor.getRed() );
@@ -675,7 +675,7 @@ and rebuild the data structures. Suppose that the input method uses a
 Scanner named scanner to read the data file. Then it could say:
 
 
-::
+.. code-block:: java
 
     Color newBackgroundColor;                // Read the background Color.
     int red = scanner.nextInt();
@@ -725,7 +725,7 @@ complete data file for the program; just by looking at it, you can
 probably tell what is going on:
 
 
-::
+.. code-block:: java
 
     SimplePaintWithFiles 1.0
     background 110 110 180
@@ -777,7 +777,7 @@ PrintWriter that is being used to write the sketch data to a file.
 Then the output can be done with:
 
 
-::
+.. code-block:: java
 
     out.println("SimplePaintWithFiles 1.0"); // Version number.
     Color bgColor = getBackground();
@@ -808,7 +808,7 @@ processing of the input. Here is the complete method from
 uses aScanner to read items from the file:
 
 
-::
+.. code-block:: java
 
     private void doOpenAsText() {
        
@@ -901,7 +901,7 @@ get you to think about the problem of representing complex data in a
 form suitable for storing the data in a file. The same problem arises
 when data must be transmitted over a network. There is no one correct
 solution to the problem, but some solutions are certainly better than
-others. In`Section11.5`_, we will look at one solution to the data
+others. In:doc:`Section 11.5</11/s5>`, we will look at one solution to the data
 representation problem that has become increasingly common.
 
 
@@ -911,7 +911,7 @@ In addition to being able to save sketch data in both text form and
 binary form, SimplePaintWithFiles can also save the picture itself as
 an image file that could be, for example, printed or put on a web
 page. This is a preview of image-handling techniques that will be
-covered in `Chapter13`_.
+covered in :doc:`Chapter 13</13>`.
 
 
 

@@ -114,7 +114,7 @@ Using A as the name of the array, the algorithm can be expressed in
 Java as:
 
 
-::
+.. code-block:: java
 
     total = 0;
     for (int i = 0; i < n; i++)
@@ -184,7 +184,7 @@ Let's look at another example. Consider the algorithm that can be
 expressed in Java in the following method:
 
 
-::
+.. code-block:: java
 
     /**
      * Sorts the n array elements A[0], A[1], ..., A[n-1] into increasing order.

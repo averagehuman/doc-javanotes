@@ -40,7 +40,7 @@ example, write a very simple GUI "Hello World" program that says
 greeting is displayed:
 
 
-::
+.. code-block:: java
 
     import javax.swing.JOptionPane;
     
@@ -91,7 +91,7 @@ In this section, you will just get a brief overview of GUI
 programming.
 
 
-::
+.. code-block:: java
 
     import java.awt.*;
     import java.awt.event.*;
@@ -171,7 +171,7 @@ The main program above declares a variable, window, of type JFrame and
 sets it to refer to a new window object with the statement:
 
 
-::
+.. code-block:: java
 
     JFrame window = new JFrame("GUI Test");
 
@@ -183,7 +183,7 @@ Before making the window visible, some of its properties are set with
 these statements:
 
 
-::
+.. code-block:: java
 
     window.setContentPane(content);
     window.setSize(250,100);
@@ -199,7 +199,7 @@ top. Once all this has been set up, the window is actually made
 visible on the screen with the command:
 
 
-::
+.. code-block:: java
 
     window.setVisible(true);
 
@@ -241,7 +241,7 @@ paintComponent(), which overrides a method of the same name in the
 JPanel class:
 
 
-::
+.. code-block:: java
 
     private static class HelloWorldDisplay extends JPanel {
        public void paintComponent(Graphics g) {
@@ -283,7 +283,7 @@ JPanel that is used as a container, and two other components are added
 to that container. This is done in the statements:
 
 
-::
+.. code-block:: java
 
     content.add(displayPanel, BorderLayout.CENTER);
     content.add(okButton, BorderLayout.SOUTH);
@@ -309,7 +309,7 @@ different policies. One type of layout manager is defined by the
 BorderLayout class. In the program, the statement
 
 
-::
+.. code-block:: java
 
     content.setLayout(new BorderLayout());
 
@@ -370,7 +370,7 @@ an object belonging to the class ButtonHandler, which is defined as a
 nested class inside HelloWorldGUI2:
 
 
-::
+.. code-block:: java
 
     private static class ButtonHandler implements ActionListener {
        public void actionPerformed(ActionEvent e) {
@@ -393,7 +393,7 @@ itself with the button as an event listener. This is done with the
 statement:
 
 
-::
+.. code-block:: java
 
     okButton.addActionListener(listener);
 
@@ -413,7 +413,7 @@ might seem like a very roundabout and complicated way to get things
 done, but as you gain experience with it, you will find that it is
 very flexible and that it goes together very well with object oriented
 programming. (We will return to events and listeners in much more
-detail in`Section6.3`_ and later sections; I do not expect you to
+detail in:doc:`Section 6.3</6/s3>` and later sections; I do not expect you to
 completely understand them at this time.)
 
 

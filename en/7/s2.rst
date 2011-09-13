@@ -8,7 +8,7 @@ A rrays are the most basic and the most important type of data
 structure, and techniques for processing arrays are among the most
 important programming techniques you can learn. Two fundamental array
 processing techniques -- searching and sorting -- will be covered
-in`Section7.4`_. This section introduces some of the basic ideas of
+in:doc:`Section 7.4</7/s4>`. This section introduces some of the basic ideas of
 array processing in general.
 
 
@@ -23,7 +23,7 @@ to each item in the array. This is commonly done with a for loop. A
 loop for processing all the elements of an array A has the form:
 
 
-::
+.. code-block:: java
 
     // do any necessary initialization
     for (int i = 0; i < A.length; i++) {
@@ -36,7 +36,7 @@ that the goal is to add up all the numbers in the array. An informal
 algorithm for doing this would be:
 
 
-::
+.. code-block:: java
 
     Start with sum = 0;
     Add A[0] to sum;   (process the first item in A)
@@ -50,7 +50,7 @@ algorithm for doing this would be:
 Putting the obvious repetition into a loop, this becomes:
 
 
-::
+.. code-block:: java
 
     double sum;  // The sum of the numbers in A.
     sum = 0;     // Start with 0.
@@ -71,7 +71,7 @@ is a loop that will count the number of items in the array A which are
 less than zero:
 
 
-::
+.. code-block:: java
 
     int count;  // For counting the items.
     count = 0;  // Start with 0 items counted.
@@ -95,7 +95,7 @@ test in this case would be an ArrayIndexOutOfBoundsException. This
 just means that we have to stop one item short of the final item:
 
 
-::
+.. code-block:: java
 
     
     int count = 0;
@@ -117,7 +117,7 @@ withmax equal to A[0], and then to look through the rest of the array,
 starting from A[1], for larger items:
 
 
-::
+.. code-block:: java
 
     double max = A[0];
     for (int i = 1; i < A.length; i++) {
@@ -139,7 +139,7 @@ copying an array. To make a copy of our sample array A, it is **not**
 sufficient to say
 
 
-::
+.. code-block:: java
 
     double[] B = A;
 
@@ -154,7 +154,7 @@ make a new array object and to copy each of the individual items from
 A into the new array:
 
 
-::
+.. code-block:: java
 
     double[] B = new double[A.length]; // Make a new array object,
                                        //   the same size as A.
@@ -168,7 +168,7 @@ subroutine,System.arraycopy(), is a static method in the
 standardSystem class. Its declaration has the form
 
 
-::
+.. code-block:: java
 
     public static void arraycopy(Object sourceArray, int sourceStartIndex,
             Object destArray, int destStartIndex, int count)
@@ -182,7 +182,7 @@ position destStartIndex. For example, to make a copy of the array, A,
 using this subroutine, you would say:
 
 
-::
+.. code-block:: java
 
     double B = new double[A.length];
     System.arraycopy( A, 0, B, 0, A.length );
@@ -204,7 +204,7 @@ is an array of type BaseType[], then a for-each loop for anArray has
 the form:
 
 
-::
+.. code-block:: java
 
     for ( BaseType item : anArray ) {
        .
@@ -221,7 +221,7 @@ array is assigned to item in turn and the body of the loop is executed
 for each value. Thus, the above loop is exactly equivalent to:
 
 
-::
+.. code-block:: java
 
     for ( int index = 0; index < anArray.length; index++ ) {
        BaseType item;
@@ -236,7 +236,7 @@ For example, if A is an array of type int[], then we could print all
 the values from A with the for-each loop:
 
 
-::
+.. code-block:: java
 
     
     for ( int item : A )
@@ -246,7 +246,7 @@ the values from A with the for-each loop:
 and we could add up all the positive integers in A with:
 
 
-::
+.. code-block:: java
 
     int sum = 0;   // This will be the sum of all the positive numbers in A
     for ( int item : A ) {
@@ -266,7 +266,7 @@ memory location that is part of the array). For example, consider the
 following incorrect attempt to fill an array of integers with 17's:
 
 
-::
+.. code-block:: java
 
     int[] intList = new int[10];
     for ( int item : intList ) {   // INCORRECT! DOES NOT MODIFY THE ARRAY!
@@ -296,7 +296,7 @@ it might be useful to have a function that makes a copy of an array of
 double:
 
 
-::
+.. code-block:: java
 
     /**
      *  Create a new array of doubles that is a copy of a given array.
@@ -314,7 +314,7 @@ double:
 
 
 The main() routine of a program has a parameter of typeString[].
-You've seen this used since all the way back in `Section2.1`_, but I
+You've seen this used since all the way back in :doc:`Section 2.1</2/s1>`, but I
 haven't really been able to explain it until now. The parameter to the
 main() routine is an array ofStrings. When the system calls the main()
 routine, it passes an actual array of strings, which becomes the value
@@ -329,7 +329,7 @@ user can type "javamyProg" to execute the program. In this case, there
 are no command-line arguments. But if the user types the command
 
 
-::
+.. code-block:: java
 
     java myProg one two three
 
@@ -341,7 +341,7 @@ example, is a short program that simply prints out any command line
 arguments entered by the user:
 
 
-::
+.. code-block:: java
 
     public class CLDemo {
        
@@ -363,7 +363,7 @@ the system, but it might be an array of length zero.
 
 In practice, command-line arguments are often the names of files to be
 processed by the program. I will give some examples of this in
-`Chapter11`_, when I discuss file processing.
+:doc:`Chapter 11</11>`, when I discuss file processing.
 
 
 
@@ -402,7 +402,7 @@ false. To hold the data for all 365 possible birthdays, we can use an
 array of 365 boolean values:
 
 
-::
+.. code-block:: java
 
     boolean[] used; 
     used = new boolean[365];
@@ -420,7 +420,7 @@ carries out the simulated experiment (of course, in the subroutine,
 there are no simulated people, only simulated birthdays):
 
 
-::
+.. code-block:: java
 
     /**
      * Simulate choosing people at random and checking the day of the year they 
@@ -465,7 +465,7 @@ reuse the same array in a second simulation, we would have to reset
 all the elements in it to be false with a for loop:
 
 
-::
+.. code-block:: java
 
     for (int i = 0; i < 365; i++)
         used[i] = false;
@@ -507,7 +507,7 @@ named constant, MESSAGE_COUNT. One way to store the position, color,
 and font of MESSAGE_COUNT strings would be to use four arrays:
 
 
-::
+.. code-block:: java
 
     int[] x = new int[MESSAGE_COUNT];  
     int[] y = new int[MESSAGE_COUNT];
@@ -522,7 +522,7 @@ would be drawn in the font font[i]. This would be accomplished by the
 paintComponent() method
 
 
-::
+.. code-block:: java
 
     public void paintComponent(Graphics g) {
        super.paintComponent(); // (Fill with background color.)
@@ -548,7 +548,7 @@ in one place. So, when I wrote the applet, I made a simple class to
 represent all the data that is needed for one copy of the message:
 
 
-::
+.. code-block:: java
 
     /**
      * An object of this type holds the position, color, and font
@@ -567,7 +567,7 @@ use an array of type StringData[]. The array is declared as an
 instance variable, with the name stringData:
 
 
-::
+.. code-block:: java
 
     StringData[] stringData;
 
@@ -577,7 +577,7 @@ created and assigned to it. This is done in the init() method of the
 applet with the statement
 
 
-::
+.. code-block:: java
 
     stringData = new StringData[MESSAGE_COUNT];
 
@@ -603,7 +603,7 @@ array until you put them there.) The objects are created with the for
 loop
 
 
-::
+.. code-block:: java
 
     for (int i = 0; i < MESSAGE_COUNT; i++)
         stringData[i] = new StringData();
@@ -621,7 +621,7 @@ is important to learn how to read them. Using the array, stringData,
 thepaintComponent() method for the applet could be written
 
 
-::
+.. code-block:: java
 
     public void paintComponent(Graphics g) {
        super.paintComponent(g); // (Fill with background color.)
@@ -637,7 +637,7 @@ However, since the for loop is processing every value in the array, an
 alternative would be to use a for-each loop:
 
 
-::
+.. code-block:: java
 
     public void paintComponent(Graphics g) {
        super.paintComponent(g);
@@ -672,7 +672,7 @@ named font1, font2,font3, font4, and font5. To select one of these
 fonts at random, a switch statement could be used:
 
 
-::
+.. code-block:: java
 
     Font randomFont;  // One of the 5 fonts, chosen at random.
     int rand;         // A random integer in the range 0 to 4.
@@ -702,7 +702,7 @@ array, which is named fonts. This array is declared as an instance
 variable of type Font[]
 
 
-::
+.. code-block:: java
 
     Font[] fonts;
 
@@ -711,7 +711,7 @@ The array is created in the init() method of the applet, and each
 element of the array is set to refer to a new Font object:
 
 
-::
+.. code-block:: java
 
     fonts = new Font[5];  // Create the array to hold the five fonts.
      
@@ -726,7 +726,7 @@ This makes it much easier to select one of the fonts at random. It can
 be done with the statements
 
 
-::
+.. code-block:: java
 
     Font randomFont;  // One of the 5 fonts, chosen at random.
     int fontIndex;    // A random number in the range 0 to 4.
@@ -738,7 +738,7 @@ The switch statement has been replaced by a single line of code. In
 fact, the preceding four lines could be replaced by the single line:
 
 
-::
+.. code-block:: java
 
     Font randomFont = fonts[ (int)(Math.random() * 5) ];
 
@@ -754,7 +754,7 @@ The translation can be done with an array. The array can be declared
 and initialized as
 
 
-::
+.. code-block:: java
 
     static String[] monthName = { "January", "February", "March",
                                   "April",   "May",      "June",
@@ -795,7 +795,7 @@ of values of type double. The definition of such a method could begin
 with:
 
 
-::
+.. code-block:: java
 
     public static double average( double...  numbers ) {
 
@@ -820,7 +820,7 @@ of the actual parameters would be numbers[0],numbers[1], and so on. A
 complete definition of the method would be:
 
 
-::
+.. code-block:: java
 
     public static double average( double... numbers ) {
        double sum;      // The sum of all the actual parameters.
@@ -849,7 +849,7 @@ graphics context that will be used to draw the polygon -- in addition
 to the variable arity parameter:
 
 
-::
+.. code-block:: java
 
     public static void drawPolygon(Graphics g, Point... points) {
         if (points.length > 1) {  // (Need at least 2 points to draw anything.)
@@ -873,7 +873,7 @@ an object belonging to a "wrapper" class such as Integer. See
 forSystem.out.printf could begin:
 
 
-::
+.. code-block:: java
 
     public void printf(String format, Object... values) {
 
@@ -883,7 +883,7 @@ we could write a method that strings together the string
 representations of all its parameters into one long string:
 
 
-::
+.. code-block:: java
 
     public static String concat( Object... values ) {
        StringBuffer buffer;  // Use a StringBuffer for more efficient concatenation.

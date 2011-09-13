@@ -73,7 +73,7 @@ language). It means that you understand the basic process of:
 The first time through, each of these steps will probably take you a
 few tries to get right. I won't go into the details here of how you do
 each of these steps; it depends on the particular computer and Java
-programming environment that you are using. See `Section2.6`_ for
+programming environment that you are using. See :doc:`Section 2.6</2/s6>` for
 information about creating and running Java programs in specific
 programming environments. But in general, you will type the program
 using some sort of text editor and save the program in a file. Then,
@@ -93,7 +93,7 @@ expect to understand what's going on here just yet; some of it you
 won't really understand until a few chapters from now:
 
 
-::
+.. code-block:: java
 
     // A program to display the message
     // "Hello World!" on standard output
@@ -110,7 +110,7 @@ won't really understand until a few chapters from now:
 The command that actually displays the message is:
 
 
-::
+.. code-block:: java
 
     System.out.println("Hello World!");
 
@@ -156,7 +156,7 @@ order to define a program, a class must include a subroutine
 namedmain, with a definition that takes the form:
 
 
-::
+.. code-block:: java
 
     public static void main(String[] args) {
           statements
@@ -190,7 +190,7 @@ of a "class". A program is defined by a public class that takes the
 form:
 
 
-::
+.. code-block:: java
 
     public class program-name {
     
@@ -228,7 +228,7 @@ programming language.
 Also note that according to the above syntax specification, a program
 can contain other subroutines besides main(), as well as things called
 "variable declarations." You'll learn more about these later, but not
-until`Chapter4`_.
+until:doc:`Chapter 4</4>`.
 
 
 

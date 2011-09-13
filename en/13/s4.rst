@@ -120,7 +120,7 @@ added to a scroll pane and the scroll pane was added to a panel with
 the single command:
 
 
-::
+.. code-block:: java
 
     add( new JScrollPane(iconList), BorderLayout.EAST );
 
@@ -137,7 +137,7 @@ the array is used to construct the list. This is done by the following
 method:
 
 
-::
+.. code-block:: java
 
     private JList createIconList() {
     
@@ -184,7 +184,7 @@ wanted to restrict the selection so that only one item can be selected
 at a time. This restriction is imposed by calling
 
 
-::
+.. code-block:: java
 
     list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
@@ -240,7 +240,7 @@ any items to it that should be in the list initially, and pass it to
 the JList constructor. For example:
 
 
-::
+.. code-block:: java
 
     DefaultListModel listModel;  // Should probably be instance variables!
     JList flavorList;
@@ -297,7 +297,7 @@ name of the capital city of each state. The table can be created as
 follows:
 
 
-::
+.. code-block:: java
 
     String[][] statesAndCapitals = new String[][] {
                { "Alabama", "Montgomery" },
@@ -320,7 +320,7 @@ always placed in a JScrollPane to make it possible to scroll the
 table. In the example program this is done with:
 
 
-::
+.. code-block:: java
 
     add( new JScrollPane(table), BorderLayout.CENTER );
 
@@ -348,7 +348,7 @@ responsible for deciding whether or not the user should be able to
 edit any given cell in the table. TableModel includes the method
 
 
-::
+.. code-block:: java
 
     public boolean isCellEditable(int rowNum, columnNum)
 
@@ -370,7 +370,7 @@ package javax.swing.table.) Here is how this might be done in the
 "states and capitals" program to make all cells non-editable:
 
 
-::
+.. code-block:: java
 
     TableModel model = new DefaultTableModel(statesAndCapitals,columnHeads) {
        public boolean isCellEditable(int row, int col) {
@@ -399,7 +399,7 @@ that you are most likely to want to override is getColumnClass(),
 which is defined as
 
 
-::
+.. code-block:: java
 
     public Class<?> getColumnClass(columnNum)
 
@@ -407,7 +407,7 @@ which is defined as
 The purpose of this method is to specify what kind of values are
 allowed in the specified column. The return value from this method is
 of type Class. (The "<?>" is there for technical reasons having to do
-with generic programming. See `Section10.5`_, but don't worry about
+with generic programming. See :doc:`Section 10.5</10/s5>`, but don't worry about
 understanding it here.) Although class objects have crept into this
 book in a few places -- in the discussion ofClassLoaders in
 `Subsection13.1.3`_ for example -- this is the first time we have
@@ -419,7 +419,7 @@ types are String, Double, and Boolean, you can use a table model in
 whichgetColumnClass is defined as:
 
 
-::
+.. code-block:: java
 
     public Class<?> getColumnClass(columnNum) {
        if (columnNum == 0)
@@ -479,7 +479,7 @@ any subclass ofAbstractTableModel except for setValueAt(), which only
 has to be defined if the table is modifiable.
 
 
-::
+.. code-block:: java
 
     /**
      * This class defines the TableModel that is used for the JTable in this
@@ -562,7 +562,7 @@ done to other objects. For example, to prevent the user from changing
 the order of the columns by dragging the column headers, I had to use
 
 
-::
+.. code-block:: java
 
     table.getTableHeader().setReorderingAllowed(false);
 
@@ -601,7 +601,7 @@ it. Since this can generate an exception, the following method is used
 in `SimpleWebBrowser.java`_ to display a page:
 
 
-::
+.. code-block:: java
 
     private void loadURL(URL url) {
        try {
@@ -648,7 +648,7 @@ want to be notified of changes in the model, you can add a listener to
 the model using
 
 
-::
+.. code-block:: java
 
     textComponent.getDocument().addDocumentListener(listener)
 
@@ -721,7 +721,7 @@ determine the exact time when the user clicked on the label. The
 complete StopWatch class is rather short:
 
 
-::
+.. code-block:: java
 
     import java.awt.event.*;
     import javax.swing.*;
@@ -812,7 +812,7 @@ variable that refers to the off-screen canvas, and width and height
 give the size of both the component and the off-screen canvas:
 
 
-::
+.. code-block:: java
 
     g.drawImage(OSC, width, 0, 0, height, 0, 0, width, height, this);
 
@@ -824,7 +824,7 @@ to (0,height). This reverses the image left-to-right. Here is the
 complete class:
 
 
-::
+.. code-block:: java
 
     import java.awt.*;
     import javax.swing.*;

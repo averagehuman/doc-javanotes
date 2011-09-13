@@ -22,7 +22,7 @@ at set intervals. In fact, this is so basic that there is a
 specialized class for performing this task -- and you've already
 worked with it. The Timer class, in package javax.swing, can generate
 a sequence ofActionEvents separated by a specified time interval.
-Timers were introduced in `Section6.5`_, where they were used to
+Timers were introduced in :doc:`Section 6.5</6/s5>`, where they were used to
 implement animations. Behind the scenes, a Timer uses a thread. The
 thread sleeps most of the time, but it wakes up periodically to
 generate the events associated with the timer. Before timers were
@@ -36,7 +36,7 @@ variables and to repaint the display to reflect the changes. A Timer
 to do that every thirty milliseconds might be created like this:
 
 
-::
+.. code-block:: java
 
     Timer timer = new Timer( 30, new ActionListener() {
         public void actionPerformed(ActionEvent evt) {
@@ -55,7 +55,7 @@ using the method Thread.sleep() that was discussed
 in`Subsection12.1.2`_:
 
 
-::
+.. code-block:: java
 
     private class Animator extends Thread {
         public void run() {
@@ -118,7 +118,7 @@ in non-GUI programs.
 
 The sample program `RandomArtWithThreads.java`_ uses a thread to drive
 a very simple animation. You can compare it to `RandomArtPanel.java`_,
-from `Section6.5`_, which implemented the same animation with a timer.
+from :doc:`Section 6.5</6/s5>`, which implemented the same animation with a timer.
 
 
 
@@ -132,7 +132,7 @@ there are times when it is reasonable to use a thread even for a
 straightforward animation. One reason to do so is when the thread is
 running a recursive algorithm, and you want to repaint the display
 many times over the course of the recursion. (Recursion is covered in
-`Section9.1`_.) It's difficult to drive a recursive algorithm with a
+:doc:`Section 9.1</9/s1>`.) It's difficult to drive a recursive algorithm with a
 series of events from a timer; it's much more natural to use a single
 recursive method call to do the recursion, and it's easy to do that in
 a thread.
@@ -176,7 +176,7 @@ cause the recursive algorithm, and eventually the animation thread
 itself, to terminate. Here, then, is the delay() method:
 
 
-::
+.. code-block:: java
 
     private void delay(int millis) {
        if (! running)
@@ -195,7 +195,7 @@ itself, to terminate. Here, then, is the delay() method:
 The ThreadTerminationException is caught in the thread's run() method:
 
 
-::
+.. code-block:: java
 
     /**
      * This class defines the treads that run the recursive
@@ -237,7 +237,7 @@ thread that does the sorting. When the user clicks the "Start" button,
 the following code is executed to create and start the thread:
 
 
-::
+.. code-block:: java
 
     startButton.setText("Finish");
     runner = new Runner();
@@ -320,7 +320,7 @@ that you need to know is that it takes some computation to compute the
 color of each pixel in the image. The image itself is a piece of a
 mathematical object known as the Mandelbrot set. We will use the same
 image in several examples in this chapter, and will return to the
-Mandelbrot set in `Section13.5`_.
+Mandelbrot set in :doc:`Section 13.5</13/s5>`.
 
 In outline, BackgroundComputationDemo is similar to
 theQuicksortThreadDemo discussed above. The computation is done is a
@@ -346,7 +346,7 @@ though perhaps not as smoothly as it would if the priority was
 correctly set. Here is how the thread is created and started:
 
 
-::
+.. code-block:: java
 
     runner = new Runner();
     try {
@@ -370,7 +370,7 @@ screen (using a method that we have not yet covered), it does so in a
 synchronized statement:
 
 
-::
+.. code-block:: java
 
     synchronized(image) {
         g.drawImage(image,0,0,null);
@@ -381,7 +381,7 @@ When the computation thread sets the colors of a row of pixels (using
 another unfamiliar method), it also uses synchronized:
 
 
-::
+.. code-block:: java
 
     synchronized(image) {
         image.setRGB(0,row, width, 1, rgb, 0, width);
@@ -440,7 +440,7 @@ start the specified number of threads, and it has to assign a segment
 of the image to each thread. Here is how this is done:
 
 
-::
+.. code-block:: java
 
     workers = new Runner[threadCount];  // Holds the computation threads.
     int rowsPerThread;  // How many rows of pixels should each thread compute?
@@ -491,7 +491,7 @@ method updates the state of the program appropriately. Here is the
 method:
 
 
-::
+.. code-block:: java
 
     synchronized private void threadFinished() {
         threadsCompleted++;

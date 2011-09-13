@@ -13,7 +13,7 @@ Java makes it possible to "catch" such errors and program a response
 different from simply letting the program crash. This is done with
 thetry..catch statement. In this section, we will take a preliminary,
 incomplete look at using try..catch to handle errors. Error handling
-is a complex topic, which we will return to in`Chapter8`_.
+is a complex topic, which we will return to in:doc:`Chapter 8</8>`.
 
 
 
@@ -64,7 +64,7 @@ an IllegalArgumentException occurs. For example, given the enumerated
 type
 
 
-::
+.. code-block:: java
 
     enum Toss { HEADS, TAILS }
 
@@ -88,7 +88,7 @@ statement. In somewhat simplified form, the syntax for a try..catch
 is:
 
 
-::
+.. code-block:: java
 
     try {
        statements-1
@@ -126,7 +126,7 @@ value might or might not represent a legal real number. Then we could
 say:
 
 
-::
+.. code-block:: java
 
     try {
        double x;
@@ -149,7 +149,7 @@ point where it occurs. However, sometimes it's possible to recover
 from an error. For example, suppose that we have the enumerated type
 
 
-::
+.. code-block:: java
 
     enum Day { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY }
 
@@ -166,7 +166,7 @@ upper case will allow responses such as "Monday" or "monday" in
 addition to "MONDAY".)
 
 
-::
+.. code-block:: java
 
     Day  weekday;  // User's response as a value of type Day.
     while ( true ) {
@@ -233,7 +233,7 @@ this exception and ask the user to enter a different file name. Here
 is a complete program that uses all these ideas:
 
 
-::
+.. code-block:: java
 
     /**
      * This program reads numbers from a file.  It computes the sum and 

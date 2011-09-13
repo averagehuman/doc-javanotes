@@ -43,7 +43,7 @@ Question10:
 Consider the ThreadSafeCounter example from`Subsection12.1.3`_:
 
 
-::
+.. code-block:: java
 
     public class ThreadSafeCounter {
        

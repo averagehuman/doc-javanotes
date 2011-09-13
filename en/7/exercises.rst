@@ -134,7 +134,7 @@ call instance methods to tell it to update its position and to draw
 itself. The constructor for the MovingBall class takes the form
 
 
-::
+.. code-block:: java
 
     new MovingBall(xmin, xmax, ymin, ymax)
 
@@ -146,7 +146,7 @@ the sides of the applet, so you will create them with the constructor
 call
 
 
-::
+.. code-block:: java
 
     new MovingBall(0, getWidth(), 0, getHeight())
 
@@ -237,7 +237,7 @@ implementation depends on the particular type of art that is being
 drawn. The abstract class can be defined as:
 
 
-::
+.. code-block:: java
 
     
     private abstract class ArtData {
@@ -286,7 +286,7 @@ not easy to separate a file into words as you are reading it. You can
 use the following method:
 
 
-::
+.. code-block:: java
 
     /**
      * Read the next word from TextIO, if there is one.  First, skip past
@@ -379,7 +379,7 @@ integers, dirX and dirY. The values of these variables are 0, 1, or
 horizontal direction, dirX is 1 and dirY is 0.
 
 
-::
+.. code-block:: java
 
     int ct = 1;  // Number of pieces in a row belonging to the player.
     

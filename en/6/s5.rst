@@ -35,7 +35,7 @@ for the events must implement the interface ActionListener, which
 defines just one method:
 
 
-::
+.. code-block:: java
 
     public void actionPerformed(ActionEvent evt)
 
@@ -55,7 +55,7 @@ events is also specified in the constructor. If timer is a variable of
 type Timer, then the statement
 
 
-::
+.. code-block:: java
 
     timer = new Timer( millisDelay, listener );
 
@@ -97,7 +97,7 @@ paintComponent. The work of the program is done in a subclass of
 JPanel, which starts like this:
 
 
-::
+.. code-block:: java
 
     import java.awt.*;
     import java.awt.event.*;
@@ -241,7 +241,7 @@ the following methods, which must be included in any class that
 implements KeyListener:
 
 
-::
+.. code-block:: java
 
     public void keyPressed(KeyEvent evt);
     public void keyReleased(KeyEvent evt);
@@ -327,7 +327,7 @@ squareLeft and squareTop are restricted so that the square never moves
 outside the white area of the panel:
 
 
-::
+.. code-block:: java
 
     /**
      * This is called each time the user presses a key while the panel has
@@ -390,7 +390,7 @@ can implement theFocusListener interface. This interface declares two
 methods:
 
 
-::
+.. code-block:: java
 
     public void focusGained(FocusEvent evt);
     public void focusLost(FocusEvent evt);
@@ -413,7 +413,7 @@ panel changes when the panel gains or loses focus. The methods from
 the FocusListener interface are defined simply as:
 
 
-::
+.. code-block:: java
 
     public void focusGained(FocusEvent evt) {
            // The panel now has the input focus.
@@ -433,7 +433,7 @@ defines a mousePressed routine that asks that the input focus be given
 to the panel:
 
 
-::
+.. code-block:: java
 
     public void mousePressed(MouseEvent evt) {
        requestFocus();
@@ -447,7 +447,7 @@ constructor in the panel class registers itself to listen for all
 three types of events with the statements:
 
 
-::
+.. code-block:: java
 
     addKeyListener(this);
     addFocusListener(this);
@@ -564,7 +564,7 @@ the animation. The action listener for the timer calls these methods
 with the statements
 
 
-::
+.. code-block:: java
 
     boat.updateForNewFrame();
     bomb.updateForNewFrame();
@@ -587,7 +587,7 @@ in the sub's isMovingLeft variable. The sub's updateForNewFrame()
 method includes the lines
 
 
-::
+.. code-block:: java
 
     if ( Math.random() < 0.04 )
        isMovingLeft = ! isMovingLeft;
@@ -609,7 +609,7 @@ thekeyPressed()method of a KeyListener that is registered to listen
 for key events on the panel; that method reads as follows:
 
 
-::
+.. code-block:: java
 
     public void keyPressed(KeyEvent evt) {
        int code = evt.getKeyCode();  // which key was pressed.

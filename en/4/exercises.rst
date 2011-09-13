@@ -66,7 +66,7 @@ hexadecimal integer, then the corresponding base-10 integer can be
 computed as follows:
 
 
-::
+.. code-block:: java
 
     value = 0;
     for ( i = 0; i < str.length();  i++ )
@@ -118,7 +118,7 @@ totals (2, 3, ..., 12). It should make a table of the results,
 something like:
 
 
-::
+.. code-block:: java
 
     Total On Dice     Average Number of Rolls
     -------------     -----------------------
@@ -136,10 +136,10 @@ something like:
 Exercise 4.5:
 ~~~~~~~~~~~~~
 
-The sample program`RandomMosaicWalk.java`_ from`Section4.6`_ shows a
+The sample program`RandomMosaicWalk.java`_ from:doc:`Section 4.6</4/s6>` shows a
 "disturbance" that wanders around a grid of colored squares. When the
 disturbance visits a square, the color of that square is changed. The
-applet at the bottom of `Section4.7`_ shows a variation on this idea.
+applet at the bottom of :doc:`Section 4.7</4/s7>` shows a variation on this idea.
 In this applet, all the squares start out with the default color,
 black. Every time the disturbance visits a square, a small amount is
 added to the green component of the color of that square. Write a
@@ -150,7 +150,7 @@ the current green component of the square in row r and column c with
 the function callMosaic.getGreen(r,c). Use your subroutine as a
 substitute for thechangeToRandomColor() subroutine in the program
 `RandomMosaicWalk2.java`_. (This is the improved version of the
-program from `Section4.7`_ that uses named constants for the number of
+program from :doc:`Section 4.7</4/s7>` that uses named constants for the number of
 rows, number of columns, and square size.) Set the number of rows and
 the number of columns to 80. Set the square size to 5.
 
@@ -167,7 +167,7 @@ Exercise 4.6:
 ~~~~~~~~~~~~~
 
 For this exercise, you will do something even more interesting with
-the Mosaic class that was discussed in `Section4.6`_. (Again, don't
+the Mosaic class that was discussed in :doc:`Section 4.6</4/s6>`. (Again, don't
 forget that you will need `Mosaic.java`_ and `MosaicCanvas.java`_.)
 
 The program that you write for this exercise should start by filling a
@@ -204,7 +204,7 @@ Exercise 4.7:
 ~~~~~~~~~~~~~
 
 This is another Mosaic exercise, (using `Mosaic.java`_ and
-`MosaicCanvas.java`_ as discussed in `Section4.6`_). While the program
+`MosaicCanvas.java`_ as discussed in :doc:`Section 4.6</4/s6>`). While the program
 does not do anything particularly interesting, it's interesting as a
 programming problem. The program will do the same thing as the
 following applet:
@@ -222,7 +222,7 @@ on a Mosaic window. More specifically, write a subroutine named
 outlineRectangle such that the subroutine call statement
 
 
-::
+.. code-block:: java
 
     outlineRectangle(top,left,height,width,r,g,b);
 

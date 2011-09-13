@@ -164,7 +164,7 @@ A, has three locations, A[0],A[1], and A[2]. Then A[3], A[4], and so
 on refer to memory locations beyond the end of the array. In Java, an
 attempt to store data in A[3] will be detected. The program will be
 terminated (unless the error is "caught", as discussed in
-`Section3.7`_). In C or C++, the computer will just go ahead and store
+:doc:`Section 3.7</3/s7>`). In C or C++, the computer will just go ahead and store
 the data in memory that is not part of the array. Since there is no
 telling what that memory location is being used for, the result will
 be unpredictable. The consequences could be much more serious than a
@@ -278,7 +278,7 @@ in`Subsection3.2.2`_. Starting from a positive integerN, the program
 computes a certain sequence of integers:
 
 
-::
+.. code-block:: java
 
     while ( N != 1 ) {
        if ( N % 2 == 0 )  // If N is even...
@@ -296,7 +296,7 @@ problem arises whenever 3*N+1 > 2147483647, that is when N>
 this possibility **before** computing 3*N+1:
 
 
-::
+.. code-block:: java
 
     while ( N != 1 ) {
        if ( N % 2 == 0 )  // If N is even...

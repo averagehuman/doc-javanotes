@@ -27,7 +27,7 @@ simply to group a sequence of statements into a single statement. The
 format of a block is:
 
 
-::
+.. code-block:: java
 
     {
          statements
@@ -59,7 +59,7 @@ is the format that I will generally use in my examples.
 Here are two examples of blocks:
 
 
-::
+.. code-block:: java
 
     {
        System.out.print("The answer is ");
@@ -121,7 +121,7 @@ over, but only so long as a specified condition remains true. A while
 loop has the form:
 
 
-::
+.. code-block:: java
 
     while (boolean-expression)
          statement
@@ -131,7 +131,7 @@ Since the statement can be, and usually is, a block, many while loops
 have the form:
 
 
-::
+.. code-block:: java
 
     while (boolean-expression) {
         statements
@@ -158,7 +158,7 @@ Here is an example of a while loop that simply prints out the numbers
 1, 2, 3, 4, 5:
 
 
-::
+.. code-block:: java
 
     int number;   // The number to be printed.
     number = 1;   // Start with 1.
@@ -195,7 +195,7 @@ is an improvement over examples from the previous chapter that just
 reported the results for one year:
 
 
-::
+.. code-block:: java
 
     /**
      *  This class implements a simple program that will compute the amount of 
@@ -269,7 +269,7 @@ valued expression is true or false. It is an example of a "branching"
 or "decision" statement. An if statement has the form:
 
 
-::
+.. code-block:: java
 
     if ( boolean-expression )
         statement
@@ -292,7 +292,7 @@ and not doing it. You can do this with an if statement that omits
 theelse part:
 
 
-::
+.. code-block:: java
 
     if ( boolean-expression )
         statement
@@ -309,7 +309,7 @@ they contain just a single statement. So an if statement often looks
 like:
 
 
-::
+.. code-block:: java
 
     if ( boolean-expression ) {
         statements
@@ -322,7 +322,7 @@ like:
 or:
 
 
-::
+.. code-block:: java
 
     if ( boolean-expression ) {
         statements
@@ -335,7 +335,7 @@ After this if statement has been executed, we can be sure that the
 value of x is definitely less than or equal to the value of y:
 
 
-::
+.. code-block:: java
 
     if ( x > y ) {
         int temp;      // A temporary variable for use in this block.
@@ -350,7 +350,7 @@ part. See if you can figure out what it does, and why it would be
 used:
 
 
-::
+.. code-block:: java
 
     if ( years > 1 ) {  // handle case for 2 or more years
         System.out.print("The value of the investment after ");

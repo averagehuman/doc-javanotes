@@ -48,7 +48,7 @@ implementation for each of the methods specified by the interface.
 Here is an example of a very simple Java interface:
 
 
-::
+.. code-block:: java
 
     public interface Drawable {
        public void draw(Graphics g);
@@ -62,7 +62,7 @@ this method. Of course, the class can also include other methods and
 variables. For example,
 
 
-::
+.. code-block:: java
 
     public class Line implements Drawable {
         public void draw(Graphics g) {
@@ -88,7 +88,7 @@ extend one other class and implement one or more interfaces. So, we
 can have things like
 
 
-::
+.. code-block:: java
 
     class FilledCircle extends Circle 
                             implements Drawable, Fillable {
@@ -106,7 +106,7 @@ interface. You can compare the Drawable interface with the abstract
 class
 
 
-::
+.. code-block:: java
 
     public abstract class AbstractDrawable {
        public abstract void draw(Graphics g);
@@ -122,7 +122,7 @@ Drawable is an interface, and ifLine and FilledCircle are classes that
 implementDrawable, then you could say:
 
 
-::
+.. code-block:: java
 
     Drawable figure;  // Declare a variable of type Drawable.  It can
                       //    refer to any object that implements the
@@ -204,7 +204,7 @@ class. The definition of theWireFrameModel class with its nested Line
 class would look, in outline, like this:
 
 
-::
+.. code-block:: java
 
     public class WireFrameModel {
     
@@ -286,7 +286,7 @@ class to represent the players of the game. This structure of the
 PokerGame class could be:
 
 
-::
+.. code-block:: java
 
     public class PokerGame {  // Represents a game of poker.
         
@@ -336,7 +336,7 @@ have the option of using an anonymous inner class. An anonymous class
 is created with a variation of the new operator that has the form
 
 
-::
+.. code-block:: java
 
     
               new  superclass-or-interface ( parameter-list ) {
@@ -368,7 +368,7 @@ class and then using that class to create the object, we can use an
 anonymous class to create the object in one statement:
 
 
-::
+.. code-block:: java
 
     Drawable redSquare = new Drawable() {
            void draw(Graphics g) {
@@ -414,7 +414,7 @@ variable. So, effectively, we have many objects sharing that one
 variable.
 
 Suppose, for example, that we want to write a PairOfDice class that
-uses the Random class mentioned in `Section5.3`_ for rolling the dice.
+uses the Random class mentioned in :doc:`Section 5.3</5/s3>` for rolling the dice.
 To do this, a PairOfDice object needs access to an object of type
 Random. But there is no need for eachPairOfDice object to have a
 separate Random object. (In fact, it would not even be a good idea:
@@ -424,7 +424,7 @@ have a single Random variable as a static member of the PairOfDice
 class, so that it can be shared by allPairOfDice objects. For example:
 
 
-::
+.. code-block:: java
 
     import java.util.Random;
      
@@ -452,12 +452,12 @@ class, so that it can be shared by allPairOfDice objects. For example:
 
 
 As another example, let's rewrite the Student class that was used in
-`Section5.2`_. I've added an ID for each student and a static member
+:doc:`Section 5.2</5/s2>`. I've added an ID for each student and a static member
 called nextUniqueID. Although there is an ID variable in each student
 object, there is only onenextUniqueID variable.
 
 
-::
+.. code-block:: java
 
     public class Student {
     
@@ -543,7 +543,7 @@ ordinary import directive imports classes from a package. The new form
 of the directive is called a static import, and it has syntax
 
 
-::
+.. code-block:: java
 
     import static package-name.class-name.static-member-name;
 
@@ -551,7 +551,7 @@ of the directive is called a static import, and it has syntax
 to import one static member name from a class, or
 
 
-::
+.. code-block:: java
 
     import static package-name.class-name.*;
 
@@ -560,7 +560,7 @@ to import all the public static members from a class. For example, if
 you preface a class definition with
 
 
-::
+.. code-block:: java
 
     import static java.lang.System.out;
 
@@ -571,7 +571,7 @@ System.out.println. If you are going to work extensively with the Math
 class, you can preface your class definition with
 
 
-::
+.. code-block:: java
 
     import static java.lang.Math.*;
 
@@ -616,7 +616,7 @@ example, we could define the following enumerated type in a file named
 Suit.java:
 
 
-::
+.. code-block:: java
 
     public enum Suit {
        
@@ -644,7 +644,7 @@ toString() method in the class to print out a different string
 representation. This would give something like:
 
 
-::
+.. code-block:: java
 
     public enum CardValue {
     
@@ -711,7 +711,7 @@ typeCardValue is defined in a package named cardgames, then you could
 place
 
 
-::
+.. code-block:: java
 
     import static cardgames.CardValue.*;
 

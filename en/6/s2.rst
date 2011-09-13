@@ -56,7 +56,7 @@ methods do nothing; you can override these methods in a subclass. The
 most important of these special applet methods is
 
 
-::
+.. code-block:: java
 
     public void init()
 
@@ -89,7 +89,7 @@ the applet; again, you are not expected to understand all the details
 at this time:
 
 
-::
+.. code-block:: java
 
     import java.awt.*;
     import java.awt.event.*;
@@ -198,7 +198,7 @@ but now the initialization is done in a constructor instead of in an
 init() method:
 
 
-::
+.. code-block:: java
 
     import java.awt.*;
     import java.awt.event.*;
@@ -252,7 +252,7 @@ only has to create an object of type HelloWorldPanel and use that
 object as its content pane:
 
 
-::
+.. code-block:: java
 
     import javax.swing.JApplet;
     
@@ -268,7 +268,7 @@ Similarly, its easy to make a frame that uses an object of type
 HelloWorldPanel as its content pane:
 
 
-::
+.. code-block:: java
 
     import javax.swing.JFrame;
        
@@ -290,7 +290,7 @@ HelloWorldPanel as its content pane:
 One new feature of this example is the line
 
 
-::
+.. code-block:: java
 
     window.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 
@@ -356,7 +356,7 @@ follow the syntax strictly). Leaving out optional features, an HTML
 document has the form:
 
 
-::
+.. code-block:: java
 
     <html>
     <head>
@@ -382,7 +382,7 @@ The mark-up commands used by HTML are called tags. Examples include
 takes the form
 
 
-::
+.. code-block:: java
 
     <tag-name optional-modifiers>
 
@@ -393,7 +393,7 @@ information for the command (much like parameters in subroutines). A
 modifier takes the form
 
 
-::
+.. code-block:: java
 
     
     modifier-name = value
@@ -414,7 +414,7 @@ line that extends halfway across the page could be generated with the
 tag:
 
 
-::
+.. code-block:: java
 
     <hr width="50%">
 
@@ -426,7 +426,7 @@ given as a fixed number of pixels.
 Many tags require matching closing tags, which take the form
 
 
-::
+.. code-block:: java
 
     < **/**tag-name>
 
@@ -452,7 +452,7 @@ force a new line on the Web page, you can use the tag <br>, which
 stands for "break". For example, I might give my address as:
 
 
-::
+.. code-block:: java
 
     David Eck<br>
     Department of Mathematics and Computer Science<br>
@@ -488,7 +488,7 @@ There are several useful tags that change the appearance of text. To
 get italic text, enclose the text between <i> and </i>. For example,
 
 
-::
+.. code-block:: java
 
     <i>Introduction to Programming using Java</i>
 
@@ -509,7 +509,7 @@ following HTML code will produce a medium--sized, centered, two-line
 headline:
 
 
-::
+.. code-block:: java
 
     <h2 align=center>Chapter 6:<br>Introduction to GUI Programming</h2>
 
@@ -530,7 +530,7 @@ coded set of instructions for finding a document on the Internet. For
 example, the URL for my own "home page" is
 
 
-::
+.. code-block:: java
 
     http://math.hws.edu/eck/
 
@@ -539,7 +539,7 @@ To make a link to this page, such as `David's Home Page`_, I would use
 the HTML source code
 
 
-::
+.. code-block:: java
 
     <a href="http://math.hws.edu/eck/">David's Home Page</a>
 
@@ -556,7 +556,7 @@ example, to create a link to a file named "s1.html" in the same
 directory as the HTML document that you are writing, you could use
 
 
-::
+.. code-block:: java
 
     <a href="s1.html">Section 1</a>
 
@@ -607,7 +607,7 @@ For example, here is HTML code that will place an image from a file
 named figure1.png on the page.
 
 
-::
+.. code-block:: java
 
     <img src="figure1.png" align=right height=150 width=100>
 
@@ -633,7 +633,7 @@ center alignment. So, an applet tag to display an applet named
 HelloWorldApplet centered on a Web page would look like this:
 
 
-::
+.. code-block:: java
 
     <p align=center> 
     <applet code="HelloWorldApplet.class" height=100 width=250>
@@ -659,7 +659,7 @@ specify the name of the jar file in an archive modifier in the<applet>
 tag, as in
 
 
-::
+.. code-block:: java
 
     <applet code="HelloWorldApplet.class" archive="HelloWorld.jar" height=50...
 
@@ -673,7 +673,7 @@ between an <applet> tag and the closing </applet>. The param tag has
 required modifiers named name and value, and it takes the form
 
 
-::
+.. code-block:: java
 
     <param  name="param-name"  value="param-value">
 
@@ -684,7 +684,7 @@ specified in param tags. The getParameter() method has the following
 interface:
 
 
-::
+.. code-block:: java
 
     String getParameter(String paramName)
 
@@ -703,7 +703,7 @@ environment that is not available when the constructor is called.
 Here is an example of an applet tag with several params:
 
 
-::
+.. code-block:: java
 
     
           <applet code="ShowMessage.class" width=200 height=50>
@@ -717,7 +717,7 @@ The ShowMessage applet would presumably read these parameters in its
 init() method, which could go something like this:
 
 
-::
+.. code-block:: java
 
     String message;  // Instance variable: message to be displayed.
     String fontName; // Instance variable: font to use for display.

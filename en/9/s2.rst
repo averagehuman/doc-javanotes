@@ -33,7 +33,7 @@ instance variable of type Employee that points to the employee's
 supervisor:
 
 
-::
+.. code-block:: java
 
     
     /**
@@ -59,7 +59,7 @@ no supervisor. If we wanted to print out the name of the employee's
 supervisor, for example, we could use the following Java statement:
 
 
-::
+.. code-block:: java
 
     if ( emp.supervisor == null) {
        System.out.println( emp.name + " is the boss and has no supervisor!" );
@@ -76,7 +76,7 @@ chain of command through a series of supervisor links, and count how
 many steps it takes to get to the boss:
 
 
-::
+.. code-block:: java
 
     if ( emp.supervisor == null ) {
        System.out.println( emp.name + " is the boss!" );
@@ -118,7 +118,7 @@ pointers from one object to the next. This is much like the chain of
 supervisors between emp and the boss in the above example. It's also
 possible to have more complex situations, in which one object can
 contain links to several other objects. We'll look at an example of
-this in `Section9.4`_.
+this in :doc:`Section 9.4</9/s4>`.
 
 
 
@@ -134,7 +134,7 @@ will be constructed out of objects belonging to the class Node which
 is defined as follows:
 
 
-::
+.. code-block:: java
 
     class Node {
        String item;
@@ -190,7 +190,7 @@ list, then the general form of the code for processing all the items
 in a linked list is:
 
 
-::
+.. code-block:: java
 
     Node runner;    // A pointer that will be used to traverse the list.
     runner = head;  // Start with runner pointing to the head of the list.
@@ -216,7 +216,7 @@ executed at all. As an example, we can print all the strings in a list
 of Strings by saying:
 
 
-::
+.. code-block:: java
 
     Node runner = head;
     while ( runner != null ) {
@@ -231,7 +231,7 @@ numerical, that is not a requirement. Here is a for loop that is
 equivalent to the above while loop:
 
 
-::
+.. code-block:: java
 
     for ( Node runner = head; runner != null; runner = runner.next ) {
        System.out.println( runner.item );
@@ -243,7 +243,7 @@ numbers in the list. A linked list of integers can be constructed
 using the class
 
 
-::
+.. code-block:: java
 
     public class IntNode {
        int item;       // One of the integers in the list.
@@ -255,7 +255,7 @@ If head is a variable of type IntNode that points to a linked list of
 integers, we can find the sum of the integers in the list using:
 
 
-::
+.. code-block:: java
 
     int sum = 0;
     IntNode runner = head;
@@ -283,7 +283,7 @@ length one). For example, here is a recursive algorithm for adding up
 the numbers in a linked list of integers:
 
 
-::
+.. code-block:: java
 
     if the list is empty then
        return 0 (since there are no numbers to be added up)
@@ -306,7 +306,7 @@ the tail of the list even in this special case. This allows us to
 write a recursive list-summing function in Java as
 
 
-::
+.. code-block:: java
 
     /**
      *  Compute the sum of all the integers in a linked list of integers.
@@ -341,7 +341,7 @@ works, and you should think about trying to do the same thing without
 using recursion:
 
 
-::
+.. code-block:: java
 
     public static void printReversed( Node head ) {
        if ( head == null ) {
@@ -382,7 +382,7 @@ processing. However, in this case, we can stop processing if we find
 the item that we are looking for.
 
 
-::
+.. code-block:: java
 
     /**
      * Searches the list for a specified item. 
@@ -464,7 +464,7 @@ the middle of the list, then the following code would correctly
 positionprevious and runner:
 
 
-::
+.. code-block:: java
 
     Node runner, previous;
     previous = head;     // Start at the beginning of the list.  
@@ -486,7 +486,7 @@ the new node must be inserted at the head of the list. This can be
 done with the instructions
 
 
-::
+.. code-block:: java
 
     newNode.next = head;   // Make newNode.next point to the old head.
     head = newNode;        // Make newNode the new head of the list.
@@ -498,7 +498,7 @@ simply by setting head = newNode. The following insert() method from
 the StringList class covers all of these possibilities:
 
 
-::
+.. code-block:: java
 
     /**
      * Insert a specified item to the list, keeping the list in order.
@@ -584,7 +584,7 @@ yourself to illustrate this operation. Here is the complete code for
 the delete() method:
 
 
-::
+.. code-block:: java
 
     /**
      * Delete a specified item from the list, if that item is present.

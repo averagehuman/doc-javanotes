@@ -121,8 +121,8 @@ problem of laying out components in containers.
 ~~~~~~~~~~~~
 
 An object of class JButton is a push button that the user can click to
-trigger some action. You've already seen buttons used in `Section6.1`_
-and `Section6.2`_, but we consider them in much more detail here. To
+trigger some action. You've already seen buttons used in :doc:`Section 6.1</6/s1>`
+and :doc:`Section 6.2</6/s2>`, but we consider them in much more detail here. To
 use any component effectively, there are several aspects of the
 corresponding class that you should be familiar with. ForJButton, as
 an example, I list these aspects explicitly:
@@ -183,7 +183,7 @@ edited by the user, although it can be changed by your program. The
 constructor for aJLabel specifies the text to be displayed:
 
 
-::
+.. code-block:: java
 
     JLabel message = new JLabel("Hello World!");
 
@@ -194,7 +194,7 @@ given by the constants JLabel.LEFT, JLabel.CENTER, andJLabel.RIGHT.
 For example,
 
 
-::
+.. code-block:: java
 
     JLabel message = new JLabel("Hello World!", JLabel.CENTER);
 
@@ -204,7 +204,7 @@ change the text displayed in a label by calling the label's setText()
 method:
 
 
-::
+.. code-block:: java
 
     message.setText("Goodbye World!");
 
@@ -216,7 +216,7 @@ setOpaque(true) on the label, since otherwise the JLabel might not
 fill in its background. For example:
 
 
-::
+.. code-block:: java
 
     JLabel message = new JLabel("Hello World!", JLabel.CENTER);
     message.setForeground(Color.RED);   // Display red text...
@@ -239,7 +239,7 @@ istrue if the box is selected and is false if the box is unselected. A
 checkbox has a label, which is specified when the box is constructed:
 
 
-::
+.. code-block:: java
 
     JCheckBox showTime = new JCheckBox("Show Current Time");
 
@@ -278,7 +278,7 @@ from one of two checkboxes,cb1 or cb2, then your actionPerformed()
 method might look like this:
 
 
-::
+.. code-block:: java
 
     
               public void actionPerformed(ActionEvent evt) {
@@ -340,7 +340,7 @@ instance variables that specify the margins on the top, left, bottom,
 and right edge of the component. For example,
 
 
-::
+.. code-block:: java
 
     textComponent.setMargin( new Insets(5,5,5,5) );
 
@@ -354,7 +354,7 @@ edge of the component.
 The JTextField class has a constructor
 
 
-::
+.. code-block:: java
 
     public JTextField(int columns)
 
@@ -372,7 +372,7 @@ can also use the following constructors, which specify the initial
 contents of the text field:
 
 
-::
+.. code-block:: java
 
     public JTextField(String contents);
     public JTextField(String contents, int columns);
@@ -381,7 +381,7 @@ contents of the text field:
 The constructors for a JTextArea are
 
 
-::
+.. code-block:: java
 
     public JTextArea()
     public JTextArea(int rows, int columns)
@@ -419,7 +419,7 @@ bars for a text area, you have to put the JTextArea inside another
 component, called a JScrollPane. This can be done as follows:
 
 
-::
+.. code-block:: java
 
     JTextArea inputArea = new JTextArea();
     JScrollPane scroller = new JScrollPane( inputArea );
@@ -479,7 +479,7 @@ For example, the following code will create an object of typeJComboBox
 that contains the options Red, Blue, Green, and Black:
 
 
-::
+.. code-block:: java
 
     JComboBox colorChoice = new JComboBox();
     colorChoice.addItem("Red");
@@ -541,7 +541,7 @@ and end of the range of values for the slider and its initial value
 when it first appears on the screen:
 
 
-::
+.. code-block:: java
 
     public JSlider(int minimum, int maximum, int value)
 
@@ -567,7 +567,7 @@ addChangeListener() method. A ChangeListener must provide a definition
 for the method:
 
 
-::
+.. code-block:: java
 
     public void stateChanged(ChangeEvent evt)
 
@@ -596,7 +596,7 @@ For example, the second slider in the above applet was created and
 configured using the commands:
 
 
-::
+.. code-block:: java
 
     slider2 = new JSlider();  // (Uses default min, max, and value.)
     slider2.addChangeListener(this);
@@ -612,7 +612,7 @@ can create a set of labels and add them to a slider named sldr with
 the command:
 
 
-::
+.. code-block:: java
 
     sldr.setLabelTable( sldr.createStandardLabels(i) );
 
@@ -623,7 +623,7 @@ example, the third slider in the above applet was created and
 configured with the commands:
 
 
-::
+.. code-block:: java
 
     slider3 = new JSlider(2000,2100,2006);
     slider3.addChangeListener(this);

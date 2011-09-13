@@ -31,7 +31,7 @@ numbers showing on the dice and an instance method for rolling the
 dice:
 
 
-::
+.. code-block:: java
 
     public class PairOfDice {
     
@@ -58,7 +58,7 @@ of those variables. To make this clearer, consider a variation of
 thePairOfDice class:
 
 
-::
+.. code-block:: java
 
     public class PairOfDice {
     
@@ -103,7 +103,7 @@ Objects are created with the operator, new. For example, a program
 that wants to use a PairOfDice object could say:
 
 
-::
+.. code-block:: java
 
     PairOfDice dice;   // Declare a variable of type PairOfDice.
     
@@ -147,7 +147,7 @@ PairOfDice class could provide the values that are initially showing
 on the dice. Here is what the class would look like in that case:
 
 
-::
+.. code-block:: java
 
     public class PairOfDice {
     
@@ -182,7 +182,7 @@ which the values of the instance variables die1 and die2 are initially
 should be used in some way, as in
 
 
-::
+.. code-block:: java
 
     PairOfDice dice;            // Declare a variable of type PairOfDice.
     
@@ -204,7 +204,7 @@ might have a constructor with no parameters which produces a pair of
 dice showing random numbers:
 
 
-::
+.. code-block:: java
 
     public class PairOfDice {
     
@@ -250,7 +250,7 @@ illustrates once again that you can create several instances of the
 same class:
 
 
-::
+.. code-block:: java
 
     public class RollTwoPairs {
     
@@ -314,7 +314,7 @@ Unlike other subroutines, a constructor can only be called using
 thenew operator, in an expression that has the form
 
 
-::
+.. code-block:: java
 
     new class-name ( parameter-list )
 
@@ -360,7 +360,7 @@ For another example, let's rewrite the Student class that was used in
 opportunity to make the instance variable, name, private.
 
 
-::
+.. code-block:: java
 
     public class Student {
     
@@ -393,7 +393,7 @@ which specifies the name of that student. Objects of typeStudent can
 be created with statements such as:
 
 
-::
+.. code-block:: java
 
     std = new Student("John Smith");
     std1 = new Student("Mary Jones");
@@ -440,7 +440,7 @@ happen. Consider the following two statements (though in reality,
 you'd never do anything like this in consecutive statements):
 
 
-::
+.. code-block:: java
 
     Student std = new Student("John Smith");
     std = null;

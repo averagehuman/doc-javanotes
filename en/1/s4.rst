@@ -38,7 +38,7 @@ named "principal", multiply that number by 0.07, and then store the
 result in the variable named "interest":
 
 
-::
+.. code-block:: java
 
     interest = principal * 0.07;
 
@@ -74,7 +74,7 @@ way of expressing this type of decision. In Java, it could be
 expressed using the following "if statement":
 
 
-::
+.. code-block:: java
 
     if (principal > 10000)
         interest = principal * 0.05;
@@ -113,7 +113,7 @@ them into a subroutine, and give that subroutine some appropriate name
 draw a house, you can do so with the single command:
 
 
-::
+.. code-block:: java
 
     drawHouse();
 

@@ -38,7 +38,7 @@ of classes and subclasses from scratch. The existing class can be
 extended to make a subclass. The syntax for this is
 
 
-::
+.. code-block:: java
 
     public class subclass-name extends existing-class-name {
        .
@@ -49,7 +49,7 @@ extended to make a subclass. The syntax for this is
 
 As an example, suppose you want to write a program that plays the card
 game, Blackjack. You can use the Card, Hand, and Deck classes
-developed in `Section5.4`_. However, a hand in the game of Blackjack
+developed in :doc:`Section 5.4</5/s4>`. However, a hand in the game of Blackjack
 is a little different from a hand of cards in general, since it must
 be possible to compute the "value" of a Blackjack hand according to
 the rules of the game. The rules are as follows: The value of a hand
@@ -66,7 +66,7 @@ a method that computes the Blackjack value of the hand. Here's the
 definition of such a class:
 
 
-::
+.. code-block:: java
 
     public class BlackjackHand extends Hand {
     
@@ -198,7 +198,7 @@ In Java, to create a class named "B" as a subclass of a class named
 "A", you would write
 
 
-::
+.. code-block:: java
 
     class B extends A {
         .
@@ -253,7 +253,7 @@ in practice, they would probably be public classes, defined in
 separate files):
 
 
-::
+.. code-block:: java
 
     class Vehicle {
        int registrationNumber;
@@ -284,7 +284,7 @@ Suppose that myCar is a variable of type Car that has been declared
 and initialized with the statement
 
 
-::
+.. code-block:: java
 
     Car myCar = new Car();
 
@@ -309,7 +309,7 @@ typeCar can be assigned to a variable of type Vehicle. That is, it
 would be legal to say
 
 
-::
+.. code-block:: java
 
     Vehicle myVehicle = myCar;
 
@@ -317,7 +317,7 @@ would be legal to say
 or even
 
 
-::
+.. code-block:: java
 
     Vehicle myVehicle = new Car();
 
@@ -331,7 +331,7 @@ given object belongs to a given class, using theinstanceof operator.
 The test:
 
 
-::
+.. code-block:: java
 
     if (myVehicle instanceof Car) ...
 
@@ -342,7 +342,7 @@ car.
 On the other hand, the assignment statement
 
 
-::
+.. code-block:: java
 
     myCar = myVehicle;
 
@@ -360,7 +360,7 @@ to tell the computer to treat myVehicle as if it were actually of
 typeCar. So, you could say
 
 
-::
+.. code-block:: java
 
     myCar = (Car)myVehicle;
 
@@ -378,7 +378,7 @@ numberOfDoors, but you can't say myVehicle.numberOfDoors, since there
 is no numberOfDoors in the Vehicle class. But you could say:
 
 
-::
+.. code-block:: java
 
     System.out.println("Vehicle Data:");
     System.out.println("Registration number:  " 
@@ -435,7 +435,7 @@ Changing the color, for example, might involve changing the value of
 an instance variable, and then redrawing the shape in its new color:
 
 
-::
+.. code-block:: java
 
     class Shape {
     
@@ -471,7 +471,7 @@ In practice, this means that each of the specific shape classes has
 its ownredraw() method:
 
 
-::
+.. code-block:: java
 
     class Rectangle extends Shape {
        void redraw() {
@@ -501,7 +501,7 @@ executes, and the value of oneShape changes, it could even refer to
 objects of different types at different times! Whenever the statement
 
 
-::
+.. code-block:: java
 
     oneShape.redraw();
 
@@ -555,7 +555,7 @@ the object oneShape. Look back at the method in theShape class for
 changing the color of a shape:
 
 
-::
+.. code-block:: java
 
     void setColor(Color newColor) {
        color = newColor; // change value of instance variable
@@ -644,7 +644,7 @@ the abstract method in any concrete subclass of the abstract class.
 Here's what theShape class would look like as an abstract class:
 
 
-::
+.. code-block:: java
 
     public abstract class Shape {
     
@@ -683,7 +683,7 @@ subclass of the standard class Object. That is, a class declaration
 with no "extends" part such as
 
 
-::
+.. code-block:: java
 
     public class myClass { . . .
 
@@ -691,7 +691,7 @@ with no "extends" part such as
 is exactly equivalent to
 
 
-::
+.. code-block:: java
 
     public class myClass extends Object { . . .
 
@@ -709,7 +709,7 @@ standard data structures that are designed to hold Objects, but since
 every object is an instance of class Object, these data structures can
 actually hold any object whatsoever. One example is the "ArrayList"
 data structure, which is defined by the class ArrayList in the package
-java.util. (ArrayList is discussed more fully in`Section7.3`_.) An
+java.util. (ArrayList is discussed more fully in:doc:`Section 7.3</7/s3>`.) An
 ArrayList is simply a list of Objects. This class is very convenient,
 because an ArrayList can hold any number of objects, and it will grow,
 when necessary, as objects are added to it. Since the items in the
@@ -734,7 +734,7 @@ can type-cast the Object returned bylistOfShapes.get(i) to be a value
 of type Shape:
 
 
-::
+.. code-block:: java
 
     oneShape = (Shape)listOfShapes.get(i);
 
@@ -744,7 +744,7 @@ list. You could do this with a simple for loop, which is a lovely
 example of object-oriented programming and of polymorphism:
 
 
-::
+.. code-block:: java
 
     for (int i = 0; i < listOfShapes.size(); i++) {
        Shape s;  // i-th element of the list, considered as a Shape

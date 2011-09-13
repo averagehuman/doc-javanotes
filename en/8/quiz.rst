@@ -43,7 +43,7 @@ Question9:
 Consider a subroutine processData() that has the header
 
 
-::
+.. code-block:: java
 
     static void processData() throws IOException
 
@@ -68,7 +68,7 @@ better, Θ(f(n)). Assume that A is an array of integers, and use the
 length of the array as the input size, n.
 
 
-::
+.. code-block:: java
 
     
     int total = 0;

@@ -60,7 +60,7 @@ row number i and column number j. The 12 items in A are named as
 follows:
 
 
-::
+.. code-block:: java
 
     A[0][0]    A[0][1]     A[0][2]     A[0][3]
     A[1][0]    A[1][1]     A[1][2]     A[1][3]
@@ -101,7 +101,7 @@ the two-dimensional array. For example, the arrayA shown in the
 picture above could be created with:
 
 
-::
+.. code-block:: java
 
     int[][]  A  =  {  {  1,  0, 12, -1 },
                       {  7, -3,  2,  5 },
@@ -126,7 +126,7 @@ a two-dimensional array, you have to use one for statement nested
 inside another. If the array A is declared as
 
 
-::
+.. code-block:: java
 
     int[][]  A  =  new int[3][4];
 
@@ -134,7 +134,7 @@ inside another. If the array A is declared as
 then you could store a 17 into each location in A with:
 
 
-::
+.. code-block:: java
 
     for (int row = 0;  row < 3;  row++) {
        for (int column = 0;  column < 4;  column++) {
@@ -152,7 +152,7 @@ execution of the outer loop fills in the final row ofA.
 Similarly, you could add up all the items in A with:
 
 
-::
+.. code-block:: java
 
     int sum = 0;
     for (int i = 0; i < 3; i++)
@@ -165,7 +165,7 @@ the elements in A are objects of type int[], while the elements in
 each row of A are of type int:
 
 
-::
+.. code-block:: java
 
     int sum = 0;
     for ( int[] row : A ) {       // For each row in A...
@@ -188,7 +188,7 @@ available to represent individual chess pieces, then the contents of a
 chess board could be represented by a two-dimensional array:
 
 
-::
+.. code-block:: java
 
     ChessPiece[][]  board  =  new ChessPiece[8][8];
 
@@ -203,7 +203,7 @@ rectangle in the mosaic. The actual two-dimensional array is created
 by the statement:
 
 
-::
+.. code-block:: java
 
     grid  =  new Color[ROWS][COLUMNS];
 
@@ -220,7 +220,7 @@ MosaicCanvas class that draws all the colored rectangles in the grid.
 You can see how it uses the array:
 
 
-::
+.. code-block:: java
 
     int rowHeight = getHeight() / ROWS;
     int colWidth = getWidth() / COLUMNS;
@@ -242,7 +242,7 @@ December '10 are numbered from 0 to 11, then the profit data could be
 stored in an array, profit, constructed as follows:
 
 
-::
+.. code-block:: java
 
     double[][]  profit  =  new double[25][12];
 
@@ -260,7 +260,7 @@ the total profit for the company -- for the whole year from all its
 stores -- can be calculated by adding up all the entries in the array:
 
 
-::
+.. code-block:: java
 
     double totalProfit;  // Company's total profit in 2010.
     
@@ -277,7 +277,7 @@ profit earned by the company in December, that is, in month number 11,
 you could use the loop:
 
 
-::
+.. code-block:: java
 
     double decemberProfit = 0.0;
     for (storeNum = 0; storeNum < 25; storeNum++)
@@ -288,7 +288,7 @@ Let's extend this idea to create a one-dimensional array that contains
 the total profit for each month of the year:
 
 
-::
+.. code-block:: java
 
     double[] monthlyProfit;  // Holds profit for each month.
     monthlyProfit = new double[12];
@@ -312,7 +312,7 @@ each row in the array. As we do this, we need to keep track of which
 row produces the largest total.
 
 
-::
+.. code-block:: java
 
     double maxProfit; // Maximum profit earned by a store.
     int bestStore;    // The number of the store with the
@@ -400,7 +400,7 @@ of integers. The values stored in the grid are defined as constants
 representing the possible contents of a square on a checkerboard:
 
 
-::
+.. code-block:: java
 
     static final int
               EMPTY = 0,           // Value representing an empty square.
@@ -436,7 +436,7 @@ the program doesn't have to worry about any of these details. It just
 calls this makeMove() method:
 
 
-::
+.. code-block:: java
 
     /**
      * Make the move from (fromRow,fromCol) to (toRow,toCol).  It is
@@ -470,7 +470,7 @@ legal moves on the board. In my program, a move in a Checkers game is
 represented by an object belonging to the following class:
 
 
-::
+.. code-block:: java
 
     /**
      * A CheckersMove object represents a move in the game of
@@ -509,7 +509,7 @@ array contains all the legal moves, represented as CheckersMove
 objects. The specification for this method reads
 
 
-::
+.. code-block:: java
 
     /**
      * Return an array containing all the legal CheckersMoves
@@ -526,7 +526,7 @@ objects. The specification for this method reads
 A brief pseudocode algorithm for the method is
 
 
-::
+.. code-block:: java
 
     Start with an empty list of moves
     Find any legal jumps and add them to the list
@@ -550,7 +550,7 @@ grow just as large as necessary. At the end of the method, we can
 create the array that we really want and copy the data into it:
 
 
-::
+.. code-block:: java
 
     Let "moves" be an empty ArrayList<CheckerMove>
     Find any legal jumps and add them to moves
@@ -576,7 +576,7 @@ algorithm that says "Find any legal jumps and add them to moves"
 expands to:
 
 
-::
+.. code-block:: java
 
     For each row of the board:
        For each column of the board:
@@ -602,7 +602,7 @@ the following utility method to check whether a player can make a
 given non-jump move:
 
 
-::
+.. code-block:: java
 
     /**
      * This is called by the getLegalMoves() method to determine 
@@ -642,7 +642,7 @@ that is being jumped must contain one of the opponent's pieces. This
 method has the specification:
 
 
-::
+.. code-block:: java
 
     /**
      * This is called by other methods to check whether
@@ -662,7 +662,7 @@ chapter, since it combines several topics that we've looked at: one-
 dimensional arrays,ArrayLists, and two-dimensional arrays:
 
 
-::
+.. code-block:: java
 
     CheckersMove[] getLegalMoves(int player) {
     

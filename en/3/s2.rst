@@ -76,7 +76,7 @@ the user." You might then write -- or at least think -- that this can
 be expanded as:
 
 
-::
+.. code-block:: java
 
     Get the user's input
     Compute the value of the investment after 1 year
@@ -98,7 +98,7 @@ same loop will work no matter how many years you want to process. So,
 you might rewrite the above sequence of steps as:
 
 
-::
+.. code-block:: java
 
     Get the user's input
     while there are more years to process:
@@ -113,7 +113,7 @@ means to say "there are more years to process." We can expand the
 step, "Get the user's input" into
 
 
-::
+.. code-block:: java
 
     Ask the user for the initial investment
     Read the user's response
@@ -128,7 +128,7 @@ know that the value is computed by adding some interest to the
 previous value. Then we can refine thewhile loop to:
 
 
-::
+.. code-block:: java
 
     while there are more years to process:
         Compute the interest
@@ -144,7 +144,7 @@ time we process a year, and stop when we reach the desired number of
 years. So the while loop becomes:
 
 
-::
+.. code-block:: java
 
     years = 0
     while years < 5:
@@ -161,7 +161,7 @@ of the algorithm that gets the user's inputs, we have the complete
 algorithm:
 
 
-::
+.. code-block:: java
 
     Ask the user for the initial investment
     Read the user's response
@@ -181,7 +181,7 @@ for the variables, decide exactly what we want to say to the user, and
 so forth. Having done this, we could express our algorithm in Java as:
 
 
-::
+.. code-block:: java
 
     double principal, rate, interest;  // declare the variables
     int years;
@@ -261,7 +261,7 @@ sequence."
 A general outline of the algorithm for the program we want is:
 
 
-::
+.. code-block:: java
 
        Get a positive integer N from the user.
        Compute, print, and count each number in the sequence.
@@ -276,7 +276,7 @@ as long as the number is **not** 1. So, we can expand our pseudocode
 algorithm to:
 
 
-::
+.. code-block:: java
 
     Get a positive integer N from the user;
     while N is not 1:
@@ -291,7 +291,7 @@ actions depending on whether N is even or odd. We need an if statement
 to decide between the two cases:
 
 
-::
+.. code-block:: java
 
     Get a positive integer N from the user;
     while N is not 1:
@@ -311,7 +311,7 @@ counting. (Again, this is a common pattern that you should expect to
 see over and over.) With the counter added, we get:
 
 
-::
+.. code-block:: java
 
     Get a positive integer N from the user;
     Let counter = 0;
@@ -336,7 +336,7 @@ that are foolproof. One way to fix this is to keep reading in numbers
 until the user types in a positive number:
 
 
-::
+.. code-block:: java
 
     Ask user to input a positive number;
     Let N be the user's response;
@@ -369,10 +369,10 @@ numbers until the user enters an acceptable input.)
 Here is a Java program implementing this algorithm. It uses the
 operators<= to mean "is less than or equal to" and != to mean "is not
 equal to." To test whether N is even, it uses "N%2==0". All the
-operators used here were discussed in `Section2.5`_.
+operators used here were discussed in :doc:`Section 2.5</2/s5>`.
 
 
-::
+.. code-block:: java
 
     /**  
      * This program prints out a 3N+1 sequence starting from a positive 
@@ -430,7 +430,7 @@ fixed easily enough. Just replace the line "counter = 0" before the
 while loop with the two lines:
 
 
-::
+.. code-block:: java
 
     TextIO.putln(N);   // print out initial term
     counter = 1;       // and count it
@@ -545,7 +545,7 @@ information about the state of the program. Typically, a debugging
 statement would say something like
 
 
-::
+.. code-block:: java
 
     System.out.println("At start of while loop, N = " + N);
 

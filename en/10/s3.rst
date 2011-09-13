@@ -125,7 +125,7 @@ simply use a map of type Map<String,String>. A directory would be
 defined as
 
 
-::
+.. code-block:: java
 
     Map<String,String> directory = new Map<String,String>();
 
@@ -149,7 +149,7 @@ possible in a roundabout but clever way. If map is a variable of type
 Map<K,V>, then the method
 
 
-::
+.. code-block:: java
 
     map.keySet()
 
@@ -178,7 +178,7 @@ to traverse the map. For example, if map is of type
 Map<String,Double>, we could write:
 
 
-::
+.. code-block:: java
 
     Set<String> keys = map.keySet();     // The set of keys in the map.
     Iterator<String> keyIter = keys.iterator();
@@ -194,7 +194,7 @@ Or we could do the same thing more easily, avoiding the explicit use
 of an iterator, with a for-each loop:
 
 
-::
+.. code-block:: java
 
     System.out.println("The map contains the following associations:");
     for ( String key : map.keySet() ) {  // "for each key in the map's key set"
@@ -211,7 +211,7 @@ The Map interface defines two other views. If map is a variable of
 type Map<K,V>, then the method:
 
 
-::
+.. code-block:: java
 
     map.values()
 
@@ -223,7 +223,7 @@ elements (since a map can associate the same value to any number of
 keys). The method:
 
 
-::
+.. code-block:: java
 
     map.entrySet()
 
@@ -252,7 +252,7 @@ the value associated with each key. Suppose again that map is of type
 Map<String,Double>. Then we can write:
 
 
-::
+.. code-block:: java
 
     Set<Map.Entry<String,Double>> entries = map.entrySet();
     Iterator<Map.Entry<String,Double>> entryIter = entries.iterator();
@@ -268,7 +268,7 @@ Map<String,Double>. Then we can write:
 or, using a for-each loop:
 
 
-::
+.. code-block:: java
 
     System.out.println("The map contains the following associations:");
     for ( Map.Entry<String,Double> entry : map.entrySet() )
@@ -284,7 +284,7 @@ sublist as a view of a part of a list. If list implements the
 interface List<T>, then the method:
 
 
-::
+.. code-block:: java
 
     list.subList( fromIndex, toIndex )
 
@@ -327,7 +327,7 @@ names and the values are phone numbers. We can print out all the
 entries from blackBook where the name begins with "M" as follows:
 
 
-::
+.. code-block:: java
 
     Map<String,String> ems = blackBook.subMap("M","N");
          // This submap contains entries for which the key is greater

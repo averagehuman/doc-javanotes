@@ -66,7 +66,7 @@ found. If the integer is not in the array, the method returns the
 value -1 as a signal that the integer could not be found:
 
 
-::
+.. code-block:: java
 
     /**
      * Searches the array A for the integer N.  If N is not in the array,
@@ -138,7 +138,7 @@ returns the location of N in a sorted array A. If N cannot be found in
 the array, then a value of -1 is returned instead:
 
 
-::
+.. code-block:: java
 
     /**
      * Searches the array A for the integer N.
@@ -207,13 +207,13 @@ list, if we think of it as associating an address to each name on the
 list. As a related example, consider a phone directory that associates
 a phone number to each name. We'll look at a highly simplified version
 of this example. And note that things can be done much more
-efficiently, as you'll learn in `Chapter10`_.
+efficiently, as you'll learn in :doc:`Chapter 10</10>`.
 
 The items in the phone directory's association list could be objects
 belonging to the class:
 
 
-::
+.. code-block:: java
 
     class PhoneEntry {
        String name;
@@ -232,7 +232,7 @@ the "get" and "put" operations. Here is one possible simple definition
 of the class:
 
 
-::
+.. code-block:: java
 
     /**
      * A PhoneDirectory holds a list of names with a phone number for
@@ -358,7 +358,7 @@ will mean moving each of the bigger items up one space to make room
 for the new item.
 
 
-::
+.. code-block:: java
 
     /*
      * Precondition:  itemsInArray is the number of items that are
@@ -399,7 +399,7 @@ In the actual algorithm, we don't really take all the items from the
 array; we just remember what part of the array has been sorted:
 
 
-::
+.. code-block:: java
 
     static void insertionSort(int[] A) {
           // Sort the array A into increasing order.
@@ -446,7 +446,7 @@ the next-to-last space, and so forth. This algorithm is called
 selection sort. It's easy to write:
 
 
-::
+.. code-block:: java
 
     static void selectionSort(int[] A) {
           // Sort A into increasing order, using selection sort
@@ -481,7 +481,7 @@ Insertion sort and selection sort are suitable for sorting fairly
 small arrays (up to a few hundred elements, say). There are more
 complicated sorting algorithms that are much faster than insertion
 sort and selection sort for large arrays. I'll discuss one such
-algorithm in `Chapter9`_.
+algorithm in :doc:`Chapter 9</9>`.
 
 
 
@@ -505,7 +505,7 @@ inefficiency is negligible. Here is the code for sorting cards by
 suit:
 
 
-::
+.. code-block:: java
 
     /**
      * Sorts the cards in the hand so that cards of the same suit are
@@ -545,7 +545,7 @@ is not defined for strings. However, theString class does define a
 compareTo method. If str1 and str2 are of type String, then
 
 
-::
+.. code-block:: java
 
     str1.compareTo(str2)
 
@@ -564,7 +564,7 @@ true for uppercase letters.) Thus, if str1 and str2 are strings
 containing only letters from the English alphabet, then the test
 
 
-::
+.. code-block:: java
 
     str1.toLowerCase().compareTo(str2.toLowerCase()) < 0
 
@@ -588,7 +588,7 @@ random and moved to the end of the list. Here is a subroutine to
 shuffle an array of ints:
 
 
-::
+.. code-block:: java
 
     /**
      * Postcondition:  The items in A have been rearranged into a random order.

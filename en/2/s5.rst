@@ -121,7 +121,7 @@ common. You might perform the operation of adding 1 to a variable with
 assignment statements such as:
 
 
-::
+.. code-block:: java
 
     counter  =  counter + 1;
     goalsScored  =  goalsScored + 1;
@@ -135,7 +135,7 @@ changes the value of x, so that it has the same effect as writing
 "x=x+1". The two statements above could be written
 
 
-::
+.. code-block:: java
 
     counter++;
     goalsScored++;
@@ -155,7 +155,7 @@ However, it is also legal to use x++,++x, x--, or --x as expressions,
 or as parts of larger expressions. That is, you can write things like:
 
 
-::
+.. code-block:: java
 
     y = x++;
     y = ++x;
@@ -194,7 +194,7 @@ so forth. The relational operators in Java are: ==,!=, <, >, <=, and
 >=. The meanings of these operators are:
 
 
-::
+.. code-block:: java
 
     A == B       Is A "equal to" B?
     A != B       Is A "not equal to" B?
@@ -223,7 +223,7 @@ values. This is occasionally useful. For example, can you figure out
 what this does:
 
 
-::
+.. code-block:: java
 
     boolean sameSign;
     sameSign = ((x > 0) == (y > 0));
@@ -238,7 +238,7 @@ memory location, rather than whether they contain the same value.
 Occasionally, for some objects, you do want to make such a check --
 but rarely for strings. I'll get back to this in a later chapter.)
 Instead, you should use the subroutinesequals(), equalsIgnoreCase(),
-and compareTo(), which were described in `Section2.3`_, to compare
+and compareTo(), which were described in :doc:`Section 2.3</2/s3>`, to compare
 twoStrings.
 
 
@@ -270,7 +270,7 @@ boolean operators. This means that the second operand of && or || is
 not necessarily evaluated. Consider the test
 
 
-::
+.. code-block:: java
 
     (x != 0) && (y/x > 1)
 
@@ -291,7 +291,7 @@ indicated by! and is written in front of its single operand. For
 example, iftest is a boolean variable, then
 
 
-::
+.. code-block:: java
 
     test = ! test;
 
@@ -313,7 +313,7 @@ it has three operands -- and it comes in two pieces, ? and :, that
 have to be used together. It takes the form
 
 
-::
+.. code-block:: java
 
     
      **boolean-expression** ?  **expression1** :  **expression2**
@@ -324,7 +324,7 @@ is true, it evaluates **expression1**; otherwise, it evaluates
 **expression2**. For example:
 
 
-::
+.. code-block:: java
 
     next = (N % 2 == 0) ? (N/2) : (3*N+1);
 
@@ -351,7 +351,7 @@ to A and test at the same time whether that value is zero, you could
 say:
 
 
-::
+.. code-block:: java
 
     if ( (A=B) == 0 )...
 
@@ -368,7 +368,7 @@ in this list can be converted automatically to a value that occurs
 later. For example:
 
 
-::
+.. code-block:: java
 
     int A;
     double X;
@@ -392,7 +392,7 @@ A type cast is indicated by putting a type name, in parentheses, in
 front of the value you want to convert. For example,
 
 
-::
+.. code-block:: java
 
     int A;
     short B;
@@ -432,7 +432,7 @@ Every operator in Java that applies to two operands gives rise to a
 similar assignment operator. For example:
 
 
-::
+.. code-block:: java
 
     x -= y;     // same as:   x = x - y;
     x *= y;     // same as:   x = x * y;
@@ -492,7 +492,7 @@ so the name of the enum is part of the full name of the function. For
 example, if an enum Suit is defined as
 
 
-::
+.. code-block:: java
 
     enum Suit { SPADE, DIAMOND, CLUB, HEART }
 
@@ -521,7 +521,7 @@ in order from highest precedence (evaluated first) to lowest
 precedence (evaluated last):
 
 
-::
+.. code-block:: java
 
     Unary operators:              ++, --, !, unary - and +, type-cast
     Multiplication and division:  *,  /,  %

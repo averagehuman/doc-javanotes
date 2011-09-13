@@ -40,7 +40,7 @@ main() routine, there is a sort of main routine running somewhere that
 executes a loop of the form
 
 
-::
+.. code-block:: java
 
     while the program is still running:
         Wait for the next event to occur
@@ -56,7 +56,7 @@ In this section, we'll look at handling mouse events in Java, and
 we'll cover the framework for handling events in general. The `next
 section`_ will cover keyboard-related events and timer events. Java
 also has other types of events, which are produced by GUI components.
-These will be introduced in `Section6.6`_.
+These will be introduced in :doc:`Section 6.6</6/s6>`.
 
 
 
@@ -75,7 +75,7 @@ MouseEvent, then it must contain the following method (among several
 others):
 
 
-::
+.. code-block:: java
 
     public void mousePressed(MouseEvent evt) { . . . }
 
@@ -112,7 +112,7 @@ object, comp, the listener must be registered with the component by
 calling
 
 
-::
+.. code-block:: java
 
     comp.addMouseListener(mListener);
 
@@ -162,7 +162,7 @@ in examples in this textbook.
 The MouseListener interface specifies five different instance methods:
 
 
-::
+.. code-block:: java
 
     public void mousePressed(MouseEvent evt);
     public void mouseReleased(MouseEvent evt);
@@ -203,7 +203,7 @@ theMouseListener interface. One way to create the object is to define
 a separate class, such as:
 
 
-::
+.. code-block:: java
 
     import java.awt.Component;
     import java.awt.event.*;
@@ -250,7 +250,7 @@ panel object, we can create a mouse listener object and register it
 with the panel with the statements:
 
 
-::
+.. code-block:: java
 
     RepaintOnClick listener = new RepaintOnClick();  // Create MouseListener object.
     panel.addMouseListener(listener);  // Register MouseListener with the panel.
@@ -301,7 +301,7 @@ mouse clicks. The mouse handling has been "bolted on" to an existing
 class, without having to make any changes at all to that class:
 
 
-::
+.. code-block:: java
 
     import java.awt.Component;
     import java.awt.event.MouseEvent;
@@ -405,7 +405,7 @@ of the program can be the mouse listener for the program. The
 constructor for the panel class contains the statement
 
 
-::
+.. code-block:: java
 
     addMouseListener(this);
 
@@ -429,7 +429,7 @@ java.awt.event.*", "implements MouseListener", definitions for the
 event-handling methods, and "addMouseListener"):
 
 
-::
+.. code-block:: java
 
     import java.awt.*;
     import java.awt.event.*;
@@ -544,7 +544,7 @@ interface named MouseMotionListener. This interface specifies two
 event-handling methods:
 
 
-::
+.. code-block:: java
 
     public void mouseDragged(MouseEvent evt);
     public void mouseMoved(MouseEvent evt);
@@ -614,7 +614,7 @@ variables as well, but in general outline, a class that handles mouse
 dragging looks like this:
 
 
-::
+.. code-block:: java
 
     import java.awt.event.*;
        
@@ -718,7 +718,7 @@ panel. After all that, we can write down the command for drawing theN-
 th rectangle:
 
 
-::
+.. code-block:: java
 
     g.fillRect(width - 53, N*colorSpace + 3, 50, colorSpace - 3);
 
@@ -764,7 +764,7 @@ create an object that belongs to an anonymous class. For example, a
 mouse listener object can be created with an expression of the form:
 
 
-::
+.. code-block:: java
 
     new MouseListener() {
        public void mousePressed(MouseEvent evt) { . . . }
@@ -781,7 +781,7 @@ object as a mouse listener, it can be passed as the parameter to some
 component'saddMouseListener() method in a command of the form:
 
 
-::
+.. code-block:: java
 
     
     component.addMouseListener( new MouseListener() {
@@ -809,7 +809,7 @@ listener that only responds to mouse-pressed events, you can use a
 command of the form:
 
 
-::
+.. code-block:: java
 
     component.addMouseListener( new MouseAdapter() {
           public void mousePressed(MouseEvent evt) { . . . }
@@ -822,7 +822,7 @@ This version uses an anonymous class based onMouseAdapter to handle
 mouse events:
 
 
-::
+.. code-block:: java
 
     import java.awt.Component;
     import java.awt.event.MouseEvent;
@@ -872,7 +872,7 @@ an anonymous inner class. As an example, I present
 original program uses ordinary, named nested classes:
 
 
-::
+.. code-block:: java
 
     import java.awt.*;
     import java.awt.event.*;

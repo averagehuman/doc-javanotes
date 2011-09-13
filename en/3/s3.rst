@@ -24,11 +24,11 @@ that were introduced in the`previoussection`_.
 3.3.1The while Statement
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-The while statement was already introduced in `Section3.1`_. A while
+The while statement was already introduced in :doc:`Section 3.1</3/s1>`. A while
 loop has the form
 
 
-::
+.. code-block:: java
 
     while ( boolean-expression )
        statement
@@ -60,7 +60,7 @@ will keep a running total of all the numbers it has read so far. Here
 is a pseudocode algorithm for the program:
 
 
-::
+.. code-block:: java
 
     Let sum = 0     // The sum of the integers entered by the user.
     Let count = 0   // The number of integers entered by the user.
@@ -91,7 +91,7 @@ the first integer before the beginning of the loop. Here is a revised
 algorithm:
 
 
-::
+.. code-block:: java
 
     Let sum = 0
     Let count = 0
@@ -140,7 +140,7 @@ programmer should cover all the bases.
 Here is the program and an applet that simulates it:
 
 
-::
+.. code-block:: java
 
     /**
      * This program reads a sequence of positive integers input
@@ -213,7 +213,7 @@ it tests, has been moved to the end. The word "do" is added to mark
 the beginning of the loop. A do..while statement has the form
 
 
-::
+.. code-block:: java
 
     do
         statement
@@ -223,7 +223,7 @@ the beginning of the loop. A do..while statement has the form
 or, since, as usual, the statement can be a block,
 
 
-::
+.. code-block:: java
 
     do {
         statements
@@ -252,7 +252,7 @@ test that is used at the end of the loop wouldn't even make sense at
 the beginning:
 
 
-::
+.. code-block:: java
 
     do {
        Play a Game
@@ -274,7 +274,7 @@ value as "yes" or "no". "Yes" is considered to be true, and "no" is
 considered to be false. So, the algorithm can be coded as
 
 
-::
+.. code-block:: java
 
     boolean wantsToContinue;  // True if user wants to play again.
     do {
@@ -308,7 +308,7 @@ can also be solved using only while statements, and vice versa. In
 fact, if doSomething represents any block of program code, then
 
 
-::
+.. code-block:: java
 
     do {
         doSomething
@@ -318,7 +318,7 @@ fact, if doSomething represents any block of program code, then
 has exactly the same effect as
 
 
-::
+.. code-block:: java
 
     
     doSomething
@@ -330,7 +330,7 @@ has exactly the same effect as
 Similarly,
 
 
-::
+.. code-block:: java
 
     while ( boolean-expression ) {
         doSomething
@@ -340,7 +340,7 @@ Similarly,
 can be replaced by
 
 
-::
+.. code-block:: java
 
     if ( boolean-expression ) {
        do {
@@ -366,7 +366,7 @@ loop. Java provides a general method for breaking out of the middle of
 any loop. It's called thebreak statement, which takes the form
 
 
-::
+.. code-block:: java
 
     break;
 
@@ -376,7 +376,7 @@ immediately jump out of the loop. It then continues on to whatever
 follows the loop in the program. Consider for example:
 
 
-::
+.. code-block:: java
 
     while (true) {  // looks like it will run forever!
        TextIO.put("Enter a positive number: ");
@@ -419,7 +419,7 @@ flag variable nothingInCommon is set to false, and a labeled break is
 used to end the processing at that point:
 
 
-::
+.. code-block:: java
 
     boolean nothingInCommon;
     nothingInCommon = true;  // Assume s1 and s2 have no chars in common.
@@ -451,7 +451,7 @@ continue the containing loop instead.
 
 break and continue can be used in while loops anddo..while loops. They
 can also be used in for loops, which are covered in the
-`nextsection`_. In `Section3.6`_, we'll see that break can also be
+`nextsection`_. In :doc:`Section 3.6</3/s6>`, we'll see that break can also be
 used to break out of a switch statement. A break can occur inside an
 if statement, but in that case, it does **not** mean to break out of
 the if. Instead, it breaks out of the loop orswitch statement that

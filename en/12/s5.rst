@@ -60,7 +60,7 @@ compile all the java files in the package `netgame.common`_, for
 example, you can use the following command in Mac OS or Linux:
 
 
-::
+.. code-block:: java
 
     javac netgame/common/*.java
 
@@ -68,7 +68,7 @@ example, you can use the following command in Mac OS or Linux:
 For windows, you should use backslashes instead of forward slashes:
 
 
-::
+.. code-block:: java
 
     javac netgame\common\*.java
 
@@ -81,13 +81,13 @@ defined in the package `netgame.chat`_, so you would run it with the
 command
 
 
-::
+.. code-block:: java
 
     java netgame.chat.ChatRoomServer
 
 
 I will have more to say about packages in the final example of the
-book, in `Section13.5`_.
+book, in :doc:`Section 13.5</13/s5>`.
 
 
 
@@ -156,7 +156,7 @@ listen must be specified as a parameter to the Hub constructor. The
 Hub class defines a method
 
 
-::
+.. code-block:: java
 
     protected void messageReceived(int playerID, Object message)
 
@@ -230,7 +230,7 @@ Client is an abstract class. Every netgame application must define a
 subclass of Client and provide a definition for the abstract method:
 
 
-::
+.. code-block:: java
 
     abstract protected void messageReceived(Object message);
 
@@ -289,7 +289,7 @@ simply creates a netgame Hub to listen for connection requests from
 netgame clients:
 
 
-::
+.. code-block:: java
 
     public static void main(String[] args) {
         try {
@@ -329,7 +329,7 @@ program's connection to the hub. When the user enters a message, that
 message is sent to the hub by calling
 
 
-::
+.. code-block:: java
 
     connection.send(message);
 
@@ -350,7 +350,7 @@ they post appropriate messages to the transcript. Here's the complete
 definition of the client class for the chat room application:
 
 
-::
+.. code-block:: java
 
     /**
      * A ChatClient connects to a Hub and is used to send messages to
@@ -466,7 +466,7 @@ Networked TicTacToe is defined in several classes in the package
 game. It includes a method
 
 
-::
+.. code-block:: java
 
     public void applyMessage(int senderID, Object message)
 
@@ -487,7 +487,7 @@ there are exactly two connected players. Here is the complete source
 code:
 
 
-::
+.. code-block:: java
 
     package netgame.tictactoe;
     
@@ -593,7 +593,7 @@ client class, this technique is used in the method that processes
 events received from the hub:
 
 
-::
+.. code-block:: java
 
     protected void messageReceived(final Object message) {
         if (message instanceof TicTacToeGameState) {
@@ -637,7 +637,7 @@ game. This is a rather complex application, and I do not intend to say
 much about it here other than to describe the general design. The full
 source code can be found in the package`netgame.fivecarddraw`_. To
 fully understand it, you will need to be familiar with the game of
-five card draw poker. And it uses some techniques from `Section13.1`_
+five card draw poker. And it uses some techniques from :doc:`Section 13.1</13/s1>`
 for drawing the cards.
 
 In general outline, the Poker game is similar to the TicTacToe game.

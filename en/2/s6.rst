@@ -57,7 +57,7 @@ As of August 2010, the current version of the JDK is **JDK6**, and it
 can be downloaded from
 
 
-::
+.. code-block:: java
 
     
     `http://www.oracle.com/technetwork/java/javase/downloads/index.html`_
@@ -148,7 +148,7 @@ Alternatively, you can navigate to `TextIO.java`_ on the book's
 copy of the file into your working directory.) Type the command:
 
 
-::
+.. code-block:: java
 
     javac  TextIO.java
 
@@ -164,7 +164,7 @@ book's source directory into your working directory. First, compile
 the program with the command
 
 
-::
+.. code-block:: java
 
     javac  Interest2.java
 
@@ -173,7 +173,7 @@ Remember that for this to succeed, TextIO must already be in the same
 directory. Then you can execute the program using the command
 
 
-::
+.. code-block:: java
 
     java  Interest2
 
@@ -456,7 +456,7 @@ Every class in Java is contained in something called a package.
 Classes that are not explicitly put into a different package are in
 the "default" package. Almost all the examples in this textbook are in
 the default package, and I will not even discuss packages in any depth
-until `Section4.5`_. However, some IDEs might force you to pay
+until :doc:`Section 4.5</4/s5>`. However, some IDEs might force you to pay
 attention to packages.
 
 When you create a class in Eclipse, you might notice a message that
@@ -473,7 +473,7 @@ class is in a package named test.pkg, then the first line of the
 source code will be
 
 
-::
+.. code-block:: java
 
     package test.pkg;
 

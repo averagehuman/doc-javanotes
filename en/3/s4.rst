@@ -22,7 +22,7 @@ The for statement makes a common type of while loop easier to write.
 Many while loops have the general form:
 
 
-::
+.. code-block:: java
 
     
     initialization
@@ -33,10 +33,10 @@ Many while loops have the general form:
 
 
 For example, consider this example, copied from an example in
-`Section3.2`_:
+:doc:`Section 3.2</3/s2>`:
 
 
-::
+.. code-block:: java
 
     years = 0;  //  **initialize** the variable years
     while ( years < 5 ) {   //  **condition** for continuing loop
@@ -52,7 +52,7 @@ For example, consider this example, copied from an example in
 This loop can be written as the following equivalent for statement:
 
 
-::
+.. code-block:: java
 
     for ( years = 0;  years < 5;  years++ ) {
        interest = principal * rate;
@@ -75,7 +75,7 @@ condition.
 The formal syntax of the for statement is as follows:
 
 
-::
+.. code-block:: java
 
     for ( initialization; continuation-condition; update )
          statement
@@ -84,7 +84,7 @@ The formal syntax of the for statement is as follows:
 or, using a block statement:
 
 
-::
+.. code-block:: java
 
     for ( initialization; continuation-condition; update ) {
          statements
@@ -115,7 +115,7 @@ where a loop control variable takes on all integer values between some
 minimum and some maximum value. A counting loop has the form
 
 
-::
+.. code-block:: java
 
     for ( variable = min;  variable <= max; variable++ ) {
          statements
@@ -131,7 +131,7 @@ which the loop control variable, years, takes on the values 1, 2, 3,
 10 are displayed on standard output:
 
 
-::
+.. code-block:: java
 
     for ( N = 1 ;  N <= 10 ;  N++ )
        System.out.println( N );
@@ -143,7 +143,7 @@ a "<=". The following variation of the above loop prints out the ten
 numbers 0, 1, 2,..., 9:
 
 
-::
+.. code-block:: java
 
     for ( N = 0 ;  N < 10 ;  N++ )
        System.out.println( N );
@@ -159,7 +159,7 @@ incrementing it, and continue as long as the variable is greater than
 or equal to one.
 
 
-::
+.. code-block:: java
 
     for ( N = 10 ;  N >= 1 ;  N-- )
        System.out.println( N );
@@ -171,7 +171,7 @@ expressions, separated by commas. So we can even count up from 1 to 10
 and count down from 10 to 1 at the same time!
 
 
-::
+.. code-block:: java
 
     for ( i=1, j=10;  i <= 10;  i++, j-- ) {
        System.out.printf("%5d", i); // Output i in a 5-character wide column.
@@ -188,7 +188,7 @@ ways, here are four different solutions (three of which would get full
 credit):
 
 
-::
+.. code-block:: java
 
      (1)   // There are 10 numbers to print.           
            // Use a for loop to count 1, 2,            
@@ -245,7 +245,7 @@ char, using the fact that the ++ operator can be applied to characters
 as well as to numbers:
 
 
-::
+.. code-block:: java
 
     // Print out the alphabet on one line of output.
     char ch;  // The loop control variable; 
@@ -276,7 +276,7 @@ the ones that actually do divide N evenly. In pseudocode, the
 algorithm takes the form
 
 
-::
+.. code-block:: java
 
     Get a positive integer, N, from the user
     Let divisorCount = 0
@@ -291,7 +291,7 @@ some, but not all, of a sequence of items are to be processed. The
 general pattern is
 
 
-::
+.. code-block:: java
 
     for each item in the sequence:
        if the item passes the test:
@@ -302,7 +302,7 @@ The for loop in our divisor-counting algorithm can be translated into
 Java code as
 
 
-::
+.. code-block:: java
 
     for (testDivisor = 1; testDivisor <= N; testDivisor++) {
        if ( N % testDivisor == 0 )
@@ -326,7 +326,7 @@ start counting the next group of one million. Reverting to pseudocode,
 the algorithm now looks like
 
 
-::
+.. code-block:: java
 
     Get a positive integer, N, from the user
     Let divisorCount = 0  // Number of divisors found.
@@ -346,7 +346,7 @@ Finally, we can translate the algorithm into a complete Java program.
 Here it is, followed by an applet that simulates it:
 
 
-::
+.. code-block:: java
 
     /**
      * This program reads a positive integer from the user.
@@ -433,7 +433,7 @@ examples. First, consider the problem of printing out a multiplication
 table like this one:
 
 
-::
+.. code-block:: java
 
      1   2   3   4   5   6   7   8   9  10  11  12
      2   4   6   8  10  12  14  16  18  20  22  24
@@ -454,7 +454,7 @@ process of printing them out can be expressed in a pseudocode
 algorithm as
 
 
-::
+.. code-block:: java
 
     for each rowNumber = 1, 2, 3, ..., 12:
        Print the first twelve multiples of rowNumber on one line
@@ -466,7 +466,7 @@ We can expand "Print the first twelve multiples of rowNumber on one
 line" as:
 
 
-::
+.. code-block:: java
 
     for N = 1, 2, 3, ..., 12:
        Print N * rowNumber
@@ -476,7 +476,7 @@ so a refined algorithm for printing the table has one for loop nested
 inside another:
 
 
-::
+.. code-block:: java
 
     for each rowNumber = 1, 2, 3, ..., 12:
        for N = 1, 2, 3, ..., 12:
@@ -490,7 +490,7 @@ format specifier %4d. Assuming that rowNumber and N have been declared
 to be variables of type int, the algorithm can be expressed in Java as
 
 
-::
+.. code-block:: java
 
     for ( rowNumber = 1;  rowNumber <= 12;  rowNumber++ ) {
        for ( N = 1;  N <= 12;  N++ ) {
@@ -512,7 +512,7 @@ will be input by the user. Let's start with a pseudocode algorithm for
 the program.
 
 
-::
+.. code-block:: java
 
     Ask the user to input a string
     Read the response into a variable, str
@@ -541,7 +541,7 @@ before processing it. Then, we only have to check for the upper case
 letter. We can now flesh out the algorithm fully:
 
 
-::
+.. code-block:: java
 
     Ask the user to input a string
     Read the response into a variable, str
@@ -567,7 +567,7 @@ the end of this program, if the break statement were omitted.
 Here is the complete program and an applet to simulate it:
 
 
-::
+.. code-block:: java
 
     /**
      * This program reads a line of text entered by the user.
@@ -638,7 +638,7 @@ example, a list is a data structure that consists simply of a sequence
 of items. The enhanced for loop makes it easy to apply the same
 processing to every element of a list or other data structure. Data
 structures are a major topic in computer science, but we won't
-encounter them in any serious way until `Chapter7`_. However, one of
+encounter them in any serious way until :doc:`Chapter 7</7>`. However, one of
 the applications of the enhanced for loop is toenum types, and so we
 consider it briefly here. (Enums were introduced in
 `Subsection2.3.3`_.)
@@ -648,7 +648,7 @@ each of the enum constants that are the possible values of an
 enumerated type. The syntax for doing this is:
 
 
-::
+.. code-block:: java
 
     for ( enum-type-name  variable-name  :  enum-type-name.values() )
        statement
@@ -657,7 +657,7 @@ enumerated type. The syntax for doing this is:
 or
 
 
-::
+.. code-block:: java
 
     for ( enum-type-name  variable-name  :  enum-type-name.values() ) {
        statements
@@ -671,7 +671,7 @@ other enum.) For this enumerated type, the for loop would have the
 form:
 
 
-::
+.. code-block:: java
 
     for ( MyEnum  variable-name  :  MyEnum.values() )
        statement
@@ -688,7 +688,7 @@ To give a concrete example, suppose that the following enumerated type
 has been defined to represent the days of the week:
 
 
-::
+.. code-block:: java
 
     enum Day { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY }
 
@@ -696,7 +696,7 @@ has been defined to represent the days of the week:
 Then we could write:
 
 
-::
+.. code-block:: java
 
     for ( Day d : Day.values() ) {
        System.out.print( d );
@@ -715,7 +715,7 @@ each item in the list Day.values(), with d taking on each of those
 values in turn. The full output from this loop would be:
 
 
-::
+.. code-block:: java
 
     MONDAY is day number 0
     TUESDAY is day number 1

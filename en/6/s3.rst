@@ -33,7 +33,7 @@ theMessageDisplay class in the example`HelloWorldApplet.java`_ in the
 in the method
 
 
-::
+.. code-block:: java
 
     public void paintComponent(Graphics g)
 
@@ -78,7 +78,7 @@ traditionally done with a call tosuper.paintComponent(g), so most
 paintComponent() methods that you write will have the form:
 
 
-::
+.. code-block:: java
 
     public void paintComponent(g) {
        super.paintComponent(g);
@@ -99,7 +99,7 @@ redrawn, and let the system do its job by calling paintComponent().
 You do this by calling the component's repaint() method. The method
 
 
-::
+.. code-block:: java
 
     public void repaint();
 
@@ -181,7 +181,7 @@ component. For example, you can use a paintComponent() method that
 looks like:
 
 
-::
+.. code-block:: java
 
     public void paintComponent(Graphics g) {
        super.paintComponent(g);
@@ -210,7 +210,7 @@ java.awt.Color. You can construct a new color by specifying its red,
 blue, and green components. For example,
 
 
-::
+.. code-block:: java
 
     Color myColor = new Color(r,g,b);
 
@@ -243,7 +243,7 @@ creating HSB colors. To create the color with HSB values given by h,
 s, and b, you can say:
 
 
-::
+.. code-block:: java
 
     Color myColor = Color.getHSBColor(h,s,b);
 
@@ -252,7 +252,7 @@ For example, to make a color with a random hue that is as bright and
 as saturated as possible, you could use:
 
 
-::
+.. code-block:: java
 
     Color randomColor = Color.getHSBColor( (float)Math.random(), 1.0F, 1.0F );
 
@@ -342,7 +342,7 @@ can construct a new font by specifying its font name, style, and size
 in a constructor:
 
 
-::
+.. code-block:: java
 
     Font plainFont = new Font("Serif", Font.PLAIN, 12);
     Font bigBoldFont = new Font("SansSerif", Font.BOLD, 24);
@@ -484,7 +484,7 @@ classGraphics2D (in Java version 1.2 and later), and can be type-cast
 to gain access to the advanced Graphics2D drawing methods:
 
 
-::
+.. code-block:: java
 
     public void paintComponent(Graphics g) {
        super.paintComponent(g);
@@ -518,7 +518,7 @@ rotation.
 
 I mention Graphics2D here for completeness. I will not use any of the
 advanced capabilities of Graphics2D in this chapter, but I will cover
-a few of them in `Section13.2`_.
+a few of them in :doc:`Section 13.2</13/s2>`.
 
 
 
@@ -554,8 +554,8 @@ information to draw the picture. If paintComponent() is called twice,
 it should draw the same picture twice, unless the data has changed in
 the meantime. Unfortunately, to store the data for the picture in this
 applet, we would need to use either arrays, which will not be covered
-until `Chapter7`_, or off-screen images, which will not be covered
-until `Chapter13`_. Other examples in this chapter will suffer from
+until :doc:`Chapter 7</7>`, or off-screen images, which will not be covered
+until :doc:`Chapter 13</13>`. Other examples in this chapter will suffer from
 the same problem.
 
 The source for the panel class is shown below. I use an instance
@@ -580,7 +580,7 @@ the top and bottom of the applet.
 Here is the complete source code for the RandomStringsPanel:
 
 
-::
+.. code-block:: java
 
     import java.awt.Color;
     import java.awt.Font;
@@ -701,7 +701,7 @@ frame. Here is a simple applet class that uses a RandomStringsPanel as
 its content pane:
 
 
-::
+.. code-block:: java
 
     
     import javax.swing.JApplet;

@@ -17,7 +17,7 @@ Question2:
 Consider the following subroutine:
 
 
-::
+.. code-block:: java
 
     static void printStuff(int level) {
         if (level == 0) {
@@ -40,7 +40,7 @@ Suppose that a linked list is formed from objects that belong to the
 class
 
 
-::
+.. code-block:: java
 
     class ListNode {
        int item;       // An item in the list.
@@ -63,7 +63,7 @@ Suppose that a binary tree of integers is formed from objects
 belonging to the class
 
 
-::
+.. code-block:: java
 
     class TreeNode {
        int item;       // One item in the tree.
@@ -81,7 +81,7 @@ Question9:
 Suppose that a <multilist> is defined by the BNF rule
 
 
-::
+.. code-block:: java
 
     <multilist>  ::=  <word>  |  "(" [ <multilist> ]... ")"
 

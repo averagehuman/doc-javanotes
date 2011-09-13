@@ -22,7 +22,7 @@ solution.
 Exercise 5.1:
 ~~~~~~~~~~~~~
 
-In all versions of thePairOfDice class in `Section5.2`_, the instance
+In all versions of thePairOfDice class in :doc:`Section 5.2</5/s2>`, the instance
 variables die1 and die2 are declared to be public. They really should
 be private, so that they would be protected from being changed from
 outside the class. Write another version of the PairOfDice class in
@@ -85,7 +85,7 @@ a set of non-zero numbers entered by the user. Start by creating an
 object of typeStatCalc:
 
 
-::
+.. code-block:: java
 
     StatCalc  calc;   // Object to be used to process the data.
     calc = new StatCalc();
@@ -129,12 +129,12 @@ Exercise 5.4:
 ~~~~~~~~~~~~~
 
 The BlackjackHand class from `Subsection5.5.1`_ is an extension of
-theHand class from `Section5.4`_. The instance methods in the Hand
+theHand class from :doc:`Section 5.4</5/s4>`. The instance methods in the Hand
 class are discussed in that section. In addition to those methods,
 BlackjackHand includes an instance method,getBlackjackValue(), that
 returns the value of the hand for the game of Blackjack. For this
 exercise, you will also need the Deck andCard classes from
-`Section5.4`_.
+:doc:`Section 5.4</5/s4>`.
 
 A Blackjack hand typically contains from two to six cards. Write a
 program to test the BlackjackHand class. You should create

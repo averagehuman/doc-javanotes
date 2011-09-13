@@ -23,7 +23,7 @@ Question4:
 What is the point of the following statement?
 
 
-::
+.. code-block:: java
 
     out = new PrintWriter( new FileWriter("data.dat") );
 

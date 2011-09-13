@@ -104,7 +104,7 @@ boxes and subroutines in general to the specifics of writing and using
 subroutines in Java. But keep the general ideas and principles in
 mind. They are the reasons that subroutines exist in the first place,
 and they are your guidelines for using them. This should be especially
-clear in `Section4.6`_, where I will discuss subroutines as a tool in
+clear in :doc:`Section 4.6</4/s6>`, where I will discuss subroutines as a tool in
 program development.
 
 

@@ -83,7 +83,7 @@ to be a sequence of letters. Any characters in the input that are not
 letters should be discarded. For example, if the user inputs the line
 
 
-::
+.. code-block:: java
 
     He said, "That's not a good idea."
 
@@ -91,7 +91,7 @@ letters should be discarded. For example, if the user inputs the line
 then the output of the program should be
 
 
-::
+.. code-block:: java
 
     He
     said
@@ -131,7 +131,7 @@ explaining why the data is missing. For example, several lines from
 the file might look like:
 
 
-::
+.. code-block:: java
 
     San Francisco:  19887.32
     Chicago:  no report received
@@ -188,7 +188,7 @@ that when you compile it you get a class file named Checkerboard.class
 Make a file that contains only the lines:
 
 
-::
+.. code-block:: java
 
     <applet code="Checkerboard.class" width=160 height=160>
     </applet>
@@ -208,7 +208,7 @@ simply open Checkerboard.html in a web browser. Alternatively, on the
 command line, you can use the command
 
 
-::
+.. code-block:: java
 
     appletviewer Checkerboard.html
 
@@ -251,7 +251,7 @@ SlidingCheckerboard, then the source file for the Web page this time
 should contain the lines:
 
 
-::
+.. code-block:: java
 
     <applet code="SlidingCheckerboard.class" width=160 height=160>
     </applet>

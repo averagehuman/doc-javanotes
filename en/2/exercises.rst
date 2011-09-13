@@ -28,7 +28,7 @@ a bunch of *'s. For example, if your initials were "DJE", then the
 output would look something like:
 
 
-::
+.. code-block:: java
 
     ******           *************        **********
     **    **                **            **
@@ -52,11 +52,11 @@ Exercise 2.2:
 Write a program that simulates rolling a pair of dice. You can
 simulate rolling one die by choosing one of the integers 1, 2, 3, 4,
 5, or 6 at random. The number you pick represents the number on the
-die after it is rolled. As pointed out in `Section2.5`_, The
+die after it is rolled. As pointed out in :doc:`Section 2.5</2/s5>`, The
 expression
 
 
-::
+.. code-block:: java
 
     (int)(Math.random()*6) + 1
 
@@ -68,7 +68,7 @@ to get the total roll. Your program should report the number showing
 on each die as well as the total roll. For example:
 
 
-::
+.. code-block:: java
 
     The first die comes up 3
     The second die comes up 5
@@ -121,7 +121,7 @@ over eggs she has. For example, if the user says that she has 1342
 eggs, then your program would respond with
 
 
-::
+.. code-block:: java
 
     Your number of eggs is 9 gross, 3 dozen, and 10
 

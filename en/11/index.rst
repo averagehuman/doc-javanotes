@@ -21,14 +21,14 @@ already used. In fact, standard output (System.out) and standard input
 (System.in) are examples of streams.
 
 Working with files and networks requires familiarity with exceptions,
-which were covered in `Chapter8`_. Many of the subroutines that are
+which were covered in :doc:`Chapter 8</8>`. Many of the subroutines that are
 used can throw exceptions that require mandatory exception handling.
 This generally means calling the subroutine in atry..catch statement
 that can deal with the exception if one occurs. Effective network
 communication also requires the use of threads, which will be covered
-in the `Chapter12`_. We will look at the basic networking API in this
+in the :doc:`Chapter 12</12>`. We will look at the basic networking API in this
 chapter, but we will return to the topic of threads and networking in
-`Section12.4`_.
+:doc:`Section 12.4</12/s4>`.
 
 
 .. toctree::

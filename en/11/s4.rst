@@ -76,7 +76,7 @@ and a string that specifies a url relative to that context. These
 constructors have prototypes
 
 
-::
+.. code-block:: java
 
     public URL(String urlName) throws MalformedURLException
 
@@ -84,7 +84,7 @@ constructors have prototypes
 and
 
 
-::
+.. code-block:: java
 
     public URL(URL context, String relativeName) throws MalformedURLException
 
@@ -106,7 +106,7 @@ downloaded. This allows the applet to go back and retrieve other files
 that are stored in the same location as that document. For example,
 
 
-::
+.. code-block:: java
 
     URL url = new URL(getDocumentBase(), "data.txt");
 
@@ -124,7 +124,7 @@ for reading data from the resource represented by the URL. This is
 done by calling its getInputStream() method. For example:
 
 
-::
+.. code-block:: java
 
     URL url = new URL(urlAddressString);
     URLConnection connection = url.openConnection();
@@ -164,7 +164,7 @@ IOException" and leaving it up to the main program to decide what to
 do when an error occurs.
 
 
-::
+.. code-block:: java
 
     static void readTextFromURL( String urlString ) throws IOException {
     
@@ -297,7 +297,7 @@ all those on the network, it wants to communicate with. Every computer
 on the Internet has an IPaddress which identifies it uniquely among
 all the computers on the net. Many computers can also be referred to
 by domain names such as math.hws.edu or www.whitehouse.gov. (See
-`Section1.7`_.) Traditional (or IPv4) IP addresses are 32-bit
+:doc:`Section 1.7</1/s7>`.) Traditional (or IPv4) IP addresses are 32-bit
 integers. They are usually written in the so-called "dotted decimal"
 form, such as 64.89.144.135, where each of the four numbers in the
 address represents an 8-bit integer in the range 0 through 255. A new
@@ -318,7 +318,7 @@ written a small Java program,`ShowMyNetwork.java`_, that does the same
 thing. When I runShowMyNetwork on my computer, the output is:
 
 
-::
+.. code-block:: java
 
        en1 :  /192.168.1.47  /fe80:0:0:0:211:24ff:fe9c:5271%5  
        lo0 :  /127.0.0.1  /fe80:0:0:0:0:0:0:1%1  /0:0:0:0:0:0:0:1%0
@@ -370,7 +370,7 @@ number on which the server will listen. The specification for the
 constructor is
 
 
-::
+.. code-block:: java
 
     public ServerSocket(int port) throws IOException
 
@@ -389,7 +389,7 @@ returns a Socket that can be used for communication with the client.
 The accept() method has the form
 
 
-::
+.. code-block:: java
 
     public Socket accept() throws IOException
 
@@ -411,7 +411,7 @@ communication with one client. Then the basic form of the server
 program would be:
 
 
-::
+.. code-block:: java
 
     try {
        ServerSocket server = new ServerSocket(1728);
@@ -430,7 +430,7 @@ theSocket class. To connect to a server on a known computer and port,
 you would use the constructor
 
 
-::
+.. code-block:: java
 
     public Socket(String computer, int port) throws IOException
 
@@ -447,7 +447,7 @@ respectively. Keeping all this in mind, here is the outline of a
 method for working with a client connection:
 
 
-::
+.. code-block:: java
 
     /**
      * Open a client connection to a specified server computer and
@@ -517,7 +517,7 @@ the client with the command "java DateClient math.hws.edu". Here is
 the complete client program:
 
 
-::
+.. code-block:: java
 
     import java.net.*;
     import java.io.*;
@@ -621,7 +621,7 @@ the time when the object is created.) The complete server program is
 as follows:
 
 
-::
+.. code-block:: java
 
     import java.net.*;
     import java.io.*;
@@ -760,7 +760,7 @@ and`CLChatServer.java`_. (The name "CLChat" stands for "command-line
 chat.") Here is the source code for the server; the client is similar:
 
 
-::
+.. code-block:: java
 
     import java.net.*;
     import java.io.*;

@@ -49,7 +49,7 @@ robust programs are even more important for parallel programming than
 they are for normal programming. On the other hand, fortunately, Java
 has a nice thread API that makes basic uses of threads reasonably
 easy. It also has some standard classes to help with some of the more
-tricky parts. It won't be until midway through `Section12.3`_ that
+tricky parts. It won't be until midway through :doc:`Section 12.3</12/s3>` that
 you'll learn about the low-level techniques that are necessary to
 handle the trickiest parts of parallel programming.
 
@@ -80,7 +80,7 @@ and rather useless, class that defines a thread that does nothing but
 print a message on standard output:
 
 
-::
+.. code-block:: java
 
     public class NamedThread extends Thread {
        private String name;  // The name of this thread.
@@ -97,7 +97,7 @@ To use a NamedThread, you must of course create an object belonging to
 this class. For example,
 
 
-::
+.. code-block:: java
 
     NamedThread greetings = new NamedThread("Fred");
 
@@ -108,7 +108,7 @@ call the start() method in the thread object. For the example, this
 would be done with the statement
 
 
-::
+.. code-block:: java
 
     greetings.start();
 
@@ -124,7 +124,7 @@ as the statements that follow the call to the start() method. Consider
 this code segment:
 
 
-::
+.. code-block:: java
 
     NamedThread greetings = new NamedThread("Fred");
     greetings.start();
@@ -186,7 +186,7 @@ Runnable's run() method is executed. For example, as an alternative to
 the NamedThread class, we could define the class:
 
 
-::
+.. code-block:: java
 
     public class NamedRunnable implements Runnable {
        private String name;  // The name of this Runnable.
@@ -203,7 +203,7 @@ To use this version of the class, we would create a NamedRunnable
 object and use that object to create an object of type Thread:
 
 
-::
+.. code-block:: java
 
     NamedRunnable greetings = new NamedRunnable("Fred");
     Thread greetingsThread = new Thread(greetings);
@@ -225,7 +225,7 @@ Finally, I'll note that it is sometimes convenient to define a thread
 using an **anonymous** inner class (`Subsection5.7.3`_). For example:
 
 
-::
+.. code-block:: java
 
     Thread greetingsFromFred = new Thread() {
        public void run() {
@@ -248,7 +248,7 @@ modern computer. The threads that perform this task are defined by the
 following static nested class:
 
 
-::
+.. code-block:: java
 
     /**
      * When a thread belonging to this class is run it will count the
@@ -275,7 +275,7 @@ The main program asks the user how many threads to run, and then
 creates and starts the specified number of threads:
 
 
-::
+.. code-block:: java
 
     public static void main(String[] args) {
        int numberOfThreads = 0;
@@ -307,7 +307,7 @@ When I ran the program with one thread on a rather old laptop, it took
 using six threads, the output was:
 
 
-::
+.. code-block:: java
 
     Creating 6 prime counting threads...
     Threads have been created and started.
@@ -372,7 +372,7 @@ want to create one thread for each processor. In Java, you can find
 out the number of processors by calling the function
 
 
-::
+.. code-block:: java
 
     Runtime.getRuntime().availableProcessors()
 
@@ -411,7 +411,7 @@ this means that the sleep() method is usually called inside a
 try..catch statement that catches the potential InterruptedException:
 
 
-::
+.. code-block:: java
 
     try {
        Thread.sleep(lengthOfPause);
@@ -447,7 +447,7 @@ several threads, waits for them all to terminate, and then outputs the
 elapsed time:
 
 
-::
+.. code-block:: java
 
     CountPrimesThread[] worker = new CountPrimesThread[numberOfThreads];
     long startTime = System.currentTimeMillis();
@@ -473,7 +473,7 @@ worker[i] has terminated in an environment where InterruptedExceptions
 are possible, you would have to do something like:
 
 
-::
+.. code-block:: java
 
     while (worker[i].isAlive()) {
        try {
@@ -494,7 +494,7 @@ will output a period every two seconds as long as thrd continues to
 run:
 
 
-::
+.. code-block:: java
 
     System.out.print("Running the thread ");
     thrd.start();
@@ -548,7 +548,7 @@ Thread.NORM_PRIORITY. To set thrd to run with a priority value just
 below the normal priority, you can call
 
 
-::
+.. code-block:: java
 
     thrd.setPriority( Thread.NORM_PRIORITY - 1 );
 
@@ -588,7 +588,7 @@ Something similar happens with threads, even with something as simple
 as adding one to a counter. The statement
 
 
-::
+.. code-block:: java
 
     count = count + 1;
 
@@ -596,7 +596,7 @@ as adding one to a counter. The statement
 is actually a sequence of three operations:
 
 
-::
+.. code-block:: java
 
     Step 1.  Get the value of count
     Step 2.  Add 1 to the value.
@@ -625,7 +625,7 @@ Consider the following statement, which is meant to avoid a division-
 by-zero error:
 
 
-::
+.. code-block:: java
 
     if ( A != 0 )
        B = C / A;
@@ -662,7 +662,7 @@ adding the reserved word synchronized as a modifier to the definition
 of the method:
 
 
-::
+.. code-block:: java
 
     public class ThreadSafeCounter {
        
@@ -700,7 +700,7 @@ conditions that might arise when using a counter. Consider the if
 statement:
 
 
-::
+.. code-block:: java
 
     if ( tsc.getValue() == 0 )
        doSomething();
@@ -717,7 +717,7 @@ it is evaluating tsc.getValue().) We can solve the race condition by
 putting the if statement in a synchronized statement:
 
 
-::
+.. code-block:: java
 
     synchronized(tsc) {
        if ( tsc.getValue() == 0 )
@@ -730,7 +730,7 @@ case -- as a kind of parameter. The syntax of the synchronized
 statement is:
 
 
-::
+.. code-block:: java
 
     synchronized( object ) {
        statements
@@ -782,7 +782,7 @@ shared by all the threads, since each thread has to add a number to
 the total. If each thread just says
 
 
-::
+.. code-block:: java
 
     total = total + count;
 
@@ -794,7 +794,7 @@ uses a synchronized method to add the counts to the total. This method
 is called once by each thread:
 
 
-::
+.. code-block:: java
 
     synchronized private static void addToTotal(int x) {
        total = total + x;
@@ -878,7 +878,7 @@ be volatile. The volatile keyword is a modifier that can be added to a
 variable declaration, as in
 
 
-::
+.. code-block:: java
 
     private volatile int count;
 
@@ -904,7 +904,7 @@ one thread to another that tells the second thread to terminate. The
 two threads would share a variable
 
 
-::
+.. code-block:: java
 
     volatile boolean terminate = false;
 
@@ -913,7 +913,7 @@ The run method of the second thread would check the value of terminate
 frequently, and it would end when the value of terminate becomes true:
 
 
-::
+.. code-block:: java
 
     public void run() {
        while ( terminate == false ) {

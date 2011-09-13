@@ -41,7 +41,7 @@ Comparable<Date>. The ordering on objects of type Date should be the
 natural, chronological ordering.
 
 
-::
+.. code-block:: java
 
     class Date {
        int month;  // Month number in range 1 to 12.

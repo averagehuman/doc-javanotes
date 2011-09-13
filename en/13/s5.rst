@@ -43,7 +43,7 @@ that has real-number coordinates (a,b) and apply the following
 computation:
 
 
-::
+.. code-block:: java
 
     Let x = a
     Let y = b
@@ -69,7 +69,7 @@ forever, so we put a limit on the number of times that the loop is
 executed:
 
 
-::
+.. code-block:: java
 
     x = a;
     y = b;
@@ -175,7 +175,7 @@ same package name, so this package name uniquely identifies my
 program.
 
 I briefly discussed using packages in `Subsection2.6.4`_ and in the
-context of the programming examples in `Section12.5`_ Here's what you
+context of the programming examples in :doc:`Section 12.5</12/s5>` Here's what you
 need to know for the Mandelbrot Viewer program: The program is defined
 in ten Java source code files. They can be found in the directory
 `edu/hws/eck/mdb`_ inside the source directory of the web site. (That
@@ -190,7 +190,7 @@ the command line, you must be working in the directory that contains
 the edu directory. Use the command
 
 
-::
+.. code-block:: java
 
     javac  edu/hws/eck/mdb/*.java
 
@@ -198,7 +198,7 @@ the edu directory. Use the command
 or, if you use Windows,
 
 
-::
+.. code-block:: java
 
     javac  edu\hws\eck\mdb\*.java
 
@@ -208,7 +208,7 @@ application version of the program is defined by a class named Main.
 To run this class, use the command:
 
 
-::
+.. code-block:: java
 
     java  edu.hws.eck.mdb.Main
 
@@ -231,7 +231,7 @@ changes, or if the size of the window changes, all the counts must be
 recomputed. Since the computation can take quite a while, it would not
 be acceptable to block the user interface while the computation is
 being performed. The solution is to do the computation in separate
-"worker" threads, as discussed in `Chapter12`_. The program uses one
+"worker" threads, as discussed in :doc:`Chapter 12</12>`. The program uses one
 worker thread for each available processor. When the computation
 begins, the image is filled with gray. Every so often, about twice a
 second, the data that has been computed by the computation threads is
@@ -356,7 +356,7 @@ The format of a properties file is very simple. The key/value pairs
 take the form
 
 
-::
+.. code-block:: java
 
     key.string=value string
 
@@ -378,7 +378,7 @@ name of a menu command, for example). The properties file would
 contain a key/value pair such as
 
 
-::
+.. code-block:: java
 
     menu.saveimage=Save PNG Image...
 
@@ -400,7 +400,7 @@ The placeholders take the form "{0}", "{1}", "{2}",.... For the file
 error example, the properties file might contain:
 
 
-::
+.. code-block:: java
 
     error.cantLoad=Sorry, the file, {0}, cannot be loaded
 
@@ -421,7 +421,7 @@ program comes from this file. For handling value string lookup, I
 wrote`I18n.java`_. The I18n class has a static method
 
 
-::
+.. code-block:: java
 
     public static tr( String key, Object... args )
 
@@ -434,7 +434,7 @@ any number of actual parameters after key; see `Subsection7.2.6`_.)
 Typical uses would include:
 
 
-::
+.. code-block:: java
 
     String saveImageCommandText = I18n.tr( "menu.saveimage" );
        
@@ -607,7 +607,7 @@ property change events. In any subclass of Component, this can be done
 simply by calling the method
 
 
-::
+.. code-block:: java
 
     public void firePropertyChange(String propertyName, 
                                                Object oldValue, Object newValue)
@@ -617,7 +617,7 @@ For example, the MandelbrotDisplay class uses the following method for
 setting its current status:
 
 
-::
+.. code-block:: java
 
     private void setStatus(String status) {
        if (status == this.status) {
@@ -761,7 +761,7 @@ The user preferences node for a given program identifier can be
 accessed as follows:
 
 
-::
+.. code-block:: java
 
     Preferences root = Preferences.userRoot();
     Preferences node = root.node(pathName);

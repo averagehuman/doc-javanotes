@@ -159,7 +159,7 @@ see what is available. As I write this, the documentation for the
 complete API can be found at
 
 
-::
+.. code-block:: java
 
     
     `http://download.oracle.com/javase/6/docs/api/`_
@@ -186,7 +186,7 @@ suppose that you want to declare a variable named rectColor of type
 java.awt.Color. You could say:
 
 
-::
+.. code-block:: java
 
     java.awt.Color  rectColor;
 
@@ -197,7 +197,7 @@ get tiresome, so Java makes it possible to avoid using the full name
 of a class by importing the class. If you put
 
 
-::
+.. code-block:: java
 
     import java.awt.Color;
 
@@ -211,7 +211,7 @@ importdirective since it is not a statement in the usual sense. The
 import directive "importjava.awt.Color" would allow you to say
 
 
-::
+.. code-block:: java
 
     Color  rectColor;
 
@@ -225,7 +225,7 @@ shortcut for importing all the classes from a given package. You can
 import all the classes fromjava.awt by saying
 
 
-::
+.. code-block:: java
 
     import java.awt.*;
 
@@ -249,7 +249,7 @@ as well as from another package named java.awt.event, and I often
 begin such programs with
 
 
-::
+.. code-block:: java
 
     import java.awt.*;
     import java.awt.event.*;
@@ -284,7 +284,7 @@ the source code file that defines those classes must begin with the
 line
 
 
-::
+.. code-block:: java
 
     package utilities;
 
@@ -342,10 +342,10 @@ placed in the Java source code file. Recall that one type of Java
 comment begins with /* and ends with*/. A Javadoc comment takes the
 same form, but it begins with /** rather than simply/*. You have
 already seen comments of this form in some of the examples in this
-book, such as this subroutine from `Section4.3`_:
+book, such as this subroutine from :doc:`Section 4.3</4/s3>`:
 
 
-::
+.. code-block:: java
 
     /**
      * This subroutine prints a 3N+1 sequence to standard output, using
@@ -391,7 +391,7 @@ can containHTML mark-up commands. HTML is the language that is used to
 create web pages, and Javadoc comments are meant to be shown on web
 pages. Thejavadoc tool will copy any HTML commands in the comments to
 the web pages that it creates. You'll learn some basic HTML in
-`Section6.2`_, but as an example, you can add <p> to indicate the
+:doc:`Section 6.2</6/s2>`, but as an example, you can add <p> to indicate the
 start of a new paragraph. (Generally, in the absence of HTML commands,
 blank lines and extra spaces in the comment are ignored. Furthermore,
 the characters & and< have special meaning in HTML and should not be
@@ -408,7 +408,7 @@ return value, and the `exceptions`_ that it might throw. These tags
 the subroutine itself. The syntax for using them is:
 
 
-::
+.. code-block:: java
 
     @param  parameter-name   description-of-parameter
        
@@ -428,7 +428,7 @@ Here is an example that doesn't do anything exciting but that does use
 all three types of doc tag:
 
 
-::
+.. code-block:: java
 
     /**
      * This subroutine computes the area of a rectangle, given its width
@@ -455,11 +455,11 @@ other Java programmers will be familiar with.
 
 If you do want to create Web-page documentation, you need to run
 thejavadoc tool. This tool is available as a command in the Java
-Development Kit that was discussed in `Section2.6`_. You can use
+Development Kit that was discussed in :doc:`Section 2.6</2/s6>`. You can use
 javadoc in a command line interface similarly to the way that the
 javac andjava commands are used. Javadoc can also be applied in the
 Eclipse integrated development environment that was also discussed in
-`Section2.6`_: Just right-click the class, package, or entire project
+:doc:`Section 2.6</2/s6>`: Just right-click the class, package, or entire project
 that you want to document in the Package Explorer, select "Export,"
 and select "Javadoc" in the window that pops up. I won't go into any
 of the details here; see the documentation.
