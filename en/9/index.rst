@@ -1,7 +1,6 @@
 
-Chapter 9 - Linked Data Structures and Recursion
-------------------------------------------------
-
+9. Linked Data Structures and Recursion
+---------------------------------------
 
 
 In this chapter, we look at two advanced programming techniques,

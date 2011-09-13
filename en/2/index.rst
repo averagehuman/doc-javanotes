@@ -1,14 +1,9 @@
 
-Chapter 2
-~~~~~~~~~
+2. Programming in the Small I: Names and Things
+-----------------------------------------------
 
 
-Programming in the Small I: Names and Things
---------------------------------------------
-
-
-
-O n a basic level (the level of machine language), a computer can
+On a basic level (the level of machine language), a computer can
 perform only very simple operations. A computer performs complex tasks
 by stringing together large numbers of such operations. Such tasks
 must be "scripted" in complete and perfect detail by programs.
@@ -40,15 +35,14 @@ That section contains information about how to compile and run Java
 programs, and you might want to take a look at it before trying to
 write and use your own programs.
 
-
-
-
-
-Contents of Chapter 2:
-~~~~~~~~~~~~~~~~~~~~~~
-
 .. toctree::
-   :glob:
 
-   *
+   s1
+   s2
+   s3
+   s4
+   s5
+   s6
+   exercises
+   quiz
 

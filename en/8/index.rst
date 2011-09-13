@@ -1,6 +1,6 @@
 
-Chapter 8 - Correctness, Robustness, Efficiency
------------------------------------------------
+8. Correctness, Robustness, Efficiency
+--------------------------------------
 
 
 In previous chapters, we have covered the fundamentals of

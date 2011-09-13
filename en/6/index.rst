@@ -1,14 +1,9 @@
 
-Chapter 6
-~~~~~~~~~
+6. Introduction to GUI Programming
+----------------------------------
 
 
-Introduction to GUI Programming
--------------------------------
-
-
-
-C omputer users today expect to interact with their computers using a
+Computer users today expect to interact with their computers using a
 graphical user interface (GUI). Java can be used to write GUI programs
 ranging from simple applets which run on a Web page to sophisticated
 stand-alone applications.
@@ -35,14 +30,17 @@ continue in `Chapter13`_ with more details and with more advanced
 techniques.
 
 
-
-
-
-Contents of Chapter 6:
-~~~~~~~~~~~~~~~~~~~~~~
-
 .. toctree::
-   :glob:
 
-   *
+   s1
+   s2
+   s3
+   s4
+   s5
+   s6
+   s7
+   s8
+   exercises
+   quiz
+
 

@@ -1,6 +1,6 @@
 
-Chapter 1 - Overview: The Mental Landscape
-------------------------------------------
+1. Overview: The Mental Landscape
+---------------------------------
 
 When you begin a journey, it's a good idea to have a mental map of
 the terrain you'll be passing through. The same is true for an

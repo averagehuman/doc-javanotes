@@ -1,6 +1,6 @@
 
-Chapter 12 - Threads and Multiprocessing
-----------------------------------------
+12. Threads and Multiprocessing
+-------------------------------
 
 In the classic programming model, there is a single central
 processing unit that reads instructions from memory and carries them

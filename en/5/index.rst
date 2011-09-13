@@ -1,14 +1,9 @@
 
-Chapter 5
-~~~~~~~~~
+5. Programming in the Large II: Objects and Classes
+---------------------------------------------------
 
 
-Programming in the Large II: Objects and Classes
-------------------------------------------------
-
-
-
-W hereas a subroutine represents a single task, an object can
+Whereas a subroutine represents a single task, an object can
 encapsulate both data (in the form of instance variables) and a number
 of different tasks or "behaviors" related to that data (in the form of
 instance methods). Therefore objects provide another, more
@@ -26,15 +21,16 @@ programming in Java. Although these details are used occasionally
 later in the book, you might want to skim through them now and return
 to them later when they are actually needed.
 
-
-
-
-
-Contents of Chapter 5:
-~~~~~~~~~~~~~~~~~~~~~~
-
 .. toctree::
-   :glob:
 
-   *
+   s1
+   s2
+   s3
+   s4
+   s5
+   s6
+   s7
+   exercises
+   quiz
+
 

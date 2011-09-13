@@ -1,14 +1,9 @@
 
-Chapter 4
-~~~~~~~~~
+4. Programming in the Large I: Subroutines
+------------------------------------------
 
 
-Programming in the Large I: Subroutines
----------------------------------------
-
-
-
-O ne way to break up a complex program into manageable pieces is to
+One way to break up a complex program into manageable pieces is to
 use subroutines. A subroutine consists of the instructions for
 carrying out a certain task, grouped together and given a name.
 Elsewhere in the program, that name can be used as a stand-in for the
@@ -29,11 +24,16 @@ Non-static subroutines, which are used in true object-oriented
 programming, will be covered in the next chapter.
 
 
-Contents of Chapter 4:
-~~~~~~~~~~~~~~~~~~~~~~
-
 .. toctree::
-   :glob:
 
-   *
+   s1
+   s2
+   s3
+   s4
+   s5
+   s6
+   s7
+   s8
+   exercises
+   quiz
 

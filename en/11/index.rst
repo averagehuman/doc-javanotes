@@ -1,6 +1,6 @@
 
-Chapter 11 - Advanced Input/Output: Streams, Files, and Networking
-------------------------------------------------------------------
+11. Advanced Input/Output: Streams, Files, and Networking
+---------------------------------------------------------
 
 
 Computer programs are only useful if they interact with the rest of

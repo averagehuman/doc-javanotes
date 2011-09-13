@@ -1,6 +1,6 @@
 
-Chapter 13 - Advanced GUI Programming
--------------------------------------
+13. Advanced GUI Programming
+----------------------------
 
 
 It's possible to program a wide variety of GUI applications using

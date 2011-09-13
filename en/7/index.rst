@@ -1,14 +1,9 @@
 
-Chapter 7
-~~~~~~~~~
+7. Arrays
+---------
 
 
-Arrays
-------
-
-
-
-C omputers get a lot of their power from working with data structures.
+Computers get a lot of their power from working with data structures.
 A data structure is an organized collection of related data. An object
 is a data structure, but this type of data structure -- consisting of
 a fairly small number of named instance variables -- is just the
@@ -33,14 +28,14 @@ typeArrayList is very similar to an array of Objects, but it can grow
 to hold any number of items.
 
 
-
-
-
-Contents of Chapter 7:
-~~~~~~~~~~~~~~~~~~~~~~
-
 .. toctree::
-   :glob:
 
-   *
+   s1
+   s2
+   s3
+   s4
+   s5
+   exercises
+   quiz
+
 

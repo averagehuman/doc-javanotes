@@ -1,13 +1,9 @@
 
-Chapter 3
-~~~~~~~~~
+3. Programming in the Small II: Control
+---------------------------------------
 
 
-Programming in the Small II: Control
-------------------------------------
-
-
-T he basic building blocks of programs -- variables, expressions,
+The basic building blocks of programs -- variables, expressions,
 assignment statements, and subroutine call statements -- were covered
 in the previous chapter. Starting with this chapter, we look at how
 these building blocks can be put together to build complex programs
@@ -27,11 +23,16 @@ problem, how can you come up with a program to solve that problem?
 We'll look at a partial answer to this question in `Section3.2`_.
 
 
-Contents of Chapter 3:
-~~~~~~~~~~~~~~~~~~~~~~
-
 .. toctree::
-   :glob:
 
-   *
+   s1
+   s2
+   s3
+   s4
+   s5
+   s6
+   s7
+   s8
+   exercises
+   quiz
 

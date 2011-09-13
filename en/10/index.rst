@@ -1,10 +1,9 @@
 
-Chapter 10 - Generic Programming and Collection Classes
--------------------------------------------------------
+10. Generic Programming and Collection Classes
+----------------------------------------------
 
 
-
-H ow to avoid reinventing the wheel? Many data structures and
+How to avoid reinventing the wheel? Many data structures and
 algorithms, such as those from `Chapter9`_, have been studied,
 programmed, and re-programmed by generations of computer science
 students. This is a valuable learning experience. Unfortunately, they
