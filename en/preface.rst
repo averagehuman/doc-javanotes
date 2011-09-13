@@ -25,7 +25,7 @@ text covers a feature that was not present in Java 5.0, that fact is
 explicitly noted. Note that Java applets appear throughout the pages
 of this book. Most of the applets require Java5.0 or higher.
 
-The home web site for this book is `http://math.hws.edu/javanotes/`_.
+The home web site for this book is `<http://math.hws.edu/javanotes/>`_.
 The page at that address contains links for downloading a copy of the
 web site and for downloading PDF versions of the book.
 
@@ -97,23 +97,23 @@ book.
 
 
 The latest complete edition of Introduction to Programming using Java
-is always available on line at`http://math.hws.edu/javanotes/`_. The
+is always available on line at`<http://math.hws.edu/javanotes/>`_. The
 first version of the book was written in 1996, and there have been
 several editions since then. All editions are archived at the
 following Web addresses:
 
 
-+ First edition: `http://math.hws.edu/eck/cs124/javanotes1/`_ (Covers
++ First edition: `<http://math.hws.edu/eck/cs124/javanotes1/>`_ (Covers
   Java 1.0.)
-+ Second edition: `http://math.hws.edu/eck/cs124/javanotes2/`_ (Covers
++ Second edition: `<http://math.hws.edu/eck/cs124/javanotes2/>`_ (Covers
   Java 1.1.)
-+ Third edition: `http://math.hws.edu/eck/cs124/javanotes3/`_ (Covers
++ Third edition: `<http://math.hws.edu/eck/cs124/javanotes3/>`_ (Covers
   Java 1.1.)
-+ Fourth edition: `http://math.hws.edu/eck/cs124/javanotes4/`_ (Covers
++ Fourth edition: `<http://math.hws.edu/eck/cs124/javanotes4/>`_ (Covers
   Java 1.4.)
-+ Fifth edition: `http://math.hws.edu/eck/cs124/javanotes5/`_ (Covers
++ Fifth edition: `<http://math.hws.edu/eck/cs124/javanotes5/>`_ (Covers
   Java 5.0.)
-+ Sixth edition: `http://math.hws.edu/eck/cs124/javanotes6/`_ (Covers
++ Sixth edition: `<http://math.hws.edu/eck/cs124/javanotes6/>`_ (Covers
   Java 5.0 and later.)
 
 
@@ -121,7 +121,7 @@ Introduction to Programming using Java is **free**, but it is not in
 the public domain. As of Version 6.0, it is published under the terms
 of the Creative Commons Attribution-NonCommercial-ShareAlike 3.0
 License. To view a copy of this license, visit
-`http://creativecommons.org/licenses/by-nc-sa/3.0/`_. For example, you
+`<http://creativecommons.org/licenses/by-nc-sa/3.0/>`_. For example, you
 can:
 
 
@@ -158,7 +158,7 @@ that are used in processing.
 **I have made the complete source files available for download at the
 following address:**
 
-`http://math.hws.edu/eck/cs124/downloads/javanotes6-full-source.zip`_
+`<http://math.hws.edu/eck/cs124/downloads/javanotes6-full-source.zip>`_
 
 These files were not originally meant for publication, and therefore
 are not very cleanly written. Furthermore, it requires a fair amount
@@ -175,8 +175,8 @@ Department of Mathematics and Computer Science
 Hobart and William Smith Colleges
 300 Pulteney Street
 Geneva, New York 14456, USA
-Email: `eck@hws.edu`_
-WWW: `http://math.hws.edu/eck/`_
+Email: `<eck@hws.edu>`_
+WWW: `<http://math.hws.edu/eck/>`_
 
 
 

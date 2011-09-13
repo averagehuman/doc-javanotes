@@ -80,10 +80,10 @@ Downloading And Other Links
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-+ `http://math.hws.edu/eck/cs124/downloads/javanotes6.zip`_ --
++ `<http://math.hws.edu/eck/cs124/downloads/javanotes6.zip>`_ --
   This "zip" archive contains a complete copy of the web site. It should
   be usable on almost any computer. (Size:4.4Megabytes.)
-+ `http://math.hws.edu/eck/cs124/downloads/javanotes6.tar.bz2`_ --
++ `<http://math.hws.edu/eck/cs124/downloads/javanotes6.tar.bz2>`_ --
   This "bzip2 tar" archive contains a complete copy of the web site in a
   format that allows greater compression but that might not be usable on
   all computers. On most UNIX systems, including Linux and Mac OS, you
@@ -91,11 +91,11 @@ Downloading And Other Links
   "bunzip2javanotes6.tar.bz2" followed by "tarxfjavanotes6.tar" on the
   command line (if it is not extracted automatically when you download
   it). (Size:3.2Megabytes.)
-+ `http://math.hws.edu/eck/cs124/downloads/javanotes6-linked.pdf`_
++ `<http://math.hws.edu/eck/cs124/downloads/javanotes6-linked.pdf>`_
   -- a PDF version with internal links for navigation and external links
   to source code files, exercise solutions, and other resources that are
   not included in the PDF. (Size:6Megabytes; 751 pages.)
-+ `http://math.hws.edu/eck/cs124/downloads/javanotes6.pdf`_ -- a
++ `<http://math.hws.edu/eck/cs124/downloads/javanotes6.pdf>`_ -- a
   PDF version without links, more suitable for printing.
   (Size:5.5Megabytes; 758 pages.)
 + Printed versions -- I have made this book available for purchase
@@ -104,9 +104,9 @@ Downloading And Other Links
   printout in a nice form. (Please do **not** feel obliged to buy the
   printed version; I do not make any money from it!) The entire book is
   available in a rather thick printed version at
-  `http://www.lulu.com/content/612392`_. It is also available in two
-  parts as `http://www.lulu.com/content/559884`_ and
-  `http://www.lulu.com/content/822314`_.
+  `<http://www.lulu.com/content/612392>`_. It is also available in two
+  parts as `<http://www.lulu.com/content/559884>`_ and
+  `<http://www.lulu.com/content/822314>`_.
 + Complete Sources -- The complete source files that are used to
   produce both the web site and PDF versions of this book are available
   for download, but will be useful only to a very limited audience. See
