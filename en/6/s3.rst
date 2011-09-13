@@ -554,8 +554,8 @@ information to draw the picture. If paintComponent() is called twice,
 it should draw the same picture twice, unless the data has changed in
 the meantime. Unfortunately, to store the data for the picture in this
 applet, we would need to use either arrays, which will not be covered
-until :doc:`Chapter 7</7>`, or off-screen images, which will not be covered
-until :doc:`Chapter 13</13>`. Other examples in this chapter will suffer from
+until :doc:`Chapter 7</7/index>`, or off-screen images, which will not be covered
+until :doc:`Chapter 13</13/index>`. Other examples in this chapter will suffer from
 the same problem.
 
 The source for the panel class is shown below. I use an instance

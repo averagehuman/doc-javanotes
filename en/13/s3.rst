@@ -8,7 +8,7 @@ F or the past two sections, we have been looking at some of the more
 advanced aspects of the Java graphics API. But the heart of most
 graphical user interface programming is using GUI components. In this
 section and the next, we'll be looking at JComponents. We'll cover
-several component classes that were not covered in :doc:`Chapter 6</6>`, as
+several component classes that were not covered in :doc:`Chapter 6</6/index>`, as
 well as some additional features of classes that were covered there.
 
 This section is mostly about buttons. Buttons are among the simplest

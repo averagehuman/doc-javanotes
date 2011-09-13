@@ -158,7 +158,7 @@ So, OOP is meant to be both a superior program-development tool and a
 partial solution to the software reuse problem. Objects, classes, and
 object-oriented programming will be important themes throughout the
 rest of this text. You will start using objects that are built into
-the Java language in the `next chapter`_, and in:doc:`Chapter 5</5>` you will
+the Java language in the `next chapter`_, and in:doc:`Chapter 5</5/index>` you will
 being creating your own classes and objects.
 
 

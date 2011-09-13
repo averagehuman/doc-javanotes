@@ -589,7 +589,7 @@ rarely, when writing to files.
 
 A complete understanding of file input/output in Java requires a
 knowledge of object oriented programming. We will return to the topic
-later, in :doc:`Chapter 11</11>`. The file I/O capabilities in TextIO are rather
+later, in :doc:`Chapter 11</11/index>`. The file I/O capabilities in TextIO are rather
 primitive by comparison. Nevertheless, they are sufficient for many
 applications, and they will allow you to get some experience with
 files sooner rather than later.
@@ -660,8 +660,8 @@ input is that it's a standard part of Java and so is always there when
 you want it.
 
 It's not that hard to use a Scanner for user input, but doing so
-requires some syntax that will not be introduced until :doc:`Chapter 4</4>` and
-:doc:`Chapter 5</5>`. I'll tell you how to do it here, without explaining why
+requires some syntax that will not be introduced until :doc:`Chapter 4</4/index>` and
+:doc:`Chapter 5</5/index>`. I'll tell you how to do it here, without explaining why
 it works. You won't understand all the syntax at this point. (Scanners
 will be covered in more detail in `Subsection11.1.5`_.)
 

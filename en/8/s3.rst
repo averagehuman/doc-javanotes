@@ -62,7 +62,7 @@ program and caught in a different part. An exception that is not
 caught will generally cause the program to crash. (More exactly, the
 thread that throws the exception will crash. In a multithreaded
 program, it is possible for other threads to continue even after one
-crashes. We will cover threads in :doc:`Chapter 12</12>`. In particular, GUI
+crashes. We will cover threads in :doc:`Chapter 12</12/index>`. In particular, GUI
 programs are multithreaded, and parts of the program might continue to
 function even while other parts are non-functional because of
 exceptions.)
@@ -531,7 +531,7 @@ errors.
 Among the checked exceptions are several that can occur when using
 Java's input/output routines. This means that you can't even use these
 routines unless you understand something about exception-
-handling.:doc:`Chapter 11</11>` deals with input/output and uses mandatory
+handling.:doc:`Chapter 11</11/index>` deals with input/output and uses mandatory
 exception-handling extensively.
 
 

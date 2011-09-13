@@ -4,7 +4,7 @@
 
 
 How to avoid reinventing the wheel? Many data structures and
-algorithms, such as those from :doc:`Chapter 9</9>`, have been studied,
+algorithms, such as those from :doc:`Chapter 9</9/index>`, have been studied,
 programmed, and re-programmed by generations of computer science
 students. This is a valuable learning experience. Unfortunately, they
 have also been programmed and re-programmed by generations of working

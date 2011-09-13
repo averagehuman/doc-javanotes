@@ -363,7 +363,7 @@ the system, but it might be an array of length zero.
 
 In practice, command-line arguments are often the names of files to be
 processed by the program. I will give some examples of this in
-:doc:`Chapter 11</11>`, when I discuss file processing.
+:doc:`Chapter 11</11/index>`, when I discuss file processing.
 
 
 

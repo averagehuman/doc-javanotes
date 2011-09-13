@@ -297,7 +297,7 @@ most often as the values of conditional expressions. For example,
 
 is a boolean-valued expression that evaluates to true if the value of
 the variable rate is greater than 0.05, and to false if the value of
-rate is not greater than 0.05. As you'll see in :doc:`Chapter 3</3>`, boolean-
+rate is not greater than 0.05. As you'll see in :doc:`Chapter 3</3/index>`, boolean-
 valued expressions are used extensively in control structures. Of
 course, boolean values can also be assigned to variables of type
 boolean.
@@ -476,7 +476,7 @@ can be used to write applets that can run on pages in a Web browser.
 Applets are very different things from stand-alone programs such as
 the Interest program, and they are not written in the same way. For
 one thing, an applet doesn't have amain() routine. Applets will be
-covered in :doc:`Chapter 6</6>`. In the meantime, you will see applets in this
+covered in :doc:`Chapter 6</6/index>`. In the meantime, you will see applets in this
 text that **simulate** stand-alone programs. The applets you see are
 not really the same as the stand-alone programs that they simulate,
 since they run right on a Web page, but they will have the same

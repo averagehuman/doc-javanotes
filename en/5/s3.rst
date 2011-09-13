@@ -77,7 +77,7 @@ java.lang, so you can use its simple name without importing it.
 A number of useful classes are collected in the package java.util. For
 example, this package contains classes for working with collections of
 objects. We will encounter an example in :doc:`Section 5.5</5/s5>`, and we will
-study the collection classes extensively in :doc:`Chapter 10</10>`. Another
+study the collection classes extensively in :doc:`Chapter 10</10/index>`. Another
 class in this package, java.util.Date, is used to represent times.
 When a Date object is constructed without parameters, the result
 represents the current date and time, so an easy way to display this
@@ -165,7 +165,7 @@ value that is wrapped in the object, you can call the function
 d.doubleValue(). Similarly, you can wrap an int in an object of type
 Integer, a boolean value in an object of type Boolean, and so on. (As
 an example of where this would be useful, the collection classes that
-will be studied in :doc:`Chapter 10</10>` can only hold objects. If you want to
+will be studied in :doc:`Chapter 10</10/index>` can only hold objects. If you want to
 add a primitive type value to a collection, it has to be put into a
 wrapper object first.)
 

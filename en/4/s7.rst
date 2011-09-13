@@ -386,7 +386,7 @@ point in the class, including at a point in the source code before the
 point where the definition of the subroutine appears. It is even
 possible to call a subroutine from within itself. This is an example
 of something called "recursion," a fairly advanced topic that we will
-return to in :doc:`Chapter 9</9>`.
+return to in :doc:`Chapter 9</9/index>`.
 
 For a variable that is declared as a static member variable in a
 class, the situation is similar, but with one complication. It is

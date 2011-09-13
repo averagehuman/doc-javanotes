@@ -207,7 +207,7 @@ list, if we think of it as associating an address to each name on the
 list. As a related example, consider a phone directory that associates
 a phone number to each name. We'll look at a highly simplified version
 of this example. And note that things can be done much more
-efficiently, as you'll learn in :doc:`Chapter 10</10>`.
+efficiently, as you'll learn in :doc:`Chapter 10</10/index>`.
 
 The items in the phone directory's association list could be objects
 belonging to the class:
@@ -481,7 +481,7 @@ Insertion sort and selection sort are suitable for sorting fairly
 small arrays (up to a few hundred elements, say). There are more
 complicated sorting algorithms that are much faster than insertion
 sort and selection sort for large arrays. I'll discuss one such
-algorithm in :doc:`Chapter 9</9>`.
+algorithm in :doc:`Chapter 9</9/index>`.
 
 
 

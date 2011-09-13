@@ -7,7 +7,7 @@
 W e have already encountered many of the basic aspects of GUI
 programming, but professional programs use many additional features.
 We will cover some of the advanced features of Java GUI programming in
-:doc:`Chapter 13</13>`, but in this section we look briefly at a few more basic
+:doc:`Chapter 13</13/index>`, but in this section we look briefly at a few more basic
 features that are essential for writing GUI programs. I will discuss
 these features in the context of this "MosaicDraw" program:
 

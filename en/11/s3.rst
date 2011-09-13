@@ -911,7 +911,7 @@ In addition to being able to save sketch data in both text form and
 binary form, SimplePaintWithFiles can also save the picture itself as
 an image file that could be, for example, printed or put on a web
 page. This is a preview of image-handling techniques that will be
-covered in :doc:`Chapter 13</13>`.
+covered in :doc:`Chapter 13</13/index>`.
 
 
 

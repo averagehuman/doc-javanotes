@@ -24,7 +24,7 @@ a stand-alone application, and it does not have amain() routine. In
 fact, an applet is an **object** rather than a **class**. When Java
 first appeared on the scene, applets were one of its major appeals.
 Since then, they have become much less important, although they can
-still be very useful. When we study GUI programming in :doc:`Chapter 6</6>`, we
+still be very useful. When we study GUI programming in :doc:`Chapter 6</6/index>`, we
 will concentrate on stand-alone GUI programs rather than on applets,
 but applets are a good place to start for our first look at the
 subject.
@@ -107,7 +107,7 @@ commands that you want to use to create your animation.
 
 (One more thing needs to be mentioned -- and this is a point where
 Java's syntax gets unfortunately confusing. You can skip this
-explanation until:doc:`Chapter 5</5>` if you want. Applets are objects, not
+explanation until:doc:`Chapter 5</5/index>` if you want. Applets are objects, not
 classes. Instead of being static members of a class, the subroutines
 that define the applet's behavior are part of the applet object. We
 say that they are "non-static" subroutines. Of course, objects are
@@ -144,7 +144,7 @@ our applet's drawFrame() routine, we can use the Graphics object g for
 drawing. (This object is provided as a parameter to the drawFrame()
 routine when that routine is called.) Graphics objects contain many
 subroutines. I'll mention just three of them here. You'll encounter
-more of them in :doc:`Chapter 6</6>`.
+more of them in :doc:`Chapter 6</6/index>`.
 
 
 + g.setColor(c), is called to set the color that is used for drawing.
@@ -397,7 +397,7 @@ drawn. Here is the complete source code:
 
 The main point here is that by building on an existing framework, you
 can do interesting things using the type of local, inside-a-subroutine
-programming that was covered in :doc:`Chapter 2</2>` and :doc:`Chapter 3</3>`. As you
+programming that was covered in :doc:`Chapter 2</2/index>` and :doc:`Chapter 3</3/index>`. As you
 learn more about programming and more about Java, you'll be able to do
 more on your own -- but no matter how much you learn, you'll always be
 dependent on other people's work to some extent.

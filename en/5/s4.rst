@@ -96,7 +96,7 @@ This is everything you need to know in order to use the Deck class. Of
 course, it doesn't tell us how to write the class. This has been an
 exercise in design, not in coding. In fact, writing the class involves
 a programming technique, arrays, which will not be covered until
-:doc:`Chapter 7</7>`. Nevertheless, you can look at the source code,
+:doc:`Chapter 7</7/index>`. Nevertheless, you can look at the source code,
 `Deck.java`_, if you want. Even though you won't understand the
 implementation, the Javadoc comments give you all the information that
 you need to understand the interface. With this information, you can

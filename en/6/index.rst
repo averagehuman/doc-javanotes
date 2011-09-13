@@ -17,7 +17,7 @@ occur. Event-driven programming builds on all the skills you have
 learned in the first five chapters of this text. You need to be able
 to write the methods that respond to events. Inside those methods, you
 are doing the kind of programming-in-the-small that was covered in
-:doc:`Chapter 2</2>` and :doc:`Chapter 3</3>`.
+:doc:`Chapter 2</2/index>` and :doc:`Chapter 3</3/index>`.
 
 And of course, objects are everywhere in GUI programming. Events are
 objects. Colors and fonts are objects. GUI components such as buttons
@@ -26,7 +26,7 @@ contained in objects. In Java, GUI programming is object-oriented
 programming.
 
 This chapter covers the basics of GUI programming. The discussion will
-continue in :doc:`Chapter 13</13>` with more details and with more advanced
+continue in :doc:`Chapter 13</13/index>` with more details and with more advanced
 techniques.
 
 

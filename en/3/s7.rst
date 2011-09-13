@@ -13,7 +13,7 @@ Java makes it possible to "catch" such errors and program a response
 different from simply letting the program crash. This is done with
 thetry..catch statement. In this section, we will take a preliminary,
 incomplete look at using try..catch to handle errors. Error handling
-is a complex topic, which we will return to in:doc:`Chapter 8</8>`.
+is a complex topic, which we will return to in:doc:`Chapter 8</8/index>`.
 
 
 

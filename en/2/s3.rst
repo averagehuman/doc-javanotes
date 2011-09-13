@@ -7,7 +7,7 @@
 T he previous section introduced the eight primitive data types and
 the type String. There is a fundamental difference between the
 primitive types and the String type: Values of typeString are objects.
-While we will not study objects in detail until:doc:`Chapter 5</5>`, it will be
+While we will not study objects in detail until:doc:`Chapter 5</5/index>`, it will be
 useful for you to know a little about them and about a closely related
 topic: classes. This is not just because strings are useful but
 because objects and classes are essential to understanding another
@@ -28,7 +28,7 @@ type to the Java language. We will look at them later in this section.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Recall that a subroutine is a set of program instructions that have
-been chunked together and given a name. In :doc:`Chapter 4</4>`, you'll learn
+been chunked together and given a name. In :doc:`Chapter 4</4/index>`, you'll learn
 how to write your own subroutines, but you can get a lot done in a
 program just by calling subroutines that have already been written for
 you. In Java, every subroutine is contained in a class or in an
@@ -120,7 +120,7 @@ this is true of every subroutine in Java, every subroutine in Java is
 a method (with one very technical exception). The same is not true for
 other programming languages. Nevertheless, the term "method" is mostly
 used in the context of object-oriented programming, and until we start
-doing real object-oriented programming in :doc:`Chapter 5</5>`, I will prefer
+doing real object-oriented programming in :doc:`Chapter 5</5/index>`, I will prefer
 to use the more general term, "subroutine." However, I should note
 that some people prefer to use the term "method" from the beginning.
 
@@ -462,7 +462,7 @@ collection of types is not sufficient to cover all the possible
 situations that a programmer might have to deal with. So, an essential
 part of Java, just like almost any other programming language, is the
 ability to create **new** types. For the most part, this is done by
-defining new classes; you will learn how to do that in :doc:`Chapter 5</5>`.
+defining new classes; you will learn how to do that in :doc:`Chapter 5</5/index>`.
 But we will look here at one particular case: the ability to define
 enums (short forenumerated types). Enums are a recent addition to
 Java. They were only added in Version 5.0. Many programming languages

@@ -9,7 +9,7 @@ is a data structure, but this type of data structure -- consisting of
 a fairly small number of named instance variables -- is just the
 beginning. In many cases, programmers build complicated data
 structures by hand, by linking objects together. We'll look at these
-custom-built data structures in :doc:`Chapter 9</9>`. But there is one type of
+custom-built data structures in :doc:`Chapter 9</9/index>`. But there is one type of
 data structure that is so important and so basic that it is built into
 every programming language: the array.
 

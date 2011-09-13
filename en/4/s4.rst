@@ -143,7 +143,7 @@ example:
 
 
 Here is a subroutine that uses this nextN function. In this case, the
-improvement from the version of this subroutine in ``:doc:`Section 4.3</4/s3>``` is
+improvement from the version of this subroutine in :doc:`Section 4.3</4/s3>` is
 not great, but if nextN() were a long function that performed a
 complex computation, then it would make a lot of sense to hide that
 complexity inside a function:

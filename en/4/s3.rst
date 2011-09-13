@@ -283,7 +283,7 @@ subroutines, the number of parameters in the subroutine call can be
 arbitrarily large, so it would be impossible to have different
 subroutines to handle each case. Unfortunately, writing the definition
 of such a subroutine requires some knowledge of arrays, which will not
-be covered until :doc:`Chapter 7</7>`. When we get to that chapter, you'll
+be covered until :doc:`Chapter 7</7/index>`. When we get to that chapter, you'll
 learn how to write subroutines with a variable number of parameters.
 For now, we will ignore this complication.
 
@@ -476,7 +476,7 @@ parameter values. You might want to take this response in your own
 subroutines. This can be done with a throw statement. An exception is
 an object, and in order to throw an exception, you must create an
 exception object. You won't officially learn how to do this until
-:doc:`Chapter 5</5>`, but for now, you can use the following syntax for a throw
+:doc:`Chapter 5</5/index>`, but for now, you can use the following syntax for a throw
 statement that throws an IllegalArgumentException:
 
 

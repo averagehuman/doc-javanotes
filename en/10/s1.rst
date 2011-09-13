@@ -95,7 +95,7 @@ defined. This is real generic programming. This might sound pretty
 good, and you might be asking yourself why all programming languages
 don't work this way. This type of freedom makes it easier to write
 programs, but unfortunately it makes it harder to write programs that
-are correct and robust (see :doc:`Chapter 8</8>`). Once you have a data
+are correct and robust (see :doc:`Chapter 8</8/index>`). Once you have a data
 structure that can contain data of any type, it becomes hard to ensure
 that it only holds the type of data that you want it to hold. If you
 have a subroutine that can sort any type of data, it's hard to ensure

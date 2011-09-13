@@ -54,7 +54,7 @@ make up the body of the subroutine. These statements are the inside,
 or implementation part, of the "black box", as discussed in the
 `previous section`_. They are the instructions that the computer
 executes when the method is called. Subroutines can contain any of the
-statements discussed in :doc:`Chapter 2</2>` and:doc:`Chapter 3</3>`.
+statements discussed in :doc:`Chapter 2</2/index>` and:doc:`Chapter 3</3/index>`.
 
 The modifiers that can occur at the beginning of a subroutine
 definition are words that set certain characteristics of the
@@ -145,7 +145,7 @@ in the "package" that contains the class, but not from outside that
 package. (Packages were introduced in `Subsection2.6.4`_, and you'll
 learn more about them later in this chapter, in :doc:`Section 4.5</4/s5>`.) There
 is one other access modifier, protected, which will only become
-relevant when we turn to object-oriented programming in :doc:`Chapter 5</5>`.
+relevant when we turn to object-oriented programming in :doc:`Chapter 5</5/index>`.
 
 Note, by the way, that the main() routine of a program follows the
 usual syntax rules for a subroutine. In
@@ -161,7 +161,7 @@ subroutine name is main, and the parameter list is "String[]args". The
 only question might be about "String[]", which has to be a type if it
 is to match the syntax of a parameter list. In fact, String[]
 represents a so-called "array type", so the syntax is valid. We will
-cover arrays in :doc:`Chapter 7</7>`. (The parameter, args, represents
+cover arrays in :doc:`Chapter 7</7/index>`. (The parameter, args, represents
 information provided to the program when the main() routine is called
 by the system. In case you know the term, the information consists of
 any "command-line arguments" specified in the command that the user

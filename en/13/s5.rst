@@ -231,7 +231,7 @@ changes, or if the size of the window changes, all the counts must be
 recomputed. Since the computation can take quite a while, it would not
 be acceptable to block the user interface while the computation is
 being performed. The solution is to do the computation in separate
-"worker" threads, as discussed in :doc:`Chapter 12</12>`. The program uses one
+"worker" threads, as discussed in :doc:`Chapter 12</12/index>`. The program uses one
 worker thread for each available processor. When the computation
 begins, the image is filled with gray. Every so often, about twice a
 second, the data that has been computed by the computation threads is

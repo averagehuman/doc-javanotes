@@ -241,7 +241,7 @@ the loop to test which of these conditions caused the loop to end:
 One place where correctness and robustness are important -- and
 especially difficult -- is in the processing of input data, whether
 that data is typed in by the user, read from a file, or received over
-a network. Files and networking will be covered in :doc:`Chapter 11</11>`, which
+a network. Files and networking will be covered in :doc:`Chapter 11</11/index>`, which
 will make essential use of material that will be covered in the `next
 section`_ of this chapter. For now, let's look at an example of
 processing user input.

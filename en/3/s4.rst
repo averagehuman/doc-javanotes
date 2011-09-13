@@ -638,7 +638,7 @@ example, a list is a data structure that consists simply of a sequence
 of items. The enhanced for loop makes it easy to apply the same
 processing to every element of a list or other data structure. Data
 structures are a major topic in computer science, but we won't
-encounter them in any serious way until :doc:`Chapter 7</7>`. However, one of
+encounter them in any serious way until :doc:`Chapter 7</7/index>`. However, one of
 the applications of the enhanced for loop is toenum types, and so we
 consider it briefly here. (Enums were introduced in
 `Subsection2.3.3`_.)

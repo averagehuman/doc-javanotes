@@ -167,7 +167,7 @@ multiprocessing. In fact, the ability to work with threads is fast
 becoming an essential job skill for programmers. Fortunately, Java has
 good support for threads, which are built into the Java programming
 language as a fundamental programming concept. Programming with
-threads will be covered in :doc:`Chapter12</12/index>`.
+threads will be covered in :doc:`Chapter12</12>`.
 
 Just as important in Java and in modern programming in general is the
 basic concept of asynchronous events. While programmers don't actually
@@ -178,7 +178,8 @@ programming" has a very different feel from the more traditional
 straight-through, synchronous programming. We will begin with the more
 traditional type of programming, which is still used for programming
 individual tasks, but we will return to threads and events later in
-the text, starting in :doc:`Chapter 6</6>`
+the text, starting in :doc:`Chapter 6</6/index>`
+
 
 
 

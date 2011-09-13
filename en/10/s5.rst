@@ -550,7 +550,7 @@ of a class. Note that the term "extends" (not "implements") is used in
 the wildcard type, even if T is an interface. For example, we will see
 that Runnable is an interface that defines the method public void
 run(). (Runnable objects are usually associated with threads; see
-:doc:`Chapter 12</12>`.) Here is a method that runs all the objects in a
+:doc:`Chapter 12</12/index>`.) Here is a method that runs all the objects in a
 collection ofRunnables by executing the run() method from each
 runnable object:
 

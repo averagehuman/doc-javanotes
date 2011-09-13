@@ -557,7 +557,7 @@ contains such an error.) It's also possible to manipulate the tree to
 optimize the program. In optimization, the tree is transformed to make
 the program more efficient before the code is generated.
 
-And so we are back where we started in :doc:`Chapter 1</1>`, looking at
+And so we are back where we started in :doc:`Chapter 1</1/index>`, looking at
 programming languages, compilers, and machine language. But looking at
 them, I hope, with a lot more understanding and a much wider
 perspective.

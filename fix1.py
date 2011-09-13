@@ -15,7 +15,7 @@ def on_division_link(m):
         section = section.lstrip('.')
         return ':doc:`Section %s.%s</%s/s%s>`' % (chapter, section, chapter, section)
     else:
-        return ':doc:`Chapter %s</%s>`' % (chapter, chapter)
+        return ':doc:`Chapter %s</%s/index>`' % (chapter, chapter)
 
 for root, dirs, files in os.walk('en'):
     for f in files:

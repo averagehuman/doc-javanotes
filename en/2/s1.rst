@@ -228,7 +228,7 @@ programming language.
 Also note that according to the above syntax specification, a program
 can contain other subroutines besides main(), as well as things called
 "variable declarations." You'll learn more about these later, but not
-until:doc:`Chapter 4</4>`.
+until:doc:`Chapter 4</4/index>`.
 
 
 

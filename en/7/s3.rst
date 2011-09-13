@@ -439,7 +439,7 @@ structures that contain elements of type Object. We will first
 consider the almost-generic programming that has been available in
 Java from the beginning, and then we will look at the change that was
 introduced in Java 5.0. A full discussion of generic programming will
-be given in :doc:`Chapter 10</10>`.
+be given in :doc:`Chapter 10</10/index>`.
 
 In Java, every class is a subclass of the class named Object. This
 means that every object can be assigned to a variable of type Object.
@@ -999,7 +999,7 @@ also serves as another example of creating and using menus.
 
 The ArrayList class was introduced in Java version 1.2, as one of a
 group of classes designed for working with collections of objects.
-We'll look at these "collection classes" in :doc:`Chapter 10</10>`. Early
+We'll look at these "collection classes" in :doc:`Chapter 10</10/index>`. Early
 versions of Java did not include ArrayList, but they did have a very
 similar class named java.util.Vector. You can still seeVectors used in
 older code and in many of Java's standard classes, so it's worth

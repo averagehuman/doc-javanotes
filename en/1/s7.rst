@@ -116,7 +116,7 @@ and most complex web sites use web server software that is written in
 Java. Java includes excellent support for network protocols, and its
 platform independence makes it possible to write network programs that
 work on many different types of computer. You will learn about Java's
-network support in :doc:`Chapter 11</11>`.
+network support in :doc:`Chapter 11</11/index>`.
 
 Its association with the Internet is not Java's only advantage. But
 many good programming languages have been invented only to be soon
