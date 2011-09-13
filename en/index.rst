@@ -71,7 +71,7 @@ the `license`_ for full details.)
 
 The most recent version of this book is always available, at no
 charge, for downloading and for on-line use at the Web address:
-`http://math.hws.edu/javanotes/`_
+`<http://math.hws.edu/javanotes/>`_
 
 
 
