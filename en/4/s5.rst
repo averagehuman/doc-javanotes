@@ -159,7 +159,7 @@ see what is available. As I write this, the documentation for the
 complete API can be found at
 
 
-**`<http://download.oracle.com/javase/6/docs/api/>`_**
+`<http://download.oracle.com/javase/6/docs/api/>`_
 
 
 Even an expert programmer won't be familiar with the entire API, or

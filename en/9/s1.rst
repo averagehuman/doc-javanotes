@@ -136,7 +136,7 @@ value in part of an array of integers:
 
 In this routine, the parameters loIndex and hiIndex specify the part
 of the array that is to be searched. To search an entire array, it is
-only necessary to call binarySearch(A,0, A.length-1, value). In the
+only necessary to call ``binarySearch(A, 0, A.length-1, value)``. In the
 two base cases -- when there are no elements in the specified range of
 indices and when the value is found in the middle of the range -- the
 subroutine can return an answer immediately, without using recursion.
@@ -174,7 +174,7 @@ base case. Infinite recursion is similar to an infinite loop. However,
 since each recursive call to the subroutine uses up some of the
 computer's memory, a program that is stuck in an infinite recursion
 will run out of memory and crash before long. In Java, the program
-will crash with an exception of type StackOverflowError.
+will crash with an exception of type ``StackOverflowError``.
 
 
 
@@ -200,21 +200,21 @@ animation of the step-by-step solution of the problem.
 
 
 
-The problem is to move ten disks from Stack 0 to Stack 1, subject to
-certain rules. Stack 2 can be used as a spare location. Can we reduce
+The problem is to move ten disks from ``Stack 0`` to ``Stack 1``, subject to
+certain rules. ``Stack 2`` can be used as a spare location. Can we reduce
 this to smaller problems of the same type, possibly generalizing the
 problem a bit to make this possible? It seems natural to consider the
 size of the problem to be the number of disks to be moved. If there
-are N disks in Stack 0, we know that we will eventually have to move
-the bottom disk from Stack 0 to Stack 1. But before we can do that,
-according to the rules, the first N-1 disks must be on Stack 2. Once
-we've moved the N-th disk to Stack 1, we must move the other N-1 disks
-from Stack 2 to Stack 1 to complete the solution. But moving N-1 disks
+are ``N`` disks in ``Stack 0``, we know that we will eventually have to move
+the bottom disk from ``Stack 0`` to ``Stack 1``. But before we can do that,
+according to the rules, the first ``N-1`` disks must be on ``Stack 2``. Once
+we've moved the ``N-th`` disk to ``Stack 1``, we must move the other ``N-1`` disks
+from ``Stack 2`` to ``Stack 1`` to complete the solution. But moving ``N-1`` disks
 is the same type of problem as movingN disks, except that it's a
 smaller version of the problem. This is exactly what we need to do
 recursion! The problem has to be generalized a bit, because the
-smaller problems involve moving disks from Stack 0 to Stack 2 or from
-Stack 2 to Stack 1, instead of from Stack 0 to Stack 1. In the
+smaller problems involve moving disks from ``Stack 0`` to ``Stack 2`` or from
+``Stack 2`` to ``Stack 1``, instead of from ``Stack 0`` to Stack 1. In the
 recursive subroutine that solves the problem, the stacks that serve as
 the source and destination of the disks have to be specified. It's
 also convenient to specify the stack that is to be used as a spare,
@@ -257,9 +257,9 @@ instructions for solving the problem:
 This subroutine just expresses the natural recursive solution. The
 recursion works because each recursive call involves a smaller number
 of disks, and the problem is trivial to solve in the base case, when
-there is only one disk. To solve the "top level" problem of moving N
-disks from Stack 0 to Stack 1, it should be called with the command
-TowersOfHanoi(N,0,1,2). The subroutine is demonstrated by the sample
+there is only one disk. To solve the "top level" problem of moving ``N``
+disks from ``Stack 0`` to ``Stack 1``, it should be called with the command
+``TowersOfHanoi(N,0,1,2)``. The subroutine is demonstrated by the sample
 program `TowersOfHanoi.java`_. Here is an applet that simulates the
 program. You get to specify the number of disks. Be careful. The
 number of steps increases rapidly with the number of disks.
@@ -280,18 +280,18 @@ violated. The result is an example of infinite recursion.)
 
 There is, by the way, a story that explains the name of this problem.
 According to this story, on the first day of creation, a group of
-monks in an isolated tower near Hanoi were given a stack of 64 disks
+monks in an isolated tower near Hanoi were given a stack of ``64`` disks
 and were assigned the task of moving one disk every day, according to
 the rules of the Towers of Hanoi problem. On the day that they
 complete their task of moving all the disks from one stack to another,
 the universe will come to an end. But don't worry. The number of steps
-required to solve the problem for N disks is 2 N -1, and 2 64 -1 days
-is over 50,000,000,000,000 years. We have a long way to go.
+required to solve the problem for ``N`` disks is 2 N -1, and 2 64 -1 days
+is over ``50,000,000,000,000 years``. We have a long way to go.
 
 (In the terminology of :doc:`Section 8.5</8/s5>`, the Towers of Hanoi algorithm
-has a run time that is Θ(2 n ), where n is the number of disks that
+has a run time that is ``Θ(2 n )``, where ``n`` is the number of disks that
 have to be moved. Since the exponential function 2 n grows so quickly,
-the Towers of Hanoi problem can be solved in practice only for a small
+the ``Towers of Hanoi`` problem can be solved in practice only for a small
 number of disks.)
 
 
@@ -308,25 +308,25 @@ the end of :doc:`Section 10.5</10/s5>`.
 The Maze applet first builds a random maze. It then tries to solve the
 maze by finding a path through the maze from the upper left corner to
 the lower right corner. This problem is actually very similar to a
-"blob-counting" problem that is considered later in this section. The
+``blob-counting`` problem that is considered later in this section. The
 recursive maze-solving routine starts from a given square, and it
 visits each neighboring square and calls itself recursively from
 there. The recursion ends if the routine finds itself at the lower
 right corner of the maze.
 
-The Pentominos applet is an implementation of a classic puzzle. A
-pentomino is a connected figure made up of five equal-sized squares.
+The ``Pentominos`` applet is an implementation of a classic puzzle. A
+``pentomino`` is a connected figure made up of five equal-sized squares.
 There are exactly twelve figures that can be made in this way, not
 counting all the possible rotations and reflections of the basic
-figures. The problem is to place the twelve pentominos on an 8-by-8
-board in which four of the squares have already been marked as filled.
+figures. The problem is to place the twelve ``pentominos`` on an
+``8-by-8`` board in which four of the squares have already been marked as filled.
 The recursive solution looks at a board that has already been
-partially filled with pentominos. The subroutine looks at each
+partially filled with ``pentominos``. The subroutine looks at each
 remaining piece in turn. It tries to place that piece in the next
 available place on the board. If the piece fits, it calls itself
 recursively to try to fill in the rest of the solution. If that fails,
 then the subroutine goes on to the next piece. A generalized version
-of the pentominos applet with many more features can be found at
+of the ``pentominos`` applet with many more features can be found at
 `<http://math.hws.edu/xJava/PentominosSolver/>`_.
 
 The applets are fun to watch, and they give nice visual
@@ -344,10 +344,10 @@ look at a recursive algorithm for sorting an array. The selection sort
 and insertion sort algorithms, which were covered in :doc:`Section 7.4</7/s4>`,
 are fairly simple, but they are rather slow when applied to large
 arrays. Faster sorting algorithms are available. One of these is
-Quicksort, a recursive algorithm which turns out to be the fastest
+``Quicksort``, a recursive algorithm which turns out to be the fastest
 sorting algorithm in most situations.
 
-The Quicksort algorithm is based on a simple but clever idea: Given a
+The ``Quicksort`` algorithm is based on a simple but clever idea: Given a
 list of items, select any item from the list. This item is called the
 pivot. (In practice, I'll just use the first item in the list.) Move
 all the items that are smaller than the pivot to the beginning of the
@@ -355,13 +355,13 @@ list, and move all the items that are larger than the pivot to the end
 of the list. Now, put the pivot between the two groups of items. This
 puts the pivot in the position that it will occupy in the final,
 completely sorted array. It will not have to be moved again. We'll
-refer to this procedure as QuicksortStep.
+refer to this procedure as ``QuicksortStep``.
 
 
 
-QuicksortStep is not recursive. It is used as a subroutine by
-Quicksort. The speed of Quicksort depends on having a fast
-implementation of QuicksortStep. Since it's not the main point of this
+``QuicksortStep`` is not recursive. It is used as a subroutine by
+``Quicksort``. The speed of ``Quicksort`` depends on having a fast
+implementation of ``QuicksortStep``. Since it's not the main point of this
 discussion, I present one without much comment.
 
 
@@ -431,13 +431,13 @@ discussion, I present one without much comment.
      }  // end QuicksortStep
 
 
-With this subroutine in hand, Quicksort is easy. The Quicksort
-algorithm for sorting a list consists of applying QuicksortStep to the
-list, then applying Quicksort recursively to the items that lie to the
+With this subroutine in hand, ``Quicksort`` is easy. The ``Quicksort``
+algorithm for sorting a list consists of applying ``QuicksortStep`` to the
+list, then applying ``Quicksort`` recursively to the items that lie to the
 left of the new position of the pivot and to the items that lie to the
 right of that position. Of course, we need base cases. If the list has
 only one item, or no items, then the list is already as sorted as it
-can ever be, so Quicksort doesn't have to do anything in these cases.
+can ever be, so ``Quicksort`` doesn't have to do anything in these cases.
 
 
 .. code-block:: java
@@ -466,18 +466,18 @@ can ever be, so Quicksort doesn't have to do anything in these cases.
 As usual, we had to generalize the problem. The original problem was
 to sort an array, but the recursive algorithm is set up to sort a
 specified part of an array. To sort an entire array, A, using the
-quickSort() subroutine, you would call quicksort(A, 0, A.length-1).
+``quickSort()`` subroutine, you would call ``quicksort(A, 0, A.length-1)``.
 
-Quicksort is an interesting example from the point of view of the
+``Quicksort`` is an interesting example from the point of view of the
 analysis of algorithms (:doc:`Section 8.5</8/s5>`), because its average case run
 time differs greatly from its worst case run time. Here is a very
 informal analysis, starting with the average case: Note that an
-application of quicksortStep divides a problem into two sub-problems.
+application of ``quicksortStep`` divides a problem into two sub-problems.
 On the average, the subproblems will be of approximately the same
-size. A problem of size n is divided into two problems that are
-roughly of size n/2; these are then divided into four problems that
-are roughly of size n/4; and so on. Since the problem size is divided
-by 2 on each level, there will be approximately log(n) levels of
+size. A problem of size ``n`` is divided into two problems that are
+roughly of size ``n/2``; these are then divided into four problems that
+are roughly of size ``n/4``; and so on. Since the problem size is divided
+by ``2`` on each level, there will be approximately ``log(n)`` levels of
 subdivision. The amount of processing on each level is proportional to
 n. (On the top level, each element in the array is looked at and
 possibly moved. On the second level, where there are two subproblems,
@@ -486,20 +486,20 @@ subproblems and must be looked at and possibly moved, so there is a
 total of about n steps in both subproblems combined. Similarly, on the
 third level, there are four subproblems and a total of about n steps
 in the four subproblems on that level....) With a total of n steps on
-each level and approximately log(n) levels in the average case, the
-average case run time for Quicksort is Θ(n*log(n)). This analysis
-assumes that quicksortStep divides a problem into two approximately
+each level and approximately ``log(n)`` levels in the average case, the
+average case run time for ``Quicksort`` is ``Θ(n*log(n))``. This analysis
+assumes that ``quicksortStep`` divides a problem into two approximately
 equal parts. However, in the worst case, each application of
-quicksortStep divides a problem of size n into a problem of size 0 and
-a problem of size n-1. This happens when the pivot element ends up at
+``quicksortStep`` divides a problem of size ``n`` into a problem of size ``0`` and
+a problem of size ``n-1``. This happens when the pivot element ends up at
 the beginning or end of the array. In this worst case, there are n
-levels of subproblems, and the worst-case run time is Θ(n 2 ). The
+levels of subproblems, and the worst-case run time is ``Θ(n 2 )``. The
 worst case is very rare -- it depends on the items in the array being
 arranged in a very special way, so the average performance of
 Quicksort can be very good even though it is not so good in certain
 rare cases. There are sorting algorithms that have both an average
-case and a worst case run time of Θ(n*log(n)). One example is
-MergeSort, which you can look up if you are interested.
+case and a worst case run time of ``Θ(n*log(n))``. One example is
+``MergeSort``, which you can look up if you are interested.
 
 
 
@@ -516,11 +516,11 @@ can be reached from it by moving up, down, left, and right through
 other filled squares. If the user clicks on any filled square in the
 program, the computer will count the squares in the blob that contains
 the clicked square, and it will change the color of those squares to
-red. The program has several controls. There is a "New Blobs" button;
+red. The program has several controls. There is a ``New Blobs`` button;
 clicking this button will create a new random pattern in the grid. A
 pop-up menu specifies the approximate percentage of squares that will
 be filled in the new pattern. The more filled squares, the larger the
-blobs. And a button labeled "Count the Blobs" will tell you how many
+blobs. And a button labeled ``Count the Blobs`` will tell you how many
 different blobs there are in the pattern. Here is an applet version of
 the program for you to try:
 
@@ -540,20 +540,20 @@ of boolean values,
     boolean[][]  filled;
 
 
-The value of filled[r][c] is true if the square in row r and in column
-c of the grid is filled. The number of rows in the grid is stored in
+The value of ``filled[r][c]`` is true if the square in ``row r`` and in
+``column c`` of the grid is filled. The number of rows in the grid is stored in
 an instance variable named rows, and the number of columns is stored
 in columns. The program uses a recursive instance method named
 getBlobSize() to count the number of squares in the blob that contains
 the square in a given row r and column c. If there is no filled square
-at position (r,c), then the answer is zero. Otherwise, getBlobSize()
+at position ``(r,c)``, then the answer is zero. Otherwise, ``getBlobSize()``
 has to count all the filled squares that can be reached from the
-square at position (r,c). The idea is to usegetBlobSize() recursively
+square at position ``(r,c)``. The idea is to use ``getBlobSize()`` recursively
 to get the number of filled squares that can be reached from each of
-the neighboring positions: (r+1,c),(r-1,c), (r,c+1), and (r,c-1). Add
+the neighboring positions: ``(r+1,c)``, ``(r-1,c)``, ``(r,c+1)``, and ``(r,c-1)``. Add
 up these numbers, and add one to count the square at (r,c) itself, and
 you get the total number of filled squares that can be reached from
-(r,c). Here is an implementation of this algorithm, as stated.
+``(r,c)``. Here is an implementation of this algorithm, as stated.
 Unfortunately, it has a serious flaw: It leads to an infinite
 recursion!
 
@@ -585,11 +585,11 @@ recursion!
 
 Unfortunately, this routine will count the same square more than once.
 In fact, it will try to count each square infinitely often! Think of
-yourself standing at position (r,c) and trying to follow these
+yourself standing at position ``(r,c)`` and trying to follow these
 instructions. The first instruction tells you to move up one row. You
 do that, and then you apply the same procedure. As one of the steps in
 that procedure, you have to move **down** one row and apply the same
-procedure yet again. But that puts you back at position (r,c)! From
+procedure yet again. But that puts you back at position ``(r,c)``! From
 there, you move up one row, and from there you move down one row....
 Back and forth forever! We have to make sure that a square is only
 counted and processed once, so we don't end up going around in
@@ -600,16 +600,16 @@ processed again. The remaining, unvisited squares are reduced in
 number, so definite progress has been made in reducing the size of the
 problem. Infinite recursion is avoided!
 
-A second boolean array, visited[r][c], is used to keep track of which
+A second boolean array, ``visited[r][c]``, is used to keep track of which
 squares have already been visited and processed. It is assumed that
 all the values in this array are set to false before getBlobSize() is
-called. As getBlobSize() encounters unvisited squares, it marks them
+called. As ``getBlobSize()`` encounters unvisited squares, it marks them
 as visited by setting the corresponding entry in the visited array
-totrue. When getBlobSize() encounters a square that it has already
+totrue. When ``getBlobSize()`` encounters a square that it has already
 visited, it doesn't count it or process it further. The technique of
 "marking" items as they are encountered is one that used over and over
 in the programming of recursive algorithms. Here is the corrected
-version ofgetBlobSize(), with changes shown in red:
+version of ``getBlobSize()``, with changes shown in red:
 
 
 .. code-block:: java

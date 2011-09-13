@@ -57,7 +57,7 @@ As of August 2010, the current version of the JDK is **JDK6**, and it
 can be downloaded from
 
 
-**`<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_**
+`<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
 
 
 MacOS comes with Java. Recent versions of MacOS come with Java Version
@@ -203,7 +203,7 @@ you will probably want something better. For MacOS, you might download
 the free TextWrangler application. One possibility that will work on
 any platform is to use jedit, a good programmer's text editor that is
 itself written in Java and that can be downloaded for free from
-`www.jedit.org`_.
+`<www.jedit.org>`_.
 
 To create your own programs, you should open a command line window and
 cd into the working directory where you will store your source code
@@ -265,12 +265,12 @@ you should be running Eclipse with Java 5.0 or higher. Eclipse
 requires a Java Runtime Environment, not necessarily a JDK. You should
 make sure that the JRE or JDK, Version 5.0 or higher is installed on
 your computer, as described `above`_, **before** you install Eclipse.
-Eclipse can be downloaded for free from `eclipse.org`_. You can
+Eclipse can be downloaded for free from `<eclipse.org>`_. You can
 download the "Eclipse IDE for Java Developers."
 
 Another popular choice of IDE is Netbeans, which provides many of the
 same capabilities as Eclipse. Netbeans can be downloaded from
-`netbeans.org`_, and Oracle offers downloads of Netbeans on its Java
+`<netbeans.org>`_, and Oracle offers downloads of Netbeans on its Java
 web site. I like Netbeans a little less than Eclipse, and I won't say
 much about it here. It is, however, quite similar to Eclipse.
 
