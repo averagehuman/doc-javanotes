@@ -1,0 +1,719 @@
+[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
+Index`_ ]
+
+
+**Subsections**
+
+
+Symbol Tables
+Sets Inside a Map
+Using a Comparator
+Word Counting
+
+
+
+Section 10.4
+~~~~~~~~~~~~
+
+
+Programming with the Java Collection Framework
+----------------------------------------------
+
+
+
+I n this section, we'll look at some programming examples that use
+classes from the Java Collection Framework. The Collection Framework
+is easy to use, especially compared to the difficulty of programming
+new data structures from scratch.
+
+
+
+
+
+10.4.1Symbol Tables
+~~~~~~~~~~~~~~~~~~~
+
+We begin with a straightforward but important application of maps.
+When a compiler reads the source code of a program, it encounters
+definitions of variables, subroutines, and classes. The names of these
+things can be used later in the program. The compiler has to remember
+the definition of each name, so that it can recognize the name and
+apply the definition when the name is encountered later in the
+program. This is a natural application for aMap. The name can be used
+as a key in the map. The value associated to the key is the definition
+of the name, encoded somehow as an object. A map that is used in this
+way is called a symbol table.
+
+In a compiler, the values in a symbol table can be quite complicated,
+since the compiler has to deal with names for various sorts of things,
+and it needs a different type of information for each different type
+of name. We will keep things simple by looking at a symbol table in
+another context. Suppose that we want a program that can evaluate
+expressions entered by the user, and suppose that the expressions can
+contain variables, in addition to operators, numbers, and parentheses.
+For this to make sense, we need some way of assigning values to
+variables. When a variable is used in an expression, we need to
+retrieve the variable's value. A symbol table can be used to store the
+data that we need. The keys for the symbol table are variable names.
+The value associated with a key is the value of that variable, which
+is of type double. The symbol table will be an object of type
+Map<String,Double>. (Remember that primitive types such as double
+can't be used as type parameters; a wrapper class such as Double must
+be used instead. See `Subsection10.1.7`_.)
+
+To demonstrate the idea, we'll use a rather simple-minded program in
+which the user types commands such as:
+
+
+::
+
+    let x = 3 + 12
+    print 2 + 2
+    print 10*x +17
+    let rate = 0.06
+    print 1000*(1+rate)
+
+
+The program is an interpreter for a very simple language. The only two
+commands that the program understands are "print" and "let". When a
+"print" command is executed, the computer evaluates the expression and
+displays the value. If the expression contains a variable, the
+computer has to look up the value of that variable in the symbol
+table. A "let" command is used to give a value to a variable. The
+computer has to store the value of the variable in the symbol table.
+(Note: The "variables" I am talking about here are not variables in
+the Java program. The Java program is executing a sort of program
+typed in by the user. I am talking about variables in the user's
+program. The user gets to make up variable names, so there is no way
+for the Java program to know in advance what the variables will be.)
+
+In `Subsection9.5.2`_, we saw how to write a
+program,`SimpleParser2.java`_, that can evaluate expressions that do
+not contain variables. Here, I will discuss another example program,
+`SimpleInterpreter.java`_, that is based on the older program. I will
+only talk about the parts that are relevant to the symbol table. Here
+is an applet that simulates the program:
+
+
+
+The program uses a HashMap as the symbol table. A TreeMap could also
+be used, but since the program does not need to access the variables
+in alphabetical order, we don't need to have the keys stored in sorted
+order. The symbol table in the program is represented by a variable
+namedsymbolTable of type HashMap<String,Double>. At the beginning of
+the program, the symbol table object is created with the command:
+
+
+::
+
+    symbolTable = new HashMap<String,Double>();
+
+
+This creates a map that initially contains no key/value associations.
+To execute a "let" command, the program uses the symbol table's put()
+method to associate a value with the variable name. Suppose that the
+name of the variable is given by a String, varName, and the value of
+the variable is stored in a variable val of type double. The following
+command would then set the value associated with the variable in the
+symbol table:
+
+
+::
+
+    symbolTable.put( varName, val );
+
+
+In the program `SimpleInterpreter.java`_, you'll find this in the
+method named doLetCommand(). The actual value that is stored in the
+symbol table is an object of type Double. We can use the double value
+val in the call to put because Java does an automatic conversion of
+type double to Double when necessary. The double value is "wrapped" in
+an object of type Double, so that, in effect, the above statement is
+equivalent to
+
+
+::
+
+    symbolTable.put( varName, new Double(val) );
+
+
+Just for fun, I decided to pre-define two variables named "pi" and "e"
+whose values are the usual mathematical constants π and e . In Java,
+the values of these constants are given byMath.PI and Math.E. To make
+these variables available to the user of the program, they are added
+to the symbol table with the commands:
+
+
+::
+
+    symbolTable.put( "pi", Math.PI );
+    symbolTable.put( "e", Math.E );
+
+
+When the program encounters a variable while evaluating an expression,
+the symbol table's get() method is used to retrieve its value. The
+function symbolTable.get(varName) returns a value of type Double. It
+is possible that the return value is null; this will happen if no
+value has ever been assigned to varName in the symbol table. It's
+important to check this possibility. It indicates that the user is
+trying to use a variable that the user has not defined. The program
+considers this to be an error, so the processing looks something like
+this:
+
+
+::
+
+    Double val = symbolTable.get(varName);
+    if (val == null) {
+       ... // Throw an exception:  Undefined variable.
+    }
+    // The value associated to varName is val.doubleValue()
+
+
+You will find this code, more or less, in a method named
+primaryValue() in `SimpleInterpreter.java`_.
+
+As you can see from this example, Maps are very useful and are really
+quite easy to use.
+
+
+
+
+
+10.4.2Sets Inside a Map
+~~~~~~~~~~~~~~~~~~~~~~~
+
+The objects in a collection or map can be of any type. They can even
+be collections. Here's an example where it's natural to store sets as
+the value objects in a map.
+
+Consider the problem of making an index for a book. An index consists
+of a list of terms that appear in the book. Next to each term is a
+list of the pages on which that term appears. To represent an index in
+a program, we need a data structure that can hold a list of terms,
+along with a list of pages for each term. Adding new data should be
+easy and efficient. When it's time to print the index, it should be
+easy to access the terms in alphabetical order. There are many ways
+this could be done, but I'd like to use Java's generic data structures
+and let them do as much of the work as possible.
+
+We can think of an index as a Map that associates a list of page
+references to each term. The terms are keys, and the value associated
+with a given key is the list of page references for that term. A Map
+can be either a TreeMap or a HashMap, but only a TreeMap will make it
+easy to access the terms in sorted order. The value associated with a
+term is a list of page references. How can we represent such a value?
+If you think about it, you see that it's not really a list in the
+sense of Java's generic classes. If you look in any index, you'll see
+that a list of page references has no duplicates, so it's really a set
+rather than a list. Furthermore, the page references for a given term
+are always printed in increasing order, so we want a sorted set. This
+means that we should use aTreeSet to represent each list of page
+references. The values that we really want to put in this set are of
+type int, but once again we have to deal with the fact that generic
+data structures can only hold objects, so we must use the wrapper
+class, Integer, for the objects in the set.
+
+To summarize, an index will be represented by a TreeMap. The keys for
+the map will be terms, which are of type String. The values in the map
+will be TreeSets that contain Integers that are the page numbers of
+every page on which a term appears. The parameterized type that we
+should use for the sets is TreeSet<Integer>. For the TreeMap that
+represents the index as a whole, the key type is String and the value
+type isTreeSet<Integer>. This means that the index has type
+
+
+::
+
+    TreeMap< String, TreeSet<Integer> >
+
+
+This is just the usual TreeMap<K,V> withK=String and
+V=TreeSet<Integer>. A type name as complicated as this one can look
+intimidating (especially, I think, when used in a constructor with the
+new operator), but if you think about the data structure that we want
+to represent, it makes sense. Given a little time and practice, you
+can get used to types like this one.
+
+To make an index, we need to start with an empty TreeMap and look
+through the book, inserting every reference that we want to be in the
+index into the map. We then need to print out the data from the map.
+Let's leave aside the question of how we find the references to put in
+the index, and just look at how the TreeMap is used. It can be created
+with the commands:
+
+
+::
+
+    TreeMap<String,TreeSet<Integer>>  index;         // Declare the variable.
+    index = new TreeMap<String,TreeSet<Integer>>();  // Create the map object.
+
+
+Now, suppose that we find a reference to some term (of type String) on
+some pageNum (of type int). We need to insert this information into
+the index. To do this, we should look up the term in the index, using
+index.get(term). The return value is eithernull or is the set of page
+references that we have previously found for the term. If the return
+value is null, then this is the first page reference for the term, so
+we should add the term to the index, with a new set that contains the
+page reference we've just found. If the return value is non-null, we
+already have a set of page references, and we should just add the new
+page reference to the set. Here is a subroutine that does this:
+
+
+::
+
+    
+    /**
+     * Add a page reference to the index.
+     */
+    void addReference(String term, int pageNum) {
+       TreeSet<Integer> references; // The set of page references that we
+                                    //    have so far for the term.
+       references = index.get(term);
+       if (references == null){
+              // This is the first reference that we have
+              // found for the term.  Make a new set containing
+              // the page number and add it to the index, with
+              // the term as the key.
+           TreeSet<Integer> firstRef = new TreeSet<Integer>();
+           firstRef.add( pageNum );  // pageNum is "autoboxed" to give an Integer!
+           index.put(term,firstRef);
+       }
+       else {
+             // references is the set of page references
+             // that we have found previously for the term.
+             // Add the new page number to that set.  This
+             // set is already associated to term in the index.
+          references.add( pageNum ); // pageNum is "autoboxed" to give an Integer!
+       }
+    }
+
+
+The only other thing we need to do with the index is print it out. We
+want to iterate through the index and print out each term, together
+with the set of page references for that term. We could use an
+Iterator to iterate through the index, but it's much easier to do it
+with a for-each loop. The loop will iterate through the entry set of
+the map (see `Subsection10.3.2`_). Each "entry" is a key/value pair
+from the map; the key is a term and the value is the associated set of
+page references. Inside the for-each loop, we will have to print out a
+set of Integers, which can also be done with a for-each loop. So, here
+we have an example of nested for-each loops. (You might try to do the
+same thing entirely with iterators; doing so should give you some
+appreciation for the for-each loop!) Here is a subroutine that will
+print the index:
+
+
+::
+
+    /**
+     * Print each entry in the index.
+     */
+    void printIndex() {
+       
+        for ( Map.Entry<String,TreeSet<Integer>>  entry :  index.entrySet() ) {
+        
+            String term = entry.getKey();
+            TreeSet<Integer> pageSet = entry.getValue();
+       
+            System.out.print( term + " " );
+            for ( int page : pageSet ) {
+                System.out.print( page + " " );
+            }
+            System.out.println();
+       
+        }
+       
+    }
+
+
+The hardest thing here is the name of the type
+Map.Entry<String,TreeSet<Integer>>! Remember that the entries in a map
+of type Map<K,V> have type Map.Entry<K,V>, so the type parameters
+inMap.Entry<String,TreeSet<Integer>> are simply copied from the
+declaration of index. Another thing to note is that I used a loop
+control variable, page, of type int to iterate through the elements of
+pageSet, which is of type TreeSet<Integer>. You might have
+expectedpage to be of type Integer, not int, and in fact Integer would
+have worked just as well here. However, int does work, because of
+automatic type conversion: it's legal to assign a value of type
+Integer to a variable of type int. (To be honest, I was sort of
+surprised that this worked when I first tried it!)
+
+This is not a lot of code, considering the complexity of the
+operations. I have not written a complete indexing program, but
+`Exercise10.5`_ presents a problem that is almost identical to the
+indexing problem.
+
+
+
+
+By the way, in this example, I would prefer to print each list of page
+references with the integers separated by commas. In theprintIndex()
+method given above, they are separated by spaces. There is an extra
+space after the last page reference in the list, but it does no harm
+since it's invisible in the printout. An extra comma at the end of the
+list would be annoying. The lists should be in a form such as
+"17,42,105" and not "17,42,105,". The problem is, how to leave that
+last comma out. Unfortunately, this is not so easy to do with a for-
+each loop. It might be fun to look at a few ways to solve this
+problem. One alternative is to use an iterator:
+
+
+::
+
+    Iterator<Integer>  iter = pageSet.iterator();
+    int firstPage = iter.next();  // In this program, we know the set has at least
+                                  // one element.  Note also that this statement
+                                  // uses an auto-conversion from Integer to int.
+    System.out.print(firstPage);
+    while ( iter.hasNext() ) {
+       int nextPage = iter.next();
+       System.out.print("," + nextPage);
+    }
+
+
+Another possibility is to use the fact that the TreeSet class defines
+a method first() that returns the first item in the set, that is, the
+one that is smallest in terms of the ordering that is used to compare
+items in the set. (It also defines the method last().) We can solve
+our problem using this method and a for-each loop:
+
+
+::
+
+    int firstPage = pageSet.first();  // Find out the first page number in the set.
+    for ( int page : pageSet ) {
+       if ( page != firstPage )
+          System.out.print(","); // Output comma only if this is not the first page.
+       System.out.print(page);
+    }
+
+
+Finally, here is an elegant solution using a subset view of the tree.
+(See `Subsection10.3.2`_.) Actually, this solution might be a bit
+extreme:
+
+
+::
+
+    int firstPage = pageSet.first();  // Get first item, which we know exists.
+    System.out.print(firstPage);      // Print first item, with no comma.
+    for ( int page : pageSet.tailSet( firstPage+1 ) ) // Process remaining items.
+       System.out.print( "," + page );
+
+
+
+
+
+
+10.4.3Using a Comparator
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+There is a potential problem with our solution to the indexing
+problem. If the terms in the index can contain both upper case and
+lower case letters, then the terms will **not** be in alphabetical
+order! The ordering on String is not alphabetical. It is based on the
+Unicode codes of the characters in the string. The codes for all the
+upper case letters are less than the codes for the lower case letters.
+So, for example, terms beginning with "Z" come before terms beginning
+with "a". If the terms are restricted to use lower case letters only
+(or upper case only), then the ordering would be alphabetical. But
+suppose that we allow both upper and lower case, and that we insist on
+alphabetical order. In that case, our index can't use the usual
+ordering forStrings. Fortunately, it's possible to specify a different
+method to be used for comparing the keys of a map. This is a typical
+use for aComparator.
+
+Recall that an object that implements the interface Comparator<T>
+defines a method for comparing two objects of typeT:
+
+
+::
+
+    public int compare( T obj1, T obj2 )
+
+
+This method should return an integer that is positive, zero, or
+negative, depending on whether obj1 is less than, equal to, or greater
+than obj2. We need an object of typeComparator<String> that will
+compare two Strings based on alphabetical order. The easiest way to do
+this is to convert the Strings to lower case and use the default
+comparison on the lower caseStrings. The following class defines such
+a comparator:
+
+
+::
+
+    
+    /**
+     * Represents a Comparator that can be used for comparing two
+     * strings based on alphabetical order.
+     */
+    class AlphabeticalOrder implements Comparator<String> {
+       public int compare(String str1, String str2) {
+          String s1 = str1.toLowerCase();  // Convert to lower case.
+          String s2 = str2.toLowerCase();
+          return s1.compareTo(s2);  // Compare lower-case Strings.
+       }
+    }
+
+
+To solve our indexing problem, we just need to tell our index to use
+an object of type AlphabeticalOrder for comparing keys. This is done
+by providing a Comparator object as a parameter to the constructor. We
+just have to create the index in our example with the command:
+
+
+::
+
+    index = new TreeMap<String,TreeSet<Integer>>( new AlphabeticalOrder() );
+
+
+This does work. However, I've been concealing one technicality.
+Suppose, for example, that the indexing program calls
+addReference("aardvark",56) and that it later calls
+addReference("Aardvark",102). The words "aardvark" and "Aardvark"
+differ only in that one of them begins with an upper case letter; when
+converted to lower case, they are the same. When we insert them into
+the index, do they count as two different terms or as one term? The
+answer depends on the way that a TreeMap tests objects for equality.
+In fact, TreeMaps and TreeSets always use aComparator object or a
+compareTo method to test for equality. They do **not** use the
+equals() method for this purpose. The Comparator that is used for the
+TreeMap in this example returns the value zero when it is used to
+compare "aardvark" and "Aardvark", so the TreeMap considers them to be
+the same. Page references to "aardvark" and "Aardvark" are combined
+into a single list, and when the index is printed it will contain only
+the first version of the word that was encountered by the program.
+This is probably acceptable behavior in this example. If not, some
+other technique must be used to sort the terms into alphabetical
+order.
+
+
+
+
+
+10.4.4Word Counting
+~~~~~~~~~~~~~~~~~~~
+
+The final example in this section also deals with storing information
+about words. The problem here is to make a list of all the words that
+occur in a file, along with the number of times that each word occurs.
+The file will be selected by the user. The output of the program will
+consist of two lists. Each list contains all the words from the file,
+along with the number of times that the word occurred. One list is
+sorted alphabetically, and the other is sorted according to the number
+of occurrences, with the most common words at the top and the least
+common at the bottom. The problem here is a generalization of
+`Exercise7.6`_, which asked you to make an alphabetical list of all
+the words in a file, without counting the number of occurrences.
+
+My word counting program can be found in the file `WordCount.java`_.
+As the program reads an input file, it must keep track of how many
+times it encounters each word. We could simply throw all the words,
+with duplicates, into a list and count them later. But that would
+require a lot of extra storage space and would not be very efficient.
+A better method is to keep a counter for each word. The first time the
+word is encountered, the counter is initialized to1. On subsequent
+encounters, the counter is incremented. To keep track of the data for
+one word, the program uses a simple class that holds a word and the
+counter for that word. The class is a static nested class:
+
+
+::
+
+    /**
+     * Represents the data we need about a word:  the word and
+     * the number of times it has been encountered.
+     */
+    private static class WordData { 
+       String word;
+       int count;
+       WordData(String w) {
+             // Constructor for creating a WordData object when
+             // we encounter a new word.
+          word = w;
+          count = 1;  // The initial value of count is 1.
+       }
+    } // end class WordData
+
+
+The program has to store all the WordData objects in some sort of data
+structure. We want to be able to add new words efficiently. Given a
+word, we need to check whether a WordData object already exists for
+that word, and if it does, we need to find that object so that we can
+increment its counter. A Map can be used to implement these
+operations. Given a word, we want to look up a WordData object in the
+Map. This means that the word is the **key**, and the WordData object
+is the **value.** (It might seem strange that the key is also one of
+the instance variables in the value object, but in fact this is
+probably the most common situation: The value object contains all the
+information about some entity, and the key is one of those pieces of
+information; the partial information in the key is used to retrieve
+the full information in the value object.) After reading the file, we
+want to output the words in alphabetical order, so we should use
+aTreeMap rather than a HashMap. This program converts all words to
+lower case so that the default ordering on Strings will put the words
+in alphabetical order. The data is stored in a variable namedwords of
+type TreeMap<String,WordData>. The variable is declared and the map
+object is created with the statement:
+
+
+::
+
+    TreeMap<String,WordData> words = new TreeMap<String,WordData>();
+
+
+When the program reads a word from a file, it calls words.get(word) to
+find out if that word is already in the map. If the return value
+isnull, then this is the first time the word has been encountered, so
+a new WordData object is created and inserted into the map with the
+command words.put(word, new WordData(word)). Ifwords.get(word) is not
+null, then its value is the WordData object for this word, and the
+program only has to increment the counter in that object. The program
+uses a method readNextWord(), which was given in `Exercise7.6`_, to
+read one word from the file. This method returns null when the end of
+the file is encountered. Here is the complete code segment that reads
+the file and collects the data:
+
+
+::
+
+    String word = readNextWord();
+    while (word != null) {
+       word = word.toLowerCase();  // convert word to lower case
+       WordData data = words.get(word);
+       if (data == null)
+          words.put( word, new WordData(word) );
+       else
+          data.count++;
+       word = readNextWord();
+    }
+
+
+After reading the words and printing them out in alphabetical order,
+the program has to sort the words by frequency and print them again.
+To do the sorting using a generic algorithm, I defined a simple
+Comparator class for comparing two word objects according to their
+frequency counts. The class implements the interface
+Comparator<WordData>, since it will be used to compare two objects of
+type WordData:
+
+
+::
+
+    /**
+     * A comparator class for comparing objects of type WordData according to 
+     * their counts.  This is used for sorting the list of words by frequency.
+     */
+    private static class CountCompare implements Comparator<WordData> {
+       public int compare(WordData data1, WordData data2) {
+          return data2.count - data1.count;
+              // The return value is positive if data1.count < data2.count.
+              // I.E., data1 comes after data2 in the ordering if there
+              // were FEWER occurrences of data1.word than of data2.word.
+              // The words are sorted according to decreasing counts.
+       }
+    } // end class CountCompare
+
+
+Given this class, we can sort the WordData objects according to
+frequency by first copying them into a list and then using the generic
+methodCollections.sort(list,comparator). The WordData objects that we
+need are the values in the map, words. Recall that words.values()
+returns aCollection that contains all the values from the map. The
+constructor for theArrayList class lets you specify a collection to be
+copied into the list when it is created. So, we can use the following
+commands to create a list of type ArrayList<WordData> containing the
+word data and then sort that list according to frequency:
+
+
+::
+
+    ArrayList<WordData> wordsByFrequency = new ArrayList<WordData>( words.values() );
+    Collections.sort( wordsByFrequency, new CountCompare() );
+
+
+You should notice that these two lines replace a lot of code! It
+requires some practice to think in terms of generic data structures
+and algorithms, but the payoff is significant in terms of saved time
+and effort.
+
+The only remaining problem is to print the data. We have to print the
+data from all the WordData objects twice, first in alphabetical order
+and then sorted according to frequency count. The data is in
+alphabetical order in the TreeMap, or more precisely, in the values of
+the TreeMap. We can use a for-each loop to print the data in the
+collection words.values(), and the words will appear in alphabetical
+order. Another for-each loop can be used to print the data in the list
+wordsByFrequency, and the words will be printed in order of decreasing
+frequency. Here is the code that does it:
+
+
+::
+
+    TextIO.putln("List of words in alphabetical order" 
+          + " (with counts in parentheses):\n");
+    for ( WordData data : words.values() )
+       TextIO.putln("   " + data.word + " (" + data.count + ")");
+    
+    TextIO.putln("\n\nList of words by frequency of occurrence:\n");
+    for ( WordData data : wordsByFrequency )
+       TextIO.putln("   " + data.word + " (" + data.count + ")");
+
+
+You can find the complete word-counting program in the
+file`WordCount.java`_. Note that for reading and writing files, it
+uses the file I/O capabilities of `TextIO.java`_, which were discussed
+in `Subsection2.4.5`_.
+
+By the way, if you run the WordCount program on a reasonably large
+file and take a look at the output, it will illustrate something about
+the Collections.sort() method. The second list of words in the output
+is ordered by frequency, but if you look at a group of words that all
+have the same frequency, you will see that the words in that group are
+in alphabetical order. The methodCollections.sort() was applied to
+sort the words by frequency, but before it was applied, the words were
+already in alphabetical order. When Collections.sort() rearranged the
+words, it did not change the ordering of words that have the same
+frequency, so they were still in alphabetical order within the group
+of words with that frequency. This is because the algorithm used by
+Collections.sort() is astable sorting algorithm. A sorting algorithm
+is said to be stable if it satisfies the following condition: When the
+algorithm is used to sort a list according to some property of the
+items in the list, then the sort does not change the relative order of
+items that have the same value of that property. That is, if itemB
+comes after itemA in the list before the sort, and if both items have
+the same value for the property that is being used as the basis for
+sorting, then itemB will still come after itemA after the sorting has
+been done. Neither SelectionSort nor QuickSort are stable sorting
+algorithms. Insertion sort is stable, but is not very fast. Merge
+sort, the sorting algorithm used by Collections.sort(), is both stable
+and fast.
+
+I hope that the programming examples in this section have convinced
+you of the usefulness of the Java Collection Framework!
+
+
+
+[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
+Index`_ ]
+
+.. _Previous Section: http://math.hws.edu/javanotes/c10/s3.html
+.. _SimpleInterpreter.java: http://math.hws.edu/javanotes/c10/../source/SimpleInterpreter.java
+.. _10.1.7: http://math.hws.edu/javanotes/c10/../c10/s1.html#generics.1.7
+.. _TextIO.java: http://math.hws.edu/javanotes/c10/../source/TextIO.java
+.. _10.3.2: http://math.hws.edu/javanotes/c10/../c10/s3.html#generics.3.2
+.. _10.5: http://math.hws.edu/javanotes/c10/../c10/ex5-ans.html
+.. _Next Section: http://math.hws.edu/javanotes/c10/s5.html
+.. _Chapter Index: http://math.hws.edu/javanotes/c10/index.html
+.. _SimpleParser2.java: http://math.hws.edu/javanotes/c10/../source/SimpleParser2.java
+.. _7.6: http://math.hws.edu/javanotes/c10/../c7/ex6-ans.html
+.. _9.5.2: http://math.hws.edu/javanotes/c10/../c9/s5.html#recursion.5.2
+.. _WordCount.java: http://math.hws.edu/javanotes/c10/../source/WordCount.java
+.. _2.4.5: http://math.hws.edu/javanotes/c10/../c2/s4.html#basics.4.5
+.. _Main Index: http://math.hws.edu/javanotes/c10/../index.html
+
+

@@ -1,0 +1,555 @@
+[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
+
+
+**Subsections**
+
+
+Initialization in Declarations
+Named Constants
+Naming and Scope Rules
+
+
+
+Section 4.7
+~~~~~~~~~~~
+
+
+The Truth About Declarations
+----------------------------
+
+
+
+N ames are fundamental to programming, as I said a few chapters ago.
+There are a lot of details involved in declaring and using names. I
+have been avoiding some of those details. In this section, I'll reveal
+most of the truth (although still not the full truth) about declaring
+and using variables in Java. The material in the subsections
+"Initialization in Declarations" and "Named Constants" is particularly
+important, since I will be using it regularly in future chapters.
+
+
+
+
+
+4.7.1Initialization in Declarations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When a variable declaration is executed, memory is allocated for the
+variable. This memory must be initialized to contain some definite
+value before the variable can be used in an expression. In the case of
+a local variable, the declaration is often followed closely by an
+assignment statement that does the initialization. For example,
+
+
+::
+
+    int count;    // Declare a variable named count.
+    count = 0;    // Give count its initial value.
+
+
+However, the truth about declaration statements is that it is legal to
+include the initialization of the variable in the declaration
+statement. The two statements above can therefore be abbreviated as
+
+
+::
+
+    int count = 0;  // Declare count and give it an initial value.
+
+
+The computer still executes this statement in two steps: Declare the
+variable count, then assign the value 0 to the newly created variable.
+The initial value does not have to be a constant. It can be any
+expression. It is legal to initialize several variables in one
+declaration statement. For example,
+
+
+::
+
+    char firstInitial = 'D', secondInitial = 'E';
+                    
+    int x, y = 1;   // OK, but only y has been initialized!
+      
+    int N = 3, M = N+2;  // OK, N is initialized 
+                         //        before its value is used.
+
+
+This feature is especially common in for loops, since it makes it
+possible to declare a loop control variable at the same point in the
+loop where it is initialized. Since the loop control variable
+generally has nothing to do with the rest of the program outside the
+loop, it's reasonable to have its declaration in the part of the
+program where it's actually used. For example:
+
+
+::
+
+    for ( int i = 0;  i < 10;  i++ ) {
+       System.out.println(i);
+    }
+
+
+Again, you should remember that this is simply an abbreviation for the
+following, where I've added an extra pair of braces to show that i is
+considered to be local to the for statement and no longer exists after
+the for loop ends:
+
+
+::
+
+    {
+       int i;
+       for ( i = 0;  i < 10;  i++ ) {
+          System.out.println(i);
+       }
+    }
+
+
+(You might recall, by the way, that for "for-each" loops, the special
+type of for statement that is used with enumerated types, declaring
+the variable in the for is **required**. See `Subsection3.4.4`_.)
+
+A member variable can also be initialized at the point where it is
+declared, just as for a local variable. For example:
+
+
+::
+
+    public class Bank {
+       static double interestRate = 0.05;
+       static int maxWithdrawal = 200;
+         .
+         .  // More variables and subroutines.
+         .
+    }
+
+
+A static member variable is created as soon as the class is loaded by
+the Java interpreter, and the initialization is also done at that
+time. In the case of member variables, this is not simply an
+abbreviation for a declaration followed by an assignment statement.
+Declaration statements are the only type of statement that can occur
+outside of a subroutine. Assignment statements cannot, so the
+following is illegal:
+
+
+::
+
+    public class Bank {
+       static double interestRate;
+       interestRate = 0.05;  // ILLEGAL:
+       .                     //    Can't be outside a subroutine!:
+       .
+       .
+
+
+Because of this, declarations of member variables often include
+initial values. In fact, as mentioned in `Subsection4.2.4`_, if no
+initial value is provided for a member variable, then a default
+initial value is used. For example, when declaring an integer member
+variable, count, "static int count;" is equivalent to "staticint
+count=0;".
+
+
+
+
+
+4.7.2Named Constants
+~~~~~~~~~~~~~~~~~~~~
+
+Sometimes, the value of a variable is not supposed to change after it
+is initialized. For example, in the above example where interestRate
+is initialized to the value 0.05, it's quite possible that 0.05 is
+meant to be the value throughout the entire program. In this case, the
+programmer is probably defining the variable, interestRate, to give a
+meaningful name to the otherwise meaningless number, 0.05. It's easier
+to understand what's going on when a program says "principal +=
+principal*interestRate;" rather than "principal += principal*0.05;".
+
+In Java, the modifier "final" can be applied to a variable declaration
+to ensure that the value stored in the variable cannot be changed
+after the variable has been initialized. For example, if the member
+variableinterestRate is declared with
+
+
+::
+
+    final static double interestRate = 0.05;
+
+
+then it would be impossible for the value of interestRate to change
+anywhere else in the program. Any assignment statement that tries to
+assign a value tointerestRate will be rejected by the computer as a
+syntax error when the program is compiled.
+
+It is legal to apply the final modifier to local variables and even to
+formal parameters, but it is most useful for member variables. I will
+often refer to a static member variable that is declared to be final
+as anamed constant, since its value remains constant for the whole
+time that the program is running. The readability of a program can be
+greatly enhanced by using named constants to give meaningful names to
+important quantities in the program. A recommended style rule for
+named constants is to give them names that consist entirely of upper
+case letters, with underscore characters to separate words if
+necessary. For example, the preferred style for the interest rate
+constant would be
+
+
+::
+
+    final static double INTEREST_RATE = 0.05;
+
+
+This is the style that is generally used in Java's standard classes,
+which define many named constants. For example, we have already seen
+that the Math class contains a variable Math.PI. This variable is
+declared in the Math class as a "public final static" variable of type
+double. Similarly, the Color class contains named constants such as
+Color.RED and Color.YELLOW which are public final static variables of
+type Color. Many named constants are created just to give meaningful
+names to be used as parameters in subroutine calls. For example, the
+standard class named Font contains named constantsFont.PLAIN,
+Font.BOLD, and Font.ITALIC. These constants are used for specifying
+different styles of text when calling various subroutines in the Font
+class.
+
+Enumerated type constants (see `Subsection2.3.3`_) are also examples
+of named constants. The enumerated type definition
+
+
+::
+
+    enum Alignment { LEFT, RIGHT, CENTER }
+
+
+defines the constants Alignment.LEFT, Alignment.RIGHT, and
+Alignment.CENTER. Technically, Alignment is a class, and the three
+constants are public final static members of that class. Defining the
+enumerated type is similar to defining three constants of type, say,
+int:
+
+
+::
+
+    public static final int ALIGNMENT_LEFT = 0;
+    public static final int ALIGNMNENT_RIGHT = 1;
+    public static final int ALIGNMENT_CENTER = 2;
+
+
+In fact, this is how things were generally done before the
+introduction of enumerated types, and it is what is done with the
+constants Font.PLAIN, Font.BOLD, and Font.ITALIC mentioned above.
+Using the integer constants, you could define a variable of typeint
+and assign it the values ALIGNMENT_LEFT,ALIGNMENT_RIGHT, or
+ALIGNMENT_CENTER to represent different types of alignment. The only
+problem with this is that the computer has no way of knowing that you
+intend the value of the variable to represent an alignment, and it
+will not raise any objection if the value that is assigned to the
+variable is not one of the three valid alignment values.
+
+With the enumerated type, on the other hand, the only values that can
+be assigned to a variable of type Alignment are the constant values
+that are listed in the definition of the enumerated type. Any attempt
+to assign an invalid value to the variable is a syntax error which the
+computer will detect when the program is compiled. This extra safety
+is one of the major advantages of enumerated types.
+
+
+
+
+Curiously enough, one of the major reasons to use named constants is
+that it's easy to change the value of a named constant. Of course, the
+value can't change while the program is running. But between runs of
+the program, it's easy to change the value in the source code and
+recompile the program. Consider the interest rate example. It's quite
+possible that the value of the interest rate is used many times
+throughout the program. Suppose that the bank changes the interest
+rate and the program has to be modified. If the literal number 0.05
+were used throughout the program, the programmer would have to track
+down each place where the interest rate is used in the program and
+change the rate to the new value. (This is made even harder by the
+fact that the number 0.05 might occur in the program with other
+meanings besides the interest rate, as well as by the fact that
+someone might have, say, used 0.025 to represent half the interest
+rate.) On the other hand, if the named constant INTEREST_RATE is
+declared and used consistently throughout the program, then only the
+single line where the constant is initialized needs to be changed.
+
+As an extended example, I will give a new version of
+theRandomMosaicWalk program from the `previous section`_. This version
+uses named constants to represent the number of rows in the mosaic,
+the number of columns, and the size of each little square. The three
+constants are declared as final static member variables with the
+lines:
+
+
+::
+
+    final static int ROWS = 30;        // Number of rows in mosaic.
+    final static int COLUMNS = 30;     // Number of columns in mosaic.
+    final static int SQUARE_SIZE = 15; // Size of each square in mosaic.
+
+
+The rest of the program is carefully modified to use the named
+constants. For example, in the new version of the program, the Mosaic
+window is opened with the statement
+
+
+::
+
+    Mosaic.open(ROWS, COLUMNS, SQUARE_SIZE, SQUARE_SIZE);
+
+
+Sometimes, it's not easy to find all the places where a named constant
+needs to be used. If you don't use the named constant consistently,
+you've more or less defeated the purpose. It's always a good idea to
+run a program using several different values for any named constant,
+to test that it works properly in all cases.
+
+Here is the complete new program, RandomMosaicWalk2, with all
+modifications from the previous version shown in red. I've left out
+some of the comments to save space.
+
+
+::
+
+    public class RandomMosaicWalk2 {
+    
+        final static int ROWS = 30;        // Number of rows in mosaic.
+        final static int COLUMNS = 30;     // Number of columns in mosaic.
+        final static int SQUARE_SIZE = 15; // Size of each square in mosaic.
+    
+        static int currentRow;    // Row currently containing the disturbance.
+        static int currentColumn; // Column currently containing the disturbance.
+     
+        public static void main(String[] args) {
+            Mosaic.open( ROWS, COLUMNS, SQUARE_SIZE, SQUARE_SIZE );
+            fillWithRandomColors();
+            currentRow = ROWS / 2;   // start at center of window
+            currentColumn = COLUMNS / 2;
+            while (Mosaic.isOpen()) {
+                changeToRandomColor(currentRow, currentColumn);
+                randomMove();
+                Mosaic.delay(20);
+            }
+        }  // end main
+    
+        static void fillWithRandomColors() {
+             for (int row=0; row < ROWS; row++) {
+                for (int column=0; column < COLUMNS; column++) {
+                    changeToRandomColor(row, column);  
+                }
+             }
+        }  // end fillWithRandomColors
+     
+        static void changeToRandomColor(int rowNum, int colNum) {
+             int red = (int)(256*Math.random());    // Choose random levels in range
+             int green = (int)(256*Math.random());  //     0 to 255 for red, green, 
+             int blue = (int)(256*Math.random());   //     and blue color components.
+             Mosaic.setColor(rowNum,colNum,red,green,blue);  
+         }  // end changeToRandomColor
+     
+         static void randomMove() {
+             int directionNum; // Randomly set to 0, 1, 2, or 3 to choose direction.
+             directionNum = (int)(4*Math.random());
+             switch (directionNum) {
+                case 0:  // move up 
+                   currentRow--;
+                   if (currentRow < 0)
+                      currentRow = ROWS - 1;
+                   break;
+                case 1:  // move right
+                   currentColumn++;
+                   if (currentColumn >= COLUMNS)
+                      currentColumn = 0;
+                   break; 
+                case 2:  // move down
+                   currentRow ++;
+                   if (currentRow >= ROWS)
+                      currentRow = 0;
+                   break;
+                case 3:  // move left  
+                   currentColumn--;
+                   if (currentColumn < 0)
+                      currentColumn = COLUMNS - 1;
+                   break; 
+             }
+         }  // end randomMove
+     
+    } // end class RandomMosaicWalk2
+
+
+
+
+
+
+4.7.3Naming and Scope Rules
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When a variable declaration is executed, memory is allocated for that
+variable. The variable name can be used in at least some part of the
+program source code to refer to that memory or to the data that is
+stored in the memory. The portion of the program source code where the
+variable name is valid is called the scope of the variable. Similarly,
+we can refer to the scope of subroutine names and formal parameter
+names.
+
+For static member subroutines, scope is straightforward. The scope of
+a static subroutine is the entire source code of the class in which it
+is defined. That is, it is possible to call the subroutine from any
+point in the class, including at a point in the source code before the
+point where the definition of the subroutine appears. It is even
+possible to call a subroutine from within itself. This is an example
+of something called "recursion," a fairly advanced topic that we will
+return to in `Chapter9`_.
+
+For a variable that is declared as a static member variable in a
+class, the situation is similar, but with one complication. It is
+legal to have a local variable or a formal parameter that has the same
+name as a member variable. In that case, within the scope of the local
+variable or parameter, the member variable is hidden. Consider, for
+example, a class named Game that has the form:
+
+
+::
+
+    public class Game {
+    
+        static int count;  // member variable
+     
+        static void playGame() {
+            int count;  // local variable
+              .
+              .   // Some statements to define playGame()
+              .
+        }
+        
+        .
+        .   // More variables and subroutines.
+        .
+     
+    }  // end Game
+
+
+In the statements that make up the body of the playGame() subroutine,
+the name "count" refers to the local variable. In the rest of the Game
+class, "count" refers to the member variable (unless hidden by other
+local variables or parameters named count). However, there is one
+further complication. The member variable namedcount can also be
+referred to by the full name Game.count. Usually, the full name is
+only used outside the class where count is defined. However, there is
+no rule against using it inside the class. The full name, Game.count,
+can be used inside the playGame() subroutine to refer to the member
+variable instead of the local variable. So, the full scope rule is
+that the scope of a static member variable includes the entire class
+in which it is defined, but where the simple name of the member
+variable is hidden by a local variable or formal parameter name, the
+member variable must be referred to by its full name of the form
+className.variableName. (Scope rules for non-static members are
+similar to those for static members, except that, as we shall see,
+non-static members cannot be used in static subroutines.)
+
+The scope of a formal parameter of a subroutine is the block that
+makes up the body of the subroutine. The scope of a local variable
+extends from the declaration statement that defines the variable to
+the end of the block in which the declaration occurs. As noted above,
+it is possible to declare a loop control variable of a for loop in the
+for statement, as in "for (int i=0; i < 10; i++)". The scope of such a
+declaration is considered as a special case: It is valid only within
+the for statement and does not extend to the remainder of the block
+that contains thefor statement.
+
+It is not legal to redefine the name of a formal parameter or local
+variable within its scope, even in a nested block. For example, this
+is not allowed:
+
+
+::
+
+    void  badSub(int y) {
+        int x;
+        while (y > 0) {
+           int x;  // ERROR:  x is already defined.
+             .
+             .
+             .
+        }
+     }
+
+
+In many languages, this would be legal; the declaration of x in
+thewhile loop would hide the original declaration. It is not legal in
+Java; however, once the block in which a variable is declared ends,
+its name does become available for reuse in Java. For example:
+
+
+::
+
+    void goodSub(int y) {
+       while (y > 10) {
+          int x;
+            .
+            .
+            .
+          // The scope of x ends here.
+       }
+       while (y > 0) {
+          int x;  // OK: Previous declaration of x has expired.
+           .
+           .
+           .
+       }
+    }
+
+
+You might wonder whether local variable names can hide subroutine
+names. This can't happen, for a reason that might be surprising. There
+is no rule that variables and subroutines have to have different
+names. The computer can always tell whether a name refers to a
+variable or to a subroutine, because a subroutine name is always
+followed by a left parenthesis. It's perfectly legal to have a
+variable called count and a subroutine called count in the same class.
+(This is one reason why I often write subroutine names with
+parentheses, as when I talk about the main() routine. It's a good idea
+to think of the parentheses as part of the name.) Even more is true:
+It's legal to reuse class names to name variables and subroutines. The
+syntax rules of Java guarantee that the computer can always tell when
+a name is being used as a class name. A class name is a type, and so
+it can be used to declare variables and formal parameters and to
+specify the return type of a function. This means that you could
+legally have a class called Insanity in which you declare a function
+
+
+::
+
+    static  Insanity  Insanity( Insanity Insanity ) { ... }
+
+
+The first Insanity is the return type of the function. The second is
+the function name, the third is the type of the formal parameter, and
+the fourth is the name of the formal parameter. However, please
+remember that not everything that is possible is a good idea!
+
+
+
+** End of Chapter 4 **
+
+
+
+
+
+
+
+[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
+
+.. _4.2.4: http://math.hws.edu/javanotes/c4/../c4/s2.html#subroutines.2.4
+.. _2.3.3: http://math.hws.edu/javanotes/c4/../c2/s3.html#basics.3.3
+.. _Chapter Index: http://math.hws.edu/javanotes/c4/index.html
+.. _3.4.4: http://math.hws.edu/javanotes/c4/../c3/s4.html#control.4.4
+.. _9: http://math.hws.edu/javanotes/c4/../c9/index.html
+.. _Main Index: http://math.hws.edu/javanotes/c4/../index.html
+.. _previous
+section: http://math.hws.edu/javanotes/c4/../c4/s6.html
+.. _Previous Section: http://math.hws.edu/javanotes/c4/s6.html
+
+

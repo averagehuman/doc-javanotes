@@ -1,0 +1,436 @@
+[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
+
+
+
+
+
+Section 3.8
+~~~~~~~~~~~
+
+
+Introduction to GUI Programming
+-------------------------------
+
+
+
+F or the past two chapters, you've been learning the sort of
+programming that is done inside a single subroutine. In the rest of
+the text, we'll be more concerned with the larger scale structure of
+programs, but the material that you've already learned will be an
+important foundation for everything to come.
+
+In this section, before moving on to programming-in-the-large, we'll
+take a look at how programming-in-the-small can be used in other
+contexts besides text-based, command-line-style programs. We'll do
+this by taking a short, introductory look at applets and graphical
+programming. The point here is not so much to understand GUI
+programming as it is to illustrate that a knowledge of programming-in-
+the-small applies to writing the guts of any subroutine, not just
+main().
+
+An applet is a Java program that runs on a Web page. An applet is not
+a stand-alone application, and it does not have amain() routine. In
+fact, an applet is an **object** rather than a **class**. When Java
+first appeared on the scene, applets were one of its major appeals.
+Since then, they have become much less important, although they can
+still be very useful. When we study GUI programming in `Chapter6`_, we
+will concentrate on stand-alone GUI programs rather than on applets,
+but applets are a good place to start for our first look at the
+subject.
+
+When an applet is placed on a Web page, it is assigned a rectangular
+area on the page. It is the job of the applet to draw the contents of
+that rectangle. When the region needs to be drawn, the Web page calls
+a subroutine in the applet to do so. This is not so different from
+what happens with stand-alone programs. When such a program needs to
+be run, the system calls the main() routine of the program. Similarly,
+when an applet needs to be drawn, the Web page calls a subroutine in
+the applet. The programmer specifies what happens when this routine is
+called by filling in the body of the routine. Programming in the
+small! Applets can do other things besides draw themselves, such as
+responding when the user clicks the mouse on the applet. Each of the
+applet's behaviors is defined by a subroutine. The programmer
+specifies how the applet behaves by filling in the bodies of the
+appropriate subroutines.
+
+To define an applet, you need a class that is a subclass of the built-
+in class named Applet. To avoid some technicalities in this section as
+well as to make things a little more interesting, we will not work
+with the Applet class directly. Instead, we will work with I class
+that I wrote namedAnimationBase, which is itself a subclass of Applet.
+AnimationBase makes it easy to write simple animations. A computer
+animation is really just a sequence of still images, which are called
+the frames of the animation. The computer displays the images one
+after the other. Each image differs a bit from the preceding image in
+the sequence. If the differences are not too big and if the sequence
+is displayed quickly enough, the eye is tricked into perceiving
+continuous motion. To create the animation, you just have to say how
+to draw each individual frame. When using AnimationBase, you do that
+by filling in the inside of a subroutine named drawFrame(). More
+specifically, to create an animation using AnimationBase, you have
+write a class of the form:
+
+
+::
+
+    import java.awt.*;
+     
+    public class name-of-class extends AnimationBase {
+     
+        public void drawFrame(Graphics g) {
+           statements
+        }
+        
+    }
+
+
+where name-of-class is an identifier that names the class, and the
+statements are the code that actually draws the content of one of the
+frames of the animation. This looks similar to the definition of a
+stand-alone program, but there are a few things here that need to be
+explained, starting with the first line.
+
+When you write a program, there are certain built-in classes that are
+available for you to use. These built-in classes include System
+andMath. If you want to use one of these classes, you don't have to do
+anything special. You just go ahead and use it. But Java also has a
+large number of standard classes that are there if you want them but
+that are not automatically available to your program. (There are just
+too many of them.) If you want to use these classes in your program,
+you have to ask for them first. The standard classes are grouped into
+so-called "packages." One of these packages is called "java.awt". The
+directive "import java.awt.*;" makes all the classes from the package
+java.awt available for use in your program. The java.awt package
+contains classes related to graphical user interface programming,
+including a class called Graphics. TheGraphics class is referred to in
+the drawFrame() routine above and will be used for drawing the frame.
+
+The definition of the class above says that the class
+"extendsAnimationBase." The AnimationBase class includes all the basic
+properties and behaviors of applet objects (since it is a subclass of
+Applet). It also defines the basic properties and behaviors of
+animations -- it "extends" class Applet by adding in this extra stuff.
+When you extend AnimationBase, you inherit all these properties and
+behaviors, and you can add even more stuff, in particular the drawing
+commands that you want to use to create your animation.
+
+(One more thing needs to be mentioned -- and this is a point where
+Java's syntax gets unfortunately confusing. You can skip this
+explanation until`Chapter5`_ if you want. Applets are objects, not
+classes. Instead of being static members of a class, the subroutines
+that define the applet's behavior are part of the applet object. We
+say that they are "non-static" subroutines. Of course, objects are
+related to classes because every object is described by a class. Now
+here is the part that can get confusing: Even though a non-static
+subroutine is not actually part of a class (in the sense of being part
+of the behavior of the class itself), it is nevertheless defined in a
+class (in the sense that the Java code that defines the subroutine is
+part of the Java code that defines the class). Many objects can be
+described by the same class. Each object has its own non-static
+subroutine. But the common definition of those subroutines -- the
+actual Java source code -- is physically part of the class that
+**describes** all the objects. To put it briefly: static subroutines
+in a class definition say what the class does; non-static subroutines
+say what all the objects described by the class do. The drawFrame()
+routine is an example of a non-static subroutine. A stand-alone
+program's main() routine is an example of a static subroutine. The
+distinction doesn't really matter too much at this point: When working
+with stand-alone programs, mark everything with the reserved word,
+"static"; leave it out when working with applets. However, the
+distinction between static and non-static will become more important
+later in the course.)
+
+
+
+
+Let's write an applet based on AnimationBase. In order to draw the
+content, we'll need to know some basic subroutines that are already
+available for drawing, just as in writing text-oriented programs we
+need to know what subroutines are available for reading and writing
+text. In Java, the built-in drawing subroutines are found in objects
+of the class Graphics, one of the classes in the java.awt package. In
+our applet's drawFrame() routine, we can use the Graphics object g for
+drawing. (This object is provided as a parameter to the drawFrame()
+routine when that routine is called.) Graphics objects contain many
+subroutines. I'll mention just three of them here. You'll encounter
+more of them in `Chapter6`_.
+
+
++ g.setColor(c), is called to set the color that is used for drawing.
+  The parameter, c is an object belonging to a class named Color,
+  another one of the classes in the java.awt package. About a dozen
+  standard colors are available as static member variables in the Color
+  class. These standard colors includeColor.BLACK, Color.WHITE,
+  Color.RED,Color.GREEN, and Color.BLUE. For example, if you want to
+  draw in red, you would say "g.setColor(Color.RED);". The specified
+  color is used for all subsequent drawing operations up until the next
+  time setColor() is called.
++ g.drawRect(x,y,w,h) draws the outline of a rectangle. The parameters
+  x, y, w, andh must be integers or integer-valued expressions. This
+  subroutine draws the outline of the rectangle whose top-left corner is
+  x pixels from the left edge of the applet andy pixels down from the
+  top of the applet. The width of the rectangle is w pixels, and the
+  height is h pixels. The color that is used is black, unless a
+  different color has been set by calling setColor().
++ g.fillRect(x,y,w,h) is similar todrawRect except that it fills in
+  the inside of the rectangle instead of just drawing an outline.
+
+
+This is enough information to write the applet shown here:
+
+
+
+Although the applet is defined as an animation, you don't see any
+movement because all the frames that are drawn are identical! This is
+rather silly, and we will fix it in the next example. But for now, we
+are just interested in seeing how to use drawing routines to draw a
+picture.
+
+The applet first fills its entire rectangular area with red. Then it
+changes the drawing color to black and draws a sequence of rectangles,
+where each rectangle is nested inside the previous one. The rectangles
+can be drawn with a while loop, which draws the rectangles starting
+from the outside and moving in. Each time through the loop, the
+rectangle that is drawn is smaller than the previous one and is moved
+down and over a bit. We'll need variables to hold the width and height
+of the rectangle and a variable to record how far the top-left corner
+of the rectangle is inset from the edges of the applet. The while loop
+ends when the rectangle shrinks to nothing. In general outline, the
+algorithm for drawing the applet is
+
+
+::
+
+    Set the drawing color to red  (using the g.setColor subroutine)
+    Fill in the entire applet (using the g.fillRect subroutine)
+    Set the drawing color to black
+    Set the top-left corner inset to be 0
+    Set the rectangle width and height to be as big as the applet
+    while the width and height are greater than zero:
+        draw a rectangle (using the g.drawRect subroutine)
+        increase the inset
+        decrease the width and the height
+
+
+In my applet, each rectangle is 15 pixels away from the rectangle that
+surrounds it, so the inset is increased by 15 each time through
+thewhile loop. The rectangle shrinks by 15 pixels on the left **and**
+by 15 pixels on the right, so the width of the rectangle shrinks by 30
+each time through the loop. The height also shrinks by 30 pixels each
+time through the loop.
+
+It is not hard to code this algorithm into Java and use it to define
+thedrawFrame() method of the applet. I've assumed that the applet has
+a height of 160 pixels and a width of 300 pixels. The size is actually
+set in the source code of the Web page where the applet appears. In
+order for an applet to appear on a page, the source code for the page
+must include a command that specifies which applet to run and how big
+it should be. (We'll see how to do that later; see `Exercise3.6`_ and
+`Section6.2`_.) It's not a great idea to assume that we know how big
+the applet is going to be, as I do here; I'll address that issue
+before the end of this section. But for now, here is the source code
+for the applet:
+
+
+::
+
+    import java.awt.*;
+    
+    public class StaticRects extends AnimationBase {
+       
+         public void drawFrame(Graphics g) {
+             
+             // Draw set of nested black rectangles on a red background.
+             // Each nested rectangle is separated by 15 pixels on all sides
+             // from the rectangle that encloses it.  The applet is
+             // assumed to be 300 pixels wide and 160 pixels high.
+             
+          int inset;    // Gap between borders of applet and one of the rectangles.
+                        
+          int rectWidth, rectHeight;   // The size of one of the rectangles.
+                        
+          g.setColor(Color.red);
+          g.fillRect(0,0,300,160);  // Fill the entire applet with red.
+          
+          g.setColor(Color.black);  // Draw the rectangles in black.
+                                           
+          inset = 0;
+          
+          rectWidth = 299;    // Set size of the first rect to size of applet
+          rectHeight = 159;
+          
+          while (rectWidth >= 0 && rectHeight >= 0) {
+             g.drawRect(inset, inset, rectWidth, rectHeight);
+             inset += 15;       // rects are 15 pixels apart
+             rectWidth -= 30;   // width decreases by 15 pixels on left and 15 on right
+             rectHeight -= 30;  // height decreases by 15 pixels on top and 15 on bottom
+          }
+          
+       }  // end paint()
+    
+    }  // end class StaticRects
+
+
+(You might wonder why the initial rectWidth is set to 299, instead of
+to 300, since the width of the applet is 300 pixels. It's because
+rectangles are drawn as if with a pen whose nib hangs below and to the
+right of the point where the pen is placed. If you run the pen exactly
+along the right edge of the applet, the line it draws is actually
+outside the applet and therefore is not seen. So instead, we run the
+pen along a line one pixel to the left of the edge of the applet. The
+same reasoning applies to rectHeight. Careful graphics programming
+demands attention to details like these.)
+
+
+
+
+When you write an animation applet, you get to build on AnimationBase
+which in turn builds on the work of the people who wrote the Applet
+class. The AnimationBase class provides a framework on which you can
+hang your own work. Any programmer can create additional frameworks
+that can be used by other programmers as a basis for writing specific
+types of applets or stand-alone programs. This makes it possible for
+other programmers to build on their work even without understanding in
+detail what goes on "inside" the code that they wrote. This type of
+thing is the key to building complex systems!
+
+Let's continue our example by animating the rectangles in our applet.
+The animated version is shown at the bottom of this page.
+
+In the animation, rectangles shrink continually towards the center of
+the applet, while new rectangles appear at the edge. The perpetual
+motion is, of course, an illusion. If you think about it, you'll see
+that the animation loops through the same set of images over and over.
+In each image, there is a gap between the borders of the applet and
+the outermost rectangle. This gap gets wider and wider until a new
+rectangle appears at the border. Only it's not a new rectangle. You
+are seeing a picture that is identical to the first picture that was
+drawn. What has really happened is that the animation has started over
+again with the first image in the sequence.
+
+In order to create motion in the animation, drawFrame() will have to
+draw a different picture each time it is called. How can it do that?
+The picture that should be drawn will depend on the frame number, that
+is, how many frames have been drawn so far. To find out the current
+frame number, we can use a function that is built into the
+AnimationBase class. This class provides the function named
+getFrameNumber() that you can call to find out the current frame
+number. This function returns the current frame number as an integer
+value. If the value returned is 0, you are supposed to draw the first
+frame; if the value is 1, you are supposed to draw the second frame,
+and so on. Depending on the frame number, the drawFrame() method will
+draw different pictures.
+
+In the animation that we are writing, the thing that differs from one
+frame to another is the distance between the edges of the applet and
+the outermost rectangle. Since the rectangles are 15 pixels apart,
+this distance increases from 0 to 14 and then jumps back to 0 when a
+"new" rectangle appears. The appropriate value can be computed very
+simply from the frame number, with the statement "inset=
+getFrameNumber()%15;". The value of the expression getFrameNumber()%15
+is always between 0 and 14. When the frame number reaches 15 or any
+multiple of 15, the value ofgetFrameNumber()%15 jumps back to0.
+
+Drawing one frame in the sample animated applet is very similar to
+drawing the single image of the original StaticRects applet. We only
+have to make a few changes to the drawFrame() method. I've chosen to
+make one additional improvement: The StaticRects applet assumes that
+the applet is exactly 300 by 160 pixels. The new version,MovingRects,
+will work for any applet size. To implement this, thedrawFrame()
+routine has to know how big the applet is. There are two functions
+that can be called to get this information. The functiongetWidth()
+returns an integer value representing the width of the applet, and the
+function getHeight() returns the height. These functions are inherited
+from the Applet class. The width and height, together with the frame
+number, are used to compute the size of the first rectangle that is
+drawn. Here is the complete source code:
+
+
+::
+
+    import java.awt.*;
+    
+    public class MovingRects extends AnimationBase {
+    
+    
+      public void init() {
+            // The init() method is called when the applet is first
+            // created and can be used to initialize the applet.
+            // Here, it is used to change the number of milliseconds
+            // per frame from the default 100 to 30.  The faster
+            // animation looks better.
+         setMillisecondsPerFrame(30);
+      }
+    
+    
+      public void drawFrame(Graphics g) {
+    
+             // Draw one frame in the animation by filling in the background
+             // with a solid red and then drawing a set of nested black
+             // rectangles.  The frame number tells how much the first 
+             // rectangle is to be inset from the borders of the applet.
+             
+          int width;    // Width of the applet, in pixels.
+          int height;   // Height of the applet, in pixels.
+          
+          int inset;    // Gap between borders of applet and a rectangle.
+                        //    The inset for the outermost rectangle goes from 0 to
+                        //    14 then back to 0, and so on, as the frameNumber varies.
+                        
+          int rectWidth, rectHeight;   // the size of one of the rectangles
+                        
+          width = getWidth();              // find out the size of the drawing area
+          height = getHeight();
+    
+          g.setColor(Color.red);           // fill the frame with red
+          g.fillRect(0,0,width,height);
+          
+          g.setColor(Color.black);         // switch color to black
+    
+          inset = getFrameNumber() % 15;   // get the inset for the outermost rect
+                                           
+          rectWidth = width - 2*inset - 1;    // set size of the outermost rect
+          rectHeight = height - 2*inset - 1;
+          
+          while (rectWidth >= 0 && rectHeight >= 0) {
+             g.drawRect(inset,inset,rectWidth,rectHeight);
+             inset += 15;       // rects are 15 pixels apart
+             rectWidth -= 30;   // width decreases by 15 pixels on left and 15 on right
+             rectHeight -= 30;  // height decreases by 15 pixels on top and 15 on bottom
+          }
+          
+       }  // end drawFrame()
+    
+    }  // end class MovingRects
+
+
+The main point here is that by building on an existing framework, you
+can do interesting things using the type of local, inside-a-subroutine
+programming that was covered in `Chapter2`_ and `Chapter3`_. As you
+learn more about programming and more about Java, you'll be able to do
+more on your own -- but no matter how much you learn, you'll always be
+dependent on other people's work to some extent.
+
+
+
+** End of Chapter 3 **
+
+
+
+
+
+
+
+[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
+
+.. _3.6: http://math.hws.edu/javanotes/c3/../c3/ex6-ans.html
+.. _Previous Section: http://math.hws.edu/javanotes/c3/s7.html
+.. _Chapter Index: http://math.hws.edu/javanotes/c3/index.html
+.. _Main Index: http://math.hws.edu/javanotes/c3/../index.html
+.. _5: http://math.hws.edu/javanotes/c3/../c5/index.html
+.. _6: http://math.hws.edu/javanotes/c3/../c6/index.html
+.. _2: http://math.hws.edu/javanotes/c3/../c2/index.html
+.. _3: http://math.hws.edu/javanotes/c3/../c3/index.html
+.. _6.2: http://math.hws.edu/javanotes/c3/../c6/s2.html
+
+

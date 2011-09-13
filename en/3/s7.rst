@@ -1,0 +1,332 @@
+[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
+Index`_ ]
+
+
+**Subsections**
+
+
+Exceptions
+try..catch
+Exceptions in TextIO
+
+
+
+Section 3.7
+~~~~~~~~~~~
+
+
+Introduction to Exceptions and try..catch
+-----------------------------------------
+
+
+
+I n addition to the control structures that determine the normal flow
+of control in a program, Java has a way to deal with "exceptional"
+cases that throw the flow of control off its normal track. When an
+error occurs during the execution of a program, the default behavior
+is to terminate the program and to print an error message. However,
+Java makes it possible to "catch" such errors and program a response
+different from simply letting the program crash. This is done with
+thetry..catch statement. In this section, we will take a preliminary,
+incomplete look at using try..catch to handle errors. Error handling
+is a complex topic, which we will return to in`Chapter8`_.
+
+
+
+
+
+3.7.1Exceptions
+~~~~~~~~~~~~~~~
+
+The term exception is used to refer to the type of error that one
+might want to handle with a try..catch. An exception is an exception
+to the normal flow of control in the program. The term is used in
+preference to "error" because in some cases, an exception might not be
+considered to be an error at all. You can sometimes think of an
+exception as just another way to organize a program.
+
+Exceptions in Java are represented as objects of type Exception.
+Actual exceptions are defined by subclasses of Exception. Different
+subclasses represent different types of exceptions. We will look at
+only two types of exception in this section: NumberFormatException and
+IllegalArgumentException.
+
+A NumberFormatException can occur when an attempt is made to convert a
+string into a number. Such conversions are done by the functions
+Integer.parseInt and Double.parseDouble. (See `Subsection2.5.7`_.)
+Consider the function call Integer.parseInt(str) where str is a
+variable of type String. If the value of str is the string "42", then
+the function call will correctly convert the string into the int42.
+However, if the value of str is, say, "fred", the function call will
+fail because "fred" is not a legal string representation of an int
+value. In this case, an exception of typeNumberFormatException occurs.
+If nothing is done to handle the exception, the program will crash.
+
+An IllegalArgumentException can occur when an illegal value is passed
+as a parameter to a subroutine. For example, if a subroutine requires
+that a parameter be greater than or equal to zero, an
+IllegalArgumentException might occur when a negative value is passed
+to the subroutine. How to respond to the illegal value is up to the
+person who wrote the subroutine, so we can't simply say that every
+illegal parameter value will result in anIllegalArgumentException.
+However, it is a common response.
+
+One case where an IllegalArgumentException can occur is in the valueOf
+function of an enumerated type. Recall from `Subsection2.3.3`_ that
+this function tries to convert a string into one of the values of the
+enumerated type. If the string that is passed as a parameter to
+valueOf is not the name of one of the enumerated type's values, then
+an IllegalArgumentException occurs. For example, given the enumerated
+type
+
+
+::
+
+    enum Toss { HEADS, TAILS }
+
+
+Toss.valueOf("HEADS") correctly returns the value Toss.HEADS, while
+Toss.valueOf("FEET") results in an IllegalArgumentException.
+
+
+
+
+
+3.7.2try..catch
+~~~~~~~~~~~~~~~
+
+When an exception occurs, we say that the exception is "thrown". For
+example, we say that Integer.parseInt(str) throws an exception of type
+NumberFormatException when the value of str is illegal. When an
+exception is thrown, it is possible to "catch" the exception and
+prevent it from crashing the program. This is done with a try..catch
+statement. In somewhat simplified form, the syntax for a try..catch
+is:
+
+
+::
+
+    try {
+       statements-1
+    }
+    catch ( exception-class-name  variable-name ) {
+       statements-2
+    }
+
+
+The exception-class-name could be
+NumberFormatException,IllegalArgumentException, or some other
+exception class. When the computer executes this statement, it
+executes the statements in the try part. If no error occurs during the
+execution of statements-1, then the computer just skips over the catch
+part and proceeds with the rest of the program. However, if an
+exception of type exception-class-name occurs during the execution of
+statements-1, the computer immediately jumps to thecatch part and
+executes statements-2, skipping any remaining statements
+instatements-1. During the execution of statements-2, thevariable-name
+represents the exception object, so that you can, for example, print
+it out. At the end of thecatch part, the computer proceeds with the
+rest of the program; the exception has been caught and handled and
+does not crash the program. Note that only one type of exception is
+caught; if some other type of exception occurs during the execution of
+statements-1, it will crash the program as usual.
+
+By the way, note that the braces, { and }, are part of the syntax of
+thetry..catch statement. They are required even if there is only one
+statement between the braces. This is different from the other
+statements we have seen, where the braces around a single statement
+are optional.
+
+As an example, suppose that str is a variable of type String whose
+value might or might not represent a legal real number. Then we could
+say:
+
+
+::
+
+    try {
+       double x;
+       x = Double.parseDouble(str);
+       System.out.println( "The number is " + x );
+    }
+    catch ( NumberFormatException e ) {
+       System.out.println( "Not a legal number." );
+    }
+
+
+If an error is thrown by the call to Double.parseDouble(str), then the
+output statement in the try part is skipped, and the statement in
+thecatch part is executed.
+
+It's not always a good idea to catch exceptions and continue with the
+program. Often that can just lead to an even bigger mess later on, and
+it might be better just to let the exception crash the program at the
+point where it occurs. However, sometimes it's possible to recover
+from an error. For example, suppose that we have the enumerated type
+
+
+::
+
+    enum Day { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY }
+
+
+and we want the user to input a value belonging to this type. TextIO
+does not know about this type, so we can only read the user's response
+as a string. The function Day.valueOf can be used to convert the
+user's response to a value of type Day. This will throw an exception
+of type IllegalArgumentException if the user's response is not the
+name of one of the values of type Day, but we can recover from the
+error easily enough by asking the user to enter another response. Here
+is a code segment that does this. (Converting the user's response to
+upper case will allow responses such as "Monday" or "monday" in
+addition to "MONDAY".)
+
+
+::
+
+    Day  weekday;  // User's response as a value of type Day.
+    while ( true ) {
+       String response;  // User's response as a String.
+       System.out.print("Please enter a day of the week: ");
+       response = TextIO.getln();
+       response = response.toUpperCase();
+       try {
+          weekday = Day.valueOf(response);
+          break;
+       }
+       catch ( IllegalArgumentException e ) {
+          System.out.println( response + " is not the name of a day of the week." );
+       }
+    }
+    // At this point, a legal value has definitely been assigned to weekday.
+
+
+The break statement will be reached only if the user's response is
+acceptable, and so the loop will end only when a legal value has been
+assigned to weekday.
+
+
+
+
+
+3.7.3Exceptions in TextIO
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When TextIO reads a numeric value from the user, it makes sure that
+the user's response is legal, using a technique similar to the while
+loop and try..catch in the previous example. However, TextIO can read
+data from other sources besides the user. (See `Subsection2.4.5`_.)
+When it is reading from a file, there is no reasonable way for TextIO
+to recover from an illegal value in the input, so it responds by
+throwing an exception. To keep things simple, TextIO only throws
+exceptions of typeIllegalArgumentException, no matter what type of
+error it encounters. For example, an exception will occur if an
+attempt is made to read from a file after all the data in the file has
+already been read. In TextIO, the exception is of
+typeIllegalArgumentException. If you have a better response to file
+errors than to let the program crash, you can use a try..catch to
+catch exceptions of type IllegalArgumentException.
+
+For example, suppose that a file contains nothing but real numbers,
+and we want a program that will read the numbers and find their sum
+and their average. Since it is unknown how many numbers are in the
+file, there is the question of when to stop reading. One approach is
+simply to try to keep reading indefinitely. When the end of the file
+is reached, an exception occurs. This exception is not really an error
+-- it's just a way of detecting the end of the data, so we can catch
+the exception and finish up the program. We can read the data in a
+while(true) loop and break out of the loop when an exception occurs.
+This is an example of the somewhat unusual technique of using an
+exception as part of the expected flow of control in a program.
+
+To read from the file, we need to know the file's name. To make the
+program more general, we can let the user enter the file name, instead
+of hard-coding a fixed file name in the program. However, it is
+possible that the user will enter the name of a file that does not
+exist. When we use TextIO.readfile to open a file that does not exist,
+an exception of type IllegalArgumentException occurs. We can catch
+this exception and ask the user to enter a different file name. Here
+is a complete program that uses all these ideas:
+
+
+::
+
+    /**
+     * This program reads numbers from a file.  It computes the sum and 
+     * the average of the numbers that it reads.  The file should contain 
+     * nothing but numbers of type double; if this is not the case, the 
+     * output will be the sum and average of however many numbers were 
+     * successfully read from the file.  The name of the file will be
+     * input by the user.
+     */
+    
+    public class ReadNumbersFromFile {
+       
+       public static void main(String[] args) {
+                
+          while (true) {
+             String fileName;  // The name of the file, to be input by the user.
+             TextIO.put("Enter the name of the file: ");
+             fileName = TextIO.getln();
+             try {
+                TextIO.readFile( fileName );  // Try to open the file for input.
+                break;  // If that succeeds, break out of the loop.
+             }
+             catch ( IllegalArgumentException e ) {
+                TextIO.putln("Can't read from the file \"" + fileName + "\".");
+                TextIO.putln("Please try again.\n");
+             }
+          }
+          
+          // At this point, TextIO is reading from the file.
+          
+          double number;  // A number read from the data file.
+          double sum;     // The sum of all the numbers read so far.
+          int count;      // The number of numbers that were read.
+          
+          sum = 0;
+          count = 0;
+          
+          try {
+             while (true) { // Loop ends when an exception occurs.
+                 number = TextIO.getDouble();
+                 count++;  // This is skipped when the exception occurs
+                 sum += number;
+             }
+          }
+          catch ( IllegalArgumentException e ) {
+             // We expect this to occur when the end-of-file is encountered.
+             // We don't consider this to be an error, so there is nothing to do
+             // in this catch clause.  Just proceed with the rest of the program.
+          }
+          
+          // At this point, we've read the entire file.
+          
+          TextIO.putln();
+          TextIO.putln("Number of data values read: " + count);
+          TextIO.putln("The sum of the data values: " + sum);
+          if ( count == 0 )
+             TextIO.putln("Can't compute an average of 0 values.");
+          else
+             TextIO.putln("The average of the values:  " + (sum/count));
+          
+       }
+    
+    }
+
+
+
+
+[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
+Index`_ ]
+
+.. _Chapter Index: http://math.hws.edu/javanotes/c3/index.html
+.. _2.3.3: http://math.hws.edu/javanotes/c3/../c2/s3.html#basics.3.3
+.. _2.4.5: http://math.hws.edu/javanotes/c3/../c2/s4.html#basics.4.5
+.. _Main Index: http://math.hws.edu/javanotes/c3/../index.html
+.. _Next Section: http://math.hws.edu/javanotes/c3/s8.html
+.. _Previous Section: http://math.hws.edu/javanotes/c3/s6.html
+.. _8: http://math.hws.edu/javanotes/c3/../c8/index.html
+.. _2.5.7: http://math.hws.edu/javanotes/c3/../c2/s5.html#basics.5.7
+
+

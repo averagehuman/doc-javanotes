@@ -1,0 +1,689 @@
+[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
+Index`_ ]
+
+
+**Subsections**
+
+
+ArrayList and LinkedList
+Sorting
+TreeSet and HashSet
+EnumSet
+
+
+
+Section 10.2
+~~~~~~~~~~~~
+
+
+Lists and Sets
+--------------
+
+
+
+I n the previous section, we looked at the general properties of
+collection classes in Java. In this section, we look at some specific
+collection classes and how to use them. These classes can be divided
+into two categories: lists and sets. A list consists of a sequence of
+items arranged in a linear order. A list has a definite order, but is
+not necessarily sorted into ascending order. A set is a collection
+that has no duplicate entries. The elements of a set might or might
+not be arranged into some definite order.
+
+
+
+
+
+10.2.1ArrayList and LinkedList
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are two obvious ways to represent a list: as a dynamic array and
+as a linked list. We've encountered these already in `Section7.3`_ and
+`Section9.2`_. Both of these options are available in generic form as
+the collection classesjava.util.ArrayList and java.util.LinkedList.
+These classes are part of the Java Collection Framework. Each
+implements the interfaceList<T>, and therefore the interface
+Collection<T>. An object of type ArrayList<T> represents an ordered
+sequence of objects of type T, stored in an array that will grow in
+size whenever necessary as new items are added. An object of
+typeLinkedList<T> also represents an ordered sequence of objects of
+type T, but the objects are stored in nodes that are linked together
+with pointers.
+
+Both list classes support the basic list operations that are defined
+in the interface List<T>, and an abstract data type is defined by its
+operations, not by its representation. So why two classes? Why not a
+single List class with a single representation? The problem is that
+there **is** no single representation of lists for which all list
+operations are efficient. For some operations, linked lists are more
+efficient than arrays. For others, arrays are more efficient. In a
+particular application of lists, it's likely that only a few
+operations will be used frequently. You want to choose the
+representation for which the frequently used operations will be as
+efficient as possible.
+
+Broadly speaking, the LinkedList class is more efficient in
+applications where items will often be added or removed at the
+beginning of the list or in the middle of the list. In an array, these
+operations require moving a large number of items up or down one
+position in the array, to make a space for a new item or to fill in
+the hole left by the removal of an item. In terms of asymptotic
+analysis (`Section8.5`_), adding an element at the beginning or in the
+middle of an array has run timeΘ(n), where n is the number of items in
+the array. In a linked list, nodes can be added or removed at any
+position by changing a few pointer values, an operation that has run
+time Θ(1). That is, the operation takes only some constant amount of
+time, independent of how many items are in the list.
+
+On the other hand, the ArrayList class is more efficient whenrandom
+access to items is required. Random access means accessing the k-th
+item in the list, for any integerk. Random access is used when you get
+or change the value stored at a specified position in the list. This
+is trivial for an array, with run time Θ(1). But for a linked list it
+means starting at the beginning of the list and moving from node to
+node along the list for k steps, an operation that has run time Θ(k).
+
+Operations that can be done efficiently for both types of lists
+include sorting and adding an item at the end of the list.
+
+All lists implement the methods from interface Collection<T> that were
+discussed in `Subsection10.1.4`_. These methods include
+size(),isEmpty(), add(T), remove(Object), andclear(). The add(T)
+method adds the object at the end of the list. The remove(Object)
+method involves first finding the object, which is not very efficient
+for any list since it involves going through the items in the list
+from beginning to end until the object is found. The interfaceList<T>
+adds some methods for accessing list items according to their
+numerical positions in the list. Suppose that list is an object of
+type List<T>. Then we have the methods:
+
+
++ list.get(index) -- returns the object of type T that is at position
+  index in the list, where index is an integer. Items are numbered 0, 1,
+  2, ..., list.size()-1. The parameter must be in this range, or an
+  IndexOutOfBoundsException is thrown.
++ list.set(index,obj) -- stores the object obj at position number
+  index in the list, replacing the object that was there previously. The
+  object obj must be of type T. This does not change the number of
+  elements in the list or move any of the other elements.
++ list.add(index,obj) -- inserts an object obj into the list at
+  position number index, where obj must be of type T. The number of
+  items in the list increases by one, and items that come after
+  positionindex move down one position to make room for the new item.
+  The value ofindex must be in the range 0 to list.size(), inclusive. If
+  index is equal to list.size(), then obj is added at the end of the
+  list.
++ list.remove(index) -- removes the object at position number index,
+  and returns that object as the return value of the method. Items after
+  this position move up one space in the list to fill the hole, and the
+  size of the list decreases by one. The value of index must be in the
+  range 0 to list.size()-1
++ list.indexOf(obj) -- returns anint that gives the position of obj in
+  the list, if it occurs. If it does not occur, the return value is -1.
+  The object obj can be of any type, not just of typeT. If obj occurs
+  more than once in the list, the index of the first occurrence is
+  returned.
+
+
+These methods are defined both in class ArrayList<T> and in
+classLinkedList<T>, although some of them -- get and set -- are only
+efficient forArrayLists. The class LinkedList<T> adds a few additional
+methods, which are not defined for an ArrayList. Iflinkedlist is an
+object of type LinkedList<T>, then we have
+
+
++ linkedlist.getFirst() -- returns the object of type T that is the
+  first item in the list. The list is not modified. If the list is empty
+  when the method is called, an exception of typeNoSuchElementException
+  is thrown (the same is true for the next three methods as well).
++ linkedlist.getLast() -- returns the object of type T that is the
+  last item in the list. The list is not modified.
++ linkedlist.removeFirst() -- removes the first item from the list,
+  and returns that object of type T as its return value.
++ linkedlist.removeLast() -- removes the last item from the list, and
+  returns that object of type T as its return value.
++ linkedlist.addFirst(obj) -- adds theobj, which must be of type T, to
+  the beginning of the list.
++ linkedlist.addLast(obj) -- adds the object obj, which must be of
+  type T, to the end of the list. (This is exactly the same as
+  linkedlist.add(obj) but is defined to keep the naming consistent.)
+
+
+These methods are apparently defined to make it easy to use
+aLinkedList as if it were a stack or a queue. (See `Section9.3`_.) For
+example, we can use aLinkedList as a queue by adding items onto one
+end of the list (using the addLast() method) and removing them from
+the other end (using theremoveFirst() method).
+
+If list is an object of type List<T>, then the methodlist.iterator(),
+defined in the interface Collection<T>, returns an Iterator that can
+be used to traverse the list from beginning to end. However, for
+Lists, there is a special type of Iterator, called a ListIterator,
+which offers additional capabilities. ListIterator<T> is an interface
+that extends the interface Iterator<T>. The method list.listIterator()
+returns an object of typeListIterator<T>.
+
+A ListIterator has the usual Iterator methods,hasNext(), next(), and
+remove(), but it also has methodshasPrevious(), previous(), and
+add(obj) that make it possible to move backwards in the list and to
+add an item at the current position of the iterator. To understand how
+these work, it's best to think of an iterator as pointing to a
+position **between** two list elements, or at the beginning or end of
+the list. In this diagram, the items in a list are represented by
+squares, and arrows indicate the possible positions of an iterator:
+
+
+
+If iter is of type ListIterator<T>, then iter.next() moves the
+iterator one space to the right along the list and returns the item
+that the iterator passes as it moves. The method iter.previous() moves
+the iterator one space to the left along the list and returns the item
+that it passes. The method iter.remove() removes an item from the
+list; the item that is removed is the item that the iterator passed
+most recently in a call to either iter.next() or iter.previous().
+There is also a method iter.add(obj) that adds the specified object to
+the list at the current position of the iterator (where obj must be of
+typeT). This can be between two existing items or at the beginning of
+the list or at the end of the list.
+
+(By the way, the lists that are used in class LinkedList<T> aredoubly
+linked lists. That is, each node in the list contains two pointers --
+one to the next node in the list and one to the previous node. This
+makes it possible to efficiently implement both thenext() and
+previous() methods of a ListIterator. Also, to make the addLast() and
+getLast() methods of aLinkedList efficient, the class LinkedList<T>
+includes an instance variable that points to the last node in the
+list.)
+
+As an example of using a ListIterator, suppose that we want to
+maintain a list of items that is always sorted into increasing order.
+When adding an item to the list, we can use a ListIterator to find the
+position in the list where the item should be added. Once the position
+has been found, we use the same list iterator to place the item in
+that position. The idea is to start at the beginning of the list and
+to move the iterator forward past all the items that are smaller than
+the item that is being inserted. At that point, the iterator's add()
+method can be used to insert the item. To be more definite, suppose
+thatstringList is a variable of type List<String>. Assume that that
+the strings that are already in the list are stored in ascending order
+and that newItem is a string that we would like to insert into the
+list. The following code will place newItem in the list in its correct
+position, so that the modified list is still in ascending order:
+
+
+::
+
+    ListIterator<String> iter = stringList.listIterator();
+    
+    // Move the iterator so that it points to the position where
+    // newItem should be inserted into the list.  If newItem is
+    // bigger than all the items in the list, then the while loop
+    // will end when iter.hasNext() becomes false, that is, when
+    // the iterator has reached the end of the list.
+    
+    while (iter.hasNext()) {
+       String item = iter.next();
+       if (newItem.compareTo(item) <= 0) {
+             // newItem should come BEFORE item in the list.
+             // Move the iterator back one space so that
+             // it points to the correct insertion point,
+             // and end the loop.
+          iter.previous();
+          break;
+       } 
+    }
+    
+    iter.add(newItem);
+
+
+Here, stringList might be of type ArrayList<String> or of type
+LinkedList<String>. The algorithm that is used to insert newItem into
+the list will be about equally efficient for both types of lists, and
+it will even work for other classes that implement the interface
+List<String>. You would probably find it easier to design an insertion
+algorithm that uses array-like indexing with the methods get(index)
+and add(index,obj). However, that algorithm would be horribly
+inefficient for LinkedLists because random access is so inefficient
+for linked lists. (By the way, the insertion algorithm works when the
+list is empty. It might be useful for you to think about why this is
+true.)
+
+
+
+
+
+10.2.2Sorting
+~~~~~~~~~~~~~
+
+Sorting a list is a fairly common operation, and there should really
+be a sorting method in the List interface. There is not, presumably
+because it only makes sense to sort lists of certain types of objects,
+but methods for sorting lists are available as static methods in the
+class java.util.Collections. This class contains a variety of static
+utility methods for working with collections. The methods are generic;
+that is, they will work for collections of objects of various types.
+Suppose that list is of type List<T>. The command
+
+
+::
+
+    Collections.sort(list);
+
+
+can be used to sort the list into ascending order. The items in the
+list should implement the interface Comparable<T> (see
+`Subsection10.1.6`_). The method Collections.sort() will work, for
+example, for lists of String and for lists of any of the wrapper
+classes such as Integer andDouble. There is also a sorting method that
+takes a Comparator as its second argument:
+
+
+::
+
+    Collections.sort(list,comparator);
+
+
+In this method, the comparator will be used to compare the items in
+the list. As mentioned in the `previous section`_, a Comparator is an
+object that defines a compare() method that can be used to compare two
+objects. We'll see an example of using a Comparator in`Section10.4`_.
+
+The sorting method that is used by Collections.sort() is the so-called
+"merge sort" algorithm, which has both worst-case and average-case run
+times that are Θ(n*log(n)) for a list of sizen. Although the average
+run time for MergeSort is a little slower than that of QuickSort, its
+worst-case performance is much better than QuickSort's. (QuickSort was
+covered in `Subsection9.1.3`_.) MergeSort also has a nice property
+called "stability" that we will encounter at the end of
+`Subsection10.4.3`_.
+
+The Collections class has at least two other useful methods for
+modifying lists. Collections.shuffle(list) will rearrange the elements
+of the list into a random order. Collections.reverse(list) will
+reverse the order of the elements, so that the last element is moved
+to the beginning of the list, the next-to-last element to the second
+position, and so on.
+
+Since an efficient sorting method is provided for Lists, there is no
+need to write one yourself. You might be wondering whether there is an
+equally convenient method for standard arrays. The answer is yes.
+Array-sorting methods are available as static methods in the class
+java.util.Arrays. The statement
+
+
+::
+
+    Arrays.sort(A);
+
+
+will sort an array, A, provided either that the base type ofA is one
+of the primitive types (except boolean) or that A is an array of
+Objects that implement the Comparable interface. You can also sort
+part of an array. This is important since arrays are often only
+"partially filled." The command:
+
+
+::
+
+    Arrays.sort(A,fromIndex,toIndex);
+
+
+sorts the elements A[fromIndex], A[fromIndex+1], ..., A[toIndex-1]
+into ascending order. You can use Arrays.sort(A,0,N-1) to sort a
+partially filled array which has items in the first N positions.
+
+Java does not support generic programming for primitive types. In
+order to implement the command Arrays.sort(A), the Arrays class
+contains eight methods: one method for arrays of Objects and one
+method for each of the primitive types byte, short,int, long, float,
+double, andchar.
+
+
+
+
+
+10.2.3TreeSet and HashSet
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A set is a collection of objects in which no object occurs more than
+once. Sets implement all the methods in the interface Collection<T>,
+but do so in a way that ensures that no element occurs twice in the
+set. For example, ifset is an object of type Set<T>, then set.add(obj)
+will have no effect on the set if obj is already an element of the
+set. Java has two classes that implement the interface
+Set<T>:java.util.TreeSet and java.util.HashSet.
+
+In addition to being a Set, a TreeSet has the property that the
+elements of the set are arranged into ascending sorted order.
+AnIterator (or a for-each loop) for a TreeSet will always visit the
+elements of the set in ascending order.
+
+A TreeSet cannot hold arbitrary objects, since there must be a way to
+determine the sorted order of the objects it contains. Ordinarily,
+this means that the objects in a set of type TreeSet<T> should
+implement the interface Comparable<T> and that obj1.compareTo(obj2)
+should be defined in a reasonable way for any two objects obj1 and
+obj2 in the set. Alternatively, an object of typeComparator<T> can be
+provided as a parameter to the constructor when the TreeSet is
+created. In that case, thecompareTo() method of theComparator will be
+used to compare objects that are added to the set.
+
+A TreeSet does not use the equals() method to test whether two objects
+are the same. Instead, it uses the compareTo() method. This can be a
+problem. Recall from `Subsection10.1.6`_ thatcompareTo() can consider
+two objects to be the same for the purpose of the comparison even
+though the objects are not equal. For a TreeSet, this means that only
+**one** of those objects can be in the set. For example, if the
+TreeSet contains mailing addresses and if the compareTo() method for
+addresses just compares their zip codes, then the set can contain only
+one address in each zip code. Clearly, this is not right! But that
+only means that you have to be aware of the semantics of TreeSets, and
+you need to make sure that compareTo() is defined in a reasonable way
+for objects that you put into a TreeSet. This will be true, by the
+way, for Strings, Integers, and many other built-in types, since the
+compareTo() method for these types considers two objects to be the
+same only if they are actually equal.
+
+In the implementation of a TreeSet, the elements are stored in
+something similar to a binary sort tree. (See `Subsection9.4.2`_.)
+However, the data structure that is used is **balanced** in the sense
+that all the leaves of the tree are at about the same distance from
+the root of the tree. This ensures that all the basic operations --
+inserting, deleting, and searching -- are efficient, with worst-case
+run time Θ(log(n)), where n is the number of items in the set.
+
+The fact that a TreeSet sorts its elements and removes duplicates
+makes it very useful in some applications. `Exercise7.6`_ asked you to
+write a program that would read a file and output an alphabetical list
+of all the words that occurred in the file, with duplicates removed.
+The words were to be stored in an ArrayList, so it was up to you to
+make sure that the list was sorted and contained no duplicates. The
+same task can be programmed much more easily using a TreeSet instead
+of a list. A TreeSet automatically eliminates duplicates, and an
+iterator for the set will automatically visit the items in the set in
+sorted order. An algorithm for the program, using a TreeSet, would be:
+
+
+::
+
+    TreeSet<String> words = new TreeSet<String>();
+    
+    while there is more data in the input file:
+       Let word = the next word from the file
+       Convert word to lower case
+       words.add(word)   // Adds the word only if not already present.
+    
+    for ( String w : words ) // for each String w in words
+       Output w
+
+
+If you would like to see a complete, working program, you can find it
+in the file `WordListWithTreeSet.java`_.
+
+As another example, suppose that coll is any Collection ofStrings.
+(This would also work for any other type for which compareTo() is
+properly defined.) We can use a TreeSet to sort the items of coll and
+remove the duplicates simply by saying:
+
+
+::
+
+    TreeSet<String> set = new TreeSet();
+    set.addAll(coll);
+
+
+The second statement adds all the elements of the collection to the
+set. Since it's a Set, duplicates are ignored. Since it's aTreeSet,
+the elements of the set are sorted. If you would like to have the data
+in some other type of data structure, it's easy to copy the data from
+the set. For example, to place the answer in an ArrayList, you could
+say:
+
+
+::
+
+    TreeSet<String> set = new TreeSet<String>();
+    set.addAll(coll);
+    ArrayList<String> list = new ArrayList<String>();
+    list.addAll(set);
+
+
+Now, in fact, every one of Java's collection classes has a constructor
+that takes a Collection as an argument. All the items in
+thatCollection are added to the new collection when it is created. So,
+if coll is of type Collection<String>, then "newTreeSet<String>(coll)"
+creates a TreeSet that contains the same elements as coll, but with
+duplicates removed and in sorted order. This means that we can
+abbreviate the four lines in the above example to the single command:
+
+
+::
+
+    ArrayList<String> list = new ArrayList<String>( new TreeSet<String>(coll) );
+
+
+This makes a sorted list of the elements of coll with no duplicates.
+Although the repeated type parameter, "<String>", makes it a bit ugly
+to look at, this is still a nice example of the power of generic
+programming. (It seems, by the way, there is no equally easy way to
+get a sorted list **with** duplicates. To do this, we would need
+something like a TreeSet that allows duplicates. The C++ programming
+language has such a thing and refers to it as amultiset. The Smalltalk
+language has something similar and calls it a bag. Java, for the time
+being at least, lacks this data type.)
+
+
+
+
+A HashSet stores its elements in a hash table, a type of data
+structure that I will discuss in the `next section`_. The operations
+of finding, adding, and removing elements are implemented very
+efficiently in hash tables, even more so than forTreeSets. The
+elements of a HashSet are not stored in any particular order, and so
+do not need to implement the Comparable interface. (They do, however,
+need to define a proper "hash code," and we'll see in the next
+section.)
+
+The equals() method is used to determine whether two objects in a
+HashSet are to be considered the same. An Iterator for a HashSet will
+visit its elements in what seems to be a completely arbitrary order,
+and it's possible for the order to change completely when a new
+element is added. Use a HashSet instead of aTreeSet when the elements
+it contains are not comparable, or when the order is not important, or
+when the small advantage in efficiency is important.
+
+
+
+
+A note about the mathematics of sets: In mathematical set theory, the
+items in a set are called members or elements of that set. Important
+operations include adding an element to a set, removing an element
+from a set, and testing whether a given entity is an element of a set.
+Operations that can be performed on two sets include
+union,intersection, and set difference. All these operations are
+defined in Java for objects of type Set, but with different names.
+Suppose that A and B are Sets. Then:
+
+
++ A.add(x) **adds** the element x to the set A.
++ A.remove(x) **removes** the element x from the set A.
++ A.contains(x) **tests** whether x is an element of the set A.
++ A.addAll(B) computes the **union** of A and B.
++ A.retainAll(B) computes the **intersection** of A and B.
++ A.removeAll(B) computes the **set difference**, A - B.
+
+
+There are of course, differences between mathematical sets and sets in
+Java. Most important, perhaps, sets in Java must be finite, while in
+mathematics, most of the fun in set theory comes from working with
+infinity. In mathematics, a set can contain arbitrary elements, while
+in Java, a set of type Set<T> can only contain elements of type T. The
+operationA.addAll(B) acts by modifying the value of A, while in
+mathematics the operation A union B computes a new set, without
+changing the value of A or B. See`Exercise10.2`_ for an example of
+mathematical set operations in Java.
+
+
+
+
+
+10.2.4EnumSet
+~~~~~~~~~~~~~
+
+Enumerated types (or "enums") were introduced in `Subsection2.3.3`_.
+Suppose that E is an enumerated type. Since E is a class, it is
+possible to create objects of type TreeSet<E> and HashSet<E>. However,
+because enums are so simple, trees and hash tables are not the most
+efficient implementation for sets of enumerated type values. Java
+provides the classjava.util.EnumSet as an alternative way to create
+such sets.
+
+Sets of enumerated type values are created using static methods in the
+class EnumSet. For example, if e1, e2, and e3 are values belonging to
+the enumerated typeE, then the method
+
+
+::
+
+    EnumSet.of( e1, e2, e3 )
+
+
+creates and returns a set of type EnumSet<E> that contains exactly the
+elements e1, e2, and e3. The set implements the interface Set<E>, so
+all the usual set and collection operations are available. The
+implementation of these operations is very efficient. The
+implementation uses what is called a bit vector. A bit is a quantity
+that has only two possible values, zero and one. A set of type
+EnumSet<E> is represented by a bit vector that contains one bit for
+each enum constant in the enumerated type E; the bit corresponding to
+the enum constant e is 1 if e is a member of the set and is 0 if e is
+not a member of the set. The bit vectors for two sets of type
+EnumSet<E> can be very easily combined to represent such operations as
+the union and intersection of two sets. The bit vector representation
+is feasible for EnumSets, but not for other sets in Java, because an
+enumerated type contains only a small finite number of enum constants.
+(Java actually has a class namedBitSet that uses bit vectors to
+represent finite sets of non-negative integers, but this class is not
+part of the Java Collection Framework and does not implement the Set
+interface.)
+
+The function EnumSet.of can be used with any positive number of
+parameters. All the parameters must be values of the same enumerated
+type. Null values are not allowed. An EnumSet cannot contain the value
+null -- any attempt to add null to an EnumSet will result in a
+NullPointerException.
+
+There is also a function EnumSet.range(e1,e2) that returns anEnumSet
+consisting of the enum constants between e1 and e2, inclusive. The
+ordering of enum constants is the same as the order in which they are
+listed in the definition of the enum. In EnumSet.range(e1,e2), e1 and
+e2 must belong to the same enumerated type, and e1 must be less than
+or equal to e2.
+
+If E is an enum, then EnumSet.allOf(E.class) is a set that contains
+all values of type E.EnumSet.noneOf(E.class) is an empty set, a set of
+type EnumSet<E> that contains no elements at all. Note that in
+EnumSet.allOf(E.class) and EnumSet.noneOf(E.class), the odd-looking
+parameter represents the enumerated type class itself. If eset is a
+set of type EnumSet<E>, then EnumSet.complementOf(eset) is a set that
+contains all the enum constants of E that are **not** in eset.
+
+As an example, consider a program that keeps schedules of events. The
+program must keep track of repeating events that happen on specified
+days of the week. For example, an event might take place only on
+weekdays, or only on Wednesdays and Fridays. In other words,
+associated with the event is the **set** of days of the week on which
+it takes place. This information can be represented using the
+enumerated type
+
+
+::
+
+    enum Day { SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY }
+
+
+The days of the week on which an event takes place would then be a
+value of type EnumSet<Day>. An object of typeRepeatingEvent would have
+an instance variable of typeEnumSet<Day> to hold this information. An
+event that takes place on Wednesdays and Fridays would have the
+associated set
+
+
+::
+
+    EnumSet.of( Day.WEDNESDAY, Day.FRIDAY )
+
+
+We could define some common sets of Days as
+
+
+::
+
+    EnumSet<Day> weekday = EnumSet.range( Day.MONDAY, Day.FRIDAY );
+    EnumSet<Day> weekend = EnumSet.complementOf( weekday );
+    EnumSet<Day> everyday = EnumSet.allOf( Day.class );
+
+
+EnumSets are often used to specify sets of "options" that are to be
+applied during some type of processing. For example, a program that
+draws characters in fancy fonts might have various options that can be
+applied. Let's say that the options are bold, italic, underlined,
+strikethrough, and boxed. Note that we are assuming that options can
+be combined in arbitrary ways. For example, you can have italic,
+boxed, underlined characters. This just means that we need to keep
+track of a **set** of options. If the options are represented by the
+enumerated type
+
+
+::
+
+    enum FontOption { BOLD, ITALIC, UNDERLINED, STRIKETHROUGH, BOXED }
+
+
+then a set of options is represented by a value of type
+EnumSet<FontOption>. Suppose thatoptions is a variable of this type
+that represents the set of options that are currently being applied by
+the program. Then we can do things like:
+
+
++ options = EnumSet.noneOf( FontOption.class ) -- Turn off all
+  options.
++ options = EnumSet.of( FontOption.BOLD ) -- Use bold, with no other
+  options.
++ options.add( FontOption.BOLD ) -- Add bold to any options that are
+  already on.
++ options.remove( FontOption.UNDERLINED ) -- Turn underlining off (if
+  it's on).
+
+
+This is a nice, safe way to work with sets of options. Applications
+like this are one of the major reasons that enumerated types were
+introduced.
+
+
+
+[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
+Index`_ ]
+
+.. _10.4.3: http://math.hws.edu/javanotes/c10/../c10/s4.html#generics.4.3
+.. _Next Section: http://math.hws.edu/javanotes/c10/s3.html
+.. _Previous Section: http://math.hws.edu/javanotes/c10/s1.html
+.. _10.1.6: http://math.hws.edu/javanotes/c10/../c10/s1.html#generics.1.6
+.. _8.5: http://math.hws.edu/javanotes/c10/../c8/s5.html
+.. _WordListWithTreeSet.java: http://math.hws.edu/javanotes/c10/../source/WordListWithTreeSet.java
+.. _9.3: http://math.hws.edu/javanotes/c10/../c9/s3.html
+.. _9.4.2: http://math.hws.edu/javanotes/c10/../c9/s4.html#recursion.4.2
+.. _9.1.3: http://math.hws.edu/javanotes/c10/../c9/s1.html#recursion.1.3
+.. _Chapter Index: http://math.hws.edu/javanotes/c10/index.html
+.. _2.3.3: http://math.hws.edu/javanotes/c10/../c2/s3.html#basics.3.3
+.. _7.6: http://math.hws.edu/javanotes/c10/../c7/ex6-ans.html
+.. _7.3: http://math.hws.edu/javanotes/c10/../c7/s3.html
+.. _10.1.4: http://math.hws.edu/javanotes/c10/../c10/s1.html#generics.1.4
+.. _10.2: http://math.hws.edu/javanotes/c10/../c10/ex2-ans.html
+.. _9.2: http://math.hws.edu/javanotes/c10/../c9/s2.html
+.. _10.4: http://math.hws.edu/javanotes/c10/../c10/s4.html
+.. _next
+section: http://math.hws.edu/javanotes/c10/../c10/s3.html
+.. _Main Index: http://math.hws.edu/javanotes/c10/../index.html
+
+

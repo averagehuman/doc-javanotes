@@ -1,0 +1,762 @@
+[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
+
+
+**Subsections**
+
+
+Interfaces
+Nested Classes
+Anonymous Inner Classes
+Mixing Static and Non-static
+Static Import
+Enums as Classes
+
+
+
+Section 5.7
+~~~~~~~~~~~
+
+
+Interfaces, Nested Classes, and Other Details
+---------------------------------------------
+
+
+
+T HIS SECTION simply pulls together a few more miscellaneous features
+of object oriented programming in Java. Read it now, or just look
+through it and refer back to it later when you need this material.
+(You will need to know about the first topic, interfaces, almost as
+soon as we begin GUI programming.)
+
+
+
+
+
+5.7.1Interfaces
+~~~~~~~~~~~~~~~
+
+Some object-oriented programming languages, such as C++, allow a class
+to extend two or more superclasses. This is called multiple
+inheritance. In the illustration below, for example, classE is shown
+as having both classA and classB as direct superclasses, while classF
+has three direct superclasses.
+
+
+
+Such multiple inheritance is **not** allowed in Java. The designers of
+Java wanted to keep the language reasonably simple, and felt that the
+benefits of multiple inheritance were not worth the cost in increased
+complexity. However, Java does have a feature that can be used to
+accomplish many of the same goals as multiple inheritance: interfaces.
+
+We've encountered the term "interface" before, in connection with
+black boxes in general and subroutines in particular. The interface of
+a subroutine consists of the name of the subroutine, its return type,
+and the number and types of its parameters. This is the information
+you need to know if you want to call the subroutine. A subroutine also
+has an implementation: the block of code which defines it and which is
+executed when the subroutine is called.
+
+In Java, interface is a reserved word with an additional, technical
+meaning. An "interface" in this sense consists of a set of instance
+method interfaces, without any associated implementations. (Actually,
+a Java interface can contain other things as well, but we won't
+discuss them here.) A class can implement an interface by providing an
+implementation for each of the methods specified by the interface.
+Here is an example of a very simple Java interface:
+
+
+::
+
+    public interface Drawable {
+       public void draw(Graphics g);
+    }
+
+
+This looks much like a class definition, except that the
+implementation of the draw() method is omitted. A class that
+implements theinterface Drawable must provide an implementation for
+this method. Of course, the class can also include other methods and
+variables. For example,
+
+
+::
+
+    public class Line implements Drawable {
+        public void draw(Graphics g) {
+            . . . // do something -- presumably, draw a line
+        }
+        . . . // other methods and variables
+    }
+
+
+Note that to implement an interface, a class must do more than simply
+provide an implementation for each method in the interface; it must
+also **state** that it implements the interface, using the reserved
+word implements as in this example: "public class Line **implements**
+Drawable". Any class that implements the Drawable interface defines
+adraw() instance method. Any object created from such a class includes
+a draw() method. We say that an **object** implements aninterface if
+it belongs to a class that implements the interface. For example, any
+object of type Line implements the Drawable interface.
+
+While a class can **extend** only one other class, it can
+**implement** any number of interfaces. In fact, a class can both
+extend one other class and implement one or more interfaces. So, we
+can have things like
+
+
+::
+
+    class FilledCircle extends Circle 
+                            implements Drawable, Fillable {
+       . . .
+    }
+
+
+The point of all this is that, although interfaces are not classes,
+they are something very similar. An interface is very much like an
+abstract class, that is, a class that can never be used for
+constructing objects, but can be used as a basis for making
+subclasses. The subroutines in an interface are abstract methods,
+which must be implemented in any concrete class that implements the
+interface. You can compare the Drawable interface with the abstract
+class
+
+
+::
+
+    public abstract class AbstractDrawable {
+       public abstract void draw(Graphics g);
+    }
+
+
+The main difference is that a class that extends AbstactDrawable
+cannot extend any other class, while a class that implements Drawable
+can also extend some class. As with abstract classes, even though you
+can't construct an object from an interface, you can declare a
+variable whose type is given by the interface. For example, if
+Drawable is an interface, and ifLine and FilledCircle are classes that
+implementDrawable, then you could say:
+
+
+::
+
+    Drawable figure;  // Declare a variable of type Drawable.  It can
+                      //    refer to any object that implements the
+                      //    Drawable interface.
+                      
+    figure = new Line();  // figure now refers to an object of class Line
+    figure.draw(g);   // calls draw() method from class Line
+    
+    figure = new FilledCircle();   // Now, figure refers to an object
+                                   //   of class FilledCircle.
+    figure.draw(g);   // calls draw() method from class FilledCircle
+
+
+A variable of type Drawable can refer to any object of any class that
+implements the Drawable interface. A statement likefigure.draw(g),
+above, is legal because figure is of typeDrawable, and **any**
+Drawable object has a draw() method. So, whatever object figure refers
+to, that object must have a draw() method.
+
+Note that a type is something that can be used to declare variables. A
+type can also be used to specify the type of a parameter in a
+subroutine, or the return type of a function. In Java, a type can be
+either a class, an interface, or one of the eight built-in primitive
+types. These are the only possibilities. Of these, however, only
+classes can be used to construct new objects.
+
+You are not likely to need to write your own interfaces until you get
+to the point of writing fairly complex programs. However, there are
+several interfaces that are used in important ways in Java's standard
+packages. You'll learn about some of these standard interfaces in the
+next few chapters, and you will write classes that implement them.
+
+
+
+
+
+5.7.2Nested Classes
+~~~~~~~~~~~~~~~~~~~
+
+A class seems like it should be a pretty important thing. A class is a
+high-level building block of a program, representing a potentially
+complex idea and its associated data and behaviors. I've always felt a
+bit silly writing tiny little classes that exist only to group a few
+scraps of data together. However, such trivial classes are often
+useful and even essential. Fortunately, in Java, I can ease the
+embarrassment, because one class can be nested inside another class.
+My trivial little class doesn't have to stand on its own. It becomes
+part of a larger more respectable class. This is particularly useful
+when you want to create a little class specifically to support the
+work of a larger class. And, more seriously, there are other good
+reasons for nesting the definition of one class inside another class.
+
+In Java, a nested class is any class whose definition is inside the
+definition of another class. Nested classes can be either named or
+anonymous. I will come back to the topic of anonymous classes later in
+this section. A named nested class, like most other things that occur
+in classes, can be either static or non-static.
+
+The definition of a static nested class looks just like the definition
+of any other class, except that it is nested inside another class and
+it has the modifier static as part of its declaration. A static nested
+class is part of the static structure of the containing class. It can
+be used inside that class to create objects in the usual way. If it
+has not been declared private, then it can also be used outside the
+containing class, but when it is used outside the class, its name must
+indicate its membership in the containing class. This is similar to
+other static components of a class: A static nested class is part of
+the class itself in the same way that static member variables are
+parts of the class itself.
+
+For example, suppose a class named WireFrameModel represents a set of
+lines in three-dimensional space. (Such models are used to represent
+three-dimensional objects in graphics programs.) Suppose that
+theWireFrameModel class contains a static nested class, Line, that
+represents a single line. Then, outside of the classWireFrameModel,
+the Line class would be referred to asWireFrameModel.Line. Of course,
+this just follows the normal naming convention for static members of a
+class. The definition of theWireFrameModel class with its nested Line
+class would look, in outline, like this:
+
+
+::
+
+    public class WireFrameModel {
+    
+       . . . // other members of the WireFrameModel class
+       
+       static public class Line {
+             // Represents a line from the point (x1,y1,z1)
+             // to the point (x2,y2,z2) in 3-dimensional space.
+          double x1, y1, z1;
+          double x2, y2, z2;
+       } // end class Line
+       
+       . . . // other members of the WireFrameModel class
+       
+    } // end WireFrameModel
+
+
+Inside the WireFrameModel class, a Line object would be created with
+the constructor "new Line()". Outside the class, "new
+WireFrameModel.Line()" would be used.
+
+A static nested class has full access to the static members of the
+containing class, even to the private members. Similarly, the
+containing class has full access to the members of the nested class.
+This can be another motivation for declaring a nested class, since it
+lets you give one class access to the private members of another class
+without making those members generally available to other classes.
+Note also that a nested class can itself be private, meaning that it
+can only be used inside the class in which it is nested.
+
+When you compile the above class definition, two class files will be
+created. Even though the definition of Line is nested
+insideWireFrameModel, the compiled Line class is stored in a separate
+file. The name of the class file for Line will
+beWireFrameModel$Line.class.
+
+
+
+
+Non-static nested classes are referred to as inner classes. Inner
+classes are not, in practice, very different from static nested
+classes, but a non-static nested class is actually associated with an
+object rather than to the class in which it is nested. This can take
+some getting used to.
+
+Any non-static member of a class is not really part of the class
+itself (although its source code is contained in the class
+definition). This is true for inner classes, just as it is for any
+other non-static part of a class. The non-static members of a class
+specify what will be contained in objects that are created from that
+class. The same is true -- at least logically -- for inner classes.
+It's as if each object that belongs to the containing class has its
+**own copy** of the nested class. This copy has access to all the
+instance methods and instance variables of the object, even to those
+that are declared private. The two copies of the inner class in two
+different objects differ because the instance variables and methods
+they refer to are in different objects. In fact, the rule for deciding
+whether a nested class should be static or non-static is simple: If
+the nested class needs to use any instance variable or instance method
+from the containing class, make the nested class non-static.
+Otherwise, it might as well be static.
+
+From outside the containing class, a non-static nested class has to be
+referred to using a name of the form variableName.NestedClassName,
+where variableName is a variable that refers to the object that
+contains the class. This is actually rather rare, however. A non-
+static nested class is generally used only inside the class in which
+it is nested, and there it can be referred to by its simple name.
+
+In order to create an object that belongs to an inner class, you must
+first have an object that belongs to the containing class. (When
+working inside the class, the object "this" is used implicitly.) The
+inner class object is permanently associated with the containing class
+object, and it has complete access to the members of the containing
+class object. Looking at an example will help, and will hopefully
+convince you that inner classes are really very natural. Consider a
+class that represents poker games. This class might include a nested
+class to represent the players of the game. This structure of the
+PokerGame class could be:
+
+
+::
+
+    public class PokerGame {  // Represents a game of poker.
+        
+        class Player {  // Represents one of the players in this game.
+           .
+           .
+           .
+        } // end class Player
+        
+        private Deck deck;      // A deck of cards for playing the game.
+        private int pot;        // The amount of money that has been bet.
+        
+        .
+        .
+        .
+    
+    } // end class PokerGame
+
+
+If game is a variable of type PokerGame, then, conceptually, game
+contains its own copy of the Player class. In an instance method of a
+PokerGame object, a new Player object would be created by saying "new
+Player()", just as for any other class. (A Player object could be
+created outside thePokerGame class with an expression such as
+"game.newPlayer()". Again, however, this is rare.) The Player object
+will have access to the deck and pot instance variables in the
+PokerGame object. Each PokerGame object has its own deck and pot and
+Players. Players of that poker game use the deck and pot for that
+game; players of another poker game use the other game's deck and pot.
+That's the effect of making the Player class non-static. This is the
+most natural way for players to behave. APlayer object represents a
+player of one particular poker game. IfPlayer were a **static** nested
+class, on the other hand, it would represent the general idea of a
+poker player, independent of a particular poker game.
+
+
+
+
+
+5.7.3Anonymous Inner Classes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In some cases, you might find yourself writing an inner class and then
+using that class in just a single line of your program. Is it worth
+creating such a class? Indeed, it can be, but for cases like this you
+have the option of using an anonymous inner class. An anonymous class
+is created with a variation of the new operator that has the form
+
+
+::
+
+    
+              new  superclass-or-interface ( parameter-list ) {
+                       methods-and-variables
+                  }
+
+
+This constructor defines a new class, without giving it a name, and it
+simultaneously creates an object that belongs to that class. This form
+of thenew operator can be used in any statement where a regular "new"
+could be used. The intention of this expression is to create: "a new
+object belonging to a class that is the same as superclass-or-
+interface but with these methods-and-variables added." The effect is
+to create a uniquely customized object, just at the point in the
+program where you need it. Note that it is possible to base an
+anonymous class on an interface, rather than a class. In this case,
+the anonymous class must implement the interface by defining all the
+methods that are declared in the interface. If an interface is used as
+a base, the parameter-list must be empty. Otherwise, it can contain
+parameters for a constructor in the superclass.
+
+Anonymous classes are often used for handling events in graphical user
+interfaces, and we will encounter them several times in the chapters
+on GUI programming. For now, we will look at one not-very-plausible
+example. Consider theDrawable interface, which is defined earlier in
+this section. Suppose that we want a Drawable object that draws a
+filled, red, 100-pixel square. Rather than defining a new, separate
+class and then using that class to create the object, we can use an
+anonymous class to create the object in one statement:
+
+
+::
+
+    Drawable redSquare = new Drawable() {
+           void draw(Graphics g) {
+              g.setColor(Color.red);
+              g.fillRect(10,10,100,100);
+           }
+       };
+
+
+The semicolon at the end of this statement is not part of the class
+definition. It's the semicolon that is required at the end of every
+declaration statement.
+
+When a Java class is compiled, each anonymous nested class will
+produce a separate class file. If the name of the main class is
+MainClass, for example, then the names of the class files for the
+anonymous nested classes will be MainClass$1.class,
+MainClass$2.class,MainClass$3.class, and so on.
+
+
+
+
+
+5.7.4Mixing Static and Non-static
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Classes, as I've said, have two very distinct purposes. A class can be
+used to group together a set of static member variables and static
+methods. Or it can be used as a factory for making objects. The non-
+static variables and methods in the class definition specify the
+instance variables and methods of the objects. In most cases, a class
+performs one or the other of these roles, not both.
+
+Sometimes, however, static and non-static members are mixed in a
+single class. In this case, the class plays a dual role. Sometimes,
+these roles are completely separate. But it is also possible for the
+static and non-static parts of a class to interact. This happens when
+instance methods use static member variables or call static member
+subroutines. An instance method belongs to an object, not to the class
+itself, and there can be many objects with their own versions of the
+instance method. But there is only one copy of a static member
+variable. So, effectively, we have many objects sharing that one
+variable.
+
+Suppose, for example, that we want to write a PairOfDice class that
+uses the Random class mentioned in `Section5.3`_ for rolling the dice.
+To do this, a PairOfDice object needs access to an object of type
+Random. But there is no need for eachPairOfDice object to have a
+separate Random object. (In fact, it would not even be a good idea:
+Because of the way random number generators work, a program should, in
+general, use only one source of random numbers.) A nice solution is to
+have a single Random variable as a static member of the PairOfDice
+class, so that it can be shared by allPairOfDice objects. For example:
+
+
+::
+
+    import java.util.Random;
+     
+    public class PairOfDice {
+     
+        private static Random randGen = new Random();
+        
+        public int die1;   // Number showing on the first die.
+        public int die2;   // Number showing on the second die.
+        
+        public PairOfDice() {
+                // Constructor.  Creates a pair of dice that
+                // initially shows random values.
+             roll();
+        }
+       
+        public void roll() {
+                // Roll the dice by setting each of the dice to be
+                // a random number between 1 and 6.
+             die1 = randGen.nextInt(6) + 1;  // Use the static variable!
+             die2 = randGen.nextInt(6) + 1;
+        }
+        
+    } // end class PairOfDice
+
+
+As another example, let's rewrite the Student class that was used in
+`Section5.2`_. I've added an ID for each student and a static member
+called nextUniqueID. Although there is an ID variable in each student
+object, there is only onenextUniqueID variable.
+
+
+::
+
+    public class Student {
+    
+       private String name;  // Student's name.
+       private int ID;  // Unique ID number for this student.
+       public double test1, test2, test3;   // Grades on three tests.
+       
+       private static int nextUniqueID = 0;
+                 // keep track of next available unique ID number
+       
+       Student(String theName) {
+            // Constructor for Student objects; provides a name for the Student,
+            // and assigns the student a unique ID number.
+          name = theName;
+          nextUniqueID++;
+          ID = nextUniqueID;
+       }
+       
+       public String getName() {
+            // Accessor method for reading the value of the private
+            // instance variable, name.
+          return name;
+       }
+       
+       public int getID() {
+            // Accessor method for reading the value of ID.
+          return ID;
+       }
+       
+       public double getAverage() {  
+            // Compute average test grade.
+          return (test1 + test2 + test3) / 3;
+       }
+       
+    }  // end of class Student
+
+
+Since nextUniqueID is a static variable, the initialization
+"nextUniqueID=0" is done only once, when the class is first loaded.
+Whenever a Student object is constructed and the constructor says
+"nextUniqueID++;", it's always the same static member variable that is
+being incremented. When the very first Student object is created,
+nextUniqueID becomes 1. When the second object is created,
+nextUniqueID becomes 2. After the third object, it becomes 3. And so
+on. The constructor stores the new value of nextUniqueID in theID
+variable of the object that is being created. Of course,ID is an
+instance variable, so every object has its own individualID variable.
+The class is constructed so that each student will automatically get a
+different value for its ID variable. Furthermore, the ID variable is
+private, so there is no way for this variable to be tampered with
+after the object has been created. You are guaranteed, just by the way
+the class is designed, that every student object will have its own
+permanent, unique identification number. Which is kind of cool if you
+think about it.
+
+(Unfortunately, if you think about it a bit more, it turns out that
+the guarantee isn't quite absolute. The guarantee is valid in programs
+that use a single thread. But, as a preview of the difficulties of
+parallel programming, I'll note that in multi-threaded programs, where
+several things can be going on at the same time, things can get a bit
+strange. In a multi-threaded program, it is possible that two threads
+are creating Student objects at exactly the same time, and it becomes
+possible for both objects to get the same ID number. We'll come back
+to this in `Subsection12.1.3`_, where you will learn how to fix the
+problem.)
+
+
+
+
+
+5.7.5Static Import
+~~~~~~~~~~~~~~~~~~
+
+The import directive makes it possible to refer to a class such as
+java.awt.Color using its simple name, Color. All you have to do is say
+import java.awt.Color or import java.awt.*. But you still have to use
+compound names to refer to static member variables such as System.out
+and to static methods such as Math.sqrt.
+
+Java 5.0 introduced a new form of the import directive that can be
+used to import static members of a class in the same way that the
+ordinary import directive imports classes from a package. The new form
+of the directive is called a static import, and it has syntax
+
+
+::
+
+    import static package-name.class-name.static-member-name;
+
+
+to import one static member name from a class, or
+
+
+::
+
+    import static package-name.class-name.*;
+
+
+to import all the public static members from a class. For example, if
+you preface a class definition with
+
+
+::
+
+    import static java.lang.System.out;
+
+
+then you can use the simple name out instead of the compound name
+System.out. This means you can use out.println instead of
+System.out.println. If you are going to work extensively with the Math
+class, you can preface your class definition with
+
+
+::
+
+    import static java.lang.Math.*;
+
+
+This would allow you to say sqrt instead of Math.sqrt, log instead of
+Math.log, PI instead of Math.PI, and so on.
+
+Note that the static import directive requires a package-name, even
+for classes in the standard package java.lang. One consequence of this
+is that you can't do a static import from a class in the default
+package. In particular, it is not possible to do a static import from
+my TextIO class -- if you wanted to do that, you would have to move
+TextIO into a package.
+
+
+
+
+
+5.7.6Enums as Classes
+~~~~~~~~~~~~~~~~~~~~~
+
+Enumerated types were introduced in `Subsection2.3.3`_. Now that we
+have covered more material on classes and objects, we can revisit the
+topic (although still not covering enumerated types in their full
+complexity).
+
+Enumerated types are actually classes, and each enumerated type
+constant is a public, final,static member variable in that class (even
+though they are not declared with these modifiers). The value of the
+variable is an object belonging to the enumerated type class. There is
+one such object for each enumerated type constant, and these are the
+only objects of the class that can ever be created. It is really these
+objects that represent the possible values of the enumerated type. The
+enumerated type constants are actually variables that refer to these
+objects.
+
+When an enumerated type is defined inside another class, it is a
+nested class inside the enclosing class. In fact, it is a static
+nested class, whether you declare it to be static or not. But it can
+also be declared as a non-nested class, in a file of its own. For
+example, we could define the following enumerated type in a file named
+Suit.java:
+
+
+::
+
+    public enum Suit {
+       
+       SPADES, HEARTS, DIAMONDS, CLUBS
+       
+    }
+
+
+This enumerated type represents the four possible suits for a playing
+card, and it could have been used in the example `Card.java`_ from
+`Subsection5.4.2`_.
+
+Furthermore, in addition to its list of values, an enumerated type can
+contain some of the other things that a regular class can contain,
+including methods and additional member variables. Just add a
+semicolon (;) at the end of the list of values, and then add
+definitions of the methods and variables in the usual way. For
+example, we might make an enumerated type to represent the possible
+values of a playing card. It might be useful to have a method that
+returns the corresponding value in the game of Blackjack. As another
+example, suppose that when we print out one of the values, we'd like
+to see something different from the default string representation (the
+identifier that names the constant). In that case, we can override the
+toString() method in the class to print out a different string
+representation. This would give something like:
+
+
+::
+
+    public enum CardValue {
+    
+       ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT,
+             NINE, TEN, JACK, QUEEN, KING;
+       
+       /**
+        * Return the value of this CardValue in the game of Blackjack.
+        * Note that the value returned for an ace is 1.
+        */
+       public int blackJackValue() {
+          if (this == JACK || this == QUEEN || this == KING)
+             return 10;
+          else
+             return 1 + ordinal();
+       }
+       
+       /**
+        * Return a String representation of this CardValue, using numbers
+        * for the numerical cards and names for the ace and face cards.
+        */
+       public String toString() {
+          switch (this) {       // "this" is one of the enumerated type values
+          case ACE:     
+             return "Ace";
+          case JACK:        
+             return "Jack";
+          case QUEEN:  
+             return "Queen";
+          case KING:  
+             return "King";
+          default:              // it's a numeric card value
+             int numericValue = 1 + ordinal();
+             return "" + numericValue;     
+       }
+    
+    } // end CardValue
+
+
+The methods blackjackValue() and toString() are instance methods in
+CardValue. Since CardValue.JACK is an object belonging to that class,
+you can call CardValue.JACK.blackjackValue(). Suppose that cardVal is
+declared to be a variable of type CardValue, so that it can refer to
+any of the values in the enumerated type. We can call
+cardVal.blackjackValue() to find the Blackjack value of the CardValue
+object to which cardVal refers, and System.out.println(cardVal) will
+implicitly call the method cardVal.toString() to obtain the print
+representation of that CardValue. (One other thing to keep in mind is
+that since CardValue is a class, the value of cardVal can be null,
+which means it does not refer to any object.)
+
+Remember that ACE, TWO, ..., KING are the only possible objects of
+type CardValue, so in an instance method in that class,this will refer
+to one of those values. Recall that the instance method ordinal() is
+defined in any enumerated type and gives the position of the
+enumerated type value in the list of possible values, with the count
+starting from zero.
+
+(If you find it annoying to use the class name as part of the name of
+every enumerated type constant, you can use static import to make the
+simple names of the constants directly available -- but only if you
+put the enumerated type into a package. For example, if the enumerated
+typeCardValue is defined in a package named cardgames, then you could
+place
+
+
+::
+
+    import static cardgames.CardValue.*;
+
+
+at the beginning of a source code file. This would allow you, for
+example, to use the nameJACK in that file instead of CardValue.JACK.)
+
+
+
+** End of Chapter 5 **
+
+
+
+
+
+
+
+[ `Previous Section`_ | `Chapter Index`_ | `Main Index`_ ]
+
+.. _5.4.2: http://math.hws.edu/javanotes/c5/../c5/s4.html#OOP.4.2
+.. _12.1.3: http://math.hws.edu/javanotes/c5/../c12/s1.html#threads.1.3
+.. _2.3.3: http://math.hws.edu/javanotes/c5/../c2/s3.html#basics.3.3
+.. _Card.java: http://math.hws.edu/javanotes/c5/../source/Card.java
+.. _Previous Section: http://math.hws.edu/javanotes/c5/s6.html
+.. _5.2: http://math.hws.edu/javanotes/c5/../c5/s2.html
+.. _Chapter Index: http://math.hws.edu/javanotes/c5/index.html
+.. _Main Index: http://math.hws.edu/javanotes/c5/../index.html
+.. _5.3: http://math.hws.edu/javanotes/c5/../c5/s3.html
+
+

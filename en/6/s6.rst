@@ -1,0 +1,670 @@
+[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
+Index`_ ]
+
+
+**Subsections**
+
+
+JButton
+JLabel
+JCheckBox
+JTextField and JTextArea
+JComboBox
+JSlider
+
+
+
+Section 6.6
+~~~~~~~~~~~
+
+
+Basic Components
+----------------
+
+
+
+I n preceding sections, you've seen how to use a graphics context to
+draw on the screen and how to handle mouse events and keyboard events.
+In one sense, that's all there is to GUI programming. If you're
+willing to program all the drawing and handle all the mouse and
+keyboard events, you have nothing more to learn. However, you would
+either be doing a lot more work than you need to do, or you would be
+limiting yourself to very simple user interfaces. A typical user
+interface uses standard GUI components such as buttons, scroll bars,
+text-input boxes, and menus. These components have already been
+written for you, so you don't have to duplicate the work involved in
+developing them. They know how to draw themselves, and they can handle
+the details of processing the mouse and keyboard events that concern
+them.
+
+Consider one of the simplest user interface components, a push button.
+The button has a border, and it displays some text. This text can be
+changed. Sometimes the button is disabled, so that clicking on it
+doesn't have any effect. When it is disabled, its appearance changes.
+When the user clicks on the push button, the button changes appearance
+while the mouse button is pressed and changes back when the mouse
+button is released. In fact, it's more complicated than that. If the
+user moves the mouse outside the push button before releasing the
+mouse button, the button changes to its regular appearance. To
+implement this, it is necessary to respond to mouse exit or mouse drag
+events. Furthermore, on many platforms, a button can receive the input
+focus. The button changes appearance when it has the focus. If the
+button has the focus and the user presses the space bar, the button is
+triggered. This means that the button must respond to keyboard and
+focus events as well.
+
+Fortunately, you don't have to program **any** of this, provided you
+use an object belonging to the standard class javax.swing.JButton.
+AJButton object draws itself and processes mouse, keyboard, and focus
+events on its own. You only hear from the JButton when the user
+triggers it by clicking on it or pressing the space bar while the
+button has the input focus. When this happens, the JButton object
+creates an event object belonging to the class
+java.awt.event.ActionEvent. The event object is sent to any registered
+listeners to tell them that the button has been pushed. Your program
+gets only the information it needs -- the fact that a button was
+pushed.
+
+
+
+
+The standard components that are defined as part of the Swing
+graphical user interface API are defined by subclasses of the class
+JComponent, which is itself a subclass of Component. (Note that this
+includes theJPanel class that we have already been working with
+extensively.) Many useful methods are defined in the Component and
+JComponent classes and so can be used with any Swing component. We
+begin by looking at a few of these methods. Suppose that comp is a
+variable that refers to some JComponent. Then the following methods
+can be used:
+
+
++ comp.getWidth() and comp.getHeight() are functions that give the
+  current size of the component, in pixels. One warning: When a
+  component is first created, its size is zero. The size will be set
+  later, probably by a layout manager. A common mistake is to check the
+  size of a component before that size has been set, such as in a
+  constructor.
++ comp.setEnabled(true) andcomp.setEnabled(false) can be used to
+  enable and disable the component. When a component is disabled, its
+  appearance might change, and the user cannot do anything with it.
+  There is a boolean-valued function, comp.isEnabled() that you can call
+  to discover whether the component is enabled.
++ comp.setVisible(true) andcomp.setVisible(false) can be called to
+  hide or show the component.
++ comp.setFont(font) sets the font that is used for text displayed on
+  the component. See `Subsection6.3.3`_ for a discussion of fonts.
++ comp.setBackground(color) andcomp.setForeground(color) set the
+  background and foreground colors for the component. See
+  `Subsection6.3.2`_.
++ comp.setOpaque(true) tells the component that the area occupied by
+  the component should be filled with the component's background color
+  before the content of the component is painted. By default, only
+  JLabels are non-opaque. A non-opaque, or "transparent", component
+  ignores its background color and simply paints its content over the
+  content of its container. This usually means that it inherits the
+  background color from its container.
++ comp.setToolTipText(string) sets the specified string as a "tool
+  tip" for the component. The tool tip is displayed if the mouse cursor
+  is in the component and the mouse is not moved for a few seconds. The
+  tool tip should give some information about the meaning of the
+  component or how to use it.
++ comp.setPreferredSize(size) sets the size at which the component
+  should be displayed, if possible. The parameter is of type
+  java.awt.Dimension, where an object of type Dimension has two public
+  integer-valued instance variables, width and height. A call to this
+  method usually looks something like "setPreferredSize( new
+  Dimension(100,50))". The preferred size is used as a hint by layout
+  managers, but will not be respected in all cases. Standard components
+  generally compute a correct preferred size automatically, but it can
+  be useful to set it in some cases. For example, if you use a JPanel as
+  a drawing surface, it is usually a good idea to set a preferred size
+  for it.
+
+
+Note that using any component is a multi-step process. The component
+object must be created with a constructor. It must be added to a
+container. In many cases, a listener must be registered to respond to
+events from the component. And in some cases, a reference to the
+component must be saved in an instance variable so that the component
+can be manipulated by the program after it has been created. In this
+section, we will look at a few of the basic standard components that
+are available in Swing. In the `next section`_ we will consider the
+problem of laying out components in containers.
+
+
+
+
+
+6.6.1JButton
+~~~~~~~~~~~~
+
+An object of class JButton is a push button that the user can click to
+trigger some action. You've already seen buttons used in `Section6.1`_
+and `Section6.2`_, but we consider them in much more detail here. To
+use any component effectively, there are several aspects of the
+corresponding class that you should be familiar with. ForJButton, as
+an example, I list these aspects explicitly:
+
+
++ **Constructors**: The JButton class has a constructor that takes a
+  string as a parameter. This string becomes the text displayed on the
+  button. For example: stopGoButton = new JButton("Go"). This creates a
+  button object that will display the text, "Go" (but remember that the
+  button must still be added to a container before it can appear on the
+  screen).
++ **Events**: When the user clicks on a button, the button generates
+  an event of type ActionEvent. This event is sent to any listener that
+  has been registered with the button as an ActionListener.
++ **Listeners**: An object that wants to handle events generated by
+  buttons must implement the ActionListener interface. This interface
+  defines just one method, "public void actionPerformed(ActionEvent
+  evt)", which is called to notify the object of an action event.
++ **Registration of Listeners**: In order to actually receive
+  notification of an event from a button, an ActionListener must be
+  registered with the button. This is done with the button's
+  addActionListener() method. For example:
+  stopGoButton.addActionListener( buttonHandler);
++ **Event methods**: When actionPerformed(evt) is called by the
+  button, the parameter, evt, contains information about the event. This
+  information can be retrieved by calling methods in the ActionEvent
+  class. In particular, evt.getActionCommand() returns a String giving
+  the command associated with the button. By default, this command is
+  the text that is displayed on the button, but it is possible to set it
+  to some other string. The method evt.getSource() returns a reference
+  to the Object that produced the event, that is, to the JButton that
+  was pressed. The return value is of typeObject, not JButton, because
+  other types of components can also produce ActionEvents.
++ **Component methods**: Several useful methods are defined in
+  theJButton class. For example, stopGoButton.setText("Stop") changes
+  the text displayed on the button to "Stop".
+  AndstopGoButton.setActionCommand("sgb") changes the action command
+  associated with this button for action events.
+
+
+Of course, JButtons also have all the general Component methods, such
+as setEnabled() and setFont(). ThesetEnabled() and setText() methods
+of a button are particularly useful for giving the user information
+about what is going on in the program. A disabled button is better
+than a button that gives an obnoxious error message such as "Sorry,
+you can't click on me now!"
+
+
+
+
+
+6.6.2JLabel
+~~~~~~~~~~~
+
+JLabel is certainly the simplest type of component. An object of type
+JLabel exists just to display a line of text. The text cannot be
+edited by the user, although it can be changed by your program. The
+constructor for aJLabel specifies the text to be displayed:
+
+
+::
+
+    JLabel message = new JLabel("Hello World!");
+
+
+There is another constructor that specifies where in the label the
+text is located, if there is extra space. The possible alignments are
+given by the constants JLabel.LEFT, JLabel.CENTER, andJLabel.RIGHT.
+For example,
+
+
+::
+
+    JLabel message = new JLabel("Hello World!", JLabel.CENTER);
+
+
+creates a label whose text is centered in the available space. You can
+change the text displayed in a label by calling the label's setText()
+method:
+
+
+::
+
+    message.setText("Goodbye World!");
+
+
+Since the JLabel class is a subclass of JComponent, you can use
+methods such as setForeground() and setFont() with labels. If you want
+the background color to have any effect, you should call
+setOpaque(true) on the label, since otherwise the JLabel might not
+fill in its background. For example:
+
+
+::
+
+    JLabel message = new JLabel("Hello World!", JLabel.CENTER);
+    message.setForeground(Color.RED);   // Display red text...
+    message.setBackground(Color.BLACK); //    on a black background...
+    message.setFont(new Font("Serif",Font.BOLD,18));  // in a big bold font.
+    message.setOpaque(true);  // Make sure background is filled in.
+
+
+
+
+
+
+6.6.3JCheckBox
+~~~~~~~~~~~~~~
+
+A JCheckBox is a component that has two states: selected or
+unselected. The user can change the state of a check box by clicking
+on it. The state of a checkbox is represented by a boolean value that
+istrue if the box is selected and is false if the box is unselected. A
+checkbox has a label, which is specified when the box is constructed:
+
+
+::
+
+    JCheckBox showTime = new JCheckBox("Show Current Time");
+
+
+Usually, it's the user who sets the state of a JCheckBox, but you can
+also set the state in your program. The current state of a checkbox is
+set using its setSelected(boolean) method. For example, if you want
+the checkbox showTime to be checked, you would say
+"showTime.setSelected(true)". To uncheck the box, say
+"showTime.setSelected(false)". You can determine the current state of
+a checkbox by calling its isSelected() method, which returns a boolean
+value.
+
+In many cases, you don't need to worry about events from checkboxes.
+Your program can just check the state whenever it needs to know it by
+calling theisSelected() method. However, a checkbox does generate an
+event when its state is changed by the user, and you can detect this
+event and respond to it if you want something to happen at the moment
+the state changes. When the state of a checkbox is changed by the
+user, it generates an event of typeActionEvent. If you want something
+to happen when the user changes the state, you must register an
+ActionListener with the checkbox by calling its addActionListener()
+method. (Note that if you change the state by calling thesetSelected()
+method, no ActionEvent is generated. However, there is another method
+in the JCheckBox class, doClick(), which simulates a user click on the
+checkbox and does generate anActionEvent.)
+
+When handling an ActionEvent, you can call evt.getSource() in the
+actionPerformed() method to find out which object generated the event.
+(Of course, if you are only listening for events from one component,
+you don't have to do this.) The returned value is of type Object, but
+you can type-cast it to another type if you want. Once you know the
+object that generated the event, you can ask the object to tell you
+its current state. For example, if you know that the event had to come
+from one of two checkboxes,cb1 or cb2, then your actionPerformed()
+method might look like this:
+
+
+::
+
+    
+              public void actionPerformed(ActionEvent evt) {
+                 Object source = evt.getSource();
+                 if (source == cb1) {
+                    boolean newState = cb1.isSelected();
+                    ... // respond to the change of state
+                 }
+                 else if (source == cb2) {
+                    boolean newState = cb2.isSelected();
+                    ... // respond to the change of state
+                 }
+              }
+
+
+Alternatively, you can use evt.getActionCommand() to retrieve the
+action command associated with the source. For a JCheckBox, the action
+command is, by default, the label of the checkbox.
+
+
+
+
+
+6.6.4JTextField and JTextArea
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The JTextField and JTextArea classes represent components that contain
+text that can be edited by the user. A JTextField holds a single line
+of text, while aJTextArea can hold multiple lines. It is also possible
+to set aJTextField or JTextArea to be read-only so that the user can
+read the text that it contains but cannot edit the text. Both classes
+are subclasses of an abstract class, JTextComponent, which defines
+their common properties.
+
+JTextField and JTextArea have many methods in common. The instance
+method setText(), which takes a parameter of type String, can be used
+to change the text that is displayed in an input component. The
+contents of the component can be retrieved by calling itsgetText()
+instance method, which returns a value of type String. If you want to
+stop the user from modifying the text, you can call
+setEditable(false). Call the same method with a parameter of true to
+make the input component user-editable again.
+
+The user can only type into a text component when it has the input
+focus. The user can give the input focus to a text component by
+clicking it with the mouse, but sometimes it is useful to give the
+input focus to a text field programmatically. You can do this by
+calling itsrequestFocus() method. For example, when I discover an
+error in the user's input, I usually call requestFocus() on the text
+field that contains the error. This helps the user see where the error
+occurred and lets the user start typing the correction immediately.
+
+By default, there is no space between the text in a text component and
+the edge of the component, which usually doesn't look very good. You
+can use the setMargin() method of the component to add some blank
+space between the edge of the component and the text. This method
+takes a parameter of type java.awt.Insets which contains four integer
+instance variables that specify the margins on the top, left, bottom,
+and right edge of the component. For example,
+
+
+::
+
+    textComponent.setMargin( new Insets(5,5,5,5) );
+
+
+adds a five-pixel margin between the text in textComponent and each
+edge of the component.
+
+
+
+
+The JTextField class has a constructor
+
+
+::
+
+    public JTextField(int columns)
+
+
+where columns is an integer that specifies the number of characters
+that should be visible in the text field. This is used to determine
+the preferred width of the text field. (Because characters can be of
+different sizes and because the preferred width is not always
+respected, the actual number of characters visible in the text field
+might not be equal tocolumns.) You don't have to specify the number of
+columns; for example, you might use the text field in a context where
+it will expand to fill whatever space is available. In that case, you
+can use the default constructorJTextField(), with no parameters. You
+can also use the following constructors, which specify the initial
+contents of the text field:
+
+
+::
+
+    public JTextField(String contents);
+    public JTextField(String contents, int columns);
+
+
+The constructors for a JTextArea are
+
+
+::
+
+    public JTextArea()
+    public JTextArea(int rows, int columns)
+    public JTextArea(String contents)
+    public JTextArea(String contents, int rows, int columns)
+
+
+The parameter rows specifies how many lines of text should be visible
+in the text area. This determines the preferred height of the text
+area, just as columns determines the preferred width. However, the
+text area can actually contain any number of lines; the text area can
+be scrolled to reveal lines that are not currently visible. It is
+common to use a JTextArea as the CENTER component of a BorderLayout.
+In that case, it is less useful to specify the number of lines and
+columns, since the TextArea will expand to fill all the space
+available in the center area of the container.
+
+The JTextArea class adds a few useful methods to those inherited from
+JTextComponent. For example, the instance method append(moreText),
+where moreText is of type String, adds the specified text at the end
+of the current content of the text area. (When using append() or
+setText() to add text to a JTextArea, line breaks can be inserted in
+the text by using the newline character,'\n'.) AndsetLineWrap(wrap),
+where wrap is of type boolean, tells what should happen when a line of
+text is too long to be displayed in the text area. If wrap is true,
+then any line that is too long will be "wrapped" onto the next line;
+if wrap is false, the line will simply extend outside the text area,
+and the user will have to scroll the text area horizontally to see the
+entire line. The default value of wrap is false.
+
+Since it might be necessary to scroll a text area to see all the text
+that it contains, you might expect a text area to come with scroll
+bars. Unfortunately, this does not happen automatically. To get scroll
+bars for a text area, you have to put the JTextArea inside another
+component, called a JScrollPane. This can be done as follows:
+
+
+::
+
+    JTextArea inputArea = new JTextArea();
+    JScrollPane scroller = new JScrollPane( inputArea );
+
+
+The scroll pane provides scroll bars that can be used to scroll the
+text in the text area. The scroll bars will appear only when needed,
+that is when the size of the text exceeds the size of the text area.
+Note that when you want to put the text area into a container, you
+should add the scroll pane, not the text area itself, to the
+container.
+
+Here is an applet that simply displays a text area, with a rather
+large font, in a scrollpane. The source code of this short example is
+`TextAreaDemo.java`_. You should check out how the scroll bars change
+as you type in additional lines of text:
+
+
+
+
+
+
+When the user is typing in a JTextField and presses return, an
+ActionEvent is generated. If you want to respond to such events, you
+can register an ActionListener with the text field, using the text
+field's addActionListener() method. (Since a JTextArea can contain
+multiple lines of text, pressing return in a text area does not
+generate an event; is simply begins a new line of text.)
+
+JTextField has a subclass, JPasswordField, which is identical except
+that it does not reveal the text that it contains. The characters in a
+JPasswordField are all displayed as asterisks (or some other fixed
+character). A password field is, obviously, designed to let the user
+enter a password without showing that password on the screen.
+
+Text components are actually quite complex, and I have covered only
+their most basic properties here. I will return to the topic of text
+components in `Subsection13.4.4`_.
+
+
+
+
+
+6.6.5JComboBox
+~~~~~~~~~~~~~~
+
+The JComboBox class provides a way to let the user select one option
+from a list of options. The options are presented as a kind of pop-up
+menu, and only the currently selected option is visible on the screen.
+
+When a JComboBox object is first constructed, it initially contains no
+items. An item is added to the bottom of the list of options by
+calling the combo box's instance method, addItem(str), where str is
+the string that will be displayed in the menu.
+
+For example, the following code will create an object of typeJComboBox
+that contains the options Red, Blue, Green, and Black:
+
+
+::
+
+    JComboBox colorChoice = new JComboBox();
+    colorChoice.addItem("Red");
+    colorChoice.addItem("Blue");
+    colorChoice.addItem("Green");
+    colorChoice.addItem("Black");
+
+
+You can call the getSelectedIndex() method of a JComboBox to find out
+which item is currently selected. This method returns an integer that
+gives the position of the selected item in the list, where the items
+are numbered starting from zero. Alternatively, you can
+callgetSelectedItem() to get the selected item itself. (This method
+returns a value of type Object, since a JComboBox can actually hold
+other types of objects besides strings.) You can change the selection
+by calling the method setSelectedIndex(n), where n is an integer
+giving the position of the item that you want to select.
+
+The most common way to use a JComboBox is to call
+itsgetSelectedIndex() method when you have a need to know which item
+is currently selected. However, like other components that we have
+seen,JComboBox components generate ActionEvents when the user selects
+an item. You can register an ActionListener with the JComboBox if you
+want to respond to such events as they occur.
+
+JComboBoxes have a nifty feature, which is probably not all that
+useful in practice. You can make a JComboBox "editable" by calling its
+method setEditable(true). If you do this, the user can edit the
+selection by clicking on the JComboBox and typing. This allows the
+user to make a selection that is not in the pre-configured list that
+you provide. (The "Combo" in the name "JComboBox" refers to the fact
+that it's a kind of combination of menu and text-input box.) If the
+user has edited the selection in this way, then the getSelectedIndex()
+method will return the value -1, and getSelectedItem() will return the
+string that the user typed. An ActionEvent is triggered if the user
+presses return while typing in the JComboBox.
+
+
+
+
+
+6.6.6JSlider
+~~~~~~~~~~~~
+
+A JSlider provides a way for the user to select an integer value from
+a range of possible values. The user does this by dragging a "knob"
+along a bar. A slider can, optionally, be decorated with tick marks
+and with labels. This demonstration applet shows three sliders with
+different decorations and with different ranges of values:
+
+
+
+Here, the second slider is decorated with ticks, and the third one is
+decorated with labels. It's possible for a single slider to have both
+types of decorations.
+
+The most commonly used constructor for JSliders specifies the start
+and end of the range of values for the slider and its initial value
+when it first appears on the screen:
+
+
+::
+
+    public JSlider(int minimum, int maximum, int value)
+
+
+If the parameters are omitted, the values 0, 100, and 50 are used. By
+default, a slider is horizontal, but you can make it vertical by
+calling its method setOrientation(JSlider.VERTICAL). The current value
+of aJSlider can be read at any time with its getValue() method, which
+returns a value of type int. If you want to change the value, you can
+do so with the method setValue(n), which takes a parameter of type
+int.
+
+If you want to respond immediately when the user changes the value of
+a slider, you can register a listener with the slider. JSliders,
+unlike other components we have seen, do not generate ActionEvents.
+Instead, they generate events of type ChangeEvent. ChangeEvent and
+related classes are defined in the package javax.swing.event rather
+than java.awt.event, so if you want to use ChangeEvents, you should
+import javax.swing.event.* at the beginning of your program. You must
+also define some object to implement the ChangeListener interface, and
+you must register the change listener with the slider by calling its
+addChangeListener() method. A ChangeListener must provide a definition
+for the method:
+
+
+::
+
+    public void stateChanged(ChangeEvent evt)
+
+
+This method will be called whenever the value of the slider changes.
+Note that it will also be called when you change the value with the
+setValue() method, as well as when the user changes the value. In
+thestateChanged() method, you can call evt.getSource() to find out
+which object generated the event. If you want to know whether the user
+generated the change event, call the slider's getValueIsAdjusting()
+method, which returns true if the user is dragging the knob on the
+slider.
+
+Using tick marks on a slider is a two-step process: Specify the
+interval between the tick marks, and tell the slider that the tick
+marks should be displayed. There are actually two types of tick marks,
+"major" tick marks and "minor" tick marks. You can have one or the
+other or both. Major tick marks are a bit longer than minor tick
+marks. The method setMinorTickSpacing(i) indicates that there should
+be a minor tick mark every i units along the slider. The parameter is
+an integer. (The spacing is in terms of values on the slider, not
+pixels.) For the major tick marks, there is a similar
+command,setMajorTickSpacing(i). Calling these methods is not enough to
+make the tick marks appear. You also have to call setPaintTicks(true).
+For example, the second slider in the above applet was created and
+configured using the commands:
+
+
+::
+
+    slider2 = new JSlider();  // (Uses default min, max, and value.)
+    slider2.addChangeListener(this);
+    slider2.setMajorTickSpacing(25);
+    slider2.setMinorTickSpacing(5);
+    slider2.setPaintTicks(true);
+
+
+Labels on a slider are handled similarly. You have to specify the
+labels and tell the slider to paint them. Specifying labels is a
+tricky business, but theJSlider class has a method to simplify it. You
+can create a set of labels and add them to a slider named sldr with
+the command:
+
+
+::
+
+    sldr.setLabelTable( sldr.createStandardLabels(i) );
+
+
+where i is an integer giving the spacing between the labels. To
+arrange for the labels to be displayed, call setPaintLabels(true). For
+example, the third slider in the above applet was created and
+configured with the commands:
+
+
+::
+
+    slider3 = new JSlider(2000,2100,2006);
+    slider3.addChangeListener(this);
+    slider3.setLabelTable( slider3.createStandardLabels(50) );
+    slider3.setPaintLabels(true);
+
+
+
+
+[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
+Index`_ ]
+
+.. _6.3.2: http://math.hws.edu/javanotes/c6/../c6/s3.html#GUI1.3.2
+.. _TextAreaDemo.java: http://math.hws.edu/javanotes/c6/../source/TextAreaDemo.java
+.. _13.4.4: http://math.hws.edu/javanotes/c6/../c13/s4.html#GUI2.4.4
+.. _6.1: http://math.hws.edu/javanotes/c6/../c6/s1.html
+.. _Next Section: http://math.hws.edu/javanotes/c6/s7.html
+.. _6.3.3: http://math.hws.edu/javanotes/c6/../c6/s3.html#GUI1.3.3
+.. _Main Index: http://math.hws.edu/javanotes/c6/../index.html
+.. _next section: http://math.hws.edu/javanotes/c6/../c6/s7.html
+.. _6.2: http://math.hws.edu/javanotes/c6/../c6/s2.html
+.. _Previous Section: http://math.hws.edu/javanotes/c6/s5.html
+.. _Chapter Index: http://math.hws.edu/javanotes/c6/index.html
+
+

@@ -1,0 +1,808 @@
+[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
+
+
+**Subsections**
+
+
+Generic Programming in Smalltalk
+Generic Programming in C++
+Generic Programming in Java
+The Java Collection Framework
+Iterators and for-each Loops
+Equality and Comparison
+Generics and Wrapper Classes
+
+
+
+Section 10.1
+~~~~~~~~~~~~
+
+
+Generic Programming
+-------------------
+
+
+
+G eneric programming refers to writing code that will work for many
+types of data. We encountered the term in `Section7.3`_, where we
+looked at dynamic arrays of integers. The source code presented there
+for working with dynamic arrays of integers works only for data of
+type int. But the source code for dynamic arrays of double, String,
+JButton, or any other type would be almost identical, except for the
+substitution of one type name for another. It seems silly to write
+essentially the same code over and over. As we saw in
+`Subsection7.3.3`_, Java goes some distance towards solving this
+problem by providing the ArrayList class. AnArrayList is essentially a
+dynamic array of values of typeObject. Since every class is a subclass
+of Object, objects of any type can be stored in an ArrayList. Java
+goes even further by providing "parameterized types," which were
+introduced in `Subsection7.3.4`_. There we saw that the ArrayList type
+can be parameterized, as in "ArrayList<String>", to limit the values
+that can be stored in the list to objects of a specified type.
+Parameterized types extend Java's basic philosophy of type-safe
+programming to generic programming.
+
+The ArrayList class is just one of several standard classes that are
+used for generic programming in Java. We will spend the next few
+sections looking at these classes and how they are used, and we'll see
+that there are also generic methods and generic interfaces (see
+`Subsection5.7.1`_). All the classes and interfaces discussed in these
+sections are defined in the package java.util, and you will need an
+import statement at the beginning of your program to get access to
+them. (Before you start putting "importjava.util.*" at the beginning
+of every program, you should know that some things injava.util have
+names that are the same as things in other packages. For example, both
+java.util.List and java.awt.List exist, so it is often better to
+import the individual classes that you need.)
+
+In the final section of this chapter, we will see that it is possible
+to define new generic classes, interfaces, and methods. Until then, we
+will stick to using the generics that are predefined in Java's
+standard library.
+
+It is no easy task to design a library for generic programming. Java's
+solution has many nice features but is certainly not the only possible
+approach. It is almost certainly not the best, and has a few features
+that in my opinion can only be called bizarre, but in the context of
+the overall design of Java, it might be close to optimal. To get some
+perspective on generic programming in general, it might be useful to
+look very briefly at generic programming in two other languages.
+
+
+
+
+
+10.1.1Generic Programming in Smalltalk
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Smalltalk was one of the very first object-oriented programming
+languages. It is still used today, although its use is not very
+common. It has not achieved anything like the popularity of Java or
+C++, but it is the source of many ideas used in these languages. In
+Smalltalk, essentially all programming is generic, because of two
+basic properties of the language.
+
+First of all, variables in Smalltalk are typeless. A data value has a
+type, such as integer or string, but variables do not have types. Any
+variable can hold data of any type. Parameters are also typeless, so a
+subroutine can be applied to parameter values of any type. Similarly,
+a data structure can hold data values of any type. For example, once
+you've defined a binary tree data structure in SmallTalk, you can use
+it for binary trees of integers or strings or dates or data of any
+other type. There is simply no need to write new code for each data
+type.
+
+Secondly, all data values are objects, and all operations on objects
+are defined by methods in a class. This is true even for types that
+are "primitive" in Java, such as integers. When the "+" operator is
+used to add two integers, the operation is performed by calling a
+method in the integer class. When you define a new class, you can
+define a "+" operator, and you will then be able to add objects
+belonging to that class by saying "a+b" just as if you were adding
+numbers. Now, suppose that you write a subroutine that uses the "+"
+operator to add up the items in a list. The subroutine can be applied
+to a list of integers, but it can also be applied, automatically, to
+any other data type for which "+" is defined. Similarly, a subroutine
+that uses the "<" operator to sort a list can be applied to lists
+containing any type of data for which "<" is defined. There is no need
+to write a different sorting subroutine for each type of data.
+
+Put these two features together and you have a language where data
+structures and algorithms will work for any type of data for which
+they make sense, that is, for which the appropriate operations are
+defined. This is real generic programming. This might sound pretty
+good, and you might be asking yourself why all programming languages
+don't work this way. This type of freedom makes it easier to write
+programs, but unfortunately it makes it harder to write programs that
+are correct and robust (see `Chapter8`_). Once you have a data
+structure that can contain data of any type, it becomes hard to ensure
+that it only holds the type of data that you want it to hold. If you
+have a subroutine that can sort any type of data, it's hard to ensure
+that it will only be applied to data for which the "<" operator is
+defined. More particularly, there is no way for a **compiler** to
+ensure these things. The problem will only show up at run time when an
+attempt is made to apply some operation to a data type for which it is
+not defined, and the program will crash.
+
+
+
+
+
+10.1.2Generic Programming in C++
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Unlike Smalltalk, C++ is a very strongly typed language, even more so
+than Java. Every variable has a type, and can only hold data values of
+that type. This means that the kind of generic programming that is
+used in Smalltalk is impossible in C++. Furthermore, C++ does not have
+anything corresponding to Java'sObject class. That is, there is no
+class that is a superclass of all other classes. This means that C++
+can't use Java's style of generic programming with non-parameterized
+generic types either. Nevertheless, C++ has a powerful and flexible
+system of generic programming. It is made possible by a language
+feature known astemplates. In C++, instead of writing a different
+sorting subroutine for each type of data, you can write a single
+subroutine template. The template is not a subroutine; it's more like
+a factory for making subroutines. We can look at an example, since the
+syntax of C++ is very similar to Java's:
+
+
+::
+
+    template<class ItemType>
+    void sort( ItemType A[], int count ) {
+          // Sort items in the array, A, into increasing order.
+          // The items in positions 0, 1, 2, ..., (count-1) are sorted.
+          // The algorithm that is used here is selection sort.
+       for (int i = count-1; i > 0; i--) {
+          int position_of_max = 0;
+          for (int j = 1; j <= count ; j++)
+             if ( A[j] > A[position_of_max] )
+                position_of_max = j;
+          ItemType temp = A[count];
+          A[count] = A[position_of_max];
+          A[position_of_max] = temp;
+       }
+    }
+
+
+This piece of code defines a subroutine template. If you remove the
+first line, "template<class ItemType>", and substitute the word "int"
+for the word "ItemType" in the rest of the template, you get a
+subroutine for sorting arrays of ints. (Even though it says "class
+ItemType", you can actually substitute any type for ItemType,
+including the primitive types.) If you substitute "string" for
+"ItemType", you get a subroutine for sorting arrays of strings. This
+is pretty much what the compiler does with the template. If your
+program says "sort(list,10)" where list is an array of ints, the
+compiler uses the template to generate a subroutine for sorting arrays
+of ints. If you say "sort(cards,10)" where cards is an array of
+objects of type Card, then the compiler generates a subroutine for
+sorting arrays of Cards. At least, it tries to. The template uses the
+">" operator to compare values. If this operator is defined for values
+of type Card, then the compiler will successfully use the template to
+generate a subroutine for sorting cards. If ">" is not defined for
+Cards, then the compiler will fail -- but this will happen at compile
+time, not, as in Smalltalk, at run time where it would make the
+program crash.
+
+In addition to subroutine templates, C++ also has templates for making
+classes. If you write a template for a binary tree class, you can use
+it to generate classes for binary trees of ints, binary trees of
+strings, binary trees of dates, and so on -- all from one template.
+The most recent version of C++ comes with a large number of pre-
+written templates called the Standard Template Library or STL. The STL
+is quite complex. Many people would say that its much too complex. But
+it is also one of the most interesting features of C++.
+
+
+
+
+
+10.1.3Generic Programming in Java
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Java's generic programming features have gone through several stages
+of development. The original version of Java had just a few generic
+data structure classes, such as Vector, that could hold values of type
+Object. Java version 1.2 introduced a much larger group of generics
+that followed the same basic model. These generic classes and
+interfaces as a group are known as the Java Collection Framework.
+TheArrayList class is part of the Collection Framework. The original
+Collection Framework was closer in spirit to Smalltalk than it was to
+C++, since a data structure designed to hold Objects can be used with
+objects of any type. Unfortunately, as in Smalltalk, the result is a
+category of errors that show up only at run time, rather than at
+compile time. If a programmer assumes that all the items in a data
+structure are strings and tries to process those items as strings, a
+run-time error will occur if other types of data have inadvertently
+been added to the data structure. In Java, the error will most likely
+occur when the program retrieves anObject from the data structure and
+tries to type-cast it to type String. If the object is not actually of
+type String, the illegal type-cast will throw an error of type
+ClassCastException.
+
+Java 5.0 introduced parameterized types, such as ArrayList<String>.
+This made it possible to create generic data structures that can be
+type-checked at compile time rather than at run time. With these data
+structures, type-casting is not necessary, so ClassCastExceptions are
+avoided. The compiler will detect any attempt to add an object of the
+wrong type to the data structure; it will report a syntax error and
+will refuse to compile the program. In Java 5.0, all of the classes
+and interfaces in the Collection Framework, and even some classes that
+are not part of that framework, have been parameterized. Java's
+parameterized classes are similar to template classes in C++ (although
+the implementation is very different), and their introduction moves
+Java's generic programming model closer to C++ and farther from
+Smalltalk. In this chapter, I will use the parameterized types almost
+exclusively, but you should remember that their use is not mandatory.
+It is still legal to use a parameterized class as a non-parameterized
+type, such as a plain ArrayList.
+
+Note that there is a significant difference between parameterized
+classes in Java and template classes in C++. A template class in C++
+is not really a class at all -- it's a kind of factory for generating
+classes. Every time the template is used with a new type, a new
+compiled class is created. With a Java parameterized class, there is
+only one compiled class file. For example, there is only one compiled
+class file, ArrayList.class, for the parameterized class ArrayList.
+The parameterized types ArrayList<String> and ArrayList<Integer> both
+use the same compiled class file, as does the plain ArrayList type.
+The type parameter -- String or Integer -- just tells the compiler to
+limit the type of object that can be stored in the data structure. The
+type parameter has no effect at run time and is not even known at run
+time. The type information is said to be "erased" at run time. This
+type erasure introduces a certain amount of weirdness. For example,
+you can't test "if (list instanceof ArrayList<String>)" because the
+instanceof operator is evaluated at run time, and at run time only the
+plain ArrayList exists. Even worse, you can't create an array that has
+base type ArrayList<String> by using the new operator, as in "new
+ArrayList<String>[N]". This is because the new operator is evaluated
+at run time, and at run time there is no such thing as
+"ArrayList<String>"; only the non-parameterized type ArrayList exists
+at run time.
+
+Fortunately, most programmers don't have to deal with such problems,
+since they turn up only in fairly advanced programming. Most people
+who use the Java Collection Framework will not encounter them, and
+they will get the benefits of type-safe generic programming with
+little difficulty.
+
+
+
+
+
+10.1.4The Java Collection Framework
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Java's generic data structures can be divided into two
+categories:collections and maps. A collection is more or less what it
+sounds like: a collection of objects. A map associates objects in one
+set with objects in another set in the way that a dictionary
+associates definitions with words or a phone book associates phone
+numbers with names. A map is similar to what I called an "association
+list" in`Subsection7.4.2`_. In Java, collections and maps are
+represented by the parameterized interfaces Collection<T> and
+Map<T,S>. Here, "T" and "S" stand for any type except for the
+primitive types. Map<T,S> is the first example we have seen where
+there are two type parameters, T andS; we will not deal further with
+this possibility until we look at maps more closely in `Section10.3`_.
+In this section and the next, we look at collections only.
+
+There are two types of collections: lists andsets. A list is a
+collection in which the objects are arranged in a linear sequence. A
+list has a first item, a second item, and so on. For any item in the
+list, except the last, there is an item that directly follows it. The
+defining property of a set is that no object can occur more than once
+in a set; the elements of a set are not necessarily thought of as
+being in any particular order. The ideas of lists and sets are
+represented as parameterized interfaces List<T> and Set<T>. These are
+sub-interfaces ofCollection<T>. That is, any object that implements
+the interface List<T> or Set<T> automatically implements Collection<T>
+as well. The interface Collection<T> specifies general operations that
+can be applied to any collection at all. List<T> and Set<T> add
+additional operations that are appropriate for lists and sets
+respectively.
+
+Of course, any actual object that is a collection, list, or set must
+belong to a concrete class that implements the corresponding
+interface. For example, the classArrayList<T> implements the
+interfaceList<T> and therefore also implementsCollection<T>. This
+means that all the methods that are defined in the list and collection
+interfaces can be used with, for example, an ArrayList<String> object.
+We will look at various classes that implement the list and set
+interfaces in the `next section`_. But before we do that, we'll look
+briefly at some of the general operations that are available for all
+collections.
+
+
+
+
+The interface Collection<T> specifies methods for performing some
+basic operations on any collection of objects. Since "collection" is a
+very general concept, operations that can be applied to all
+collections are also very general. They are generic operations in the
+sense that they can be applied to various types of collections
+containing various types of objects. Suppose that coll is an object
+that implements the interface Collection<T> (for some specific non-
+primitive type T). Then the following operations, which are specified
+in the interface Collection<T>, are defined for coll:
+
+
++ coll.size() -- returns anint that gives the number of objects in the
+  collection.
++ coll.isEmpty() -- returns a boolean value which is true if the size
+  of the collection is0.
++ coll.clear() -- removes all objects from the collection.
++ coll.add(tobject) -- addstobject to the collection. The parameter
+  must be of type T; if not, a syntax error occurs at compile time. This
+  method returns a boolean value which tells you whether the operation
+  actually modified the collection. For example, adding an object to a
+  Set has no effect if that object was already in the set.
++ coll.contains(object) -- returns aboolean value that is true if
+  object is in the collection. Note that object is **not** required to
+  be of type T, since it makes sense to check whether object is in the
+  collection, no matter what type object has. (For testing equality,
+  null is considered to be equal to itself. The criterion for testing
+  non-null objects for equality can differ from one kind of collection
+  to another; see`Subsection10.1.6`_, below.)
++ coll.remove(object) -- removesobject from the collection, if it
+  occurs in the collection, and returns a boolean value that tells you
+  whether the object was found. Again, object is not required to be of
+  typeT.
++ coll.containsAll(coll2) -- returns aboolean value that is true if
+  every object in coll2 is also in coll. The parameter can be any
+  collection.
++ coll.addAll(coll2) -- adds all the objects in coll2 to coll. The
+  parameter,coll2, can be any collection of type Collection<T>. However,
+  it can also be more general. For example, if T is a class and S is a
+  sub-class of T, then coll2 can be of type Collection<S>. This makes
+  sense because any object of type S is automatically of typeT and so
+  can legally be added to coll.
++ coll.removeAll(coll2) -- removes every object from coll that also
+  occurs in the collectioncoll2. coll2 can be any collection.
++ coll.retainAll(coll2) -- removes every object from coll that **does
+  not occur** in the collection coll2. It "retains" only the objects
+  that do occur incoll2. coll2 can be any collection.
++ coll.toArray() -- returns an array of type Object[] that contains
+  all the items in the collection. Note that the return type is
+  Object[], not T[]! However, there is another version of this method
+  that takes an array of type T[] as a parameter: the method
+  coll.toArray(tarray) returns an array of type T[] containing all the
+  items in the collection. If the array parameter tarray is large enough
+  to hold the entire collection, then the items are stored in tarray and
+  tarray is also the return value of the collection. If tarray is not
+  large enough, then a new array is created to hold the items; in that
+  case tarray serves only to specify the type of the array. For example,
+  coll.toArray(newString[0]) can be used if coll is a collection of
+  Strings and will return a new array of type String[].
+
+
+Since these methods are part of the Collection<T> interface, they must
+be defined for every object that implements that interface. There is a
+problem with this, however. For example, the size of some collections
+cannot be changed after they are created. Methods that add or remove
+objects don't make sense for these collections. While it is still
+legal to call the methods, an exception will be thrown when the call
+is evaluated at run time. The type of the exception is
+UnsupportedOperationException. Furthermore, since Collection<T> is
+only an interface, not a concrete class, the actual implementation of
+the method is left to the classes that implement the interface. This
+means that the semantics of the methods, as described above, are not
+guaranteed to be valid for all collection objects; they are valid,
+however, for classes in the Java Collection Framework.
+
+There is also the question of efficiency. Even when an operation is
+defined for several types of collections, it might not be equally
+efficient in all cases. Even a method as simple as size() can vary
+greatly in efficiency. For some collections, computing the size()
+might involve counting the items in the collection. The number of
+steps in this process is equal to the number of items. Other
+collections might have instance variables to keep track of the size,
+so evaluating size() just means returning the value of a variable. In
+this case, the computation takes only one step, no matter how many
+items there are. When working with collections, it's good to have some
+idea of how efficient operations are and to choose a collection for
+which the operations that you need can be implemented most
+efficiently. We'll see specific examples of this in the next two
+sections.
+
+
+
+
+
+10.1.5Iterators and for-each Loops
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The interface Collection<T> defines a few basic generic algorithms,
+but suppose you want to write your own generic algorithms. Suppose,
+for example, you want to do something as simple as printing out every
+item in a collection. To do this in a generic way, you need some way
+of going through an arbitrary collection, accessing each item in turn.
+We have seen how to do this for specific data structures: For an
+array, you can use a for loop to iterate through all the array
+indices. For a linked list, you can use a while loop in which you
+advance a pointer along the list. For a binary tree, you can use a
+recursive subroutine to do an inorder traversal. Collections can be
+represented in any of these forms and many others besides. With such a
+variety of traversal mechanisms, how can we even hope to come up with
+a single generic method that will work for collections that are stored
+in wildly different forms? This problem is solved by iterators. An
+iterator is an object that can be used to traverse a collection.
+Different types of collections have iterators that are implemented in
+different ways, but all iterators are **used** in the same way. An
+algorithm that uses an iterator to traverse a collection is generic,
+because the same technique can be applied to any type of collection.
+Iterators can seem rather strange to someone who is encountering
+generic programming for the first time, but you should understand that
+they solve a difficult problem in an elegant way.
+
+The interface Collection<T> defines a method that can be used to
+obtain an iterator for any collection. If coll is a collection,
+thencoll.iterator() returns an iterator that can be used to traverse
+the collection. You should think of the iterator as a kind of
+generalized pointer that starts at the beginning of the collection and
+can move along the collection from one item to the next. Iterators are
+defined by a parameterized interface named Iterator<T>. If coll
+implements the interface Collection<T> for some specific type T, then
+coll.iterator() returns an iterator of type Iterator<T>, with the same
+type T as its type parameter. The interface Iterator<T> defines just
+three methods. Ifiter refers to an object that implements Iterator<T>,
+then we have:
+
+
++ iter.next() -- returns the next item, and advances the iterator. The
+  return value is of type T. This method lets you look at one of the
+  items in the collection. Note that there is no way to look at an item
+  without advancing the iterator past that item. If this method is
+  called when no items remain, it will throw aNoSuchElementException.
++ iter.hasNext() -- returns a boolean value telling you whether there
+  are more items to be processed. In general, you should test this
+  before calling iter.next().
++ iter.remove() -- if you call this after calling iter.next(), it will
+  remove the item that you just saw from the collection. Note that this
+  method has **no parameter**. It removes the item that was most
+  recently returned by iter.next(). This might produce an
+  UnsupportedOperationException, if the collection does not support
+  removal of items.
+
+
+Using iterators, we can write code for printing all the items in
+**any** collection. Suppose, for example, that coll is of
+typeCollection<String>. In that case, the value returned by
+coll.iterator() is of type Iterator<String>, and we can say:
+
+
+::
+
+    Iterator<String> iter;          // Declare the iterator variable.
+    iter = coll.iterator();         // Get an iterator for the collection.
+    while ( iter.hasNext() ) {
+       String item = iter.next();   // Get the next item.
+       System.out.println(item);
+    }
+
+
+The same general form will work for other types of processing. For
+example, the following code will remove all null values from any
+collection of type Collection<JButton> (as long as that collection
+supports removal of values):
+
+
+::
+
+    Iterator<JButton> iter = coll.iterator():
+    while ( iter.hasNext() ) {
+        JButton item = iter.next();
+        if (item == null)
+           iter.remove();
+    }
+
+
+(Note, by the way, that when Collection<T>,Iterator<T>, or any other
+parameterized type is used in actual code, they are always used with
+actual types such asString or JButton in place of the "formal type
+parameter"T. An iterator of type Iterator<String> is used to iterate
+through a collection of Strings; an iterator of type Iterator<JButton>
+is used to iterate through a collection of JButtons; and so on.)
+
+An iterator is often used to apply the same operation to all the
+elements in a collection. In many cases, it's possible to avoid the
+use of iterators for this purpose by using a for-each loop. The for-
+each loop was discussed in `Subsection3.4.4`_ for use with enumerated
+types and in `Subsection7.2.2`_ for use with arrays. A for-each loop
+can also be used to iterate through any collection. For a collection
+coll of type Collection<T>, a for-each loop takes the form:
+
+
+::
+
+    for ( T x : coll ) { // "for each object x, of type T, in coll"
+       //  process x  
+    }
+
+
+Here, x is the loop control variable. Each object incoll will be
+assigned to x in turn, and the body of the loop will be executed for
+each object. Since objects incoll are of type T, x is declared to be
+of type T. For example, ifnamelist is of type Collection<String>, we
+can print out all the names in the collection with:
+
+
+::
+
+    for ( String name : namelist ) { 
+       System.out.println( name );
+    }
+
+
+This for-each loop could, of course, be written as a while loop using
+an iterator, but the for-each loop is much easier to follow.
+
+
+
+
+
+10.1.6Equality and Comparison
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are several methods in the Collection interface that test
+objects for equality. For example, the methods coll.contains(object)
+and coll.remove(object) look for an item in the collection that is
+equal to object. However, equality is not such a simple matter. The
+obvious technique for testing equality -- using the == operator --
+does not usually give a reasonable answer when applied to objects.
+The== operator tests whether two objects are identical in the sense
+that they share the same location in memory. Usually, however, we want
+to consider two objects to be equal if they represent the same value,
+which is a very different thing. Two values of type String should be
+considered equal if they contain the same sequence of characters. The
+question of whether those characters are stored in the same location
+in memory is irrelevant. Two values of type Date should be considered
+equal if they represent the same time.
+
+The Object class defines the boolean-valued methodequals(Object) for
+testing whether one object is equal to another. This method is used by
+many, but not by all, collection classes for deciding whether two
+objects are to be considered the same. In the Object
+class,obj1.equals(obj2) is defined to be the same as obj1==obj2.
+However, for most sub-classes of Object, this definition is not
+reasonable, and it should be overridden. The String class, for
+example, overrides equals() so that for a Stringstr, str.equals(obj)
+if obj is also aString and obj contains the same sequence of
+characters asstr.
+
+If you write your own class, you might want to define an equals()
+method in that class to get the correct behavior when objects are
+tested for equality. For example, a Card class that will work
+correctly when used in collections could be defined as:
+
+
+::
+
+    public class Card {  // Class to represent playing cards.
+       
+       int suit;  // Number from 0 to 3 that codes for the suit --
+                  // spades, diamonds, clubs or hearts.
+       int value; // Number from 1 to 13 that represents the value.
+       
+       public boolean equals(Object obj) {
+           try {
+              Card other = (Card)obj;  // Type-cast obj to a Card.
+              if (suit == other.suit && value == other.value) {
+                    // The other card has the same suit and value as
+                    // this card, so they should be considered equal.
+                 return true;
+              }
+              else
+                 return false;
+           }
+           catch (Exception e) {
+                  // This will catch the NullPointerException that occurs if obj
+                  // is null and the ClassCastException that occurs if obj is
+                  // not of type Card.  In these cases, obj is not equal to
+                  // this Card, so return false.
+               return false;
+           }
+        }
+       
+        .
+        . // other methods and constructors
+        .
+    }
+
+
+Without the equals() method in this class, methods such ascontains()
+and remove() in the interface Collection<Card> will not work as
+expected.
+
+A similar concern arises when items in a collection are sorted.
+Sorting refers to arranging a sequence of items in ascending order,
+according to some criterion. The problem is that there is no natural
+notion of ascending order for arbitrary objects. Before objects can be
+sorted, some method must be defined for comparing them. Objects that
+are meant to be compared should implement the interface
+java.lang.Comparable. In fact, Comparable is defined as a
+parameterized interface, Comparable<T>, which represents the ability
+to be compared to an object of type T. The interface Comparable<T>
+defines one method:
+
+
+::
+
+    public int compareTo( T obj )
+
+
+The value returned by obj1.compareTo(obj2) should be negative if and
+only if obj1 comes before obj2, when the objects are arranged in
+ascending order. It should be positive if and only if obj1 comes after
+obj2. A return value of zero means that the objects are considered to
+be the same for the purposes of this comparison. This does not
+necessarily mean that the objects are equal in the sense that
+obj1.equals(obj2) is true. For example, if the objects are of type
+Address, representing mailing addresses, it might be useful to sort
+the objects by zip code. Two Addresses are considered the same for the
+purposes of the sort if they have the same zip code -- but clearly
+that would not mean that they are the same address.
+
+The String class implements the interface Comparable<String> and
+defines compareTo in a reasonable way. In this case, the return value
+of compareTo is zero if and only if the two strings that are being
+compared are equal. (It is generally a good idea for the compareTo
+method in classes that implement Comparable to have the analogous
+property.) If you define your own class and want to be able to sort
+objects belonging to that class, you should do the same. For example:
+
+
+::
+
+    /**
+     * Represents a full name consisting of a first name and a last name.
+     */
+    public class FullName implements Comparable<FullName> {
+    
+       private String firstName, lastName;  // Non-null first and last names.
+       
+       public FullName(String first, String last) {  // Constructor.
+          if (first == null || last == null)
+             throw new IllegalArgumentException("Names must be non-null.");
+          firstName = first;
+          lastName = last;
+       }
+       
+       public boolean equals(Object obj) {
+          try {
+             FullName other = (FullName)obj;  // Type-cast obj to type FullName
+             return firstName.equals(other.firstName) 
+                                    && lastName.equals(other.lastName);
+          }
+          catch (Exception e) {
+             return false;  // if obj is null or is not of type FullName
+          }
+       }
+       
+       public int compareTo( FullName other ) {
+          if ( lastName.compareTo(other.lastName) < 0 ) {
+                 // If lastName comes before the last name of
+                 // the other object, then this FullName comes
+                 // before the other FullName.  Return a negative
+                 // value to indicate this.
+             return -1;
+          }
+          else if ( lastName.compareTo(other.lastName) > 0 ) {
+                 // If lastName comes after the last name of
+                 // the other object, then this FullName comes
+                 // after the other FullName.  Return a positive
+                 // value to indicate this.
+             return 1;
+          }
+          else {
+                 // Last names are the same, so base the comparison on
+                 // the first names, using compareTo from class String.
+             return firstName.compareTo(other.firstName);
+          }
+       }
+       
+       .
+       . // other methods 
+       .
+    }
+
+
+(I find it a little odd that the class here is declared as "class
+FullName implements Comparable<FullName>", with "FullName" repeated as
+a type parameter in the name of the interface. However, it does make
+sense. It means that we are going to compare objects that belong to
+the class FullName to other objects **of the same type**. Even though
+this is the only reasonable thing to do, that fact is not obvious to
+the Java compiler -- and the type parameter inComparable<FullName> is
+there for the compiler.)
+
+There is another way to allow for comparison of objects in Java, and
+that is to provide a separate object that is capable of making the
+comparison. The object must implement the interface Comparator<T>,
+where T is the type of the objects that are to be compared. The
+interface Comparator<T> defines the method:
+
+
+::
+
+    public int compare( T obj1, T obj2 )
+
+
+This method compares two objects of type T and returns a value that is
+negative, or positive, or zero, depending on whether obj1 comes
+beforeobj2, or comes after obj2, or is considered to be the same as
+obj2 for the purposes of this comparison. Comparators are useful for
+comparing objects that do not implement theComparable interface and
+for defining several different orderings on the same collection of
+objects.
+
+In the next two sections, we'll see how Comparable andComparator are
+used in the context of collections and maps.
+
+
+
+
+
+10.1.7Generics and Wrapper Classes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As noted above, Java's generic programming does not apply to the
+primitive types, since generic data structures can only hold objects,
+while values of primitive type are not objects. However, the "wrapper
+classes" that were introduced in `Subsection5.3.2`_ make it possible
+to get around this restriction to a great extent.
+
+Recall that each primitive type has an associated wrapper class: class
+Integer for type int, class Boolean for type boolean, class Character
+for type char, and so on.
+
+An object of type Integer contains a value of type int. The object
+serves as a "wrapper" for the primitive type value, which allows it to
+be used in contexts where objects are required, such as in generic
+data structures. For example, a list of Integers can be stored in a
+variable of type ArrayList<Integer>, and interfaces such as
+Collection<Integer> andSet<Integer> are defined. Furthermore, class
+Integer defines equals(),compareTo(), and toString() methods that do
+what you would expect (that is, that compare and write out the
+corresponding primitive type values in the usual way). Similar remarks
+apply for all the wrapper classes.
+
+Recall also that Java does automatic conversions between a primitive
+type and the corresponding wrapper type. (These conversions, which are
+called autoboxing and unboxing, were also introduced in
+`Subsection5.3.2`_.) This means that once you have created a generic
+data structure to hold objects belonging to one of the wrapper
+classes, you can use the data structure pretty much as if it actually
+contained primitive type values. For example, if numbers is a variable
+of type Collection<Integer>, it is legal to call numbers.add(17) or
+numbers.remove(42). You can't literally add the primitive type value
+17 to numbers, but Java will automatically convert the 17 to the
+corresponding wrapper object,newInteger(17), and the wrapper object
+will be added to the collection. (The creation of the object does add
+some time and memory overhead to the operation, and you should keep
+that in mind in situations where efficiency is important. An array of
+int is more efficient than an ArrayList<Integer>.)
+
+
+
+[ `Next Section`_ | `Chapter Index`_ | `Main Index`_ ]
+
+.. _5.7.1: http://math.hws.edu/javanotes/c10/../c5/s7.html#OOP.7.1
+.. _5.3.2: http://math.hws.edu/javanotes/c10/../c5/s3.html#OOP.3.2
+.. _8: http://math.hws.edu/javanotes/c10/../c8/index.html
+.. _10.1.6: http://math.hws.edu/javanotes/c10/../c10/s1.html#generics.1.6
+.. _Next Section: http://math.hws.edu/javanotes/c10/s2.html
+.. _3.4.4: http://math.hws.edu/javanotes/c10/../c3/s4.html#control.4.4
+.. _7.4.2: http://math.hws.edu/javanotes/c10/../c7/s4.html#arrays.4.2
+.. _7.2.2: http://math.hws.edu/javanotes/c10/../c7/s2.html#arrays.2.2
+.. _7.3.3: http://math.hws.edu/javanotes/c10/../c7/s3.html#arrays.3.3
+.. _Chapter Index: http://math.hws.edu/javanotes/c10/index.html
+.. _7.3: http://math.hws.edu/javanotes/c10/../c7/s3.html
+.. _7.3.4: http://math.hws.edu/javanotes/c10/../c7/s3.html#arrays.3.4
+.. _10.3: http://math.hws.edu/javanotes/c10/../c10/s3.html
+.. _next section: http://math.hws.edu/javanotes/c10/../c10/s2.html
+.. _Main Index: http://math.hws.edu/javanotes/c10/../index.html
+
+

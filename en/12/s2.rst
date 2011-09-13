@@ -1,0 +1,560 @@
+[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
+Index`_ ]
+
+
+**Subsections**
+
+
+Threads Versus Timers
+Recursion in a Thread
+Threads for Background Computation
+Threads for Multiprocessing
+
+
+
+Section 12.2
+~~~~~~~~~~~~
+
+
+Programming with Threads
+------------------------
+
+
+
+T hreads introduce new complexity into programming, but they are an
+important tool and will only become more essential in the future. So,
+every programmer should know some of the fundamental design patterns
+that are used with threads. In this section, we will look at some
+basic techniques, with more to come as the chapter progresses.
+
+
+
+
+
+12.2.1Threads Versus Timers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+One of the most basic uses of threads is to perform some period task
+at set intervals. In fact, this is so basic that there is a
+specialized class for performing this task -- and you've already
+worked with it. The Timer class, in package javax.swing, can generate
+a sequence ofActionEvents separated by a specified time interval.
+Timers were introduced in `Section6.5`_, where they were used to
+implement animations. Behind the scenes, a Timer uses a thread. The
+thread sleeps most of the time, but it wakes up periodically to
+generate the events associated with the timer. Before timers were
+introduced, threads had to be used directly to implement a similar
+functionality.
+
+In a typical use of a timer for animation, each event from the timer
+causes a new frame of the animation to be computed and displayed. In
+the response to the event, it is only necessary to update some state
+variables and to repaint the display to reflect the changes. A Timer
+to do that every thirty milliseconds might be created like this:
+
+
+::
+
+    Timer timer = new Timer( 30, new ActionListener() {
+        public void actionPerformed(ActionEvent evt) {
+            updateForNextFrame();
+            display.repaint();
+        }
+    } );
+    timer.start();
+
+
+Suppose that we wanted to do the same thing with a thread. The run()
+method of the thread would have to execute a loop in which the thread
+sleeps for 30 milliseconds, then wakes up to do the updating and
+repainting. This could be implemented in a nested class as follows
+using the method Thread.sleep() that was discussed
+in`Subsection12.1.2`_:
+
+
+::
+
+    private class Animator extends Thread {
+        public void run() {
+           while (true) {
+               try {
+                   Thread.sleep(30);
+               }
+               catch (InterruptedException e) {
+               }
+               updateForNextFrame();
+               display.repaint();
+           }
+        }
+    }
+
+
+To run the animation, you would create an object belonging to this
+class and call its start() method. As it stands, there would be no way
+to stop the animation once it is started. One way to make it possible
+to stop the animation would be to end the loop when a volatile boolean
+variable, terminate, becomes true, as discussed in
+`Subsection12.1.4`_. Since thread objects can only be executed once,
+in order to restart the animation after it has been stopped, it would
+be necessary to create a new thread. In the `nextsection`_, we'll see
+some more versatile techniques for controlling threads.
+
+There is a subtle difference between using threads and using timers
+for animation. The thread that is used by a Swing Timer does nothing
+but generate events. The event-handling code that is executed in
+response to those events is actually executed in the Swing event-
+handling thread, which also handles repainting of components and
+responses to user actions. This is important because the Swing GUI is
+not thread-safe. That is, it does not use synchronization to avoid
+race conditions among threads trying to access GUI components and
+their state variables. As long as everything is done in the Swing
+event thread, there is no problem. A problem can arise when another
+thread manipulates components or the variables that they use. In the
+Animator example given above, this could happen when the thread calls
+theupdateForNextFrame() method. The variables that are modified
+inupdateForNextFrame() would also be used by the paintComponent()
+method that draws the frame. There is a race condition here: If these
+two methods are being executed simultaneously, there is a possibility
+that paintComponent() will use inconsistent variable values -- some
+appropriate for the new frame, some for the previous frame.
+
+One solution to this problem would be to declare both paintComponent()
+and updateForNextFrame() to be synchronized methods. The real solution
+in this case is to use a timer rather than a thread. In practice, race
+conditions are not likely to be an issue for simple animations, even
+if they are implemented using threads. But it can become a real issue
+when threads are used for more complex tasks.
+
+I should note that the repaint() method of a component can be safely
+called from any thread, without worrying about synchronization. Recall
+thatrepaint() does not actually do any painting itself. It just tells
+the system to schedule a paint event. The actual painting will be done
+later, in the Swing event-handling thread. I will also note that Java
+has another timer class,java.util.Timer, that is appropriate for use
+in non-GUI programs.
+
+The sample program `RandomArtWithThreads.java`_ uses a thread to drive
+a very simple animation. You can compare it to `RandomArtPanel.java`_,
+from `Section6.5`_, which implemented the same animation with a timer.
+
+
+
+
+
+12.2.2Recursion in a Thread
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Although timers should be used in preference to threads when possible,
+there are times when it is reasonable to use a thread even for a
+straightforward animation. One reason to do so is when the thread is
+running a recursive algorithm, and you want to repaint the display
+many times over the course of the recursion. (Recursion is covered in
+`Section9.1`_.) It's difficult to drive a recursive algorithm with a
+series of events from a timer; it's much more natural to use a single
+recursive method call to do the recursion, and it's easy to do that in
+a thread.
+
+As an example, the program `QuicksortThreadDemo.java`_ uses an
+animation to illustrate the recursive QuickSort algorithm for sorting
+an array. In this case, the array contains colors, and the goal is to
+sort the colors into a standard spectrum from red to violet. Here is
+an applet version of the program:
+
+
+
+Click the "Start" button to randomize the array and start the sort.
+The "Start" button will change to a "Finish" button that you can use
+to abort the sort before it finishes on its own.
+
+In this program, the display's repaint() method is called every time
+the algorithm makes a change to the array. Whenever this is done, the
+thread sleeps for 100 milliseconds to allow time for the display to be
+repainted and for the user to see the change. There is also a longer
+delay, one full second, just after the array is randomized, before the
+sorting starts. Since these delays occur at several points in the
+code, QuicksortThreadDemo defines a delay() method that makes the
+thread that calls it sleep for a specified period. Thedelay() method
+calls display.repaint() just before sleeping. While the animation
+thread sleeps, the event-handling thread will have a chance to run and
+will have plenty of time to repaint the display.
+
+An interesting question is how to implement the "Finish" button, which
+should abort the sort and terminate the thread. Pressing this button
+causes that value of a volatile boolean variable, running, to be set
+to false, as a signal to the thread that it should terminate. The
+problem is that this button can be clicked at any time, even when the
+algorithm is many levels down in the recursion. Before the thread can
+terminate, all of those recursive method calls must return. A nice way
+to cause that is to throw an exception. QuickSortThreadDemo defines a
+new exception class,ThreadTerminationException, for this purpose. The
+delay() method checks the value of the signal variable, running. If
+running is false, the delay() method throws the exception that will
+cause the recursive algorithm, and eventually the animation thread
+itself, to terminate. Here, then, is the delay() method:
+
+
+::
+
+    private void delay(int millis) {
+       if (! running)
+          throw new ThreadTerminationException();
+       display.repaint();
+       try {
+          Thread.sleep(millis);
+       }
+       catch (InterruptedException e) {
+       }
+       if (! running) // Check again, in case it changed during the sleep period.
+          throw new ThreadTerminationException();
+    }
+
+
+The ThreadTerminationException is caught in the thread's run() method:
+
+
+::
+
+    /**
+     * This class defines the treads that run the recursive
+     * QuickSort algorithm.  The thread begins by randomizing the
+     * array, hue.  It then calls quickSort() to sort the entire array.
+     * If quickSort() is aborted by a ThreadTerminationExcpetion,
+     * which would be caused by the user clicking the Finish button,
+     * then the thread will restore the array to sorted order before
+     * terminating, so that whether or not the quickSort is aborted,
+     * the array ends up sorted.
+     */
+    private class Runner extends Thread {
+       public void run() {
+          try {
+             for (int i = hue.length-1; i > 0; i--) { // Randomize array.
+                int r = (int)((i+1)*Math.random());
+                int temp = hue[r];
+                hue[r] = hue[i];
+                hue[i] = temp;
+             }
+             delay(1000);  // Wait one second before starting the sort.
+             quickSort(0,hue.length-1);  // Sort the whole array, recursively.
+          }
+          catch (ThreadTerminationException e) { // User clicked "Finish".
+             for (int i = 0; i < hue.length; i++)
+                hue[i] = i;
+          }
+          finally {// Make sure running is false and button label is correct. 
+             running = false; 
+             startButton.setText("Start");
+             display.repaint();
+          }
+       }
+    }
+
+
+The program uses a variable, runner, of type Runner to represent the
+thread that does the sorting. When the user clicks the "Start" button,
+the following code is executed to create and start the thread:
+
+
+::
+
+    startButton.setText("Finish");
+    runner = new Runner();
+    running = true;  // Set the signal before starting the thread!
+    runner.start();
+
+
+Note that the value of the signal variable running is set totrue
+before starting the thread. If running werefalse when the thread was
+started, the thread might see that value as soon as it starts and
+interpret it as a signal to stop before doing anything. Remember that
+when runner.start() is called, runner starts running in parallel with
+the thread that called it.
+
+Stopping the thread is a little more interesting, because the thread
+might be sleeping when the "Finish" button is pressed. The thread has
+to wake up before it can act on the signal that it is to terminate. To
+make the thread a little more responsive, we can call
+runner.interrupt(), which will wake the thread if it is sleeping. (See
+`Subsection12.1.2`_.) This doesn't have much practical effect in this
+program, but it does make the program respond noticeably more quickly
+if the user presses "Finish" immediately after pressing "Start," while
+the thread is sleeping for a full second.
+
+
+
+
+
+12.2.3Threads for Background Computation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In order for a GUI program to be responsive -- that is, to respond to
+events very soon after they are generated -- it's important that
+event-handling methods in the program finish their work very quickly.
+Remember that events go into a queue as they are generated, and the
+computer cannot respond to an event until after the event-handler
+methods for previous events have done their work. This means that
+while one event handler is being executed, other events will have to
+wait. If an event handler takes a while to run, the user interface
+will effectively freeze up during that time. This can be very annoying
+if the delay is more than a fraction of a second. Fortunately, modern
+computers can do an awful lot of computation in a fraction of a
+second.
+
+However, some computations are too big to be done in event handlers.
+The solution, in that case, is to do the computation in another thread
+that runs in parallel with the event-handling thread. This makes it
+possible for the computer to respond to user events even while the
+computation is ongoing. We say that the computation is done "in the
+background."
+
+Note that this application of threads is very different from the
+previous example. When a thread is used to drive a simple animation,
+it actually does very little work. The thread only has to wake up
+several times each second, do a few computations to update state
+variables for the next frame of the animation, and call repaint() to
+cause the next frame to be displayed. There is plenty of time while
+the thread is sleeping for the computer to redraw the display and
+handle any other events generated by the user.
+
+When a thread is used for background computation, however, we want to
+keep the computer as busy as possible working on the computation. The
+thread will compete for processor time with the event-handling thread;
+if you are not careful, event-handling -- repainting in particular --
+can still be delayed. Fortunately, you can use thread priorities to
+avoid the problem. By setting the computation thread to run at a lower
+priority than the event-handling thread, you make sure that events
+will be processes as quickly as possible, while the computation thread
+will get all the extra processing time. Since event handling generally
+uses very little processing time, this means that most of the
+processing time goes to the background computation, but the interface
+is still very responsive. (Thread priorities were discussed in
+`Subsection12.1.2`_.)
+
+The sample program `BackgroundComputationDemo.java`_ is an example of
+background processing. This program creates an image that takes some
+time to compute. The program uses some techniques for working with
+images that will not be covered until `Subsection13.1.1`_, for now all
+that you need to know is that it takes some computation to compute the
+color of each pixel in the image. The image itself is a piece of a
+mathematical object known as the Mandelbrot set. We will use the same
+image in several examples in this chapter, and will return to the
+Mandelbrot set in `Section13.5`_.
+
+In outline, BackgroundComputationDemo is similar to
+theQuicksortThreadDemo discussed above. The computation is done is a
+thread defined by a nested class, Runner. A volatileboolean variable,
+runner, is used to control the thread. If the value of runner is set
+to false, the thread should terminate. The sample program has a button
+that the user clicks to start and to abort the computation. The
+difference is that the thread in this case is meant to run
+continuously, without sleeping. To allow the user to see that progress
+is being made in the computation (always a good idea), every time the
+thread computes a row of pixels, it copies those pixels to the image
+that is shown on the screen. The user sees the image being built up
+line-by-line.
+
+When the computation thread is created in response to the "Start"
+button, we need to set it to run at a priority lower than the event-
+handling thread. The code that creates the thread is itself running in
+the event-handling thread, so we can use a priority that is one less
+than the priority of the thread that is executing the code. Note that
+the priority is set inside a try..catch statement. If an error occurs
+while trying to set the thread priority, the program will still work,
+though perhaps not as smoothly as it would if the priority was
+correctly set. Here is how the thread is created and started:
+
+
+::
+
+    runner = new Runner();
+    try {
+        runner.setPriority( Thread.currentThread().getPriority() - 1 );
+    }
+    catch (Exception e) {
+        System.out.println("Error: Can't set thread priority: " + e);
+    }
+    running = true;  // Set the signal before starting the thread!
+    runner.start();
+
+
+The other major point of interest in this program is that we have two
+threads that are both using the object that represents the image. The
+computation thread accesses the image in order to set the color of its
+pixels. The event-handling thread accesses the same image when it
+copies the image to the screen. Since the image is a resource that is
+shared by several threads, access to the image object should be
+synchronized. When the paintComponent() method copies the image to the
+screen (using a method that we have not yet covered), it does so in a
+synchronized statement:
+
+
+::
+
+    synchronized(image) {
+        g.drawImage(image,0,0,null);
+    }
+
+
+When the computation thread sets the colors of a row of pixels (using
+another unfamiliar method), it also uses synchronized:
+
+
+::
+
+    synchronized(image) {
+        image.setRGB(0,row, width, 1, rgb, 0, width);
+    }
+
+
+Note that both of these statements are synchronized on the same
+object,image. This is essential. In order to prevent the two code
+segments from being executed simultaneously, the synchronization must
+be on the same object. I use the image object here because it is
+convenient, but just about any object would do; it is **not** required
+that you synchronize on the object to which you are trying to control
+access.
+
+Although BackgroundComputationDemo works OK, there is one problem: The
+goal is to get the computation done as quickly as possible, using all
+available processing time. The program accomplishes that goal on a
+computer that has only one processor. But on a computer that has
+several processors, we are still using only **one** of those
+processors for the computation. It would be nice to get all the
+processors working on the problem. To do that, we need real parallel
+processing, with several computation threads. We turn to that problem
+next.
+
+
+
+
+
+12.2.4Threads for Multiprocessing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Our next example, `MultiprocessingDemo1.java`_, is a variation on
+BackgroundComputationDemo. Instead of doing the computation in a
+single thread, MultiprocessingDemo1 can divide the problem among
+several threads. The user can select the number of threads to be used.
+Each thread is assigned one section of the image to compute. The
+threads perform their tasks in parallel. For example, if there are two
+threads, the first thread computes the top half of the image while the
+second thread computes the bottom half. Here is an applet version of
+the program for you to try:
+
+
+
+On a multi-processor computer, the computation will complete more
+quickly when using several threads than when using just one. Note that
+when using one thread, this program has the same behavior as the
+previous example program.
+
+The approach used in this example for dividing up the problem among
+threads is not optimal. We will see in the `nextsection`_ how it can
+be improved. However, MultiprocessingDemo1 makes a good first example
+of multiprocessing.
+
+When the user clicks the "Start" button, the program has to create and
+start the specified number of threads, and it has to assign a segment
+of the image to each thread. Here is how this is done:
+
+
+::
+
+    workers = new Runner[threadCount];  // Holds the computation threads.
+    int rowsPerThread;  // How many rows of pixels should each thread compute?
+    rowsPerThread  = height / threadCount;  // (height = vertical size of image)
+    running = true;  // Set the signal before starting the threads!
+    threadsCompleted = 0;  // Records how many of the threads have terminated.
+    for (int i = 0; i < threadCount; i++) {
+        int startRow;  // first row computed by thread number i
+        int endRow;    // last row computed by thread number i
+           // Create and start a thread to compute the rows of the image from
+           // startRow to endRow.  Note that we have to make sure that
+           // the endRow for the last thread is the bottom row of the image.
+        startRow = rowsPerThread*i;
+        if (i == threadCount-1)
+            endRow = height-1;
+        else
+            endRow = rowsPerThread*(i+1) - 1;
+        workers[i] = new Runner(startRow, endRow);
+        try {
+            workers[i].setPriority( Thread.currentThread().getPriority() - 1 );
+        }
+        catch (Exception e) {
+        }
+        workers[i].start();
+    }
+
+
+Beyond creating more than one thread, very few changes are needed to
+get the benefits of multiprocessing. Just as in the previous example,
+each time a thread has computed the colors for a row of pixels, it
+copies that row into the image, and synchronization is used in exactly
+the same way to control access to the image.
+
+One thing is new, however. When all the threads have finished running,
+the name of the button in the program changes from "Abort" to "Start
+Again", and the pop-up menu, which has been disabled while the threads
+were running, is re-enabled. The problem is, how to tell when all the
+threads have terminated? (You might think about why we can't use
+join() to wait for the threads to end, as was done in the example in ;
+at least, we can't do that in the event-handling thread!) In this
+example, I use an instance variable, threadsCompleted, to keep track
+of how many threads have terminated so far. As each thread finishes,
+it calls a method that adds one to the value of this variable. (The
+method is called in thefinally clause of a try statement to make
+absolutely sure that it is called.) When the number of threads that
+have finished is equal to the number of threads that were created, the
+method updates the state of the program appropriately. Here is the
+method:
+
+
+::
+
+    synchronized private void threadFinished() {
+        threadsCompleted++;
+        if (threadsCompleted == workers.length) { // All threads have finished.
+            startButton.setText("Start Again");
+            startButton.setEnabled(true);
+            running = false; // Make sure running is false after the threads end.
+            workers = null;  // Discard the array that holds the threads.
+            threadCountSelect.setEnabled(true); // Re-enable pop-up menu.
+        }
+    }
+
+
+Note that this method is synchronized. This is to avoid the race
+condition when threadsCompleted is incremented. Without the
+synchronization, it is possible that two threads might call the method
+at the same time. If the timing is just right, both threads could read
+the same value forthreadsCompleted and get the same answer when they
+increment it. The net result will be that threadsCompleted goes up by
+one instead of by two. One thread is not properly counted, and
+threadsCompleted will never become equal to the number of threads
+created. The program would hang in a kind of deadlock. The problem
+would occur only very rarely, since it depends on exact timing. But in
+a large program, problems of this sort can be both very serious and
+very hard to debug. Proper synchronization makes the error impossible.
+
+
+
+[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
+Index`_ ]
+
+.. _Chapter Index: http://math.hws.edu/javanotes/c12/index.html
+.. _QuicksortThreadDemo.java: http://math.hws.edu/javanotes/c12/../source/QuicksortThreadDemo.java
+.. _RandomArtPanel.java: http://math.hws.edu/javanotes/c12/../source/RandomArtPanel.java
+.. _MultiprocessingDemo1.java: http://math.hws.edu/javanotes/c12/../source/MultiprocessingDemo1.java
+.. _13.1.1: http://math.hws.edu/javanotes/c12/../c13/s1.html#GUI2.1.1
+.. _9.1: http://math.hws.edu/javanotes/c12/../c9/s1.html
+.. _section: http://math.hws.edu/javanotes/c12/../c12/s3.html
+.. _6.5: http://math.hws.edu/javanotes/c12/../c6/s5.html
+.. _Previous Section: http://math.hws.edu/javanotes/c12/s1.html
+.. _Main Index: http://math.hws.edu/javanotes/c12/../index.html
+.. _Next Section: http://math.hws.edu/javanotes/c12/s3.html
+.. _RandomArtWithThreads.java: http://math.hws.edu/javanotes/c12/../source/RandomArtWithThreads.java
+.. _13.5: http://math.hws.edu/javanotes/c12/../c13/s5.html
+.. _BackgroundComputationDemo.java: http://math.hws.edu/javanotes/c12/../source/BackgroundComputationDemo.java
+.. _12.1.4: http://math.hws.edu/javanotes/c12/../c12/s1.html#threads.1.4
+.. _12.1.2: http://math.hws.edu/javanotes/c12/../c12/s1.html#threads.1.2
+
+

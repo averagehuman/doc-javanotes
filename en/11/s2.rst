@@ -1,0 +1,648 @@
+[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
+Index`_ ]
+
+
+**Subsections**
+
+
+Reading and Writing Files
+Files and Directories
+File Dialog Boxes
+
+
+
+Section 11.2
+~~~~~~~~~~~~
+
+
+Files
+-----
+
+
+
+T he data and programs in a computer's main memory survive only as
+long as the power is on. For more permanent storage, computers use
+files, which are collections of data stored on a hard disk, on a USB
+memory stick, on a CD-ROM, or on some other type of storage device.
+Files are organized into directories (sometimes called folders). A
+directory can hold other directories, as well as files. Both
+directories and files have names that are used to identify them.
+
+Programs can read data from existing files. They can create new files
+and can write data to files. In Java, such input and output can be
+done using streams. Human-readable character data is read from a file
+using an object belonging to the class FileReader, which is a subclass
+of Reader. Similarly, data is written to a file in human-readable
+format through an object of type FileWriter, a subclass of Writer. For
+files that store data in machine format, the appropriate I/O classes
+areFileInputStream and FileOutputStream. In this section, I will only
+discuss character-oriented file I/O using the FileReader andFileWriter
+classes. However, FileInputStream andFileOutputStream are used in an
+exactly parallel fashion. All these classes are defined in the java.io
+package.
+
+It's worth noting right at the start that applets which are downloaded
+over a network connection are not ordinarily allowed to access files.
+This is a security consideration. You can download and run an applet
+just by visiting a Web page with your browser. If downloaded applets
+had access to the files on your computer, it would be easy to write an
+applet that would destroy all the data on any computer that downloads
+it. To prevent such possibilities, there are a number of things that
+downloaded applets are not allowed to do. Accessing files is one of
+those forbidden things. Standalone programs written in Java, however,
+have the same access to your files as any other program. When you
+write a standalone Java application, you can use all the file
+operations described in this section.
+
+
+
+
+
+11.2.1Reading and Writing Files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The FileReader class has a constructor which takes the name of a file
+as a parameter and creates an input stream that can be used for
+reading from that file. This constructor will throw an exception of
+typeFileNotFoundException if the file doesn't exist. It requires
+mandatory exception handling, so you have to call the constructor in
+atry..catch statement (or inside a routine that is declared to throw
+the exception). For example, suppose you have a file named "data.txt",
+and you want your program to read data from that file. You could do
+the following to create an input stream for the file:
+
+
+::
+
+    FileReader data;   // (Declare the variable before the
+                       //   try statement, or else the variable
+                       //   is local to the try block and you won't
+                       //   be able to use it later in the program.)
+                            
+    try {
+       data = new FileReader("data.txt");  // create the stream
+    }
+    catch (FileNotFoundException e) {
+       ... // do something to handle the error -- maybe, end the program
+    }
+
+
+The FileNotFoundException class is a subclass ofIOException, so it
+would be acceptable to catch IOExceptions in the above try...catch
+statement. More generally, just about any error that can occur during
+input/output operations can be caught by acatch clause that handles
+IOException.
+
+Once you have successfully created a FileReader, you can start reading
+data from it. But since FileReaders have only the primitive input
+methods inherited from the basic Reader class, you will probably want
+to wrap your FileReader in a Scanner, in a TextReader, or in some
+other wrapper class. (The TextReader class is not a standard part of
+Java; it is described in `Subsection11.1.4`_.Scanner is discussed in
+`Subsection11.1.5`_.) To create a TextReader for reading from a file
+named data.dat, you could say:
+
+
+::
+
+    TextReader data;
+    
+    try {
+       data = new TextReader( new FileReader("data.dat") );
+    }
+    catch (FileNotFoundException e) {
+       ... // handle the exception
+    }
+
+
+To use a Scanner to read from the file, you can construct the scanner
+in a similar way. However, it is more common to construct it from an
+object of type File (to be covered in `below`_):
+
+
+::
+
+    Scanner in;
+    
+    try {
+       in = new Scanner( new File("data.dat") );
+    }
+    catch (FileNotFoundException e) {
+       ... // handle the exception
+    }
+
+
+Once you have a Scanner or TextReader for reading from a file, you can
+get data from the file using exactly the same methods that work with
+any Scanner or TextReader.
+
+Working with output files is no more difficult than this. You simply
+create an object belonging to the class FileWriter. You will probably
+want to wrap this output stream in an object of type PrintWriter. For
+example, suppose you want to write data to a file named "result.dat".
+Since the constructor for FileWriter can throw an exception of
+typeIOException, you should use a try..catch statement:
+
+
+::
+
+    PrintWriter result;
+    
+    try {
+       result = new PrintWriter(new FileWriter("result.dat"));
+    }
+    catch (IOException e) {
+       ... // handle the exception
+    }
+
+
+If no file named result.dat exists, a new file will be created. If the
+file already exists, then the current contents of the file will be
+erased and replaced with the data that your program writes to the
+file. This will be done without any warning. To avoid overwriting a
+file that already exists, you can check whether a file of the same
+name already exists before trying to create the stream, as discussed
+later in this section. AnIOException might occur in the PrintWriter
+constructor if, for example, you are trying to create a file on a disk
+that is "write-protected," meaning that it cannot be modified.
+
+In fact, a PrintWriter can also be created directly from a file name
+given as a string ("newPrintWriter("result.dat")"), and you will
+probably find it more convenient to do that. Remember, however, that a
+Scanner for reading from a file **cannot** be created in the same way.
+
+After you are finished using a file, it's a good idea to close the
+file, to tell the operating system that you are finished using it. You
+can close a file by calling the close() method of the associated
+stream or Scanner. Once a file has been closed, it is no longer
+possible to read data from it or write data to it, unless you open it
+again as a new stream. (Note that for most stream classes, the close()
+method can throw an IOException, which must be handled; however,
+PrintWriter, TextReader, and Scanner override this method so that it
+cannot throw such exceptions.) If you forget to close a file, the file
+will ordinarily be closed automatically when the program terminates or
+when the file object is garbage collected, but in the case of an
+output file, some of the data that has been written to the file might
+be lost. This can occur because data that is written to a file can be
+buffered; that is, the data is not sent immediately to the file but is
+retained in main memory (in a "buffer") until a larger chunk of data
+is ready to be written. This is done for efficiency. The close()
+method of an output stream will cause all the data in the buffer to be
+sent to the file. Every output stream also has a flush() method that
+can be called to force any data in the buffer to be written to the
+file without closing the file.
+
+As a complete example, here is a program that will read numbers from a
+file named data.dat, and will then write out the same numbers in
+reverse order to another file named result.dat. It is assumed
+thatdata.dat contains only one number on each line. Exception-handling
+is used to check for problems along the way. Although the application
+is not a particularly useful one, this program demonstrates the basics
+of working with files. (By the way, at the end of this program, you'll
+find our first useful example of a finally clause in a try statement.
+When the computer executes a try statement, the commands in its
+finally clause are guaranteed to be executed, no matter what. See
+`Subsection8.3.2`_.)
+
+
+::
+
+    import java.io.*;
+    import java.util.ArrayList;
+    
+    /**
+     * Reads numbers from a file named data.dat and writes them to a file
+     * named result.dat in reverse order.  The input file should contain
+     * exactly one real number per line.
+     */
+    public class ReverseFile {
+    
+       public static void main(String[] args) {
+    
+          TextReader data;     // Character input stream for reading data.
+          PrintWriter result;  // Character output stream for writing data.
+          
+          ArrayList<Double> numbers;  // An ArrayList for holding the data.
+    
+          numbers = new ArrayList<Double>();
+    
+          try {  // Create the input stream.
+             data = new TextReader(new FileReader("data.dat"));
+          }
+          catch (FileNotFoundException e) {
+             System.out.println("Can't find file data.dat!");
+             return;  // End the program by returning from main().
+          }
+    
+          try {  // Create the output stream.
+             result = new PrintWriter(new FileWriter("result.dat"));
+          }
+          catch (IOException e) {
+             System.out.println("Can't open file result.dat!");
+             System.out.println("Error: " + e);
+             data.close();  // Close the input file.
+             return;        // End the program.
+          }
+          
+          try {
+          
+              // Read numbers from the input file, adding them to the ArrayList.
+              
+              while ( data.eof() == false ) {  // Read until end-of-file.
+                 double inputNumber = data.getlnDouble();
+                 numbers.add( inputNumber );
+              }
+           
+              // Output the numbers in reverse order.
+              
+              for (int i = numbers.size()-1; i >= 0; i--)
+                 result.println(numbers.get(i));
+                 
+              System.out.println("Done!");
+    
+           }
+           catch (IOException e) {
+                 // Some problem reading the data from the input file.
+              System.out.println("Input Error: " + e.getMessage());
+           }
+           finally {
+                 // Finish by closing the files, whatever else may have happened.
+              data.close();
+              result.close();
+           }
+             
+       }  // end of main()
+    
+    } // end of class
+
+
+A version of this program that uses a Scanner instead of a TextReader
+can be found in `ReverseFileWithScanner.java`_. Note that the Scanner
+version does not need the second try..catch, since Scanner methods
+don't throw IOExceptions.
+
+
+
+
+
+11.2.2Files and Directories
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The subject of file names is actually more complicated than I've let
+on so far. To fully specify a file, you have to give both the name of
+the file and the name of the directory where that file is located. A
+simple file name like "data.dat" or "result.dat" is taken to refer to
+a file in a directory that is called the current directory (also known
+as the "default directory" or "working directory"). The current
+directory is not a permanent thing. It can be changed by the user or
+by a program. Files not in the current directory must be referred to
+by a path name, which includes both the name of the file and
+information about the directory where it can be found.
+
+To complicate matters even further, there are two types of path
+names,absolute path names and relative path names. An absolute path
+name uniquely identifies one file among all the files available to the
+computer. It contains full information about which directory the file
+is in and what the file's name is. A relative path name tells the
+computer how to locate the file starting from the current directory.
+
+Unfortunately, the syntax for file names and path names varies
+somewhat from one type of computer to another. Here are some examples:
+
+
++ data.dat -- on any computer, this would be a file named "data.dat"
+  in the current directory.
++ /home/eck/java/examples/data.dat -- This is an absolute path name in
+  a UNIX operating system, including Linux and MacOSX. It refers to a
+  file named data.dat in a directory named examples, which is in turn in
+  a directory named java,....
++ C:\eck\java\examples\data.dat -- An absolute path name on a Windows
+  computer.
++ Hard Drive:java:examples:data.dat -- Assuming that "Hard Drive" is
+  the name of a disk drive, this would be an absolute path name on a
+  computer using a classic Macintosh operating system such as MacOS9.
++ examples/data.dat -- a relative path name under UNIX. "examples" is
+  the name of a directory that is contained within the current
+  directory, and data.dat is a file in that directory. The corresponding
+  relative path name for Windows would be examples\data.dat.
++ ../examples/data.dat -- a relative path name in UNIX that means "go
+  to the directory that contains the current directory, then go into a
+  directory named examples inside that directory, and look there for a
+  file named data.data." In general, ".." means "go up one directory."
+
+
+It's reasonably safe to say, though, that if you stick to using simple
+file names only, and if the files are stored in the same directory
+with the program that will use them, then you will be OK. Later in
+this section, we'll look at a convenient way of letting the user
+specify a file in a GUI program, which allows you to avoid the issue
+of path names altogether.
+
+It is possible for a Java program to find out the absolute path names
+for two important directories, the current directory and the user's
+home directory. The names of these directories are system properties,
+and they can be read using the function calls:
+
+
++ System.getProperty("user.dir") -- returns the absolute path name of
+  the current directory as a String.
++ System.getProperty("user.home") -- returns the absolute path name of
+  the user's home directory as a String.
+
+
+To avoid some of the problems caused by differences in path names
+between platforms, Java has the class java.io.File. An object
+belonging to this class represents a file. More precisely, an object
+of type File represents a file **name** rather than a file as such.
+The file to which the name refers might or might not exist.
+Directories are treated in the same way as files, so a File object can
+represent a directory just as easily as it can represent a file.
+
+A File object has a constructor, "newFile(String)", that creates a
+File object from a path name. The name can be a simple name, a
+relative path, or an absolute path. For example, newFile("data.dat")
+creates a File object that refers to a file named data.dat, in the
+current directory. Another constructor, "newFile(File,String)", has
+two parameters. The first is a File object that refers to the
+directory that contains the file. The second can be the name of the
+file or a relative path from the directory to the file.
+
+File objects contain several useful instance methods. Assuming
+thatfile is a variable of type File, here are some of the methods that
+are available:
+
+
++ file.exists() -- Thisboolean-valued function returns true if the
+  file named by theFile object already exists. You can use this method
+  if you want to avoid overwriting the contents of an existing file when
+  you create a newFileWriter.
++ file.isDirectory() -- Thisboolean-valued function returns true if
+  the File object refers to a directory. It returns false if it refers
+  to a regular file or if no file with the given name exists.
++ file.delete() -- Deletes the file, if it exists. Returns a boolean
+  value to indicate whether the file was successfully deleted.
++ file.list() -- If the File object refers to a directory, this
+  function returns an array of typeString[] containing the names of the
+  files in that directory. Otherwise, it returns null. file.listFiles()
+  is similar, except that it returns an array of File instead of an
+  array of String
+
+
+Here, for example, is a program that will list the names of all the
+files in a directory specified by the user. In this example, I have
+used aScanner to read the user's input:
+
+
+::
+
+    import java.io.File;
+    import java.util.Scanner;
+    
+    /**
+     * This program lists the files in a directory specified by
+     * the user.  The user is asked to type in a directory name.
+     * If the name entered by the user is not a directory, a
+     * message is printed and the program ends.
+     */
+    public class DirectoryList {
+    
+       
+       public static void main(String[] args) {
+       
+          String directoryName;  // Directory name entered by the user.
+          File directory;        // File object referring to the directory.
+          String[] files;        // Array of file names in the directory.
+          Scanner scanner;       // For reading a line of input from the user.
+    
+          scanner = new Scanner(System.in);  // scanner reads from standard input.
+    
+          System.out.print("Enter a directory name: ");
+          directoryName = scanner.nextLine().trim();
+          directory = new File(directoryName);
+          
+          if (directory.isDirectory() == false) {
+              if (directory.exists() == false)
+                 System.out.println("There is no such directory!");
+              else
+                 System.out.println("That file is not a directory.");
+          }
+          else {
+              files = directory.list();
+              System.out.println("Files in directory \"" + directory + "\":");
+              for (int i = 0; i < files.length; i++)
+                 System.out.println("   " + files[i]);
+          }
+       
+       } // end main()
+    
+    } // end class DirectoryList
+
+
+All the classes that are used for reading data from files and writing
+data to files have constructors that take a File object as a
+parameter. For example, if file is a variable of type File, and you
+want to read character data from that file, you can create a
+FileReader to do so by saying newFileReader(file).
+
+
+
+
+
+11.2.3File Dialog Boxes
+~~~~~~~~~~~~~~~~~~~~~~~
+
+In many programs, you want the user to be able to select the file that
+is going to be used for input or output. If your program lets the user
+type in the file name, you will just have to assume that the user
+understands how to work with files and directories. But in a graphical
+user interface, the user expects to be able to select files using a
+file dialog box, which is a window that a program can open when it
+wants the user to select a file for input or output. Swing includes a
+platform-independent technique for using file dialog boxes in the form
+of a class called JFileChooser. This class is part of the
+packagejavax.swing. We looked at using some basic dialog boxes in
+`Subsection6.8.2`_. File dialog boxes are similar to those, but are a
+little more complicated to use.
+
+A file dialog box shows the user a list of files and sub-directories
+in some directory, and makes it easy for the user to specify a file in
+that directory. The user can also navigate easily from one directory
+to another. The most common constructor for JFileChooser has no
+parameter and sets the starting directory in the dialog box to be the
+user's home directory. There are also constructors that specify the
+starting directory explicitly:
+
+
+::
+
+    new JFileChooser( File startDirectory )
+    
+    new JFileChooser( String pathToStartDirectory )
+
+
+Constructing a JFileChooser object does not make the dialog box appear
+on the screen. You have to call a method in the object to do that.
+There are two different methods that can be used because there are two
+types of file dialog: An open file dialog allows the user to specify
+an existing file to be opened for reading data into the program; asave
+file dialog lets the user specify a file, which might or might not
+already exist, to be opened for writing data from the program. File
+dialogs of these two types are opened using theshowOpenDialog and
+showSaveDialog methods. These methods make the dialog box appear on
+the screen; the methods do not return until the user selects a file or
+cancels the dialog.
+
+A file dialog box always has a parent, another component which is
+associated with the dialog box. The parent is specified as a parameter
+to the showOpenDialog or showSaveDialog methods. The parent is a GUI
+component, and can often be specified as "this" in practice, since
+file dialogs are often used in instance methods of GUI component
+classes. (The parameter can also be null, in which case an invisible
+component is created to be used as the parent.) Both showOpenDialog
+and showSaveDialog have a return value, which will be one of the
+constantsJFileChooser.CANCEL_OPTION, JFileChooser.ERROR_OPTION,
+orJFileChooser.APPROVE_OPTION. If the return value
+isJFileChooser.APPROVE_OPTION, then the user has selected a file. If
+the return value is something else, then the user did not select a
+file. The user might have clicked a "Cancel" button, for example. You
+should always check the return value, to make sure that the user has,
+in fact, selected a file. If that is the case, then you can find out
+which file was selected by calling theJFileChooser's getSelectedFile()
+method, which returns an object of type File that represents the
+selected file.
+
+Putting all this together, we can look at a typical subroutine that
+reads data from a file that is selected using a JFileChooser:
+
+
+::
+
+    public void readFile() {
+       if (fileDialog == null)   // (fileDialog is an instance variable)
+          fileDialog = new JFileChooser();
+       fileDialog.setDialogTitle("Select File for Reading");
+       fileDialog.setSelectedFile(null);  // No file is initially selected.
+       int option = fileDialog.showOpenDialog(this);
+           // (Using "this" as a parameter to showOpenDialog() assumes that the
+           //  readFile() method is an instance method in a GUI component class.)
+       if (option != JFileChooser.APPROVE_OPTION)
+          return;  // User canceled or clicked the dialog's close box.
+       File selectedFile = fileDialog.getSelectedFile();
+       TextReader in;  // (or use some other wrapper class)
+       try {
+          FileReader stream = new FileReader(selectedFile); // (or a FileInputStream)
+          in = new TextReader( stream );
+       }
+       catch (Exception e) {
+          JOptionPane.showMessageDialog(this,
+              "Sorry, but an error occurred while trying to open the file:\n" + e);
+          return;
+       }
+       try {
+          .
+          .  // Read and process the data from the input stream, in.
+          .
+         in.close();
+       }
+       catch (Exception e) {
+          JOptionPane.showMessageDialog(this,
+              "Sorry, but an error occurred while trying to read the data:\n" + e);
+       }	
+    }
+
+
+One fine point here is that the variable fileDialog is an instance
+variable of type JFileChooser. This allows the file dialog to continue
+to exist between calls to readFile(). The main effect of this is that
+the dialog box will keep the same selected directory from one call of
+readFile() to the next. When the dialog reappears, it will show the
+same directory that the user selected the previous time it appeared.
+This is probably what the user expects.
+
+Note that it's common to do some configuration of a JFileChooser
+before calling showOpenDialog or showSaveDialog. For example, the
+instance method setDialogTitle(String) is used to specify a title to
+appear in the title bar of the window. And setSelectedFile(File) is
+used to set the file that is selected in the dialog box when it
+appears. This can be used to provide a default file choice for the
+user. In the readFile() method, above,
+fileDialog.setSelectedFile(null) specifies that no file is pre-
+selected when the dialog box appears.
+
+Writing data to a file is similar, but it's a good idea to add a check
+to determine whether the output file that is selected by the user
+already exists. In that case, ask the user whether to replace the
+file. Here is a typical subroutine for writing to a user-selected
+file:
+
+
+::
+
+    public void writeFile() {
+       if (fileDialog == null)      
+          fileDialog = new JFileChooser();  // (fileDialog is an instance variable)
+       File selectedFile = new File("output.txt"); // (default output file name)
+       fileDialog.setSelectedFile(selectedFile);  // Specify a default file name.
+       fileDialog.setDialogTitle("Select File for Writing");
+       int option = fileDialog.showSaveDialog(this);
+       if (option != JFileChooser.APPROVE_OPTION)
+          return;  // User canceled or clicked the dialog's close box.
+       selectedFile = fileDialog.getSelectedFile();
+       if (selectedFile.exists()) {  // Ask the user whether to replace the file.
+          int response = JOptionPane.showConfirmDialog( this,
+                "The file \"" + selectedFile.getName()
+                    + "\" already exists.\nDo you want to replace it?", 
+                "Confirm Save",
+                JOptionPane.YES_NO_OPTION, 
+                JOptionPane.WARNING_MESSAGE );
+          if (response != JOptionPane.YES_OPTION)
+             return;  // User does not want to replace the file.
+       }
+       PrintWriter out;  // (or use some other wrapper class)
+       try {
+          FileWriter stream = new FileWriter(selectedFile); // (or FileOutputStream)
+          out = new PrintWriter( stream );
+       }
+       catch (Exception e) {
+          JOptionPane.showMessageDialog(this,
+              "Sorry, but an error occurred while trying to open the file:\n" + e);
+          return;
+       }
+       try {
+          .
+          .  // Write data to the output stream, out.
+          .
+         out.close();
+         if (out.checkError())   // (need to check for errors in PrintWriter)
+            throw new IOException("Error occurred while trying to write file.");
+       }
+       catch (Exception e) {
+          JOptionPane.showMessageDialog(this,
+              "Sorry, but an error occurred while trying to write the data:\n" + e);
+       }	
+    }
+
+
+The readFile() and writeFile() routines presented here can be used,
+with just a few changes, when you need to read or write a file in a
+GUI program. We'll look at some more complete examples of using files
+and file dialogs in the `next section`_.
+
+
+
+[ `Previous Section`_ | `Next Section`_ | `Chapter Index`_ | `Main
+Index`_ ]
+
+.. _Chapter Index: http://math.hws.edu/javanotes/c11/index.html
+.. _below: http://math.hws.edu/javanotes/c11/../c11/s2.html#IO.2.2
+.. _8.3.2: http://math.hws.edu/javanotes/c11/../c8/s3.html#robustness.3.2
+.. _next section: http://math.hws.edu/javanotes/c11/../c11/s3.html
+.. _Next Section: http://math.hws.edu/javanotes/c11/s3.html
+.. _Main Index: http://math.hws.edu/javanotes/c11/../index.html
+.. _ReverseFileWithScanner.java: http://math.hws.edu/javanotes/c11/../source/ReverseFileWithScanner.java
+.. _6.8.2: http://math.hws.edu/javanotes/c11/../c6/s8.html#GUI1.8.2
+.. _11.1.5: http://math.hws.edu/javanotes/c11/../c11/s1.html#IO.1.5
+.. _11.1.4: http://math.hws.edu/javanotes/c11/../c11/s1.html#IO.1.4
+.. _Previous Section: http://math.hws.edu/javanotes/c11/s1.html
+
+
