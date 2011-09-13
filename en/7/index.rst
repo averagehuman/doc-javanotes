@@ -1,9 +1,3 @@
-[ `First Section`_ | `Previous Chapter`_ | `Next Chapter`_ | `Main
-Index`_ ]
-
-
-
-
 
 Chapter 7
 ~~~~~~~~~
@@ -45,31 +39,8 @@ to hold any number of items.
 Contents of Chapter 7:
 ~~~~~~~~~~~~~~~~~~~~~~
 
+.. toctree::
+   :glob:
 
-+ Section 1: `Creating and Using Arrays`_
-+ Section 2: `Programming With Arrays`_
-+ Section 3: `Dynamic Arrays and ArrayLists`_
-+ Section 4: `Searching and Sorting`_
-+ Section 5: `Multi-dimensional Arrays`_
-+ `Programming Exercises`_
-+ `Quiz on This Chapter`_
-
-
-
-
-[ `First Section`_ | `Previous Chapter`_ | `Next Chapter`_ | `Main
-Index`_ ]
-
-.. _Main Index: http://math.hws.edu/javanotes/c7/../index.html
-.. _Quiz on This Chapter: http://math.hws.edu/javanotes/c7/quiz.html
-.. _Programming  With Arrays: http://math.hws.edu/javanotes/c7/s2.html
-.. _Next Chapter: http://math.hws.edu/javanotes/c7/../c8/index.html
-.. _9: http://math.hws.edu/javanotes/c7/../c9/index.html
-.. _Dynamic Arrays and ArrayLists: http://math.hws.edu/javanotes/c7/s3.html
-.. _First Section: http://math.hws.edu/javanotes/c7/s1.html
-.. _Multi-dimensional Arrays: http://math.hws.edu/javanotes/c7/s5.html
-.. _Previous Chapter: http://math.hws.edu/javanotes/c7/../c6/index.html
-.. _Programming Exercises: http://math.hws.edu/javanotes/c7/exercises.html
-.. _Searching and Sorting: http://math.hws.edu/javanotes/c7/s4.html
-
+   *
 

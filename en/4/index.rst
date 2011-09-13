@@ -1,9 +1,3 @@
-[ `First Section`_ | `Previous Chapter`_ | `Next Chapter`_ | `Main
-Index`_ ]
-
-
-
-
 
 Chapter 4
 ~~~~~~~~~
@@ -35,41 +29,11 @@ Non-static subroutines, which are used in true object-oriented
 programming, will be covered in the next chapter.
 
 
-
-
-
 Contents of Chapter 4:
 ~~~~~~~~~~~~~~~~~~~~~~
 
+.. toctree::
+   :glob:
 
-+ Section 1: `Black Boxes`_
-+ Section 2: `Static Subroutines and Static Variables`_
-+ Section 3: `Parameters`_
-+ Section 4: `Return Values`_
-+ Section 5: `APIs, Packages, and Javadoc`_
-+ Section 6: `More on Program Design`_
-+ Section 7: `The Truth About Declarations`_
-+ `Programming Exercises`_
-+ `Quiz on This Chapter`_
-
-
-
-
-[ `First Section`_ | `Previous Chapter`_ | `Next Chapter`_ | `Main
-Index`_ ]
-
-.. _Quiz on This Chapter: http://math.hws.edu/javanotes/c4/quiz.html
-.. _Static Subroutines and Static Variables: http://math.hws.edu/javanotes/c4/s2.html
-.. _Previous Chapter: http://math.hws.edu/javanotes/c4/../c3/index.html
-.. _Next Chapter: http://math.hws.edu/javanotes/c4/../c5/index.html
-.. _Return Values: http://math.hws.edu/javanotes/c4/s4.html
-.. _APIs, Packages, and Javadoc: http://math.hws.edu/javanotes/c4/s5.html
-.. _Programming Exercises: http://math.hws.edu/javanotes/c4/exercises.html
-.. _3.8: http://math.hws.edu/javanotes/c4/../c3/s8.html
-.. _Main Index: http://math.hws.edu/javanotes/c4/../index.html
-.. _Parameters: http://math.hws.edu/javanotes/c4/s3.html
-.. _First Section: http://math.hws.edu/javanotes/c4/s1.html
-.. _More on Program Design: http://math.hws.edu/javanotes/c4/s6.html
-.. _The Truth About Declarations: http://math.hws.edu/javanotes/c4/s7.html
-
+   *
 

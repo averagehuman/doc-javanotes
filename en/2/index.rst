@@ -1,9 +1,3 @@
-[ `First Section`_ | `Previous Chapter`_ | `Next Chapter`_ | `Main
-Index`_ ]
-
-
-
-
 
 Chapter 2
 ~~~~~~~~~
@@ -53,32 +47,8 @@ write and use your own programs.
 Contents of Chapter 2:
 ~~~~~~~~~~~~~~~~~~~~~~
 
+.. toctree::
+   :glob:
 
-+ Section 1: `The Basic Java Application`_
-+ Section 2: `Variables and the Primitive Types`_
-+ Section 3: `Strings, Objects, Enums, and Subroutines`_
-+ Section 4: `Text Input and Output`_
-+ Section 5: `Details of Expressions`_
-+ Section 6: `Programming Environments`_
-+ `Programming Exercises`_
-+ `Quiz on This Chapter`_
-
-
-
-
-[ `First Section`_ | `Previous Chapter`_ | `Next Chapter`_ | `Main
-Index`_ ]
-
-.. _Strings, Objects, Enums, and Subroutines: http://math.hws.edu/javanotes/c2/s3.html
-.. _Main Index: http://math.hws.edu/javanotes/c2/../index.html
-.. _Programming Environments: http://math.hws.edu/javanotes/c2/s6.html
-.. _Details of Expressions: http://math.hws.edu/javanotes/c2/s5.html
-.. _Programming Exercises: http://math.hws.edu/javanotes/c2/exercises.html
-.. _First Section: http://math.hws.edu/javanotes/c2/s1.html
-.. _Quiz on This Chapter: http://math.hws.edu/javanotes/c2/quiz.html
-.. _Next Chapter: http://math.hws.edu/javanotes/c2/../c3/index.html
-.. _Text Input and Output: http://math.hws.edu/javanotes/c2/s4.html
-.. _Previous Chapter: http://math.hws.edu/javanotes/c2/../c1/index.html
-.. _Variables and the Primitive Types: http://math.hws.edu/javanotes/c2/s2.html
-
+   *
 

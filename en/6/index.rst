@@ -1,9 +1,3 @@
-[ `First Section`_ | `Previous Chapter`_ | `Next Chapter`_ | `Main
-Index`_ ]
-
-
-
-
 
 Chapter 6
 ~~~~~~~~~
@@ -47,39 +41,8 @@ techniques.
 Contents of Chapter 6:
 ~~~~~~~~~~~~~~~~~~~~~~
 
+.. toctree::
+   :glob:
 
-+ Section 1: `The Basic GUI Application`_
-+ Section 2: `Applets and HTML`_
-+ Section 3: `Graphics and Painting`_
-+ Section 4: `Mouse Events`_
-+ Section 5: `Timers, KeyEvents, and State Machines`_
-+ Section 6: `Basic Components`_
-+ Section 7: `Basic Layout`_
-+ Section 8: `Menus and Dialogs`_
-+ `Programming Exercises`_
-+ `Quiz on This Chapter`_
-
-
-
-
-[ `First Section`_ | `Previous Chapter`_ | `Next Chapter`_ | `Main
-Index`_ ]
-
-.. _Menus and Dialogs: http://math.hws.edu/javanotes/c6/s8.html
-.. _13: http://math.hws.edu/javanotes/c6/../c13/index.html
-.. _2: http://math.hws.edu/javanotes/c6/../c2/index.html
-.. _Applets and HTML: http://math.hws.edu/javanotes/c6/s2.html
-.. _Programming Exercises: http://math.hws.edu/javanotes/c6/exercises.html
-.. _Next Chapter: http://math.hws.edu/javanotes/c6/../c7/index.html
-.. _Basic Components: http://math.hws.edu/javanotes/c6/s6.html
-.. _Basic Layout: http://math.hws.edu/javanotes/c6/s7.html
-.. _3: http://math.hws.edu/javanotes/c6/../c3/index.html
-.. _Previous Chapter: http://math.hws.edu/javanotes/c6/../c5/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c6/../index.html
-.. _Quiz on This Chapter: http://math.hws.edu/javanotes/c6/quiz.html
-.. _First Section: http://math.hws.edu/javanotes/c6/s1.html
-.. _Graphics and Painting: http://math.hws.edu/javanotes/c6/s3.html
-.. _Mouse Events: http://math.hws.edu/javanotes/c6/s4.html
-.. _Timers, KeyEvents, and State Machines: http://math.hws.edu/javanotes/c6/s5.html
-
+   *
 
