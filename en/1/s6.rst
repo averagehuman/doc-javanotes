@@ -53,7 +53,7 @@ field, but you might have to click on it first to activate it. When
 you press return while typing in the text field, you will see a
 message in the text area:
 
-.. applet:: GUIDemo.class
+.. applet:: applets/GUIDemo.class
 
 
 Now, Java actually has two complete sets of GUI components. One of
