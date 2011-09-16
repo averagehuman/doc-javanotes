@@ -135,7 +135,8 @@ To test the ``javac`` command, place a copy of
 working directory. (If you downloaded the Web site of this book, you
 can find it in the directory named source; you can use your computer's
 GUI to copy-and-paste this file into your working directory.
-Alternatively, you can navigate to ``TextIO.java`` on the book's
+Alternatively, you can navigate to
+:download:`TextIO.java <../source/TextIO.java>` on the book's
 `Website`_ and use the ``Save As`` command in your Web browser to save a
 copy of the file into your working directory.) Type the command:
 
@@ -145,13 +146,16 @@ copy of the file into your working directory.) Type the command:
     javac  TextIO.java
 
 
-This will compile ``TextIO.java`` and will create a bytecode file named
-``TextIO.class`` in the same directory. Note that if the command succeeds,
+This will compile :download:`TextIO.java <../source/TextIO.java>``
+and will create a bytecode file named
+:download:`TextIO.java <../source/TextIO.java>` in the same directory.
+Note that if the command succeeds,
 you will not get any response from the computer; it will just
 redisplay the command prompt to tell you it's ready for another
 command.
 
-To test the java command, copy sample program ``Interest2.java`` from this
+To test the java command, copy sample program
+:download:`Interest2.java <../source/Interest2.java>` from this
 book's source directory into your working directory. First, compile
 the program with the command
 
@@ -200,7 +204,7 @@ itself written in Java and that can be downloaded for free from
 `<www.jedit.org>`_.
 
 To create your own programs, you should open a command line window and
-cd into the working directory where you will store your source code
+``cd`` into the working directory where you will store your source code
 files. Start up your text editor program, such as by double-clicking
 its icon or selecting it from a Start menu. Type your code into the
 editor window, or open an existing source code file that you want to
@@ -318,12 +322,13 @@ go. It also contains the "JRE System Library"; this is the collection
 of standard built-in classes that come with Java.
 
 To run the TextIO based examples from this textbook, you must add the
-source code file `TextIO.java`_ to your project. If you have
-downloaded the Web site of this book, you can find a copy of
-`TextIO.java`_ in the source directory. Alternatively, you can
-navigate to the file on-line and use the "Save As" command of your Web
+source code file :download:`TextIO.java <../source/TextIO.java>`
+to your project. If you have downloaded the Web site of this book, you
+can find a copy of :download:`TextIO.java <../source/TextIO.java>`
+in the source directory. Alternatively, you can
+navigate to the file on-line and use the ``Save As`` command of your Web
 browser to save a copy of the file onto your computer. The easiest way
-to get TextIO into your project is to locate the source code file on
+to get ``TextIO`` into your project is to locate the source code file on
 your computer and drag the file icon onto the project name in the
 Eclipse window. If that doesn't work, you can try using copy-and-
 paste: Right-click the file icon (or control-click on MacOS), select
@@ -341,23 +346,26 @@ clicking it; it will appear in the editing area of the Eclipse window.
 
 To run any of the Java programs from this textbook, copy the source
 code file into your Eclipse Java project in the same way that you did
-for TextIO.java. To run the program, right-click the file name in the
+for :download:`TextIO.java <../source/TextIO.java>`. To run the program,
+right-click the file name in the
 Package Explorer view (or control-click in MacOS). In the menu that
 pops up, go to the "Run As" submenu, and select "Java Application".
 The program will be executed. If the program writes to standard
 output, the output will appear in the "Console" view, in the area of
-the Eclipse winder under the editing area. If the program usesTextIO
+the Eclipse winder under the editing area. If the program uses ``TextIO``
 for input, you will have to type the required input into the "Console"
 view -- **click the "Console" view before you start typing**, so that
 the characters that you type will be sent to the correct part of the
 window. (Note that if you don't like doing I/O in the "Console" view,
-you can use an alternative version of `TextIO.java`_ that opens a
+you can use an alternative version of
+:download:`TextIO.java <../source/TextIO.java>` that opens a
 separate window for I/O. You can find this "GUI" version of TextIO in
 a directory named TextIO-GUI inside this textbook's source directory.)
 
 You can have more than one program in the same Eclipse project, or you
 can create additional projects to organize your work better. Remember
-to place a copy of `TextIO.java`_ in any project that requires it.
+to place a copy of :download:`TextIO.java <../source/TextIO.java>`
+in any project that requires it.
 
 
 
@@ -397,12 +405,12 @@ underline them with jagged red lines. Hover your mouse over the error
 to get a list of possible correct spellings.
 
 Another essential Eclipse feature is content assist. Content assist
-can be invoked by typing Control-Space. It will offer possible
+can be invoked by typing ``Control-Space``. It will offer possible
 completions of whatever you are typing at the moment. For example, if
 you type part of an identifier and hit Control-Space, you will get a
 list of identifiers that start with the characters that you have
 typed; use the up and down arrow keys to select one of the items in
-the list, and press Return or Enter. (Or hit Escape to dismiss the
+the list, and press ``Return`` or ``Enter``. (Or hit ``Escape`` to dismiss the
 list.) If there is only one possible completion when you hit Control-
 Space, it will be inserted automatically. By default, Content Assist
 will also pop up automatically, after a short delay, when you type a
@@ -423,12 +431,12 @@ again. Note that using Eclipse, there is no explicit "compile"
 command. The source code files in your project are automatically
 compiled, and are re-compiled whenever you modify them.
 
-If you use Netbeans instead of Eclipse, the procedures are similar.
+If you use ``Netbeans`` instead of ``Eclipse``, the procedures are similar.
 You still have to create new project (of type "Java Application"). You
 can add an existing source code file to a project by dragging the file
 onto the "Source Packages" folder in the project, and you can create
 your own classes by right-clicking the project name and selecting
-New/JavaClass. To run a program, right-click the file that contains
+``New/JavaClass``. To run a program, right-click the file that contains
 the main routine, and select the "Run File" command. Netbeans has a
 "Code Completion" feature that is similar to Eclipse's "Content
 Assist." One thing that you have to watch with Netbeans is that it
@@ -460,7 +468,7 @@ automatically in the class creation dialog, and you have to delete
 that name if you want to create the class in the default package. If
 you do create a class in a package, the source code starts with a line
 that specifies which package the class is in. For example, if the
-class is in a package named test.pkg, then the first line of the
+class is in a package named ``test.pkg``, then the first line of the
 source code will be
 
 
@@ -473,10 +481,12 @@ In an IDE, this will not cause any problem unless the program you are
 writing depends on ``TextIO``. You will not be able to use ``TextIO`` in a
 program unless TextIO is in the same package as the program. You can
 put TextIO in a named, non-default package, but you have to modify the
-source code file ``TextIO.java`` to specify the package: Just add a
+source code file :download:`TextIO.java <../source/TextIO.java>`
+to specify the package: Just add a
 package statement like the one shown above to the very beginning of
 the file, with the appropriate package name. (The IDE might do this
-for you, if you copy ``TextIO.java`` into a non-default package.) Once
+for you, if you copy :download:`TextIO.java <../source/TextIO.java>`
+into a non-default package.) Once
 you've done this, the example should run in the same way as if it were
 in the default package.
 
