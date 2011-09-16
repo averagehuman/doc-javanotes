@@ -6,7 +6,7 @@ import re
 alphabetic = re.compile(r'\w')
 nav_marker = "`Chapter Index`_ | `Main Index`_"
 
-for root, dirs, files in os.walk('en'):
+for root, dirs, files in os.walk('javanotes'):
     for f in files:
         if f.startswith('s') and f.endswith('.rst'):
             orig_path = root + '/' + f

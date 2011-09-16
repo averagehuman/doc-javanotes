@@ -17,7 +17,7 @@ def on_division_link(m):
     else:
         return ':doc:`Chapter %s</%s/index>`' % (chapter, chapter)
 
-for root, dirs, files in os.walk('en'):
+for root, dirs, files in os.walk('javanotes'):
     for f in files:
         if f.endswith('.rst'):
             orig_path = root + '/' + f
