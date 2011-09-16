@@ -3,8 +3,7 @@
 -----------------------------
 
 
-
-A lthough the Java language is highly standardized, the procedures for
+Although the Java language is highly standardized, the procedures for
 creating, compiling, and editing Java programs vary widely from one
 programming environment to another. There are two basic approaches: a
 command line environment, where the user types commands and the
@@ -26,31 +25,28 @@ do Java programming (aside from buying a computer, of course).
 Everything that you need can be downloaded for free on the Internet.
 
 
-
-
-
-2.6.1Java Development Kit
-~~~~~~~~~~~~~~~~~~~~~~~~~
+2.6.1 Java Development Kit
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The basic development system for Java programming is usually referred
-to as the JDK (Java Development Kit). It is a part of JavaSE, the Java
+to as the ``JDK`` (Java Development Kit). It is a part of ``JavaSE``, the Java
 "Standard Edition" (as opposed to Java for servers or for mobile
 devices). This book requires Java Version 5.0 or higher. Confusingly,
 the JDKs that are part of Java Versions 5, 6, and 7 are sometimes
-referred to as JDK1.5, 1.6, and 1.7. Note that JavaSE comes in two
-versions, a Development Kit version (the JDK) and a Runtime
-Environment version (the JRE). The Runtime can be used to run Java
+referred to as JDK 1.5, 1.6, and 1.7. Note that JavaSE comes in two
+versions, a Development Kit version (the ``JDK``) and a ``Runtime
+Environment version`` (the ``JRE``). The Runtime can be used to run Java
 programs and to view Java applets in Web pages, but it does not allow
 you to compile your own Java programs. The Development Kit includes
-the Runtime and adds to it the JDK which lets you compile programs.
-You need a JDK for use with this textbook.
+the Runtime and adds to it the ``JDK`` which lets you compile programs.
+You need a ``JDK`` for use with this textbook.
 
 Java was developed by Sun Microsystems, Inc., which is now a part of
 the Oracle corporation. Oracle makes the JDK for Windows and Linux
 available for free download at its Java Web site,
 `<http://www.oracle.com/technetwork/java>`_. If you have a Windows
 computer, it might have come with a Java Runtime, but you might still
-need to download the JDK. Some versions of Linux come with the JDK
+need to download the ``JDK``. Some versions of Linux come with the ``JDK``
 either installed by default or on the installation media. If you need
 to download and install the JDK, be sure to get JDK 5.0 (or higher).
 As of August 2010, the current version of the JDK is **JDK6**, and it
@@ -70,10 +66,8 @@ for programming, you probably still need a JDK, or at least a JRE.
 
 
 
-
-
-2.6.2Command Line Environment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.6.2 Command Line Environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Many modern computer users find the command line environment to be
 pretty alien and unintuitive. It is certainly very different from the
@@ -88,7 +82,7 @@ Windows, it can be found in the "Accessories" submenu of the Start
 menu, under the name "Command Prompt". Alternatively, you can runcmd
 by using the "Run Program" feature in the Start menu, and entering
 "cmd" as the name of the program. In MacOS, you want to run
-theTerminal program, which can be be found in the Utilities folder
+the Terminal program, which can be be found in the Utilities folder
 inside the Applications folder. In Linux, there are several
 possibilities, including an old program called xterm. In Ubuntu Linux,
 you can use the "Terminal" command under "Accessories" in the
@@ -123,25 +117,26 @@ can organize your files any way you like.
 
 
 
-The most basic commands for using Java on the command line arejavac
-and java;javac is used to compile Java source code, and java is used
+The most basic commands for using Java on the command line are ``javac``
+and java; ``javac`` is used to compile Java source code, and java is used
 to run Java stand-alone applications. If a JDK is correctly installed
 on your computer, it should recognize these commands when you type
-them in on the command line. Try typing the commandsjava-version and
-javac-version which should tell you which version of Java is
+them in on the command line. Try typing the commands ``java -version`` and
+``javac -version`` which should tell you which version of Java is
 installed. If you get a message such as "Command not found," then Java
-is not correctly installed. If the "java" command works, but "javac"
+is not correctly installed. If the ``java`` command works, but ``javac``
 does not, it means that a Java Runtime is installed rather than a
 Development Kit. (On Windows, after installing the JDK, you need to
 modify the Windows PATH variable to make this work. See the JDK
 installation instructions for information about how to do this.)
 
-To test the javac command, place a copy of `TextIO.java`_ into your
+To test the ``javac`` command, place a copy of :download:`<../source/TextIO.java>`
+into your
 working directory. (If you downloaded the Web site of this book, you
 can find it in the directory named source; you can use your computer's
 GUI to copy-and-paste this file into your working directory.
-Alternatively, you can navigate to `TextIO.java`_ on the book's
-`Website`_ and use the "SaveAs" command in your Web browser to save a
+Alternatively, you can navigate to ``TextIO.java`` on the book's
+`Website`_ and use the ``Save As`` command in your Web browser to save a
 copy of the file into your working directory.) Type the command:
 
 
@@ -150,13 +145,13 @@ copy of the file into your working directory.) Type the command:
     javac  TextIO.java
 
 
-This will compile TextIO.java and will create a bytecode file named
-TextIO.class in the same directory. Note that if the command succeeds,
+This will compile ``TextIO.java`` and will create a bytecode file named
+``TextIO.class`` in the same directory. Note that if the command succeeds,
 you will not get any response from the computer; it will just
 redisplay the command prompt to tell you it's ready for another
 command.
 
-To test the java command, copy sample program Interest2.java from this
+To test the java command, copy sample program ``Interest2.java`` from this
 book's source directory into your working directory. First, compile
 the program with the command
 
@@ -166,7 +161,7 @@ the program with the command
     javac  Interest2.java
 
 
-Remember that for this to succeed, TextIO must already be in the same
+Remember that for this to succeed, ``TextIO`` must already be in the same
 directory. Then you can execute the program using the command
 
 
@@ -190,7 +185,6 @@ later in the book.
 
 
 
-
 To create your own programs, you will need a text editor. A text
 editor is a computer program that allows you to create and save
 documents that contain plain text. It is important that the documents
@@ -201,7 +195,7 @@ text editor can make programming a lot more pleasant. Linux comes with
 several text editors. On Windows, you can use notepad in a pinch, but
 you will probably want something better. For MacOS, you might download
 the free TextWrangler application. One possibility that will work on
-any platform is to use jedit, a good programmer's text editor that is
+any platform is to use ``jedit``, a good programmer's text editor that is
 itself written in Java and that can be downloaded for free from
 `<www.jedit.org>`_.
 
@@ -213,14 +207,14 @@ editor window, or open an existing source code file that you want to
 modify. Save the file. Remember that the name of a Java source code
 file must end in ".java", and the rest of the file name must match the
 name of the class that is defined in the file. Once the file is saved
-in your working directory, go to the command window and use the javac
+in your working directory, go to the command window and use the ``javac``
 command to compile it, as discussed above. If there are syntax errors
 in the code, they will be listed in the command window. Each error
 message contains the line number in the file where the computer found
 the error. Go back to the editor and try to fix the errors, **save
-your changes**, and then try the javac command again. (It's usually a
+your changes**, and then try the ``javac`` command again. (It's usually a
 good idea to just work on the first few errors; sometimes fixing those
-will make other errors go away.) Remember that when the javac command
+will make other errors go away.) Remember that when the ``javac`` command
 finally succeeds, you will get no message at all. Then you can use the
 java command to run your program, as described above. Once you've
 compiled the program, you can run it as many times as you like without
@@ -239,10 +233,10 @@ the problem.
 
 
 
-2.6.3IDEs and Eclipse
-~~~~~~~~~~~~~~~~~~~~~
+2.6.3 IDEs and Eclipse
+~~~~~~~~~~~~~~~~~~~~~~
 
-In an Integrated Development Environment, everything you need to
+In an ``Integrated Development Environment``, everything you need to
 create, compile, and run programs is integrated into a single package,
 with a graphical user interface that will be familiar to most computer
 users. There are many different IDEs for Java program development,
@@ -251,7 +245,7 @@ applications with a multitude of features. For a beginning programmer,
 there is a danger in using an IDE, since the difficulty of learning to
 use the IDE, on top of the difficulty of learning to program, can be
 overwhelming. However, for my own programming, I generally use the
-Eclipse IDE, and I introduce my students to it after they have had
+``Eclipse`` IDE, and I introduce my students to it after they have had
 some experience with the command line. Eclipse has a variety of
 features that are very useful for a beginning programmer. And even
 though it has many advanced features, its design makes it possible to
@@ -268,7 +262,7 @@ your computer, as described `above`_, **before** you install Eclipse.
 Eclipse can be downloaded for free from `<eclipse.org>`_. You can
 download the "Eclipse IDE for Java Developers."
 
-Another popular choice of IDE is Netbeans, which provides many of the
+Another popular choice of IDE is ``Netbeans``, which provides many of the
 same capabilities as Eclipse. Netbeans can be downloaded from
 `<netbeans.org>`_, and Oracle offers downloads of Netbeans on its Java
 web site. I like Netbeans a little less than Eclipse, and I won't say
@@ -476,26 +470,26 @@ source code will be
 
 
 In an IDE, this will not cause any problem unless the program you are
-writing depends on TextIO. You will not be able to useTextIO in a
+writing depends on ``TextIO``. You will not be able to use ``TextIO`` in a
 program unless TextIO is in the same package as the program. You can
 put TextIO in a named, non-default package, but you have to modify the
-source code file `TextIO.java`_ to specify the package: Just add a
+source code file ``TextIO.java`` to specify the package: Just add a
 package statement like the one shown above to the very beginning of
 the file, with the appropriate package name. (The IDE might do this
-for you, if you copy TextIO.java into a non-default package.) Once
+for you, if you copy ``TextIO.java`` into a non-default package.) Once
 you've done this, the example should run in the same way as if it were
 in the default package.
 
 By the way, if you use packages in a command-line environment, other
 complications arise. For example, if a class is in a package named
-test.pkg, then the source code file must be in a subdirectory named
-"pkg" inside a directory named "test" that is in turn inside your main
+``test.pkg``, then the source code file must be in a subdirectory named
+``pkg`` inside a directory named ``test`` that is in turn inside your main
 Java working directory. Nevertheless, when you compile or execute the
 program, you should be in the main directory, not in a subdirectory.
 When you compile the source code file, you have to include the name of
-the directory in the command: Use "javactest/pkg/ClassName.java" on
-Linux or MacOS, or "javactest\pkg\ClassName.java" on Windows. The
-command for executing the program is then "javatest.pkg.ClassName",
+the directory in the command: Use ``javac test/pkg/ClassName.java`` on
+Linux or MacOS, or ``javac test\pkg\ClassName.java`` on Windows. The
+command for executing the program is then ``javatest.pkg.ClassName``,
 with a period separating the package name from the class name.
 However, you will not need to worry about any of that when working
 with almost all of the examples in this book.
@@ -505,7 +499,7 @@ with almost all of the examples in this book.
 ** End of Chapter 2 **
 
 
-
+.. _Website: http://math.hws.edu/javanotes/
 
 
 
