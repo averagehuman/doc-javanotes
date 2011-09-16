@@ -307,13 +307,13 @@ each time, and you might see different run times.
 
 
 
-2.3.2Operations on Strings
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.3.2 Operations on Strings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A value of type String is an object. That object contains data, namely
+A value of type ``String`` is an object. That object contains data, namely
 the sequence of characters that make up the string. It also contains
 subroutines. All of these subroutines are in fact functions. For
-example, every string object contains a function namedlength that
+example, every string object contains a function named ``length`` that
 computes the number of characters in that string. Suppose that advice
 is a variable that refers to a String. For example,advice might have
 been declared and assigned a value as follows:
@@ -325,17 +325,17 @@ been declared and assigned a value as follows:
     advice = "Seize the day!";
 
 
-Then advice.length() is a function call that returns the number of
-characters in the string "Seize the day!". In this case, the return
-value would be 14. In general, for any string variable str, the value
-of str.length() is anint equal to the number of characters in the
-string that is the value of str. Note that this function has no
+Then ``advice.length()`` is a function call that returns the number of
+characters in the string ``"Seize the day!"``. In this case, the return
+value would be ``14``. In general, for any string variable ``str``, the value
+of ``str.length()`` is an int equal to the number of characters in the
+string that is the value of ``str``. Note that this function has no
 parameter; the particular string whose length is being computed is the
-value of str. The length subroutine is defined by the class String,
-and it can be used with any value of typeString. It can even be used
+value of ``str``. The ``length`` subroutine is defined by the class String,
+and it can be used with any value of type ``String``. It can even be used
 with String literals, which are, after all, just constant values of
 type String. For example, you could have a program count the
-characters in "Hello World" for you by saying
+characters in ``"Hello World"`` for you by saying
 
 
 .. code-block:: java
@@ -345,71 +345,71 @@ characters in "Hello World" for you by saying
     System.out.println( "Hello World".length() );
 
 
-The String class defines a lot of functions. Here are some that you
-might find useful. Assume that s1 and s2 refer to values of type
+The ``String`` class defines a lot of functions. Here are some that you
+might find useful. Assume that ``s1`` and ``s2`` refer to values of type
 String:
 
 
-+ s1.equals(s2) is a function that returns a boolean value. It returns
-  true if s1 consists of exactly the same sequence of characters as s2,
-  and returns false otherwise.
-+ s1.equalsIgnoreCase(s2) is another boolean-valued function that
-  checks whether s1 is the same string as s2, but this function
-  considers upper and lower case letters to be equivalent. Thus, if s1
-  is "cat", then s1.equals("Cat") is false,
-  whiles1.equalsIgnoreCase("Cat") is true.
-+ s1.length(), as mentioned above, is an integer-valued function that
-  gives the number of characters in s1.
-+ s1.charAt(N), where N is an integer, returns a value of type char.
-  It returns the N-th character in the string. Positions are numbered
-  starting with 0, so s1.charAt(0) is actually the first character,
-  s1.charAt(1) is the second, and so on. The final position is
-  s1.length()-1. For example, the value of"cat".charAt(1) is 'a'. An
++ ``s1.equals(s2)`` is a function that returns a boolean value. It returns
+  ``true`` if ``s1`` consists of exactly the same sequence of characters as ``s2``,
+  and returns ``false`` otherwise.
++ ``s1.equalsIgnoreCase(s2)`` is another boolean-valued function that
+  checks whether ``s1`` is the same string as ``s2``, but this function
+  considers upper and lower case letters to be equivalent. Thus, if ``s1``
+  is "cat", then ``s1.equals("Cat")`` is ``false``,
+  while ``s1.equalsIgnoreCase("Cat")`` is ``true``.
++ ``s1.length()``, as mentioned above, is an integer-valued function that
+  gives the number of characters in ``s1``.
++ ``s1.charAt(N)``, where ``N`` is an integer, returns a value of type char.
+  It returns the ``N``-th character in the string. Positions are numbered
+  starting with ``0``, so ``s1.charAt(0)`` is actually the first character,
+  ``s1.charAt(1)`` is the second, and so on. The final position is
+  ``s1.length()-1``. For example, the value of ``"cat".charAt(1)`` is ``'a'``. An
   error occurs if the value of the parameter is less than zero or
-  greater than s1.length()-1.
-+ s1.substring(N,M), where N and M are integers, returns a value of
-  type String. The returned value consists of the characters of s1 in
-  positions N, N+1,...,M-1. Note that the character in position M is not
-  included. The returned value is called a substring of s1. The
-  subroutine s1.substring(N) returns the substring of s1 consisting of
-  characters starting at position N up until the end of the string.
-+ s1.indexOf(s2) returns an integer. If s2 occurs as a substring of
-  s1, then the returned value is the starting position of that
-  substring. Otherwise, the returned value is -1. You can also
-  uses1.indexOf(ch) to search for a particular character, ch, ins1. To
-  find the first occurrence of x at or after positionN, you can use
-  s1.indexOf(x,N).
-+ s1.compareTo(s2) is an integer-valued function that compares the two
-  strings. If the strings are equal, the value returned is zero. Ifs1 is
-  less than s2, the value returned is a number less than zero, and if s1
-  is greater than s2, the value returned is some number greater than
+  greater than ``s1.length()-1``.
++ ``s1.substring(N, M)``, where ``N`` and ``M`` are integers, returns a value of
+  type String. The returned value consists of the characters of ``s1`` in
+  positions ``N``, ``N+1``,...,``M-1``. Note that the character in position ``M`` is not
+  included. The returned value is called a substring of ``s1``. The
+  subroutine ``s1.substring(N)`` returns the substring of ``s1`` consisting of
+  characters starting at position ``N`` up until the end of the string.
++ ``s1.indexOf(s2)`` returns an integer. If ``s2`` occurs as a substring of
+  ``s1``, then the returned value is the starting position of that
+  substring. Otherwise, the returned value is ``-1``. You can also
+  use ``s1.indexOf(ch)`` to search for a particular character, ch, in ``s1``. To
+  find the first occurrence of ``x`` at or after position ``N``, you can use
+  ``s1.indexOf(x, N)``.
++ ``s1.compareTo(s2)`` is an integer-valued function that compares the two
+  strings. If the strings are equal, the value returned is zero. If ``s1`` is
+  less than ``s2``, the value returned is a number less than zero, and if ``s1``
+  is greater than ``s2``, the value returned is some number greater than
   zero. (If both of the strings consist entirely of lower case letters,
-  or if they consist entirely of upper case letters, then "less than"
-  and "greater than" refer to alphabetical order. Otherwise, the
+  or if they consist entirely of upper case letters, then ``less than``
+  and ``greater than`` refer to alphabetical order. Otherwise, the
   ordering is more complicated.)
-+ s1.toUpperCase() is a String-valued function that returns a new
-  string that is equal to s1, except that any lower case letters in s1
-  have been converted to upper case. For example,"Cat".toUpperCase() is
-  the string "CAT". There is also a functions1.toLowerCase().
++ ``s1.toUpperCase()`` is a String-valued function that returns a new
+  string that is equal to ``s1``, except that any lower case letters in ``s1``
+  have been converted to upper case. For example, ``"Cat".toUpperCase()`` is
+  the string "CAT". There is also a function ``s1.toLowerCase()``.
 + s1.trim() is a String-valued function that returns a new string that
   is equal to s1 except that any non-printing characters such as spaces
   and tabs have been trimmed from the beginning and from the end of the
-  string. Thus, if s1 has the value "fred", thens1.trim() is the string
+  string. Thus, if ``s1`` has the value "fred", then ``s1.trim()`` is the string
   "fred", with the spaces at the end removed.
 
 
-For the functions s1.toUpperCase(), s1.toLowerCase(), ands1.trim(),
-note that the value of s1 is **not** modified. Instead a new string is
+For the functions ``s1.toUpperCase()``, ``s1.toLowerCase()``, and ``s1.trim()``,
+note that the value of ``s1`` is **not** modified. Instead a new string is
 created and returned as the value of the function. The returned value
 could be used, for example, in an assignment statement such as
-"smallLetters = s1.toLowerCase();". To change the value of s1, you
-could use an assignment "s1 = s1.toLowerCase();".
+``smallLetters = s1.toLowerCase();``. To change the value of ``s1``, you
+could use an assignment ``s1 = s1.toLowerCase();``.
 
 
 
 
 Here is another extremely useful fact about strings: You can use the
-plus operator, +, to concatenate two strings. The concatenation of two
+plus operator, ``+``, to concatenate two strings. The concatenation of two
 strings is a new string consisting of all the characters of the first
 string followed by all the characters of the second string. For
 example, "Hello" + "World" evaluates to "HelloWorld". (Gotta watch
@@ -417,7 +417,7 @@ those spaces, of course -- if you want a space in the concatenated
 string, it has to be somewhere in the input data, as in "Hello" +
 "World".)
 
-Let's suppose that name is a variable of typeString and that it
+Let's suppose that name is a variable of type String and that it
 already refers to the name of the person using the program. Then, the
 program could greet the user by executing the statement:
 
@@ -428,11 +428,11 @@ program could greet the user by executing the statement:
 
 
 Even more surprising is that you can actually concatenate values of
-**any** type onto a String using the + operator. The value is
+**any** type onto a String using the ``+`` operator. The value is
 converted to a string, just as it would be if you printed it to the
 standard output, and then it is concatenated onto the string. For
-example, the expression "Number"+42 evaluates to the string
-"Number42". And the statements
+example, the expression ``Number + 42`` evaluates to the string
+``Number42``. And the statements
 
 
 .. code-block:: java
@@ -459,8 +459,8 @@ the examples presented earlier in this chapter.
 
 
 
-2.3.3Introduction to Enums
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.3.3 Introduction to Enums
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Java comes with eight built-in primitive types and a large set of
 types that are defined by classes, such as String. But even this large
@@ -470,7 +470,7 @@ part of Java, just like almost any other programming language, is the
 ability to create **new** types. For the most part, this is done by
 defining new classes; you will learn how to do that in :doc:`Chapter 5</5/index>`.
 But we will look here at one particular case: the ability to define
-enums (short forenumerated types). Enums are a recent addition to
+enums (short for enumerated types). Enums are a recent addition to
 Java. They were only added in Version 5.0. Many programming languages
 have something similar, and many people believe that enums should have
 been part of Java from the beginning.
@@ -495,10 +495,10 @@ The definition of an enum type has the (simplified) form:
 
 
 This definition cannot be inside a subroutine. You can place it
-**outside** the main() routine of the program. The enum-type-name can
+**outside** the ``main()`` routine of the program. The enum-type-name can
 be any simple identifier. This identifier becomes the name of the enum
-type, in the same way that "boolean" is the name of the boolean type
-and "String" is the name of the String type. Each value in the list-
+type, in the same way that **"boolean"** is the name of the boolean type
+and **"String"** is the name of the String type. Each value in the list-
 of-enum-values must be a simple identifier, and the identifiers in the
 list are separated by commas. For example, here is the definition of
 an enum type named Season whose values are the names of the four
@@ -512,15 +512,16 @@ seasons of the year:
 
 By convention, enum values are given names that are made up of upper
 case letters, but that is a style guideline and not a syntax rule.
-Enum values are not variables. Each value is a constant that always
+``Enum`` values are not variables. Each value is a constant that always
 has the same value. In fact, the possible values of an enum type are
 usually referred to as enum constants.
 
 Note that the enum constants of type Season are considered to be
-"contained in"Season, which means -- following the convention that
+``contained in`` Season, which means -- following the convention that
 compound identifiers are used for things that are contained in other
 things -- the names that you actually use in your program to refer to
-them are Season.SPRING, Season.SUMMER, Season.FALL, and Season.WINTER.
+them are ``Season.SPRING``, ``Season.SUMMER``, ``Season.FALL``, and
+``Season.WINTER``.
 
 Once an enum type has been created, it can be used to declare
 variables in exactly the same ways that other types are used. For
@@ -545,21 +546,21 @@ to use the full name of the constant, including "Season"! For example:
 
 
 You can print out an enum value with an output statement such as
-System.out.print(vacation). The output value will be the name of the
+``System.out.print(vacation)``. The output value will be the name of the
 enum constant (without the "Season."). In this case, the output would
-be "SUMMER".
+be ``"SUMMER"``.
 
-Because an enum is technically a class, the enum values are
+Because an ``enum`` is technically a class, the enum values are
 technically objects. As objects, they can contain subroutines. One of
-the subroutines in every enum value is named ordinal(). When used with
+the subroutines in every enum value is named ``ordinal()``. When used with
 an enum value, it returns the ordinal number of the value in the list
 of values of the enum. The ordinal number simply tells the position of
-the value in the list. That is, Season.SPRING.ordinal() is the int
-value 0, Season.SUMMER.ordinal() is 1,Season.FALL.ordinal() is 2, and
-Season.WINTER.ordinal() is 3. (You will see over and over again that
-computer scientists like to start counting at zero!) You can, of
-course, use the ordinal() method with a variable of type Season, such
-as vacation.ordinal() in our example.
+the value in the list. That is, ``Season.SPRING.ordinal()`` is the int
+value ``0``, ``Season.SUMMER.ordinal()`` is ``1``, ``Season.FALL.ordinal()``
+is ``2``, and ``Season.WINTER.ordinal()`` is ``3``. (You will see over and over
+again that computer scientists like to start counting at zero!) You can, of
+course, use the ``ordinal()`` method with a variable of type Season, such
+as ``vacation.ordinal()`` in our example.
 
 Right now, it might not seem to you that enums are all that useful. As
 you work though the rest of the book, you should be convinced that
@@ -609,7 +610,11 @@ example that shows enums being used in a complete program:
 You can run the following applet version of this program to see what
 the output actually looks like:.
 
-
+.. applet:: applets/EnumDemoApplet.jar
+   :width: 500
+   :height: 225
+   :code: EnumDemoConsole
+   :alt: (Applet 'EnumDemoConsole' should be displayed here)
 
 
 

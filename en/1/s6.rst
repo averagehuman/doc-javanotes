@@ -54,6 +54,9 @@ you press return while typing in the text field, you will see a
 message in the text area:
 
 .. applet:: applets/GUIDemo.class
+   :width: 497
+   :height: 150
+   :alt: Applet GUIDemo demonstrates some basic GUI components
 
 
 Now, Java actually has two complete sets of GUI components. One of
