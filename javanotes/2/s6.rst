@@ -130,8 +130,8 @@ Development Kit. (On Windows, after installing the JDK, you need to
 modify the Windows PATH variable to make this work. See the JDK
 installation instructions for information about how to do this.)
 
-To test the ``javac`` command, place a copy of :download:`<../source/TextIO.java>`
-into your
+To test the ``javac`` command, place a copy of
+:download:`TextIO.java <../source/TextIO.java>` into your
 working directory. (If you downloaded the Web site of this book, you
 can find it in the directory named source; you can use your computer's
 GUI to copy-and-paste this file into your working directory.

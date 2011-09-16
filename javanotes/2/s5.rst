@@ -3,8 +3,7 @@
 ---------------------------
 
 
-
-T his section takes a closer look at expressions. Recall that an
+This section takes a closer look at expressions. Recall that an
 expression is a piece of program code that represents or computes a
 value. An expression can be a literal, a variable, a function call, or
 several of these things combined with operators such as + and>. The
@@ -18,16 +17,17 @@ section tells you the more-or-less complete story (leaving out some of
 the less commonly used operators).
 
 The basic building blocks of expressions are literals (such as
-674,3.14, true, and 'X'), variables, and function calls. Recall that a
+``674``, ``3.14``, ``true``, and ``'X'``), variables, and function calls.
+Recall that a
 function is a subroutine that returns a value. You've already seen
-some examples of functions, such as the input routines from the TextIO
-class and the mathematical functions from the Math class.
+some examples of functions, such as the input routines from the ``TextIO``
+class and the mathematical functions from the ``Math`` class.
 
-The Math class also contains a couple of mathematical constants that
-are useful in mathematical expressions: Math.PI represents π (the
-ratio of the circumference of a circle to its diameter), and Math.E
-represents e (the base of the natural logarithms). These "constants"
-are actually member variables in Math of type double. They are only
+The ``Math`` class also contains a couple of mathematical constants that
+are useful in mathematical expressions: ``Math.PI`` represents ``π`` (the
+ratio of the circumference of a circle to its diameter), and ``Math.E``
+represents ``e`` (the base of the natural logarithms). These "constants"
+are actually member variables in ``Math`` of type ``double``. They are only
 approximations for the mathematical constants, which would require an
 infinite number of digits to specify exactly.
 
