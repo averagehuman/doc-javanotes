@@ -32,5 +32,6 @@ to them later when they are actually needed.
    s7
    exercises
    quiz
+   quiz_answers
 
 

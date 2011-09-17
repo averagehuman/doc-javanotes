@@ -40,4 +40,5 @@ chapter, but we will return to the topic of threads and networking in
    s5
    exercises
    quiz
+   quiz_answers
 

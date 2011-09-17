@@ -40,4 +40,5 @@ run time of algorithms.
    s5
    exercises
    quiz
+   quiz_answers
 

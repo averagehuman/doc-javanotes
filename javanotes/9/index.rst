@@ -31,4 +31,5 @@ built using classes of this kind.
    s5
    exercises
    quiz
+   quiz_answers
 

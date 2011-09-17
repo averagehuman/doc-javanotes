@@ -23,4 +23,5 @@ least another complete book.
    s5
    exercises
    quiz
+   quiz_answers
 

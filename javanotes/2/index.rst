@@ -45,4 +45,5 @@ write and use your own programs.
    s6
    exercises
    quiz
+   quiz_answers
 

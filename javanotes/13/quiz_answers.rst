@@ -1,12 +1,10 @@
 
 
-
-
 Answers for Quiz on Chapter 13
 ------------------------------
 
-T his page contains sample answers to the quiz on Chapter 13 of `
-Introduction to Programming Using Java `_. Note that generally, there
+This page contains sample answers to the quiz on Chapter 13 of
+Introduction to Programming Using Java. Note that generally, there
 are lots of correct answers to a given question.
 
 
@@ -31,7 +29,7 @@ surface. In this statement, the image that is created is 32 pixels
 wide and 32 pixels high, and the color of each pixel is an RGB color
 that has red, green, and blue components in the range 0 to 255. The
 picture in a BufferedImage can easily be copied into a graphics
-context g by calling one of theg.drawImage methods. However, since the
+context g by calling one of the ``g.drawImage`` methods. However, since the
 image is so small in this case, it seems more likely that is going to
 be used to define an ImageIcon or perhaps a Cursor.
 
@@ -66,8 +64,8 @@ An object that belongs to the class FontMetrics can be used to obtain
 information about the sizes of characters and strings that are drawn
 in a specific font. The font is specified when the FontMetrics object
 is created. If fm is a variable of type FontMetrics, then, for
-example, fm.stringWidth(str) gives the width of the string str and
-fm.getHeight() is the usual amount of vertical space allowed for one
+example, ``fm.stringWidth(str)`` gives the width of the string str and
+``fm.getHeight()`` is the usual amount of vertical space allowed for one
 line of text. This information could be used, for example, for
 positioning the string in a component.
 
@@ -75,7 +73,7 @@ positioning the string in a component.
 Question4
 ~~~~~~~~~
 
-If a Color, c, is created asc=newColor(0,0,255,125), what is the
+If a Color, c, is created as ``c = new Color(0,0,255,125)``, what is the
 effect of drawing with this color?
 
 
@@ -129,8 +127,8 @@ A ButtonGroup object is used with a set of radio buttons (or radio
 button menu items), to make sure that at most one of the radio buttons
 in the group can be selected at any given time. To use the ButtonGroup
 class, you have to create a ButtonGroup object,grp. Then each radio
-button, rb, that is supposed to be part of the group is added to the
-group by calling grp.add(rb). Nothing further needs to be done with
+button, ``rb``, that is supposed to be part of the group is added to the
+group by calling ``grp.add(rb)``. Nothing further needs to be done with
 the ButtonGroup object.
 
 
@@ -138,7 +136,7 @@ Question7
 ~~~~~~~~~
 
 What does the acronym MVC stand for, and how does it apply to
-theJTable class?
+the ``JTable`` class?
 
 
 Answer
@@ -159,7 +157,7 @@ view.
 Question8
 ~~~~~~~~~
 
-Describe the picture that is produced by the followingpaintComponent()
+Describe the picture that is produced by the following ``paintComponent()``
 method:
 
 
@@ -182,9 +180,9 @@ Answer
 This shows a filled black square that is 100-by-100 pixels in size.
 The corner of the square is at the center of the component that is
 being painted, and the top side of the square descends at a 30 degree
-angle from that point. (The translate command moves the origin, (0,0)
-to the point (getWidth()/2,getHeight()/2), so that when the fillRect
-command places the corner of the square at (0,0), the corner actually
+angle from that point. (The translate command moves the origin, ``(0,0)``
+to the point ``(getWidth()/2, getHeight()/2)``, so that when the fillRect
+command places the corner of the square at ``(0,0)``, the corner actually
 appears at the center of the component. Furthermore, the rotate
 command rotates the picture by 30 degrees in a clockwise direction
 about the origin. This means that the top of the square is rotated
@@ -216,7 +214,7 @@ Question10
 ~~~~~~~~~~
 
 Suppose that the class that you are writing has an instance
-methoddoOpen() (with no parameters) that is meant to be used to open a
+method ``doOpen()`` (with no parameters) that is meant to be used to open a
 file selected by the user. Write a code segment that creates anAction
 that represents the action of opening a file. Then show how to create
 a button and a menu item from that action.

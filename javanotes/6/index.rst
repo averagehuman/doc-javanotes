@@ -42,5 +42,6 @@ techniques.
    s8
    exercises
    quiz
+   quiz_answers
 
 

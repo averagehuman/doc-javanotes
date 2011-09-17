@@ -30,4 +30,5 @@ this chapter will be covered in much greater detail later in the book.
    s7
    exercises
    quiz
+   quiz_answers
 

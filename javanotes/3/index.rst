@@ -35,4 +35,5 @@ We'll look at a partial answer to this question in :doc:`Section 3.2</3/s2>`.
    s8
    exercises
    quiz
+   quiz_answers
 

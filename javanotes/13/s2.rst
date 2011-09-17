@@ -3,22 +3,21 @@
 ----------------------
 
 
-
-T he graphics commands provided by the Graphics class are sufficient
+The graphics commands provided by the Graphics class are sufficient
 for many purposes. However, recent versions of Java provide a much
 larger and richer graphical toolbox in the form of the class
-java.awt.Graphics2D. I mentioned Graphics2D in `Subsection6.3.5`_ and
+``java.awt.Graphics2D``. I mentioned ``Graphics2D`` in `Subsection6.3.5`_ and
 promised to discuss it further in this chapter.
 
-Graphics2D is a subclass of Graphics, so all of the graphics commands
-that you already know can be used with a Graphics2D object. In fact,
-when you obtain a Graphics context for drawing on a Swing component or
-on a BufferedImage, the graphics object is actually of type Graphics2D
-and can be type-cast to gain access to the advanced Graphics2D
-graphics commands. Furthermore, BufferedImage has an instance method,
-createGraphics(), that returns a graphics context of type Graphics2D.
+``Graphics2D`` is a subclass of ``Graphics``, so all of the graphics commands
+that you already know can be used with a ``Graphics2D`` object. In fact,
+when you obtain a ``Graphics`` context for drawing on a Swing component or
+on a ``BufferedImage``, the graphics object is actually of type ``Graphics2D``
+and can be type-cast to gain access to the advanced ``Graphics2D``
+graphics commands. Furthermore, ``BufferedImage`` has an instance method,
+``createGraphics()``, that returns a graphics context of type ``Graphics2D``.
 For example, if image is of type BufferedImage, then you can get a
-Graphics2D for drawing on the image using:
+``Graphics2D`` for drawing on the image using:
 
 
 .. code-block:: java
@@ -26,9 +25,9 @@ Graphics2D for drawing on the image using:
     Graphics2D g2 = image.createGraphics();
 
 
-And, as mentioned in `Subsection6.3.5`_, to use Graphics2D commands in
-the paintComponent() method of a Swing component, you can write a
-paintComponent() method of the form:
+And, as mentioned in `Subsection6.3.5`_, to use ``Graphics2D`` commands in
+the ``paintComponent()`` method of a Swing component, you can write a
+``paintComponent()`` method of the form:
 
 
 .. code-block:: java
@@ -43,11 +42,11 @@ paintComponent() method of the form:
     }
 
 
-Note that when you do this, g and g2 are just two variables that refer
-to the same object, so they both draw to the same drawing surface; g2
-just gives you access to methods that are defined in Graphics2D but
-not in Graphics. When properties of g2, such as drawing color, are
-changed, the changes also apply to g. By saying
+Note that when you do this, ``g`` and ``g2`` are just two variables that refer
+to the same object, so they both draw to the same drawing surface; ``g2``
+just gives you access to methods that are defined in ``Graphics2D`` but
+not in ``Graphics``. When properties of ``g2``, such as drawing color, are
+changed, the changes also apply to ``g``. By saying
 
 
 .. code-block:: java
@@ -56,23 +55,21 @@ changed, the changes also apply to g. By saying
 
 
 you can obtain a newly created graphics context. The object created by
-g.create() is a graphics context that draws to the same drawing
-surface as g and that initially has all the same properties as g.
-However, it is a separate object, so that changing properties in g2
-has no effect on g. This can be useful if you want to keep an
+``g.create()`` is a graphics context that draws to the same drawing
+surface as g and that initially has all the same properties as ``g``.
+However, it is a separate object, so that changing properties in ``g2``
+has no effect on ``g``. This can be useful if you want to keep an
 unmodified copy of the original graphics context around for some
 drawing operations. (In this case, it is good practice to call
-g2.dispose() to dispose of the new graphics context when you are
+``g2.dispose()`` to dispose of the new graphics context when you are
 finished using it.)
 
 
 
+13.2.1 Measuring Text
+~~~~~~~~~~~~~~~~~~~~~
 
-
-13.2.1Measuring Text
-~~~~~~~~~~~~~~~~~~~~
-
-Although this section is mostly about Graphics2D, we start with a
+Although this section is mostly about ``Graphics2D``, we start with a
 topic that has nothing to do with it.
 
 Often, when drawing a string, it's important to know how big the image
@@ -82,17 +79,17 @@ much space to leave between two lines of text, when you draw them one
 above the other. Or if the user is typing the string and you want to
 position a cursor at the end of the string. In Java, questions about
 the size of a string can be answered by an object belonging to the
-standard class java.awt.FontMetrics.
+standard class ``java.awt.FontMetrics``.
 
 There are several lengths associated with any given font. Some of them
 are shown in this illustration:
 
-
+.. image:: img/MeasuringStrings.png
 
 The dashed red lines in the illustration are the baselines of the two
 lines of text. The baseline of a string is the line on which the bases
 of the characters rest. The suggested distance between two baselines,
-for single-spaced text, is known as the lineheight of the font. The
+for single-spaced text, is known as the ``lineheight`` of the font. The
 ascent is the distance that tall characters can rise above the
 baseline, and the descent is the distance that tails like the one on
 the letter "g" can descend below the baseline. The ascent and descent
@@ -104,22 +101,23 @@ Characters were formed on blocks of lead that were lined up to make up
 the text of a page, covered with ink, and pressed onto paper to print
 the page. Extra, blank "leading" was used to separate the lines of
 characters.) All these quantities can be determined by calling
-instance methods in aFontMetrics object. There are also methods for
+instance methods in a ``FontMetrics`` object. There are also methods for
 determining the width of a character and the total width of a string
 of characters.
 
-Recall that a font in Java is represented by the class Font. A
+Recall that a font in Java is represented by the class ``Font``. A
 FontMetrics object is associated with a given font and is used to
-measure characters and strings in that font. If font is of type Font
-and g is a graphics context, you can get aFontMetrics object for the
-font by callingg.getFontMetrics(font). If fm is the variable that
-refers to theFontMetrics object, then the ascent, descent, leading,
+measure characters and strings in that font. If font is of type ``Font``
+and ``g`` is a graphics context, you can get a ``FontMetrics`` object for the
+font by calling ``g.getFontMetrics(font)``. If ``fm`` is the variable that
+refers to the ``FontMetrics`` object, then the ascent, descent, leading,
 and lineheight of the font can be obtained by calling
-fm.getAscent(),fm.getDescent(), fm.getLeading(), andfm.getHeight(). If
-ch is a character, thenfm.charWidth(ch) is the width of the character
-when it is drawn in that font. If str is a string, then
-fm.stringWidth(str) is the width of the string when drawn in that
-font. For example, here is a paintComponent() method that shows the
+``fm.getAscent()``, ``fm.getDescent()``, ``fm.getLeading()``, and
+``fm.getHeight()``. If
+``ch`` is a character, then ``fm.charWidth(ch)`` is the width of the character
+when it is drawn in that font. If ``str`` is a string, then
+``fm.stringWidth(str)`` is the width of the string when drawn in that
+font. For example, here is a ``paintComponent()`` method that shows the
 message "Hello World" in the exact center of the component:
 
 
@@ -158,9 +156,9 @@ message "Hello World" in the exact center of the component:
 You can change the font that is used for drawing strings as described
 in `Subsection6.3.3`_. For the height of the string in this method, I
 use fm.getAscent(). If I were drawing "Goodbye World" instead of
-"Hello World," I would have usedfm.getAscent() + fm.getDescent(),
+"Hello World," I would have used ``fm.getAscent() + fm.getDescent()``,
 where the descent is added to the height in order to take into account
-the tail on the "y" in "Goodbye". The value of baseX is computed to be
+the tail on the "y" in "Goodbye". The value of ``baseX`` is computed to be
 the amount of space between the left edge of the component and the
 start of the string. It is obtained by subtracting half the width of
 the string from the horizontal center of the component. This will
@@ -172,15 +170,14 @@ string is below the top of the string by an amount equal to the ascent
 of the font.
 
 There is an example of centering a two-line block of text in the
-sample program `TransparencyDemo.java`_, which is discussed in the
-next subsection.
+sample program
+:download:`TransparencyDemo.java<../source/TransparencyDemo.java`, which is
+discussed in the next subsection.
 
 
 
-
-
-13.2.2Transparency
-~~~~~~~~~~~~~~~~~~
+13.2.2 Transparency
+~~~~~~~~~~~~~~~~~~~
 
 A color is represented by red, blue, and green components. In Java's
 usual representation, each component is an eight-bit number in the
@@ -194,8 +191,8 @@ it's like laying down a sheet of colored glass. It doesn't completely
 obscure the part of the image that is colored over. Instead, the
 background image is blended with the transparent color that is used
 for drawing -- as if you were looking at the background through
-colored glass. This type of drawing is properly referred to as alpha
-blending, and it is not equivalent to true transparency; nevertheless,
+colored glass. This type of drawing is properly referred to as ``alpha
+blending``, and it is not equivalent to true transparency; nevertheless,
 most people refer to it as transparency.
 
 The value of the alpha component determines how transparent that color
@@ -218,7 +215,7 @@ bottom of the applet allow you to control the degree of transparency
 of each shape. When a slider is moved all the way to the right, the
 corresponding shape is fully opaque; all the way to the left, and the
 shape is fully transparent. The source code for this program is
-`TransparencyDemo.java`_.
+:download:`TransparencyDemo.java<../source/TransparencyDemo.java`.
 
 
 

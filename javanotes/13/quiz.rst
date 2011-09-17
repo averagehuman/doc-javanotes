@@ -1,12 +1,9 @@
 
-
-
-
 Quiz on Chapter 13
 ------------------
 
-T his page contains questions on Chapter 13 of ` Introduction to
-Programming Using Java `_. You should be able to answer these
+This page contains questions on Chapter 13 of Introduction to
+Programming Using Java. You should be able to answer these
 questions after studying that chapter. Sample answers to these
 questions can be found `here`_.
 
@@ -34,13 +31,13 @@ in this sense? Give an example.
 Question3
 ~~~~~~~~~
 
-What is the FontMetrics class used for?
+What is the ``FontMetrics`` class used for?
 
 
 Question4
 ~~~~~~~~~
 
-If a Color, c, is created asc=newColor(0,0,255,125), what is the
+If a Color, c, is created as ``c = new Color(0,0,255,125)``, what is the
 effect of drawing with this color?
 
 
@@ -60,13 +57,13 @@ Question7
 ~~~~~~~~~
 
 What does the acronym MVC stand for, and how does it apply to
-theJTable class?
+the ``JTable`` class?
 
 
 Question8
 ~~~~~~~~~
 
-Describe the picture that is produced by the followingpaintComponent()
+Describe the picture that is produced by the following ``paintComponent()``
 method:
 
 
@@ -93,7 +90,7 @@ Question10
 ~~~~~~~~~~
 
 Suppose that the class that you are writing has an instance
-methoddoOpen() (with no parameters) that is meant to be used to open a
+method ``doOpen()`` (with no parameters) that is meant to be used to open a
 file selected by the user. Write a code segment that creates anAction
 that represents the action of opening a file. Then show how to create
 a button and a menu item from that action.
