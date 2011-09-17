@@ -60,7 +60,7 @@ A program is a sequence of instructions. In the ordinary "flow of
 control," the computer executes the instructions in the sequence in
 which they appear, one after the other. However, this is obviously
 very limited: the computer would soon run out of instructions to
-execute. Control structures are special instructions that can change
+execute. ``Control structures`` are special instructions that can change
 the flow of control. There are two basic types of control structure:
 ``loops``, which allow a sequence of instructions to be repeated over and
 over, and ``branches``, which allow the computer to decide between two or

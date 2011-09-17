@@ -4,7 +4,6 @@ from os.path import join as pathjoin, exists as pathexists, dirname, basename
 import re
 
 alphabetic = re.compile(r'\w')
-nav_marker = "`Chapter Index`_ | `Main Index`_"
 
 for root, dirs, files in os.walk('javanotes'):
     for f in files:

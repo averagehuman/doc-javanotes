@@ -9,20 +9,20 @@ two out of many components in a real computer system. A complete
 system contains other devices such as:
 
 
-+ A hard disk for storing programs and data files. (Note that main
++ A ``hard disk`` for storing programs and data files. (Note that main
   memory holds only a comparatively small amount of information, and
   holds it only as long as the power is turned on. A hard disk is used
   for permanent storage of larger amounts of information, but programs
   have to be loaded from disk into main memory before they can actually
   be executed.)
-+ A keyboard and mouse for user input.
-+ A monitor and printer which can be used to display the computer's
++ A ``keyboard`` and ``mouse`` for user input.
++ A ``monitor`` and ``printer`` which can be used to display the computer's
   output.
-+ An audio output device that allows the computer to play sounds.
-+ A network interface that allows the computer to communicate with
++ An ``audio output`` device that allows the computer to play sounds.
++ A ``network interface`` that allows the computer to communicate with
   other computers that are connected to it on a network, either
   wirelessly or by wire.
-+ A scanner that converts images into coded binary numbers that can be
++ A ``scanner`` that converts images into coded binary numbers that can be
   stored and manipulated on the computer.
 
 
@@ -31,7 +31,7 @@ built so that they can easily be expanded by adding new devices.
 Somehow the CPU has to communicate with and control all these devices.
 The CPU can only do this by executing machine language instructions
 (which is all it can do, period). The way this works is that for each
-device in a system, there is a device driver, which consists of
+device in a system, there is a ``device driver``, which consists of
 software that the CPU executes when it has to deal with the device.
 Installing a new device on a system generally has two steps: plugging
 the device physically into the computer, and installing the device
@@ -41,7 +41,7 @@ it.
 
 
 A computer system consisting of many devices is typically organized by
-connecting those devices to one or more busses. A bus is a set of
+connecting those devices to one or more busses. A ``bus`` is a set of
 wires that carry various sorts of information between the devices
 connected to those wires. The wires carry data, addresses, and control
 signals. An address directs the data to a particular device and
@@ -50,19 +50,21 @@ Control signals can be used, for example, by one device to alert
 another that data is available for it on the data bus. A fairly simple
 computer system might be organized like this:
 
+.. image:: img/overview_fig2.gif
+
 
 Now, devices such as keyboard, mouse, and network interface can
 produce input that needs to be processed by the CPU. How does the CPU
 know that the data is there? One simple idea, which turns out to be
 not very satisfactory, is for the CPU to keep checking for incoming
 data over and over. Whenever it finds data, it processes it. This
-method is called polling, since the CPU polls the input devices
+method is called ``polling``, since the CPU polls the input devices
 continually to see whether they have any input data to report.
 Unfortunately, although polling is very simple, it is also very
 inefficient. The CPU can waste an awful lot of time just waiting for
 input.
 
-To avoid this inefficiency, interrupts are often used instead of
+To avoid this inefficiency, ``interrupts`` are often used instead of
 polling. An interrupt is a signal sent by another device to the CPU.
 The CPU responds to an interrupt signal by putting aside whatever it
 is doing in order to respond to the interrupt. Once it has handled the
@@ -80,15 +82,15 @@ information about what it is currently doing so that it can return to
 the same state later. This information consists of the contents of
 important internal registers such as the program counter. Then the CPU
 jumps to some predetermined memory location and begins executing the
-instructions stored there. Those instructions make up aninterrupt
-handler that does the processing necessary to respond to the
+instructions stored there. Those instructions make up an ``interrupt
+handler`` that does the processing necessary to respond to the
 interrupt. (This interrupt handler is part of the device driver
 software for the device that signalled the interrupt.) At the end of
 the interrupt handler is an instruction that tells the CPU to jump
 back to what it was doing; it does that by restoring its previously
 saved state.
 
-Interrupts allow the CPU to deal with asynchronous events. In the
+Interrupts allow the CPU to deal with ``asynchronous events``. In the
 regular fetch-and-execute cycle, things happen in a predetermined
 order; everything that happens is "synchronized" with everything else.
 Interrupts make it possible for the CPU to deal efficiently with
@@ -112,18 +114,18 @@ can then read the requested data.
 Now, you might have noticed that all this only makes sense if the CPU
 actually has several tasks to perform. If it has nothing better to do,
 it might as well spend its time polling for input or waiting for disk
-drive operations to complete. All modern computers use multitasking to
+drive operations to complete. All modern computers use ``multitasking`` to
 perform several tasks at once. Some computers can be used by several
 people at once. Since the CPU is so fast, it can quickly switch its
 attention from one user to another, devoting a fraction of a second to
 each user in turn. This application of multitasking is called
-timesharing. But a modern personal computer with just a single user
+``timesharing``. But a modern personal computer with just a single user
 also uses multitasking. For example, the user might be typing a paper
 while a clock is continuously displaying the time and a file is being
 downloaded over the network.
 
 Each of the individual tasks that the CPU is working on is called
-athread. (Or a process; there are technical differences between
+a ``thread``. (Or a ``process``; there are technical differences between
 threads and processes, but they are not important here, since it is
 threads that are used in Java.) Many CPUs can literally execute more
 than one thread simultaneously -- such CPUs contain multiple "cores,"
@@ -136,18 +138,18 @@ one user to another. In general, a thread that is being executed will
 continue to run until until one of several things happens:
 
 
-+ The thread might voluntarily yield control, to give other threads a
++ The thread might voluntarily ``yield`` control, to give other threads a
   chance to run.
 + The thread might have to wait for some asynchronous event to occur.
   For example, the thread might request some data from the disk drive,
   or it might wait for the user to press a key. While it is waiting, the
-  thread is said to beblocked, and other threads, if any, have a chance
+  thread is said to be ``blocked``, and other threads, if any, have a chance
   to run. When the event occurs, an interrupt will "wake up" the thread
   so that it can continue running.
 + The thread might use up its allotted slice of time and be suspended
   to allow other threads to run. Not all computers can "forcibly"
   suspend a thread in this way; those that can are said to use
-  preemptive multitasking. To do preemptive multitasking, a computer
+  preemptive multitasking. To do ``preemptive multitasking``, a computer
   needs a special timer device that generates an interrupt at regular
   intervals, such as 100 times per second. When a timer interrupt
   occurs, the CPU has a chance to switch from one thread to another,
@@ -172,7 +174,7 @@ threads will be covered in :doc:`Chapter12</12>`.
 Just as important in Java and in modern programming in general is the
 basic concept of asynchronous events. While programmers don't actually
 deal with interrupts directly, they do often find themselves writing
-event handlers, which, like interrupt handlers, are called
+``event handlers``, which, like interrupt handlers, are called
 asynchronously when specific events occur. Such "event-driven
 programming" has a very different feel from the more traditional
 straight-through, synchronous programming. We will begin with the more
@@ -185,7 +187,7 @@ the text, starting in :doc:`Chapter 6</6/index>`
 
 By the way, the software that does all the interrupt handling, handles
 communication with the user and with hardware devices, and controls
-which thread is allowed to run is called theoperating system. The
+which thread is allowed to run is called the ``operating system``. The
 operating system is the basic, essential software without which a
 computer would not be able to function. Other programs, such as word
 processors and World Wide Web browsers, are dependent upon the

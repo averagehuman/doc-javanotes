@@ -6,11 +6,11 @@
 
 M achine language consists of very simple instructions that can be
 executed directly by the CPU of a computer. Almost all programs,
-though, are written in high-level programming languages such as Java,
-Pascal, or C++. A program written in a high-level language cannot be
+though, are written in ``high-level programming languages`` such as ``Java``,
+``Pascal``, or ``C++``. A program written in a high-level language cannot be
 run directly on any computer. First, it has to be translated into
 machine language. This translation can be done by a program called a
-compiler. A compiler takes a high-level-language program and
+``compiler``. A compiler takes a high-level-language program and
 translates it into an executable machine-language program. Once the
 translation is done, the machine-language program can be run any
 number of times, but of course it can only be run on one type of
@@ -21,7 +21,7 @@ machine language.
 
 There is an alternative to compiling a high-level language program.
 Instead of using a compiler, which translates the program all at once,
-you can use aninterpreter, which translates it instruction-by-
+you can use an ``interpreter``, which translates it instruction-by-
 instruction, as necessary. An interpreter is a program that acts much
 like a CPU, with a kind of fetch-and-execute cycle. In order to
 execute a program, the interpreter runs in a loop in which it
@@ -30,7 +30,7 @@ necessary to carry out that instruction, and then performs the
 appropriate machine-language commands to do so.
 
 One use of interpreters is to execute high-level language programs.
-For example, the programming language Lisp is usually executed by an
+For example, the programming language ``Lisp`` is usually executed by an
 interpreter rather than a compiler. However, interpreters have another
 purpose: they can let you use a machine-language program meant for one
 type of computer on a completely different type of computer. For
@@ -50,9 +50,9 @@ Compiled programs are inherently faster than interpreted programs.)
 The designers of Java chose to use a combination of compilation and
 interpretation. Programs written in Java are compiled into machine
 language, but it is a machine language for a computer that doesn't
-really exist. This so-called "virtual" computer is known as the Java
-Virtual Machine, or JVM. The machine language for the Java Virtual
-Machine is calledJava bytecode. There is no reason why Java bytecode
+really exist. This so-called "virtual" computer is known as the ``Java
+Virtual Machine``, or ``JVM``. The machine language for the Java Virtual
+Machine is called Java ``bytecode``. There is no reason why Java bytecode
 couldn't be used as the machine language of a real computer, rather
 than a virtual computer. But in fact the use of a virtual machine
 makes possible one of the main selling points of Java: the fact that
@@ -71,6 +71,8 @@ it can run any Java bytecode program. And the same Java bytecode
 program can be run on any computer that has such an interpreter. This
 is one of the essential features of Java: the same compiled program
 can be run on many different types of computers.
+
+.. image:: img/overview_fig3.gif
 
 
 
@@ -98,7 +100,7 @@ Since Java bytecode was executed by an interpreter, it seemed that
 Java bytecode programs could never run as quickly as programs compiled
 into native machine language (that is, the actual machine language of
 the computer on which the program is running). However, this problem
-has been largely overcome by the use of just-in-time compilers for
+has been largely overcome by the use of ``just-in-time compilers`` for
 executing Java bytecode. A just-in-time compiler translates Java
 bytecode into native machine language. It does this while it is
 executing the program. Just as for a normal interpreter, the input to
@@ -122,8 +124,8 @@ program in a modern high-level object-oriented language.
 programming languages, or versions of old languages, that compile into
 Java bytecode. The compiled bytecode programs can then be executed by
 a standard JVM. New languages that have been developed specifically
-for programming the JVM include Groovy, Clojure, and Processing.
-Jython and JRuby are versions of older languages, Python and Ruby,
+for programming the JVM include ``Groovy``, ``Clojure``, and ``Processing``.
+``Jython and ``JRuby`` are versions of older languages, ``Python`` and ``Ruby``,
 that target the JVM. These languages make it possible to enjoy many of
 the advantages of the JVM while avoiding some of the technicalities of
 the Java language. In fact, the use of other languages with the JVM

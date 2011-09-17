@@ -1,5 +1,3 @@
-[ `Quiz Answers`_ | `Chapter Index`_ | `Main Index`_ ]
-
 
 
 
@@ -11,27 +9,55 @@ T his page contains questions on Chapter 5 of ` Introduction to
 Programming Using Java `_. You should be able to answer these
 questions after studying that chapter. Sample answers to these
 questions can be found `here`_.
-Question1:
+
+
+Question1
+~~~~~~~~~
+
 Object-oriented programming uses classes and objects . What are
 classes and what are objects? What is the relationship between classes
 and objects?
-Question2:
+
+
+Question2
+~~~~~~~~~
+
 Explain carefully what null means in Java, and why this special value
 is necessary.
-Question3:
+
+
+Question3
+~~~~~~~~~
+
 What is a constructor? What is the purpose of a constructor in a
 class?
-Question4:
+
+
+Question4
+~~~~~~~~~
+
 Suppose thatKumquat is the name of a class and that fruit is a
 variable of type Kumquat. What is the meaning of the statement "fruit
 = new Kumquat();"? That is, what does the computer do when it executes
 this statement? (Try to give a complete answer. The computer does
 several things.)
-Question5:
+
+
+Question5
+~~~~~~~~~
+
 What is meant by the terms instance variable and instance method ?
-Question6:
+
+
+Question6
+~~~~~~~~~
+
 Explain what is meant by the terms subclass and superclass.
-Question7:
+
+
+Question7
+~~~~~~~~~
+
 Modify the following class so that the two instance variables are
 private and there is a getter method and a setter method for each
 instance variable:
@@ -44,17 +70,33 @@ instance variable:
        int score;
     }
 
-Question8:
+
+
+Question8
+~~~~~~~~~
+
 Explain why the class Player that is defined in the previous question
 has an instance method named toString(), even though no definition of
 this method appears in the definition of the class.
-Question9:
+
+
+Question9
+~~~~~~~~~
+
 Explain the term polymorphism.
-Question10:
+
+
+Question10
+~~~~~~~~~~
+
 Java uses "garbage collection" for memory management. Explain what is
 meant here by garbage collection. What is the alternative to garbage
 collection?
-Question11:
+
+
+Question11
+~~~~~~~~~~
+
 For this problem, you should write a very simple but complete class.
 The class represents a counter that counts 0, 1, 2, 3, 4,.... The name
 of the class should be Counter. It has one private instance variable
@@ -62,7 +104,11 @@ representing the value of the counter. It has two instance methods:
 increment() adds one to the counter value, and getValue() returns the
 current counter value. Write a complete definition for the class,
 Counter.
-Question12:
+
+
+Question12
+~~~~~~~~~~
+
 This problem uses theCounter class from the previous question. The
 following program segment is meant to simulate tossing a coin 100
 times. It should use two Counter objects, headCount and tailCount, to
@@ -90,12 +136,5 @@ so that it will do so:
     System.out.println("There were " + ___________________ + " tails.");
 
 
-
-
-[ `Quiz Answers`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _Chapter Index: http://math.hws.edu/javanotes/c5/index.html
-.. _Main Index: http://math.hws.edu/javanotes/c5/../index.html
-.. _Quiz Answers: http://math.hws.edu/javanotes/c5/quiz_answers.html
 
 

@@ -1,5 +1,3 @@
-[ `Quiz Answers`_ | `Chapter Index`_ | `Main Index`_ ]
-
 
 
 
@@ -11,9 +9,17 @@ T his page contains questions on Chapter 9 of ` Introduction to
 Programming Using Java `_. You should be able to answer these
 questions after studying that chapter. Sample answers to these
 questions can be found `here`_.
-Question1:
+
+
+Question1
+~~~~~~~~~
+
 Explain what is meant by a recursive subroutine.
-Question2:
+
+
+Question2
+~~~~~~~~~
+
 Consider the following subroutine:
 
 
@@ -35,7 +41,11 @@ Consider the following subroutine:
 
 Show the output that would be produced by the subroutine
 callsprintStuff(0), printStuff(1), printStuff(2), andprintStuff(3).
-Question3:
+
+
+Question3
+~~~~~~~~~
+
 Suppose that a linked list is formed from objects that belong to the
 class
 
@@ -51,14 +61,30 @@ class
 Write a subroutine that will count the number of zeros that occur in a
 given linked list of ints. The subroutine should have a parameter of
 type ListNode and should return a value of type int.
-Question4:
+
+
+Question4
+~~~~~~~~~
+
 What are the three operations on a stack?
-Question5:
+
+
+Question5
+~~~~~~~~~
+
 What is the basic difference between a stack and a queue?
-Question6:
+
+
+Question6
+~~~~~~~~~
+
 What is an activation record ? What role does a stack of activation
 records play in a computer?
-Question7:
+
+
+Question7
+~~~~~~~~~
+
 Suppose that a binary tree of integers is formed from objects
 belonging to the class
 
@@ -75,9 +101,17 @@ belonging to the class
 Write a recursive subroutine that will find the sum of all the nodes
 in the tree. Your subroutine should have a parameter of type TreeNode,
 and it should return a value of type int.
-Question8:
+
+
+Question8
+~~~~~~~~~
+
 What is a postorder traversal of a binary tree?
-Question9:
+
+
+Question9
+~~~~~~~~~
+
 Suppose that a <multilist> is defined by the BNF rule
 
 
@@ -91,15 +125,12 @@ where a <word> can be any sequence of letters. Give five different
 way, is almost the entire syntax of the programming languageLISP! LISP
 is known for its simple syntax and its elegant and powerful
 semantics.)
-Question10:
+
+
+Question10
+~~~~~~~~~~
+
 Explain what is meant by parsing a computer program.
 
-
-
-[ `Quiz Answers`_ | `Chapter Index`_ | `Main Index`_ ]
-
-.. _Main Index: http://math.hws.edu/javanotes/c9/../index.html
-.. _Quiz Answers: http://math.hws.edu/javanotes/c9/quiz_answers.html
-.. _Chapter Index: http://math.hws.edu/javanotes/c9/index.html
 
 
