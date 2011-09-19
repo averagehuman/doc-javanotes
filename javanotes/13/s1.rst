@@ -64,7 +64,7 @@ integer-valued parameters ``x`` and ``y`` give the position of the upper-left
 corner of the rectangle in which the image is displayed, and the
 rectangle is just large enough to hold the image. The fourth
 parameter, this, is the special variable from
-:doc:`Subsection 5.6.1</5/s6`  that
+:doc:`Subsection 5.6.1</5/s6>`  that
 refers to the JComponent itself. This parameter is there for technical
 reasons having to do with the funny way Java treats image files. For
 most applications, you don't need to understand this, but here is how
@@ -123,14 +123,14 @@ Internet. So, all the cards might be put into a single image:
    :width: 513
    :height: 307
 
-(This image is from the Gnome desktop project,`<http://www.gnome.org>`_,
+(This image is from the Gnome desktop project, `<http://www.gnome.org>`_,
 and is shown here much smaller than its actual size.) Now just one
 Image object is needed. Drawing one card means drawing a rectangular
 region from the image. This technique is used in a variation of the
 sample program :download:`HighLowGUI.java <../source/HighLowGUI.java`
 from `Subsection6.7.6`_. In the original version, the cards are represented
 by textual descriptions such as "King of Hearts." In the new version,
-:download:`HighLowWithImages.java <../source/HighLowWithImages.java`, the
+:download:`HighLowWithImages.java <../source/HighLowWithImages.java>`, the
 cards are shown as images. Here is an applet version of the program:
 
 .. applet:: applets/HighLowWithImages.jar
@@ -624,7 +624,7 @@ program as made up entirely of Java code. However, programs often use
 other types of data, including images, sounds, and text, as part of
 their basic structure. These data are referred to as resources. An
 example is the image file, cards.png, that was used in
-the :download:`HighLowWithImages.java <../source/HighLowWithImages.java`
+the :download:`HighLowWithImages.java <../source/HighLowWithImages.java>`
 program earlier in this section. This
 file is part of the program. The program needs it in order to run. The
 user of the program doesn't need to know that this file exists or
