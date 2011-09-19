@@ -120,6 +120,8 @@ cumbersome and inefficient, especially for downloading over the
 Internet. So, all the cards might be put into a single image:
 
 .. image:: img/cards.png
+   :width: 513
+   :height: 307
 
 (This image is from the Gnome desktop project,`<http://www.gnome.org>`_,
 and is shown here much smaller than its actual size.) Now just one

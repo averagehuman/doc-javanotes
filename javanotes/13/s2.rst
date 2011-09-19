@@ -526,41 +526,41 @@ info:
 
 
 For the third row in the above applet, thedashPattern is set to
-newfloat[]{5,5}. This means that the lines are drawn starting with a
+``new float[]{5, 5}``. This means that the lines are drawn starting with a
 solid segment of length 5, followed by a transparent section of length
 5, and then repeating the same pattern. A simple dotted line would
-have thickness 1 and dashPatternnewfloat[]{1,1}. A pattern of short
-and long dashes could be made by using newfloat[]{10,4,4,4}. For more
+have thickness 1 and ``dashPattern newfloat[]{1, 1}``. A pattern of short
+and long dashes could be made by using ``new float[]{10, 4, 4, 4}``. For more
 information, see the Java documentation, or try experimenting with the
 source code for the sample program.
 
 
 
-
 So now we can draw fancier lines. But any drawing operation is still
 restricted to drawing with a single color. We can get around that
-restriction by using Paint. An object of type Paint is used to assign
-color to each pixel that is "hit" by a drawing operation.Paint is an
-interface, and the Color class implements the Paint interface. When a
+restriction by using ``Paint``. An object of type Paint is used to assign
+color to each pixel that is "hit" by a drawing operation. ``Paint`` is an
+interface, and the ``Color`` class implements the ``Paint`` interface. When a
 color is used for painting, it applies the same color to every pixel
 that is hit. However, there are other types of paint where the color
 that is applied to a pixel depends on the coordinates of that pixel.
 Standard Java includes two classes that define paint with this
-property: GradientPaint and TexturePaint. In a gradient, the color
+property: ``GradientPaint`` and ``TexturePaint``. In a gradient, the color
 that is applied to pixels changes gradually from one color to a second
 color as you move from point to point. In a texture, the pixel colors
 come from an image, which is repeated, if necessary, like a wallpaper
-pattern to cover the entire xy-plane.
+pattern to cover the entire ``xy-plane``.
 
 It will be helpful to look at some examples. Here is an applet that
 usesPaint objects to fill a polygon. This is an applet version of the
-sample program `PaintDemo.java`_. You can select among two
-GradientPaints and two TexturePaints using four buttons at the bottom
+sample program
+:download:`PaintDemo.java<../source/PaintDemo.java>`. You can select among two
+GradientPaints and two ``TexturePaints`` using four buttons at the bottom
 of the applet. The sliders control properties of the paint. You can
 drag the vertices of the polygon, to see what it looks when its shape
 changes. Note that in this applet, the paint is used only for filling
 the polygon. The outline of the polygon is drawn in a plain black
-color. However,Paint objects can be used for drawing lines as well as
+color. However, ``Paint`` objects can be used for drawing lines as well as
 for filling shapes. Try it!
 
 
@@ -574,20 +574,20 @@ Basic gradient paints are created using the constructor
                                  float x2, float y2, Color c2, boolean cyclic)
 
 
-This constructs a gradient that has color c1 at the point with
-coordinates (x1,y1) and color c2 at the point(x2,y2). As you move
+This constructs a gradient that has color ``c1`` at the point with
+coordinates ``(x1, y1)`` and color ``c2`` at the point ``(x2, y2)``. As you move
 along the line between the two points, the color of the gradient
-changes from c1 to c2; along lines perpendicular to this line, the
+changes from ``c1`` to ``c2``; along lines perpendicular to this line, the
 color is constant. The last parameter, cyclic, tells what happens if
-you move past the point (x2,y2) on the line from (x1,y1) to (x2,y2).
+you move past the point ``(x2, y2)`` on the line from ``(x1, y1)`` to ``(x2, y2)``.
 If cyclic is false, the color stops changing and any point
-beyond(x2,y2) has color c2. If cyclic is true, then the colors
-continue to change in a cyclic pattern after you move past(x2,y2). (It
-works the same way if you move past the other endpoint, (x1,y1).) In
+beyond ``(x2, y2)`` has color ``c2``. If cyclic is true, then the colors
+continue to change in a cyclic pattern after you move past ``(x2, y2)``. (It
+works the same way if you move past the other endpoint, ``(x1, y1)``.) In
 most cases, you will set cyclic to true. Note that you can vary the
-points (x1,y1) and (x2,y2) to change the width and direction of the
+points ``(x1, y1)`` and ``(x2, y2)`` to change the width and direction of the
 gradient. For example, to create a cyclic gradient that varies from
-black to light gray along the line from (0,0) to (100,100), use:
+black to light gray along the line from ``(0, 0)`` to ``(100,100)``, use:
 
 
 .. code-block:: java
@@ -595,14 +595,14 @@ black to light gray along the line from (0,0) to (100,100), use:
     new GradientPaint( 0, 0, Color.BLACK, 100, 100, Color.LIGHT_GRAY, true)
 
 
-Java 6 introduced two new gradient paint classes, LinearGradientPaint
-and RadialGradientPaint. Linear gradient paints are similar
+Java 6 introduced two new gradient paint classes, ``LinearGradientPaint``
+and ``RadialGradientPaint``. Linear gradient paints are similar
 toGradientPaint but can be based on more than two colors. Radial
 gradients color pixels based on their distance from a central point,
 which produces rings of constant color instead of lines of constant
 color. See the API documentation for details.
 
-To construct a TexturePaint, you need a BufferedImage that contains
+To construct a ``TexturePaint``, you need a ``BufferedImage`` that contains
 the image that will be used for the texture. You also specify a
 rectangle in which the image will be drawn. The image will be scaled,
 if necessary, to exactly fill the rectangle. Outside the specified
@@ -610,8 +610,8 @@ rectangle, the image will be repeated horizontally and vertically to
 fill the plane. You can vary the size and position of the rectangle to
 change the scale of the texture and its positioning on the plane.
 Ordinarily, however the upper left corner of the rectangle is placed
-at (0,0), and the size of the rectangle is the same as the actual size
-of the image. The constructor for TexturePaint is defined as
+at ``(0, 0)``, and the size of the rectangle is the same as the actual size
+of the image. The constructor for ``TexturePaint`` is defined as
 
 
 .. code-block:: java
@@ -619,7 +619,7 @@ of the image. The constructor for TexturePaint is defined as
     public TexturePaint( BufferedImage textureImage, Rectangle2D anchorRect)
 
 
-The Rectangle2D is part of the Graphics2D framework and will be
+The ``Rectangle2D`` is part of the ``Graphics2D`` framework and will be
 discussed at the end of this section. Often, a call to the constructor
 takes the form:
 
@@ -630,9 +630,9 @@ takes the form:
                 new Rectangle2D.Double(0,0,image.getWidth(),image.getHeight() )
 
 
-Once you have a Paint object, you can use thesetPaint() method of a
-Graphics2D object to install the paint in a graphics context. For
-example, if g2 is of type Graphics2D, then the command
+Once you have a ``Paint`` object, you can use the ``setPaint()`` method of a
+``Graphics2D`` object to install the paint in a graphics context. For
+example, if ``g2`` is of type ``Graphics2D``, then the command
 
 
 .. code-block:: java
@@ -640,22 +640,22 @@ example, if g2 is of type Graphics2D, then the command
     g2.setPaint( new GradientPaint(0,0,Color.BLUE,100,100,Color.GREEN,true) );
 
 
-sets up g2 to use a gradient paint. Subsequent drawing operations with
-g2 will draw using a blue/green gradient.
+sets up ``g2`` to use a gradient paint. Subsequent drawing operations with
+``g2`` will draw using a blue/green gradient.
 
 
 
 
 
-13.2.5Transforms
-~~~~~~~~~~~~~~~~
+13.2.5 Transforms
+~~~~~~~~~~~~~~~~~
 
 In the standard drawing coordinates on a component, the upper left
-corner of the component has coordinates (0,0). Coordinates are
-integers, and the coordinates (x,y) refer to the point that is x
-pixels over from the left edge of the component and y pixels down from
-the top. With Graphics2D, however, you are not restricted to using
-these coordinates. In fact, you can can set up a Graphics2D graphics
+corner of the component has coordinates ``(0, 0)``. Coordinates are
+integers, and the coordinates ``(x, y)`` refer to the point that is ``x``
+pixels over from the left edge of the component and ``y`` pixels down from
+the top. With ``Graphics2D``, however, you are not restricted to using
+these coordinates. In fact, you can can set up a ``Graphics2D`` graphics
 context to use any system of coordinates that you like. You can use
 this capability to select the coordinate system that is most
 appropriate for the things that you want to draw. For example, if you
@@ -664,7 +664,7 @@ which one unit represents an actual distance of one foot.
 
 Changes to a coordinate system are referred to as transforms. There
 are three basic types of transform. A translate transform changes the
-position of the origin, (0,0). A scale transform changes the scale,
+position of the origin, ``(0, 0)``. A scale transform changes the scale,
 that is, the unit of distance. And a rotation transform applies a
 rotation about some point. You can make more complex transforms by
 combining transforms of the three basic types. For example, you can
@@ -675,10 +675,10 @@ fully understand complex transforms. I will limit myself here to
 discussing a few of the most simple cases, just to give you an idea of
 what transforms can do.
 
-Suppose that g2 is of type Graphics2D. Then g2.translate(x,y) moves
-the origin, (0,0), to the point (x,y). This means that if you use
-coordinates (0,0) after saying g2.translate(x,y), then you are
-referring to the point that used to be (x,y), before the translation
+Suppose that ``g2`` is of type ``Graphics2D``. Then ``g2.translate(x, y)`` moves
+the origin, ``(0, 0)``, to the point ``(x, y)``. This means that if you use
+coordinates ``(0, 0)`` after saying ``g2.translate(x,y)``, then you are
+referring to the point that used to be ``(x, y)``, before the translation
 was applied. All other coordinate pairs are moved by the same amount.
 For example saying
 
@@ -701,13 +701,13 @@ In the second case, you are just doing the same translation "by hand."
 A translation (like all transforms) affects all subsequent drawing
 operations. Instead of thinking in terms of coordinate systems, you
 might find it clearer to think of what happens to the objects that are
-drawn. After you sayg2.translate(x,y), any objects that you draw are
-displaced x units vertically and y units horizontally. Note that the
-parameters x and y can be real numbers.
+drawn. After you say ``g2.translate(x,y)``, any objects that you draw are
+displaced ``x`` units vertically and y units horizontally. Note that the
+parameters ``x`` and ``y`` can be real numbers.
 
-As an example, perhaps you would prefer to have (0,0) at the center of
+As an example, perhaps you would prefer to have ``(0, 0)`` at the center of
 a component, instead of at its upper left corner. To do this, just use
-the following command in the paintComponent() method of the component:
+the following command in the ``paintComponent()`` method of the component:
 
 
 .. code-block:: java
@@ -715,29 +715,29 @@ the following command in the paintComponent() method of the component:
     g2.translate( getWidth()/2, getHeight()/2 );
 
 
-To apply a scale transform to a Graphics2D g2, use g2.scale(s,s),
-where s is the real number that specifies the scaling factor. If s is
-greater than 1, everything is magnified by a factor of s, while if s
-is between 0 and 1, everything is shrunk by a factor of s. The center
-of scaling is(0,0). That is, the point (0,0) is unaffected by the
-scaling, and other points more towards or away from (0,0) by a factor
+To apply a scale transform to a ``Graphics2D g2``, use ``g2.scale(s, s)``,
+where ``s`` is the real number that specifies the scaling factor. If ``s`` is
+greater than ``1``, everything is magnified by a factor of ``s``, while if ``s``
+is between ``0`` and ``1``, everything is shrunk by a factor of ``s``. The center
+of scaling is ``(0, 0)``. That is, the point ``(0, 0)`` is unaffected by the
+scaling, and other points more towards or away from ``(0, 0)`` by a factor
 ofs. Again, it can be clearer to think of the effect on objects that
 are drawn after a scale transform is applied. Those objects will be
-magnified or shrunk by a factor ofs. Note that scaling affects
+magnified or shrunk by a factor of ``s``. Note that scaling affects
 **everything**, including thickness of lines and size of fonts. It is
 possible to use different scale factors in the horizontal and vertical
-direction with a command of the formg2.scale(sx,sy), although that
+direction with a command of the form ``g2.scale(sx, sy)``, although that
 will distort the shapes of objects. By the way, it is even possible to
-use scale factors that are less than0, which results in reflections.
-For example, after calling g2.scale(-1,1), objects will be reflected
-horizontally through the line x=0.
+use scale factors that are less than ``0``, which results in reflections.
+For example, after calling ``g2.scale(-1, 1)``, objects will be reflected
+horizontally through the line ``x=0``.
 
 The third type of basic transform is rotation. The command
-g2.rotate(r) rotates all subsequently drawn objects through an angle
-of r about the point (0,0). You can rotate instead about the point
-(x,y) with the command g2.rotate(r,x,y). All the parameters can be
+``g2.rotate(r)`` rotates all subsequently drawn objects through an angle
+of ``r`` about the point ``(0, 0)``. You can rotate instead about the point
+``(x, y)`` with the command ``g2.rotate(r, x, y)``. All the parameters can be
 real numbers. Angles are measured in radians, where one radian is
-equal to 180 degrees. To rotate through an angle of d degrees, use
+equal to ``180`` degrees. To rotate through an angle of ``d`` degrees, use
 
 
 .. code-block:: java
@@ -754,7 +754,7 @@ few things that you can do with it that can't be done any other way.
 For example, you can use it to draw an image "on the slant." Rotation
 also makes it possible to draw text that is rotated so that its
 baseline is slanted or even vertical. To draw the string "Hello World"
-with its basepoint at (x,y) and rising at an angle of 30 degrees, use:
+with its basepoint at ``(x, y)`` and rising at an angle of 30 degrees, use:
 
 
 .. code-block:: java
@@ -764,7 +764,7 @@ with its basepoint at (x,y) and rising at an angle of 30 degrees, use:
 
 
 To draw the message vertically, with the **center** of its baseline at
-the point (x,y), we can use FontMetrics to measure the string, and
+the point ``(x, y)``, we can use FontMetrics to measure the string, and
 say:
 
 
@@ -777,10 +777,8 @@ say:
 
 
 
-
-
-The drawing operations in the Graphics class use integer coordinates
-only. Graphics2D makes it possible to use real numbers as coordinates.
+The drawing operations in the ``Graphics`` class use integer coordinates
+only. ``Graphics2D`` makes it possible to use real numbers as coordinates.
 This becomes particularly important once you start using transforms,
 since after you apply a scale, a square of size one might cover many
 pixels instead of just a single pixel. Unfortunately, the designers of
@@ -796,15 +794,15 @@ usedouble values too.)
 To use real number coordinates, you have to use classes defined in the
 package java.awt.geom. Among the classes in this package are classes
 that represent geometric shapes such as lines and rectangles. For
-example, the class Line2D represents a line whose endpoints are given
-as real number coordinates. The unfortunate thing is thatLine2D is an
+example, the class ``Line2D`` represents a line whose endpoints are given
+as real number coordinates. The unfortunate thing is that ``Line2D`` is an
 abstract class, which means that you can't create objects of type
-Line2D directly. However,Line2D has two concrete subclasses that can
+``Line2D`` directly. However, ``Line2D`` has two concrete subclasses that can
 be used to create objects. One subclass uses coordinates of type
 float, and one uses coordinates of type double. The most peculiar part
 is that these subclasses are defined as static nested classes inside
-Line2D. Their names are Line2D.Float and Line2D.Double. This means
-that Line2D objects can be created, for example, with:
+``Line2D``. Their names are ``Line2D.Float`` and ``Line2D.Double``. This means
+that ``Line2D`` objects can be created, for example, with:
 
 
 .. code-block:: java
@@ -814,12 +812,12 @@ that Line2D objects can be created, for example, with:
     Line2D line3 = new Line2D.Double( x1, y1, x2, y2 );
 
 
-where x1, y1, x2, y2 are any numeric variables. In my own code, I
-generally use Line2D.Double rather than Line2D.Float.
+where ``x1``, ``y1``, ``x2``, ``y2`` are any numeric variables. In my own code, I
+generally use ``Line2D.Double`` rather than ``Line2D.Float``.
 
-Other shape classes in java.awt.geom are similar. The class that
-represents rectangles is Rectangle2D. To create a rectangle object,
-you have to use either Rectangle2D.Float orRectangle2D.Double. For
+Other shape classes in ``java.awt.geom`` are similar. The class that
+represents rectangles is ``Rectangle2D``. To create a rectangle object,
+you have to use either ``Rectangle2D.Float`` or ``Rectangle2D.Double``. For
 example,
 
 
@@ -828,13 +826,13 @@ example,
     Rectangle2D rect = new Rectangle2D.Double( -0.5, -0.5, 1.0, 1.0 );
 
 
-creates a rectangle with a corner at (-0.5,-0.5) and with width and
-height both equal to1. Other classes include Point2D, which represents
-a single point; Ellipse2D, which represents an oval; and Arc2D, which
+creates a rectangle with a corner at ``(-0.5, -0.5)`` and with width and
+height both equal to ``1``. Other classes include ``Point2D``, which represents
+a single point; ``Ellipse2D``, which represents an oval; and ``Arc2D``, which
 represents an arc of a circle.
 
-If g2 is of type Graphics2D and shape is an object belonging to one of
-the 2D shape classes, then the command
+If ``g2`` is of type ``Graphics2D`` and shape is an object belonging to one of
+the ``2D`` shape classes, then the command
 
 
 .. code-block:: java
@@ -852,7 +850,7 @@ such a shape, use
     g2.fill(shape)
 
 
-For example, to draw a line from (x1,y1) to (x2,y2), use
+For example, to draw a line from ``(x1, y1)`` to ``(x2, y2)``, use
 
 
 .. code-block:: java
@@ -860,7 +858,7 @@ For example, to draw a line from (x1,y1) to (x2,y2), use
     g2.draw( new Line2D.Double(x1,y1,x2,y2) );
 
 
-and to draw a filled rectangle with a corner at (3.5,7), with width 5
+and to draw a filled rectangle with a corner at ``(3.5, 7)``, with width 5
 and height 3, use
 
 
@@ -869,15 +867,15 @@ and height 3, use
     g2.fill( new Rectangle2D.Double(3.5, 7, 5, 3) );
 
 
-The package java.awt.geom also has a very nice class GeneralPath that
+The package java.awt.geom also has a very nice class ``GeneralPath`` that
 can be used to draw polygons and curves defined by any number of
 points. See the Java documentation if you want to find out how to use
-it. In Java6, GeneralPath has been largely superseded by Path2D which
+it. In Java6, ``GeneralPath`` has been largely superseded by ``Path2D`` which
 provides the same functionality but more closely follows the
 conventions used by other shape classes.
 
 This section has introduced you to many of the interesting features of
-Graphics2D, but there is still a large part of the Graphics2D
+``Graphics2D``, but there is still a large part of the ``Graphics2D``
 framework for you to explore.
 
 
